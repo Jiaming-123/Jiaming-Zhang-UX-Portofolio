@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { SectionLabel } from './Content'
 
 const assetRoot = '/images/boardgamemate/iteration'
+const researchAssetRoot = '/images/boardgamemate/research'
 
 type IterationImageProps = {
   alt: string
@@ -43,6 +44,31 @@ function IterationImage({ alt, file, height, intermediateWidth, sizes, width }: 
     <img
       src={source}
       srcSet={`${assetRoot}/${file}-720.png 720w${intermediateSource}, ${source} ${width}w`}
+      sizes={sizes}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      alt={alt}
+    />
+  )
+}
+
+type ResearchImageProps = {
+  alt: string
+  file: string
+  height: number
+  sizes: string
+  width: number
+}
+
+function ResearchImage({ alt, file, height, sizes, width }: ResearchImageProps) {
+  const source = `${researchAssetRoot}/${file}.png`
+
+  return (
+    <img
+      src={source}
+      srcSet={`${researchAssetRoot}/${file}-960.png 960w, ${source} ${width}w`}
       sizes={sizes}
       width={width}
       height={height}
@@ -131,23 +157,80 @@ const featureScreens: FeatureScreen[] = [
   },
 ]
 
+const researchPersonas = [
+  { file: 'boardgamemate-persona-alice', alt: 'Persona profile for Alice, a 19-year-old design student in Melbourne who plays tabletop games socially', caption: 'Alice · The social organiser', width: 1372, height: 1384 },
+  { file: 'boardgamemate-persona-leo', alt: 'Persona profile for Leo, a 20-year-old commerce student in Melbourne who uses tabletop games to connect with others', caption: 'Leo · The thoughtful newcomer', width: 1374, height: 1386 },
+]
+
+const earlySketches = [
+  { file: 'boardgamemate-sketch-01', alt: 'Early BoardGameMate sketches for the splash page, home page and nearby player discovery', width: 1380, height: 838 },
+  { file: 'boardgamemate-sketch-02', alt: 'Early BoardGameMate sketches for tutorials, communities and a player profile', width: 1380, height: 838 },
+  { file: 'boardgamemate-sketch-03', alt: 'Early BoardGameMate sketches for publishing a post and a board game tutorial', width: 920, height: 842 },
+  { file: 'boardgamemate-sketch-04', alt: 'Early BoardGameMate sketches for search and a community post detail page', width: 920, height: 840 },
+  { file: 'boardgamemate-sketch-05', alt: 'Early BoardGameMate sketches for messages and goal-oriented chat', width: 922, height: 842 },
+]
+
 export function BoardGameMateIteration() {
   return (
-    <section className="boardgame-iteration" aria-labelledby="boardgame-iteration-title">
-      <IterationReveal className="iteration-intro">
-        <SectionLabel>DESIGN ITERATION</SectionLabel>
-        <div className="iteration-intro-grid">
-          <h2 id="boardgame-iteration-title">From a social feed to a task-first companion</h2>
-          <div>
-            <p>The early BoardGameMate prototype already included discovery, tutorials, communities, profiles and messaging, but testing the overall experience revealed a more fundamental problem: there were many features, yet the main user goal was not clear enough. A player who simply wanted to find a game for tonight still had to move between feeds, profiles and messages before knowing whether there was actually a table they could join.</p>
-            <p>I therefore reframed the product around the complete journey of getting people to the same table. Instead of treating each feature as an isolated destination, the revised experience follows a clearer flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
+    <section className="boardgame-iteration" aria-labelledby="boardgamemate-project-title">
+      <IterationReveal className="boardgamemate-overview-hero">
+        <div className="boardgamemate-overview-grid">
+          <div className="boardgamemate-overview-copy">
+            <SectionLabel>BOARDGAMEMATE / PROJECT OVERVIEW</SectionLabel>
+            <h1 id="boardgamemate-project-title">BoardGameMate is a tabletop companion designed to make playing together easier.</h1>
+            <div>
+              <p>It helps players discover nearby game sessions, find compatible people, learn unfamiliar games, and coordinate everything from joining a table to getting ready to play.</p>
+              <p>Instead of another board game social feed, BoardGameMate focuses on one simple goal: getting people around the same table faster.</p>
+            </div>
           </div>
+          <dl className="boardgamemate-meta">
+            <div><dt>PROJECT</dt><dd>BoardGameMate</dd></div>
+            <div><dt>DISCIPLINES</dt><dd>UX Design · Product Design · Interaction Design</dd></div>
+            <div><dt>YEAR</dt><dd>2024</dd></div>
+            <div><dt>MY CONTRIBUTION</dt><dd>Product strategy<br />User research<br />Product design</dd></div>
+            <div><dt>RESEARCH METHODS</dt><dd>Double Diamond framework and EDIPT five-step design thinking process.<ul><li>User interviews</li><li>Focus groups</li><li>Cognitive walkthrough</li><li>Heuristic evaluation</li></ul></dd></div>
+          </dl>
+        </div>
+      </IterationReveal>
+
+      <IterationReveal className="boardgamemate-discover-section">
+        <SectionLabel number="01">DISCOVER PHASE</SectionLabel>
+        <div className="boardgamemate-discover-grid">
+          <div>
+            <h2>Discover phase</h2>
+            <p>I began by looking beyond the interface to understand what makes tabletop play feel inviting, difficult or socially uncertain. The research focused on the moments before a game starts: finding people, choosing a suitable game and feeling prepared enough to join.</p>
+          </div>
+          <div className="boardgamemate-discover-note"><span>RESEARCH FOCUS</span><p>From finding a game to feeling ready to play with other people.</p><i /></div>
+        </div>
+      </IterationReveal>
+
+      <IterationReveal className="boardgamemate-research-section boardgamemate-persona-section">
+        <div className="boardgamemate-research-heading"><span>RESEARCH / 01</span><div><h3>Persona</h3><p>Two research personas helped frame the different kinds of confidence, compatibility and preparation a tabletop companion needs to support.</p></div></div>
+        <div className="boardgamemate-persona-row">
+          {researchPersonas.map((persona) => (
+            <figure className="boardgamemate-research-figure" tabIndex={0} key={persona.file}>
+              <ResearchImage file={persona.file} width={persona.width} height={persona.height} sizes="(max-width: 767px) calc(50vw - 28px), (max-width: 1439px) 38vw, 540px" alt={persona.alt} />
+              <figcaption>{persona.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </IterationReveal>
+
+      <IterationReveal className="boardgamemate-research-section boardgamemate-sketch-section">
+        <div className="boardgamemate-research-heading"><span>RESEARCH / 02</span><div><h3>Early sketches</h3><p>Early flows mapped the breadth of the experience, from discovery and tutorials to community posts, profiles and conversation.</p></div></div>
+        <div className="boardgamemate-sketch-row" aria-label="Early BoardGameMate sketches">
+          {earlySketches.map((sketch, index) => (
+            <figure className="boardgamemate-research-figure" tabIndex={0} key={sketch.file}>
+              <ResearchImage file={sketch.file} width={sketch.width} height={sketch.height} sizes="(max-width: 767px) 180px, (max-width: 1439px) 18vw, 270px" alt={sketch.alt} />
+              <figcaption>Sketch 0{index + 1}</figcaption>
+            </figure>
+          ))}
         </div>
       </IterationReveal>
 
       <IterationReveal className="iteration-early">
         <div className="iteration-subhead">
-          <span>PREVIOUS SYSTEM / 01</span>
+          <span>PREVIOUS SYSTEM / 03</span>
           <div>
             <h3>Early interface</h3>
             <p>The first high-fidelity version leaned heavily on familiar social-media patterns. The home screen centred on posts, the nearby map focused on individual players, profiles prioritised followers and posts, and chat worked mainly as generic messaging. While this created a friendly community experience, it did not fully reflect the strongest needs identified in the research: finding suitable people to play with, learning unfamiliar games efficiently and coordinating real-world sessions.</p>
@@ -164,6 +247,17 @@ export function BoardGameMateIteration() {
           />
           <figcaption>Early BoardGameMate high-fidelity interface</figcaption>
         </figure>
+      </IterationReveal>
+
+      <IterationReveal className="iteration-intro">
+        <SectionLabel>DESIGN ITERATION</SectionLabel>
+        <div className="iteration-intro-grid">
+          <h2 id="boardgame-iteration-title">From a social feed to a task-first companion</h2>
+          <div>
+            <p>The early BoardGameMate prototype already included discovery, tutorials, communities, profiles and messaging, but testing the overall experience revealed a more fundamental problem: there were many features, yet the main user goal was not clear enough. A player who simply wanted to find a game for tonight still had to move between feeds, profiles and messages before knowing whether there was actually a table they could join.</p>
+            <p>I therefore reframed the product around the complete journey of getting people to the same table. Instead of treating each feature as an isolated destination, the revised experience follows a clearer flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
+          </div>
+        </div>
       </IterationReveal>
 
       <IterationReveal className="iteration-turning-point">
