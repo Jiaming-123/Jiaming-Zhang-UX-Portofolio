@@ -1,25 +1,28 @@
-import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { AnimatePresence, motion, useInView } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 
 const keywords = ['PRODUCT', 'SERVICE', 'AI', 'INTERACTION', 'EXPERIENCE']
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null)
+  const isInView = useInView(heroRef, { amount: .08 })
   const [keyword, setKeyword] = useState(0)
+
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!isInView || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const interval = window.setInterval(() => setKeyword((current) => (current + 1) % keywords.length), 1700)
     return () => window.clearInterval(interval)
-  }, [])
+  }, [isInView])
 
   return (
-    <section className="hero" id="top">
+    <section ref={heroRef} className={`hero ${isInView ? 'is-in-view' : ''}`} id="top">
       <div className="hero-grid" aria-hidden="true" />
       <div className="hero-orb hero-orb-one" aria-hidden="true" />
       <div className="hero-orb hero-orb-two" aria-hidden="true" />
       <div className="particles" aria-hidden="true">{Array.from({ length: 18 }).map((_, index) => <i key={index} style={{ '--i': index } as React.CSSProperties} />)}</div>
       <div className="hero-content">
-        <div className="hero-kicker"><span>UX / PRODUCT DESIGNER</span><span>MELBOURNE, AU</span></div>
+        <div className="hero-kicker"><span>UX / PRODUCT DESIGNER</span><span>MELBOURNE, AU</span><span>SHENZHEN, CN</span></div>
         <h1 aria-label="Jiaming Zhang">
           <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: .1 }}>JIAMING</motion.span>
           <motion.span className="outline-type" initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: .18 }}>ZHANG</motion.span>
