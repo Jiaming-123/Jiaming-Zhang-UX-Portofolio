@@ -239,8 +239,8 @@ export function BoardGameMateIteration() {
         <figure className="iteration-early-figure">
           <IterationImage
             file="boardgamemate-early-design"
-            width={1866}
-            height={1068}
+            width={2156}
+            height={1172}
             intermediateWidth={1200}
             sizes="(max-width: 767px) calc(100vw - 44px), (max-width: 1439px) calc(100vw - 9.4vw), 1640px"
             alt="Early BoardGameMate high-fidelity interface overview showing social feed, nearby players, tutorials, communities, profiles and messaging"
