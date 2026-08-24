@@ -22,7 +22,7 @@ export function Hero() {
       <div className="hero-orb hero-orb-two" aria-hidden="true" />
       <div className="particles" aria-hidden="true">{Array.from({ length: 18 }).map((_, index) => <i key={index} style={{ '--i': index } as React.CSSProperties} />)}</div>
       <div className="hero-content">
-        <div className="hero-kicker"><span>UX / PRODUCT DESIGNER</span><span>MELBOURNE, AU</span><span>SHENZHEN, CN</span></div>
+        <div className="hero-kicker"><span>UX / PRODUCT DESIGNER</span><span>MELBOURNE, AU</span></div>
         <h1 aria-label="Jiaming Zhang">
           <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: .1 }}>JIAMING</motion.span>
           <motion.span className="outline-type" initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: .18 }}>ZHANG</motion.span>
