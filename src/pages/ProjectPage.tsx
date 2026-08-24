@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight, GitBranch, Languages, ShieldCheck, UserRoundCheck } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
+import { BoardGameMateIteration } from '../components/BoardGameMateIteration'
 import { CaseStudySection, Gallery, HorizontalDemo, LandingDemo, MediaPlaceholder, Reveal, SectionLabel, VideoPlayer } from '../components/Content'
 import { Footer } from '../components/Layout'
 import { projectBySlug, projects, type Project } from '../data/projects'
@@ -140,6 +141,7 @@ export default function ProjectPage() {
         <section className="prototype-section"><Reveal><SectionLabel number="06">PROTOTYPE / DEMO</SectionLabel><PrototypeSection project={project} /></Reveal></section>
         <CaseStudySection number="07" label="FINAL EXPERIENCE" title="From an interface to a coherent journey."><p>{project.finalExperience}</p></CaseStudySection>
         <Reveal className="full-bleed-visual final-visual"><FinalVisual project={project} /></Reveal>
+        {project.slug === 'boardgamemate' && <BoardGameMateIteration />}
         <section className="reflection-section"><Reveal><SectionLabel number="08">REFLECTION</SectionLabel><div><h2>What I&apos;m taking forward.</h2><p>{project.reflection}</p></div></Reveal></section>
         <Link className="next-project" to={`/projects/${nextProject.slug}`} data-cursor="media"><span>NEXT CASE STUDY · {nextProject.number}</span><h2>{nextProject.title}</h2><ArrowRight /></Link>
       </main>
