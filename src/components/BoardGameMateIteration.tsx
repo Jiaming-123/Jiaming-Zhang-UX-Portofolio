@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react'
-import { Reveal, SectionLabel } from './Content'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { SectionLabel } from './Content'
 
 const assetRoot = '/images/boardgamemate/iteration'
 
@@ -10,6 +10,29 @@ type IterationImageProps = {
   intermediateWidth?: number
   sizes: string
   width: number
+}
+
+function IterationReveal({ children, className = '' }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true)
+      return
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setVisible(true)
+      observer.disconnect()
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.01 })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return <div ref={ref} className={`iteration-reveal ${visible ? 'is-visible' : ''} ${className}`}>{children}</div>
 }
 
 function IterationImage({ alt, file, height, intermediateWidth, sizes, width }: IterationImageProps) {
@@ -111,7 +134,7 @@ const featureScreens: FeatureScreen[] = [
 export function BoardGameMateIteration() {
   return (
     <section className="boardgame-iteration" aria-labelledby="boardgame-iteration-title">
-      <Reveal className="iteration-intro">
+      <IterationReveal className="iteration-intro">
         <SectionLabel>DESIGN ITERATION</SectionLabel>
         <div className="iteration-intro-grid">
           <h2 id="boardgame-iteration-title">From a social feed to a task-first companion</h2>
@@ -120,9 +143,9 @@ export function BoardGameMateIteration() {
             <p>I therefore reframed the product around the complete journey of getting people to the same table. Instead of treating each feature as an isolated destination, the revised experience follows a clearer flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
           </div>
         </div>
-      </Reveal>
+      </IterationReveal>
 
-      <Reveal className="iteration-early">
+      <IterationReveal className="iteration-early">
         <div className="iteration-subhead">
           <span>PREVIOUS SYSTEM / 01</span>
           <div>
@@ -141,9 +164,9 @@ export function BoardGameMateIteration() {
           />
           <figcaption>Early BoardGameMate high-fidelity interface</figcaption>
         </figure>
-      </Reveal>
+      </IterationReveal>
 
-      <Reveal className="iteration-turning-point">
+      <IterationReveal className="iteration-turning-point">
         <div className="iteration-subhead">
           <span>TESTING REFLECTION / 02</span>
           <div>
@@ -156,17 +179,17 @@ export function BoardGameMateIteration() {
           <article><span>02</span><h4>Understand compatibility</h4><p>not simply social popularity</p></article>
           <article><span>03</span><h4>Coordinate the session</h4><p>not simply send messages</p></article>
         </div>
-      </Reveal>
+      </IterationReveal>
 
       <div className="iteration-showcase">
-        <Reveal className="iteration-showcase-heading">
+        <IterationReveal className="iteration-showcase-heading">
           <SectionLabel>FINAL UI SHOWCASE</SectionLabel>
           <div><h3>Six decisions. One continuous journey.</h3><p>Each interface was reframed around a specific decision a player needs to make before a game can happen.</p></div>
-        </Reveal>
+        </IterationReveal>
 
         <div className="iteration-feature-list">
           {featureScreens.map((screen) => (
-            <Reveal className="iteration-feature" key={screen.label}>
+            <IterationReveal className="iteration-feature" key={screen.label}>
               <figure className="iteration-feature-media">
                 <IterationImage
                   file={screen.file}
@@ -182,12 +205,12 @@ export function BoardGameMateIteration() {
                 {screen.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
                 <small>{screen.principle}</small>
               </div>
-            </Reveal>
+            </IterationReveal>
           ))}
         </div>
       </div>
 
-      <Reveal className="iteration-outcome">
+      <IterationReveal className="iteration-outcome">
         <SectionLabel>ITERATION OUTCOME</SectionLabel>
         <div className="iteration-outcome-grid">
           <div>
@@ -202,7 +225,7 @@ export function BoardGameMateIteration() {
             <p>The redesigned BoardGameMate is therefore less about creating another social feed for board-game content and more about reducing the friction between <strong>wanting to play</strong> and <strong>actually getting people around the same table</strong>.</p>
           </div>
         </div>
-      </Reveal>
+      </IterationReveal>
     </section>
   )
 }

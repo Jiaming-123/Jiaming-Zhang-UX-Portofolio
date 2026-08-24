@@ -127,10 +127,12 @@ export default function ProjectPage() {
   if (!project) return <NotFoundPage />
   const currentIndex = projects.findIndex((item) => item.slug === project.slug)
   const nextProject = projects[(currentIndex + 1) % projects.length]
+  const isBoardGameMate = project.slug === 'boardgamemate'
   return (
     <>
-      <ProjectHero project={project} />
+      {!isBoardGameMate && <ProjectHero project={project} />}
       <main className="case-study">
+        {isBoardGameMate ? <BoardGameMateIteration /> : <>
         <ProjectOverview project={project} />
         <CaseStudySection number="02" label="PROBLEM / CONTEXT" title="The experience behind the problem."><p>{project.problem}</p><div className="context-note"><span>DESIGN QUESTION</span><p>How might the experience reduce uncertainty while giving people enough context to make their own next decision?</p></div></CaseStudySection>
         <CaseStudySection number="03" label="RESEARCH / DISCOVERY" title="Looking for the moments that shape confidence."><p>{project.research}</p></CaseStudySection>
@@ -141,9 +143,9 @@ export default function ProjectPage() {
         <section className="prototype-section"><Reveal><SectionLabel number="06">PROTOTYPE / DEMO</SectionLabel><PrototypeSection project={project} /></Reveal></section>
         <CaseStudySection number="07" label="FINAL EXPERIENCE" title="From an interface to a coherent journey."><p>{project.finalExperience}</p></CaseStudySection>
         <Reveal className="full-bleed-visual final-visual"><FinalVisual project={project} /></Reveal>
-        {project.slug === 'boardgamemate' && <BoardGameMateIteration />}
         <section className="reflection-section"><Reveal><SectionLabel number="08">REFLECTION</SectionLabel><div><h2>What I&apos;m taking forward.</h2><p>{project.reflection}</p></div></Reveal></section>
         <Link className="next-project" to={`/projects/${nextProject.slug}`} data-cursor="media"><span>NEXT CASE STUDY · {nextProject.number}</span><h2>{nextProject.title}</h2><ArrowRight /></Link>
+        </>}
       </main>
       <Footer />
     </>
