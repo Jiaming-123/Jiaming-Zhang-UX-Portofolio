@@ -15,6 +15,7 @@ export function Reveal({ children, className = '' }: { children: ReactNode; clas
     const animation = gsap.fromTo(ref.current, { y: 46, opacity: 0 }, {
       y: 0, opacity: 1, duration: .9, ease: 'power3.out',
       scrollTrigger: { trigger: ref.current, start: 'top 88%', once: true },
+      onComplete: () => gsap.set(ref.current, { clearProps: 'transform,opacity' }),
     })
     return () => { animation.kill() }
   }, [])

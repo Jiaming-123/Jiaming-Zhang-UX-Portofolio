@@ -1,5 +1,7 @@
 import { useEffect, useState, type MouseEvent, type ReactNode } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
@@ -11,18 +13,21 @@ const navItems = [
   { label: 'Contact', to: '/contact' },
 ]
 
+gsap.registerPlugin(ScrollTrigger)
+
 export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const lenis = new Lenis({ duration: 1.05, smoothWheel: true, wheelMultiplier: 0.9 })
-    let frame = 0
-    const raf = (time: number) => {
-      lenis.raf(time)
-      frame = requestAnimationFrame(raf)
-    }
-    frame = requestAnimationFrame(raf)
+    const lenis = new Lenis({ duration: .82, smoothWheel: true, wheelMultiplier: .84, syncTouch: false })
+    const updateScrollTriggers = () => ScrollTrigger.update()
+    const updateLenis = (time: number) => lenis.raf(time * 1000)
+
+    lenis.on('scroll', updateScrollTriggers)
+    gsap.ticker.add(updateLenis)
+
     return () => {
-      cancelAnimationFrame(frame)
+      lenis.off('scroll', updateScrollTriggers)
+      gsap.ticker.remove(updateLenis)
       lenis.destroy()
     }
   }, [])
@@ -117,30 +122,38 @@ export function MagneticButton({ to, children, className = '' }: { to: string; c
 }
 
 export function CursorEffect() {
-  const [position, setPosition] = useState({ x: -100, y: -100 })
-  const [visible, setVisible] = useState(false)
-  const [hovering, setHovering] = useState(false)
+  const targetX = useMotionValue(-100)
+  const targetY = useMotionValue(-100)
+  const size = useMotionValue(10)
+  const opacity = useMotionValue(0)
+  const x = useSpring(targetX, { mass: .14, stiffness: 500, damping: 32 })
+  const y = useSpring(targetY, { mass: .14, stiffness: 500, damping: 32 })
 
   useEffect(() => {
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)')
+    if (!finePointer.matches) return
+
     const onMove = (event: PointerEvent) => {
-      setPosition({ x: event.clientX, y: event.clientY })
-      setVisible(true)
-      setHovering(Boolean((event.target as HTMLElement).closest('[data-cursor]')))
+      const hovering = Boolean((event.target as HTMLElement).closest('[data-cursor]'))
+      const nextSize = hovering ? 50 : 10
+      targetX.set(event.clientX - nextSize / 2)
+      targetY.set(event.clientY - nextSize / 2)
+      size.set(nextSize)
+      opacity.set(1)
     }
-    const onLeave = () => setVisible(false)
-    window.addEventListener('pointermove', onMove)
+    const onLeave = () => opacity.set(0)
+    window.addEventListener('pointermove', onMove, { passive: true })
     document.documentElement.addEventListener('mouseleave', onLeave)
     return () => {
       window.removeEventListener('pointermove', onMove)
       document.documentElement.removeEventListener('mouseleave', onLeave)
     }
-  }, [])
+  }, [opacity, size, targetX, targetY])
 
   return (
     <motion.div
       className="custom-cursor"
-      animate={{ x: position.x - (hovering ? 25 : 5), y: position.y - (hovering ? 25 : 5), width: hovering ? 50 : 10, height: hovering ? 50 : 10, opacity: visible ? 1 : 0 }}
-      transition={{ type: 'spring', mass: .14, stiffness: 500, damping: 32 }}
+      style={{ x, y, width: size, height: size, opacity }}
       aria-hidden="true"
     />
   )
