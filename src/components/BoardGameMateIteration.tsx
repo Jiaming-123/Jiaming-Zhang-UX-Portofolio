@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { SectionLabel } from './Content'
 
 const assetRoot = '/images/boardgamemate/iteration'
@@ -171,86 +170,10 @@ const earlySketches = [
   { file: 'boardgamemate-sketch-05', alt: 'Early BoardGameMate sketches for messages and goal-oriented chat', width: 922, height: 842 },
 ]
 
-const heroPanels = [
-  { file: 'boardgamemate-discover', label: 'DISCOVER', alt: 'BoardGameMate Discover interface showing a recommended table and compatible players' },
-  { file: 'boardgamemate-nearby-map', label: 'MATCH', alt: 'BoardGameMate Nearby interface showing playable sessions on a map' },
-  { file: 'boardgamemate-goal-chat', label: 'COORDINATE', alt: 'BoardGameMate coordination interface showing attendance and game preparation' },
-]
-
-function BoardGameMateHeroVisual() {
-  const visualRef = useRef<HTMLDivElement>(null)
-  const [isActive, setIsActive] = useState(false)
-  const [reducedMotion, setReducedMotion] = useState(false)
-  const targetX = useMotionValue(0)
-  const targetY = useMotionValue(0)
-  const rotateX = useSpring(targetY, { stiffness: 120, damping: 22, mass: .5 })
-  const rotateY = useSpring(targetX, { stiffness: 120, damping: 22, mass: .5 })
-
-  useEffect(() => {
-    const element = visualRef.current
-    if (!element) return
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateMotionPreference = () => setReducedMotion(motionQuery.matches)
-    updateMotionPreference()
-    motionQuery.addEventListener('change', updateMotionPreference)
-    const observer = new IntersectionObserver(([entry]) => setIsActive(entry.isIntersecting), { threshold: .15 })
-    observer.observe(element)
-    return () => {
-      observer.disconnect()
-      motionQuery.removeEventListener('change', updateMotionPreference)
-    }
-  }, [])
-
-  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (reducedMotion || event.pointerType === 'touch') return
-    const bounds = event.currentTarget.getBoundingClientRect()
-    targetX.set(((event.clientX - bounds.left) / bounds.width - .5) * 7)
-    targetY.set(-((event.clientY - bounds.top) / bounds.height - .5) * 7)
-  }
-
-  const resetPointer = () => {
-    targetX.set(0)
-    targetY.set(0)
-  }
-
-  return (
-    <div
-      className={`boardgamemate-hero-visual ${isActive ? 'is-active' : ''}`}
-      ref={visualRef}
-      onPointerMove={onPointerMove}
-      onPointerLeave={resetPointer}
-      role="img"
-      aria-label="Animated BoardGameMate product journey from discovering a table to coordinating a session"
-    >
-      <div className="boardgamemate-hero-grid" aria-hidden="true" />
-      <div className="boardgamemate-hero-glow" aria-hidden="true" />
-      <motion.div className="boardgamemate-hero-stage" style={{ rotateX, rotateY }}>
-        {heroPanels.map((panel, index) => (
-          <figure className={`boardgamemate-hero-card boardgamemate-hero-card-${index + 1}`} key={panel.file}>
-            <img
-              src={`${assetRoot}/${panel.file}-720.png`}
-              width={1572}
-              height={3408}
-              loading="eager"
-              decoding="async"
-              alt={panel.alt}
-            />
-            <figcaption><span>{panel.label}</span><i /></figcaption>
-          </figure>
-        ))}
-        <div className="boardgamemate-hero-flow boardgamemate-hero-flow-one" aria-hidden="true"><span /></div>
-        <div className="boardgamemate-hero-flow boardgamemate-hero-flow-two" aria-hidden="true"><span /></div>
-      </motion.div>
-      <div className="boardgamemate-hero-caption" aria-hidden="true"><span>PRODUCT SYSTEM / 01</span><span>DISCOVER · MATCH · PLAY</span></div>
-    </div>
-  )
-}
-
 export function BoardGameMateIteration() {
   return (
     <section className="boardgame-iteration" aria-labelledby="boardgamemate-project-title">
       <IterationReveal className="boardgamemate-overview-hero">
-        <BoardGameMateHeroVisual />
         <div className="boardgamemate-overview-grid">
           <div className="boardgamemate-overview-copy">
             <SectionLabel>BOARDGAMEMATE / PROJECT OVERVIEW</SectionLabel>

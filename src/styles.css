@@ -442,36 +442,38 @@ p { text-wrap: pretty; }
 .iteration-reveal { opacity: 0; transform: translateY(46px); transition: opacity .72s ease, transform .72s cubic-bezier(.22, 1, .36, 1); }
 .iteration-reveal.is-visible { opacity: 1; transform: translateY(0); }
 .boardgamemate-overview-hero { padding: 160px var(--side) 135px; background: #050b18; }
-.boardgamemate-hero-visual { position: relative; min-height: clamp(460px, 42vw, 690px); margin-bottom: 118px; overflow: hidden; border: 1px solid rgba(148,163,184,.2); border-radius: 24px; background: #081226; perspective: 1200px; isolation: isolate; }
-.boardgamemate-hero-grid { position: absolute; inset: 0; z-index: -2; opacity: .45; background-image: linear-gradient(rgba(56,189,248,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.09) 1px, transparent 1px); background-size: clamp(46px, 5vw, 86px) clamp(46px, 5vw, 86px); mask-image: radial-gradient(circle at 50% 48%, #000 0, transparent 76%); }
-.boardgamemate-hero-glow { position: absolute; z-index: -1; width: 64%; aspect-ratio: 1; left: 18%; top: 10%; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.26), rgba(0,102,255,.08) 42%, transparent 70%); filter: blur(14px); opacity: .9; }
-.boardgamemate-hero-stage { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
-.boardgamemate-hero-card { position: absolute; width: clamp(155px, 17vw, 258px); margin: 0; overflow: hidden; border: 1px solid rgba(186,230,253,.48); border-radius: 21px; background: #102343; box-shadow: 0 30px 70px rgba(0,0,0,.38), 0 0 32px rgba(0,102,255,.12); transform-origin: center; will-change: transform; }
-.boardgamemate-hero-card img { display: block; width: 100%; height: auto; }
-.boardgamemate-hero-card figcaption { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; padding: 13px 14px; color: #dbeafe; font-size: .49rem; letter-spacing: .15em; background: linear-gradient(to top, rgba(5,11,24,.9), transparent); }
-.boardgamemate-hero-card figcaption i { display: block; width: 7px; height: 7px; border: 1px solid var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan); }
-.boardgamemate-hero-card-1 { left: 7%; top: 16%; transform: rotate(-11deg) translateZ(12px); }
-.boardgamemate-hero-card-2 { z-index: 2; left: 50%; top: 5%; transform: translateX(-50%) translateZ(45px); }
-.boardgamemate-hero-card-3 { right: 7%; top: 16%; transform: rotate(11deg) translateZ(12px); }
-.boardgamemate-hero-visual.is-active .boardgamemate-hero-card-1 { animation: boardgamemateHeroFloatOne 8.5s ease-in-out -2s infinite; }
-.boardgamemate-hero-visual.is-active .boardgamemate-hero-card-2 { animation: boardgamemateHeroFloatTwo 8s ease-in-out infinite; }
-.boardgamemate-hero-visual.is-active .boardgamemate-hero-card-3 { animation: boardgamemateHeroFloatThree 9s ease-in-out -3.5s infinite; }
-.boardgamemate-hero-flow { position: absolute; z-index: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(125,211,252,.9), transparent); box-shadow: 0 0 14px rgba(56,189,248,.9); transform-origin: left center; opacity: .7; }
-.boardgamemate-hero-flow span { position: absolute; top: 50%; width: 8px; height: 8px; border: 1px solid #e0f2fe; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 16px 4px rgba(0,212,255,.65); transform: translate(-50%, -50%); }
-.boardgamemate-hero-flow-one { width: 25%; left: 28%; top: 46%; transform: rotate(-17deg); }
-.boardgamemate-hero-flow-two { width: 25%; left: 47%; top: 46%; transform: rotate(17deg); }
-.boardgamemate-hero-visual.is-active .boardgamemate-hero-flow span { animation: boardgamemateHeroPulse 2.8s ease-in-out infinite; }
-.boardgamemate-hero-flow-two span { animation-delay: -1.4s !important; }
-.boardgamemate-hero-caption { position: absolute; right: 18px; bottom: 16px; left: 18px; z-index: 3; display: flex; align-items: center; justify-content: space-between; color: #93c5fd; font-size: .5rem; letter-spacing: .17em; }
-@keyframes boardgamemateHeroFloatOne { 0%, 100% { transform: rotate(-11deg) translate3d(0, 0, 12px); } 50% { transform: rotate(-8deg) translate3d(0, -13px, 12px); } }
-@keyframes boardgamemateHeroFloatTwo { 0%, 100% { transform: translateX(-50%) translate3d(0, 0, 45px); } 50% { transform: translateX(-50%) translate3d(0, -17px, 45px); } }
-@keyframes boardgamemateHeroFloatThree { 0%, 100% { transform: rotate(11deg) translate3d(0, 0, 12px); } 50% { transform: rotate(8deg) translate3d(0, -10px, 12px); } }
-@keyframes boardgamemateHeroFloatOneMobile { 0%, 100% { transform: rotate(-11deg) translateY(0); } 50% { transform: rotate(-8deg) translateY(-8px); } }
-@keyframes boardgamemateHeroFloatTwoMobile { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-10px); } }
-@keyframes boardgamemateHeroFloatThreeMobile { 0%, 100% { transform: rotate(11deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-7px); } }
-@keyframes boardgamemateHeroPulse { 0%, 100% { left: 0; opacity: .3; } 45% { opacity: 1; } 65% { left: 100%; opacity: .8; } }
+.boardgamemate-cover { position: relative; min-height: 560px; overflow: hidden; isolation: isolate; border: 1px solid var(--line); border-radius: inherit; background: #071226; perspective: 1100px; }
+.boardgamemate-cover-ripples { position: absolute; inset: -25%; z-index: -2; opacity: .72; background: repeating-radial-gradient(ellipse at 48% 52%, transparent 0 34px, rgba(56,189,248,.08) 35px 36px, transparent 37px 72px), repeating-radial-gradient(ellipse at 56% 42%, transparent 0 58px, rgba(0,102,255,.1) 59px 60px, transparent 61px 120px); transform: rotate(-10deg) scale(1.1); animation: boardgamemateCoverRipple 18s ease-in-out infinite alternate; }
+.boardgamemate-cover-glow { position: absolute; z-index: -1; width: 70%; aspect-ratio: 1; left: 15%; top: 8%; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,255,.3), rgba(0,102,255,.08) 45%, transparent 72%); filter: blur(10px); }
+.boardgamemate-cover-stage { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+.boardgamemate-cover-card { position: absolute; width: clamp(145px, 16vw, 245px); margin: 0; overflow: hidden; border: 1px solid rgba(186,230,253,.5); border-radius: 20px; background: #102343; box-shadow: 0 30px 70px rgba(0,0,0,.4), 0 0 32px rgba(0,102,255,.16); transform-origin: center; will-change: transform; }
+.boardgamemate-cover-card img { display: block; width: 100%; height: auto; }
+.boardgamemate-dynamic-island { position: absolute; z-index: 2; top: 8px; left: 50%; width: 34%; height: 11px; border-radius: 999px; background: #05070b; box-shadow: 0 1px 4px rgba(0,0,0,.4); transform: translateX(-50%); }
+.boardgamemate-cover-card figcaption { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; padding: 12px 13px; color: #dbeafe; font-size: .47rem; letter-spacing: .15em; background: linear-gradient(to top, rgba(5,11,24,.92), transparent); }
+.boardgamemate-cover-card figcaption i { display: block; width: 7px; height: 7px; border: 1px solid var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan); }
+.boardgamemate-cover-card-1 { left: 8%; top: 14%; transform: rotate(-11deg) translateZ(12px); }
+.boardgamemate-cover-card-2 { z-index: 2; left: 50%; top: 5%; transform: translateX(-50%) translateZ(45px); }
+.boardgamemate-cover-card-3 { right: 8%; top: 14%; transform: rotate(11deg) translateZ(12px); }
+.boardgamemate-cover.is-active .boardgamemate-cover-card-1 { animation: boardgamemateCoverFloatOne 8.5s ease-in-out -2s infinite; }
+.boardgamemate-cover.is-active .boardgamemate-cover-card-2 { animation: boardgamemateCoverFloatTwo 8s ease-in-out infinite; }
+.boardgamemate-cover.is-active .boardgamemate-cover-card-3 { animation: boardgamemateCoverFloatThree 9s ease-in-out -3.5s infinite; }
+.boardgamemate-cover-flow { position: absolute; z-index: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(125,211,252,.9), transparent); box-shadow: 0 0 14px rgba(56,189,248,.9); transform-origin: left center; opacity: .7; }
+.boardgamemate-cover-flow span { position: absolute; top: 50%; width: 8px; height: 8px; border: 1px solid #e0f2fe; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 16px 4px rgba(0,212,255,.65); transform: translate(-50%, -50%); }
+.boardgamemate-cover-flow-one { width: 25%; left: 28%; top: 46%; transform: rotate(-17deg); }
+.boardgamemate-cover-flow-two { width: 25%; left: 47%; top: 46%; transform: rotate(17deg); }
+.boardgamemate-cover.is-active .boardgamemate-cover-flow span { animation: boardgamemateCoverPulse 2.8s ease-in-out infinite; }
+.boardgamemate-cover-flow-two span { animation-delay: -1.4s !important; }
+.boardgamemate-cover-caption { position: absolute; right: 18px; bottom: 16px; left: 18px; z-index: 3; display: flex; align-items: center; justify-content: space-between; color: #93c5fd; font-size: .5rem; letter-spacing: .17em; }
+@keyframes boardgamemateCoverRipple { 0% { transform: rotate(-10deg) scale(1.08) translate3d(-1%, -1%, 0); } 100% { transform: rotate(-6deg) scale(1.12) translate3d(2%, 2%, 0); } }
+@keyframes boardgamemateCoverFloatOne { 0%, 100% { transform: rotate(-11deg) translate3d(0, 0, 12px); } 50% { transform: rotate(-8deg) translate3d(0, -13px, 12px); } }
+@keyframes boardgamemateCoverFloatTwo { 0%, 100% { transform: translateX(-50%) translate3d(0, 0, 45px); } 50% { transform: translateX(-50%) translate3d(0, -17px, 45px); } }
+@keyframes boardgamemateCoverFloatThree { 0%, 100% { transform: rotate(11deg) translate3d(0, 0, 12px); } 50% { transform: rotate(8deg) translate3d(0, -10px, 12px); } }
+@keyframes boardgamemateCoverFloatOneMobile { 0%, 100% { transform: rotate(-11deg) translateY(0); } 50% { transform: rotate(-8deg) translateY(-8px); } }
+@keyframes boardgamemateCoverFloatTwoMobile { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-10px); } }
+@keyframes boardgamemateCoverFloatThreeMobile { 0%, 100% { transform: rotate(11deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-7px); } }
+@keyframes boardgamemateCoverPulse { 0%, 100% { left: 0; opacity: .3; } 45% { opacity: 1; } 65% { left: 100%; opacity: .8; } }
 @media (prefers-reduced-motion: reduce) {
-  .boardgamemate-hero-stage, .boardgamemate-hero-card, .boardgamemate-hero-flow span { animation: none !important; transition: none !important; }
+  .boardgamemate-cover-ripples, .boardgamemate-cover-stage, .boardgamemate-cover-card, .boardgamemate-cover-flow span { animation: none !important; transition: none !important; }
 }
 .boardgamemate-overview-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(320px, 5fr); gap: clamp(70px, 9vw, 170px); align-items: start; }
 .boardgamemate-overview-copy .section-label { margin-bottom: 82px; }
@@ -608,8 +610,8 @@ p { text-wrap: pretty; }
   .iteration-feature { gap: 45px; }
   .iteration-feature-copy h4 { font-size: 3.2rem; }
   .boardgamemate-overview-grid { gap: 55px; }
-  .boardgamemate-hero-visual { min-height: 500px; margin-bottom: 90px; }
-  .boardgamemate-hero-card { width: clamp(140px, 21vw, 220px); }
+  .boardgamemate-cover { min-height: 500px; }
+  .boardgamemate-cover-card { width: clamp(140px, 21vw, 220px); }
   .boardgamemate-overview-copy h1 { font-size: 4rem; }
   .boardgamemate-discover-grid, .boardgamemate-research-heading { grid-template-columns: 1fr 1fr; }
   .boardgamemate-discover-note, .boardgamemate-research-heading > div { grid-column: 2; }
@@ -785,19 +787,19 @@ p { text-wrap: pretty; }
   .boardgamemate-overview-hero, .boardgamemate-discover-section, .boardgamemate-research-section, .iteration-intro, .iteration-early, .iteration-turning-point, .iteration-showcase, .iteration-outcome { padding: 100px var(--side); }
   .boardgamemate-overview-hero { padding-top: 118px; padding-bottom: 95px; }
   .boardgamemate-overview-grid { grid-template-columns: 1fr; gap: 60px; }
-  .boardgamemate-hero-visual { min-height: clamp(330px, 88vw, 460px); margin-bottom: 72px; border-radius: 18px; }
-  .boardgamemate-hero-stage { transform-style: flat; }
-  .boardgamemate-hero-card { width: 29%; border-radius: 14px; }
-  .boardgamemate-hero-card-1 { left: 2%; top: 20%; }
-  .boardgamemate-hero-card-2 { top: 5%; }
-  .boardgamemate-hero-card-3 { right: 2%; top: 20%; }
-  .boardgamemate-hero-visual.is-active .boardgamemate-hero-card-1 { animation-name: boardgamemateHeroFloatOneMobile; }
-  .boardgamemate-hero-visual.is-active .boardgamemate-hero-card-2 { animation-name: boardgamemateHeroFloatTwoMobile; }
-  .boardgamemate-hero-visual.is-active .boardgamemate-hero-card-3 { animation-name: boardgamemateHeroFloatThreeMobile; }
-  .boardgamemate-hero-flow-one { width: 23%; left: 25%; top: 46%; transform: rotate(-15deg); }
-  .boardgamemate-hero-flow-two { width: 23%; left: 52%; top: 46%; transform: rotate(15deg); }
-  .boardgamemate-hero-caption { right: 12px; bottom: 12px; left: 12px; font-size: .43rem; }
-  .boardgamemate-hero-caption span:last-child { display: none; }
+  .boardgamemate-cover { min-height: clamp(330px, 88vw, 460px); border-radius: 18px; }
+  .boardgamemate-cover-stage { transform-style: flat; }
+  .boardgamemate-cover-card { width: 29%; border-radius: 14px; }
+  .boardgamemate-cover-card-1 { left: 2%; top: 20%; }
+  .boardgamemate-cover-card-2 { top: 5%; }
+  .boardgamemate-cover-card-3 { right: 2%; top: 20%; }
+  .boardgamemate-cover.is-active .boardgamemate-cover-card-1 { animation-name: boardgamemateCoverFloatOneMobile; }
+  .boardgamemate-cover.is-active .boardgamemate-cover-card-2 { animation-name: boardgamemateCoverFloatTwoMobile; }
+  .boardgamemate-cover.is-active .boardgamemate-cover-card-3 { animation-name: boardgamemateCoverFloatThreeMobile; }
+  .boardgamemate-cover-flow-one { width: 23%; left: 25%; top: 46%; transform: rotate(-15deg); }
+  .boardgamemate-cover-flow-two { width: 23%; left: 52%; top: 46%; transform: rotate(15deg); }
+  .boardgamemate-cover-caption { right: 12px; bottom: 12px; left: 12px; font-size: .43rem; }
+  .boardgamemate-cover-caption span:last-child { display: none; }
   .boardgamemate-overview-copy .section-label { margin-bottom: 58px; }
   .boardgamemate-overview-copy h1 { font-size: clamp(2.65rem, 10vw, 4rem); }
   .boardgamemate-overview-copy > div { margin-top: 35px; }

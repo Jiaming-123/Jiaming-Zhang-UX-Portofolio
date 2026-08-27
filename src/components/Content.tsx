@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowLeft, ArrowRight, Check, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
+import { BoardGameMateCover } from './BoardGameMateCover'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,7 +46,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
   return (
     <article className={`project-card ${featured ? 'featured-card' : ''}`} style={{ '--project-color': project.color } as React.CSSProperties}>
       <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-        <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : project.slug === 'furniture' ? 'interface' : 'mobile'} label={project.eyebrow.toUpperCase()} />
+        {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : project.slug === 'furniture' ? 'interface' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
         <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
       </Link>
       <div className="project-meta">
