@@ -61,6 +61,7 @@ p { text-wrap: pretty; }
 
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; isolation: isolate; }
 .hero-grid { position: absolute; inset: 0; z-index: -4; opacity: .22; background-image: linear-gradient(rgba(56,189,248,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.11) 1px, transparent 1px); background-size: 7.14vw 7.14vw; mask-image: linear-gradient(to bottom, transparent 4%, #000 34%, transparent 98%); }
+.hero-cursor-grid { position: absolute; inset: 0; z-index: -1; opacity: .9; mask-image: linear-gradient(to bottom, transparent 2%, #000 20%, #000 78%, transparent 100%); }
 .hero::after { content: ''; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 52% 59%, transparent 0, rgba(5,11,24,.35) 45%, #050b18 88%); }
 .hero-orb { position: absolute; border-radius: 50%; filter: none; z-index: -3; opacity: 1; will-change: transform; transform: translateZ(0); }
 .hero-orb-one { width: 56vw; height: 56vw; background: radial-gradient(circle, rgba(0,102,255,.3) 0, rgba(0,102,255,.13) 38%, transparent 72%); left: 17%; top: 4%; animation: drift 10s ease-in-out infinite alternate; }
@@ -448,7 +449,6 @@ p { text-wrap: pretty; }
 .boardgamemate-cover-stage { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
 .boardgamemate-cover-card { position: absolute; width: clamp(145px, 16vw, 245px); margin: 0; overflow: hidden; border: 1px solid rgba(186,230,253,.5); border-radius: 20px; background: #102343; box-shadow: 0 30px 70px rgba(0,0,0,.4), 0 0 32px rgba(0,102,255,.16); transform-origin: center; will-change: transform; }
 .boardgamemate-cover-card img { display: block; width: 100%; height: auto; }
-.boardgamemate-dynamic-island { position: absolute; z-index: 2; top: 8px; left: 50%; width: 34%; height: 11px; border-radius: 999px; background: #05070b; box-shadow: 0 1px 4px rgba(0,0,0,.4); transform: translateX(-50%); }
 .boardgamemate-cover-card figcaption { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; padding: 12px 13px; color: #dbeafe; font-size: .47rem; letter-spacing: .15em; background: linear-gradient(to top, rgba(5,11,24,.92), transparent); }
 .boardgamemate-cover-card figcaption i { display: block; width: 7px; height: 7px; border: 1px solid var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan); }
 .boardgamemate-cover-card-1 { left: 8%; top: 14%; transform: rotate(-11deg) translateZ(12px); }
@@ -630,6 +630,7 @@ p { text-wrap: pretty; }
   .desktop-nav { display: none; }
   .menu-button { display: grid; place-items: center; }
   .hero { min-height: 820px; }
+  .hero-cursor-grid { opacity: .58; mask-image: linear-gradient(to bottom, transparent, #000 17%, #000 78%, transparent); }
   .hero-content { padding-top: 110px; padding-bottom: 130px; }
   .hero-kicker span:last-child { display: none; }
   .hero h1 { margin-top: 70px; font-size: clamp(4.1rem, 22.5vw, 7.2rem); line-height: .78; }
@@ -852,6 +853,7 @@ p { text-wrap: pretty; }
   .view-pill { opacity: 1; transform: none; }
   .nav-shell.is-compact, .glass-panel, .view-pill { backdrop-filter: none; }
   .hero-orb { filter: none; animation: none; }
+  .hero-cursor-grid { opacity: .46; }
   .feature-halo { filter: none; }
 }
 

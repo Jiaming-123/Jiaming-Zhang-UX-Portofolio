@@ -59,7 +59,6 @@ export function BoardGameMateCover() {
       <motion.div className="boardgamemate-cover-stage" style={{ rotateX, rotateY }}>
         {coverPanels.map((panel, index) => (
           <figure className={`boardgamemate-cover-card boardgamemate-cover-card-${index + 1}`} key={panel.file}>
-            <span className="boardgamemate-dynamic-island" aria-hidden="true" />
             <img
               src={`${assetRoot}/${panel.file}-720.png`}
               width={1572}

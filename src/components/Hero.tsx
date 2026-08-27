@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useInView } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
+import CursorGrid from './CursorGrid'
 
 const keywords = ['PRODUCT', 'SERVICE', 'AI', 'INTERACTION', 'EXPERIENCE']
 
@@ -18,6 +19,22 @@ export function Hero() {
   return (
     <section ref={heroRef} className={`hero ${isInView ? 'is-in-view' : ''}`} id="top">
       <div className="hero-grid" aria-hidden="true" />
+      <CursorGrid
+        className="hero-cursor-grid"
+        cellSize={70}
+        color="#38BDF8"
+        radius={180}
+        falloff="smooth"
+        holdTime={320}
+        fadeDuration={760}
+        lineWidth={1.15}
+        maxOpacity={0.72}
+        fillOpacity={0.025}
+        gridOpacity={0}
+        cellRadius={2}
+        clickPulse
+        pulseSpeed={620}
+      />
       <div className="hero-orb hero-orb-one" aria-hidden="true" />
       <div className="hero-orb hero-orb-two" aria-hidden="true" />
       <div className="particles" aria-hidden="true">{Array.from({ length: 18 }).map((_, index) => <i key={index} style={{ '--i': index } as React.CSSProperties} />)}</div>
