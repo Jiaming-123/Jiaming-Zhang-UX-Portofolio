@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Check, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import { BoardGameMateCover } from './BoardGameMateCover'
+import BorderGlow from './BorderGlow'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,10 +46,23 @@ export function MediaPlaceholder({ alt, className = '', label = 'IMAGE DIRECTION
 export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
   return (
     <article className={`project-card ${featured ? 'featured-card' : ''}`} style={{ '--project-color': project.color } as React.CSSProperties}>
-      <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-        {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : project.slug === 'furniture' ? 'interface' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
-        <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
-      </Link>
+      <BorderGlow
+        className="project-border-glow"
+        edgeSensitivity={32}
+        glowColor="194 93 58"
+        backgroundColor="#07101f"
+        borderRadius={22}
+        glowRadius={28}
+        glowIntensity={0.72}
+        coneSpread={22}
+        colors={[project.color, '#0066ff', '#00d4ff']}
+        fillOpacity={0.18}
+      >
+        <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
+          {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : project.slug === 'furniture' ? 'interface' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
+          <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
+        </Link>
+      </BorderGlow>
       <div className="project-meta">
         <span className="project-number">{project.number}</span>
         <div>

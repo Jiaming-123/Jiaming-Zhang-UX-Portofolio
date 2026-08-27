@@ -2,6 +2,7 @@ import { ArrowRight, Check, Sparkles } from 'lucide-react'
 import { Hero } from '../components/Hero'
 import { Footer, MagneticButton } from '../components/Layout'
 import { Gallery, MediaPlaceholder, ProjectCard, Reveal, SectionLabel } from '../components/Content'
+import BorderGlow from '../components/BorderGlow'
 import { projects, visualItems } from '../data/projects'
 
 export default function HomePage() {
@@ -16,27 +17,40 @@ export default function HomePage() {
             <div><span>LANDING</span><span>APP</span></div>
             <p>An AI-powered transition assistant helping international students navigate their first steps in a new country.</p>
           </div>
-          <div className="featured-stage" data-cursor="media">
-            <div className="feature-halo" aria-hidden="true" />
-            <div className="feature-timeline glass-panel">
-              <div className="mini-label"><span>YOUR ARRIVAL PLAN</span><span>02 / 06</span></div>
-              {['Arrival', 'SIM Card', 'Bank', 'University', 'Healthcare', 'Daily Life'].map((item, index) => <div className={index < 2 ? 'done' : index === 2 ? 'current' : ''} key={item}><i>{index < 2 ? <Check size={11} /> : index + 1}</i><span>{item}</span></div>)}
+          <BorderGlow
+            className="featured-border-glow"
+            edgeSensitivity={32}
+            glowColor="194 93 58"
+            backgroundColor="#070e1b"
+            borderRadius={32}
+            glowRadius={30}
+            glowIntensity={0.78}
+            coneSpread={22}
+            colors={[landing.color, '#0066ff', '#00d4ff']}
+            fillOpacity={0.16}
+          >
+            <div className="featured-stage" data-cursor="media">
+              <div className="feature-halo" aria-hidden="true" />
+              <div className="feature-timeline glass-panel">
+                <div className="mini-label"><span>YOUR ARRIVAL PLAN</span><span>02 / 06</span></div>
+                {['Arrival', 'SIM Card', 'Bank', 'University', 'Healthcare', 'Daily Life'].map((item, index) => <div className={index < 2 ? 'done' : index === 2 ? 'current' : ''} key={item}><i>{index < 2 ? <Check size={11} /> : index + 1}</i><span>{item}</span></div>)}
+              </div>
+              <div className="feature-phone">
+                <div className="phone-status"><span>9:41</span><i /><span>•••</span></div>
+                <div className="phone-head"><b>Landing</b><span>AI settlement guide</span></div>
+                <div className="phone-chat user">How do I open a bank account?</div>
+                <div className="phone-chat ai"><Sparkles size={14} /><span>You&apos;ll need your passport, local address and enrolment document. I can compare nearby branches and help you prepare.</span></div>
+                <div className="phone-action"><small>NEXT ACTION</small><b>Prepare your documents</b><span>View verified checklist <ArrowRight size={12} /></span></div>
+              </div>
+              <div className="feature-assistant glass-panel">
+                <div className="mini-label"><span>AI GUIDANCE</span><i /></div>
+                <Sparkles size={22} />
+                <h3>One clear next step.</h3>
+                <p>Personal, verified, bilingual support that moves with every completed task.</p>
+                <div><span>OFFICIAL SOURCES</span><span>HUMAN ESCALATION</span></div>
+              </div>
             </div>
-            <div className="feature-phone">
-              <div className="phone-status"><span>9:41</span><i /><span>•••</span></div>
-              <div className="phone-head"><b>Landing</b><span>AI settlement guide</span></div>
-              <div className="phone-chat user">How do I open a bank account?</div>
-              <div className="phone-chat ai"><Sparkles size={14} /><span>You&apos;ll need your passport, local address and enrolment document. I can compare nearby branches and help you prepare.</span></div>
-              <div className="phone-action"><small>NEXT ACTION</small><b>Prepare your documents</b><span>View verified checklist <ArrowRight size={12} /></span></div>
-            </div>
-            <div className="feature-assistant glass-panel">
-              <div className="mini-label"><span>AI GUIDANCE</span><i /></div>
-              <Sparkles size={22} />
-              <h3>One clear next step.</h3>
-              <p>Personal, verified, bilingual support that moves with every completed task.</p>
-              <div><span>OFFICIAL SOURCES</span><span>HUMAN ESCALATION</span></div>
-            </div>
-          </div>
+          </BorderGlow>
           <div className="featured-footer">
             <ul>{landing.categories.map((category) => <li key={category}>{category}</li>)}</ul>
             <MagneticButton to="/projects/landing-app">VIEW CASE STUDY</MagneticButton>
