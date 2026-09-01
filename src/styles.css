@@ -488,7 +488,7 @@ p { text-wrap: pretty; }
 .furniture-live-link svg { justify-self: end; }
 .furniture-hero-media { min-height: 66vh; margin: 0; overflow: hidden; border: 1px solid rgba(219,202,131,.28); border-radius: 28px; background: #231f20; box-shadow: 0 50px 100px rgba(0,0,0,.28); }
 .furniture-hero-media img { display: block; width: 100%; height: 100%; min-height: 66vh; object-fit: cover; }
-.furniture-project-cover-image { display: block; width: 100%; height: 560px; border: 1px solid rgba(219,202,131,.24); border-radius: 22px; background: #fff8f0; object-fit: cover; object-position: center; }
+.furniture-project-cover-image { display: block; width: 100%; height: 560px; border: 1px solid rgba(219,202,131,.24); border-radius: 22px; background: #fff8f0; object-fit: contain; object-position: center; }
 .furniture-case { --furn-gold: #dbca83; --furn-cream: #fff8f0; --furn-ink: #231f20; --furn-soft: #e9dfaf; background: #070f1d; }
 .furniture-case img { display: block; max-width: 100%; }
 .furniture-intro, .furniture-section { padding: 140px var(--side); }
