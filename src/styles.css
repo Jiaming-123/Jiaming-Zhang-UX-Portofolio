@@ -858,8 +858,8 @@ p { text-wrap: pretty; }
   .section-intro h2 { font-size: clamp(3rem, 14vw, 4.4rem); }
   .section-intro > div:last-child > p { font-size: .84rem; }
   .project-list, .work-index { gap: 90px; }
-  .media-placeholder { min-height: 330px; }
-  .furniture-project-cover-image { height: 330px; border-radius: inherit; }
+  .project-card .media-placeholder, .work-index .featured-card .media-placeholder { min-height: 0; aspect-ratio: 1586 / 992; }
+  .furniture-project-cover-image { height: auto; aspect-ratio: 1586 / 992; border-radius: inherit; object-fit: contain; }
   .media-alt { left: 14px; right: 14px; bottom: 13px; align-items: flex-start; flex-direction: column; gap: 6px; }
   .media-alt p { max-width: 92%; text-align: left; font-size: .5rem; }
   .media-alt span { font-size: .47rem; }
@@ -990,12 +990,12 @@ p { text-wrap: pretty; }
   .boardgamemate-overview-hero, .boardgamemate-discover-section, .boardgamemate-research-section, .iteration-intro, .iteration-early, .iteration-turning-point, .iteration-showcase, .iteration-outcome { padding: 100px var(--side); }
   .boardgamemate-overview-hero { padding-top: 118px; padding-bottom: 95px; }
   .boardgamemate-overview-grid { grid-template-columns: 1fr; gap: 60px; }
-  .boardgamemate-cover { min-height: clamp(330px, 88vw, 460px); border-radius: 18px; }
+  .boardgamemate-cover { min-height: 0; aspect-ratio: 1586 / 992; border-radius: 18px; }
   .boardgamemate-cover-stage { transform-style: flat; }
-  .boardgamemate-cover-card { width: 29%; border-radius: 14px; }
-  .boardgamemate-cover-card-1 { left: 2%; top: 20%; }
-  .boardgamemate-cover-card-2 { top: 5%; }
-  .boardgamemate-cover-card-3 { right: 2%; top: 20%; }
+  .boardgamemate-cover-card { width: 23%; border-radius: 14px; }
+  .boardgamemate-cover-card-1 { left: 8%; top: 10%; }
+  .boardgamemate-cover-card-2 { top: 2%; }
+  .boardgamemate-cover-card-3 { right: 8%; top: 10%; }
   .boardgamemate-cover.is-active .boardgamemate-cover-card-1 { animation-name: boardgamemateCoverFloatOneMobile; }
   .boardgamemate-cover.is-active .boardgamemate-cover-card-2 { animation-name: boardgamemateCoverFloatTwoMobile; }
   .boardgamemate-cover.is-active .boardgamemate-cover-card-3 { animation-name: boardgamemateCoverFloatThreeMobile; }
