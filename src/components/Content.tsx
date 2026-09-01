@@ -6,7 +6,6 @@ import { ArrowLeft, ArrowRight, Check, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import { BoardGameMateCover } from './BoardGameMateCover'
-import { FurnitureProjectCover } from './FurnitureProjectCover'
 import BorderGlow from './BorderGlow'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -60,7 +59,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         fillOpacity={0.18}
       >
         <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-          {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : project.slug === 'furniture' ? <FurnitureProjectCover alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
+          {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : project.slug === 'furniture' ? <img className="furniture-project-cover-image" src="/images/furniture/home-project-cover.png" alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
           <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
         </Link>
       </BorderGlow>
