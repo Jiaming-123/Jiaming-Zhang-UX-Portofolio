@@ -488,6 +488,29 @@ p { text-wrap: pretty; }
 .furniture-live-link svg { justify-self: end; }
 .furniture-hero-media { min-height: 66vh; margin: 0; overflow: hidden; border: 1px solid rgba(219,202,131,.28); border-radius: 28px; background: #231f20; box-shadow: 0 50px 100px rgba(0,0,0,.28); }
 .furniture-hero-media img { display: block; width: 100%; height: 100%; min-height: 66vh; object-fit: cover; }
+.furniture-cover-showcase { position: relative; isolation: isolate; min-height: clamp(510px, 54vw, 720px); margin: 0; overflow: hidden; border: 1px solid rgba(35,31,32,.13); border-radius: 28px; background: #fff8f0; color: #231f20; box-shadow: 0 42px 90px rgba(26,19,14,.16); }
+.furniture-cover-showcase::before { position: absolute; inset: 0; z-index: -1; content: ''; background: radial-gradient(circle at 75% 52%, rgba(219,202,131,.38), transparent 29%), linear-gradient(118deg, rgba(219,202,131,.14), transparent 45%); }
+.furniture-cover-copy { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: flex-start; width: min(40%, 480px); height: 100%; padding: clamp(34px,5vw,72px); }
+.furniture-cover-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.furniture-cover-tags span { padding: 10px 13px; border: 1px solid rgba(35,31,32,.2); border-radius: 999px; color: #4b4442; font-size: .55rem; letter-spacing: .11em; }
+.furniture-cover-kicker { margin: clamp(50px,9vw,106px) 0 16px; color: #85743d; font-size: .6rem; font-weight: 700; letter-spacing: .16em; }
+.furniture-cover-copy h2 { margin: 0; font: 600 clamp(3.7rem,6.2vw,7.1rem)/.83 'Space Grotesk'; letter-spacing: -.085em; }
+.furniture-cover-copy h2 i { color: #8d7828; font-style: normal; }
+.furniture-cover-summary { max-width: 330px; margin: 28px 0 0; color: #5c514d; font: 400 clamp(.82rem,1.1vw,1rem)/1.55 'Space Grotesk'; }
+.furniture-cover-mark { display: flex; align-items: center; gap: 13px; margin-top: auto; color: #6b5d57; font-size: .52rem; letter-spacing: .12em; }
+.furniture-cover-mark b { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; background: #231f20; color: #fff8f0; font: 600 .8rem 'Space Grotesk'; letter-spacing: -.07em; }
+.furniture-cover-devices { position: absolute; inset: 0 0 0 33%; z-index: 2; pointer-events: none; }
+.furniture-cover-laptop, .furniture-cover-tablet, .furniture-cover-phone { position: absolute; overflow: hidden; background: #231f20; box-shadow: 0 28px 46px rgba(35,31,32,.25); }
+.furniture-cover-laptop { top: 14%; right: 7%; width: 59%; height: 60%; padding: 18px 8px 8px; border: 7px solid #3a312f; border-bottom-width: 12px; border-radius: 13px 13px 8px 8px; }
+.cover-browser { position: absolute; top: 5px; left: 9px; display: flex; gap: 4px; }
+.cover-browser i { width: 4px; height: 4px; border-radius: 50%; background: #c5b478; }
+.furniture-cover-laptop img, .furniture-cover-tablet img, .furniture-cover-phone img { display: block; width: 100%; height: auto; }
+.furniture-cover-tablet { right: 0; bottom: 5%; width: 48%; height: 42%; border: 7px solid #3a312f; border-radius: 13px; transform: rotate(-5deg); }
+.furniture-cover-phone { width: 16%; height: 47%; border: 6px solid #231f20; border-radius: 18px; }
+.furniture-cover-phone-main { top: 26%; right: 27%; z-index: 3; transform: rotate(7deg); }
+.furniture-cover-phone-side { top: 10%; right: 5%; transform: rotate(17deg); }
+.cover-phone-notch { position: absolute; top: 3px; left: 50%; z-index: 1; width: 43%; height: 9px; border-radius: 0 0 8px 8px; background: #231f20; transform: translateX(-50%); }
+.furniture-cover-label { position: absolute; right: 9%; bottom: 8%; z-index: 4; padding: 8px 11px; border: 1px solid rgba(35,31,32,.22); border-radius: 8px; background: rgba(255,248,240,.84); color: #5c514d; font-size: .48rem; font-weight: 700; letter-spacing: .12em; line-height: 1.6; backdrop-filter: blur(8px); }
 .furniture-case { --furn-gold: #dbca83; --furn-cream: #fff8f0; --furn-ink: #231f20; --furn-soft: #e9dfaf; background: #070f1d; }
 .furniture-case img { display: block; max-width: 100%; }
 .furniture-intro, .furniture-section { padding: 140px var(--side); }
@@ -624,6 +647,11 @@ p { text-wrap: pretty; }
   .furniture-live-link svg { grid-column: 2; grid-row: 1 / 3; }
   .furniture-hero-media, .furniture-hero-media img { min-height: 360px; }
   .furniture-hero-media img { object-position: center; }
+  .furniture-cover-showcase { min-height: 570px; }
+  .furniture-cover-copy { width: 44%; padding: 44px; }
+  .furniture-cover-copy h2 { font-size: clamp(3.4rem, 7vw, 5.4rem); }
+  .furniture-cover-devices { left: 30%; }
+  .furniture-cover-laptop { right: 3%; width: 64%; }
   .furniture-intro, .furniture-section, .furniture-figma-visual { padding: 95px var(--side); }
   .furniture-intro .section-label, .furniture-section .section-label { margin-bottom: 58px; }
   .furniture-intro-grid, .furniture-heading, .outcome-grid { grid-template-columns: 1fr; gap: 38px; }
@@ -657,6 +685,21 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 560px) {
+  .furniture-cover-showcase { min-height: 590px; border-radius: 20px; }
+  .furniture-cover-copy { width: 100%; height: auto; padding: 26px; }
+  .furniture-cover-tags span { padding: 8px 10px; font-size: .47rem; }
+  .furniture-cover-kicker { margin: 34px 0 9px; font-size: .5rem; }
+  .furniture-cover-copy h2 { font-size: clamp(3.35rem, 15vw, 4.5rem); }
+  .furniture-cover-summary { max-width: 250px; margin-top: 16px; font-size: .72rem; }
+  .furniture-cover-mark { display: none; }
+  .furniture-cover-devices { top: 290px; left: 0; }
+  .furniture-cover-laptop { top: 13%; right: 9%; width: 66%; height: 62%; padding: 12px 5px 5px; border-width: 5px; border-bottom-width: 8px; }
+  .furniture-cover-tablet { right: -8%; bottom: 1%; width: 58%; height: 37%; border-width: 5px; }
+  .furniture-cover-phone { width: 21%; height: 43%; border-width: 4px; border-radius: 12px; }
+  .furniture-cover-phone-main { top: 28%; right: 27%; }
+  .furniture-cover-phone-side { top: 12%; right: 4%; }
+  .cover-phone-notch { height: 6px; }
+  .furniture-cover-label { right: 7%; bottom: 3%; font-size: .4rem; }
   .audit-lenses, .principle-grid, .build-grid, .process-track, .journey-track { grid-template-columns: 1fr; }
   .audit-lenses article, .principle-grid article, .build-grid article { min-height: 220px; }
   .process-track li { min-height: 190px; border-right: 0; }

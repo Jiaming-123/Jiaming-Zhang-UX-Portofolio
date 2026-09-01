@@ -7,6 +7,27 @@ import { Footer } from '../components/Layout'
 import { projectBySlug, projects, type Project } from '../data/projects'
 import { NotFoundPage } from './InfoPages'
 
+function FurnitureCover({ alt }: { alt: string }) {
+  return (
+    <figure className="furniture-cover-showcase" aria-label={alt}>
+      <div className="furniture-cover-copy">
+        <div className="furniture-cover-tags"><span>UX CASE STUDY</span><span>UI DESIGN</span></div>
+        <p className="furniture-cover-kicker">MY FURNITURE STORE</p>
+        <h2>Furniture<br />for real<br /><i>homes.</i></h2>
+        <p className="furniture-cover-summary">A warm, high-spec responsive commerce redesign—built from audit to checkout.</p>
+        <div className="furniture-cover-mark"><b>JZ.</b><span>2025 · RESPONSIVE REDESIGN</span></div>
+      </div>
+      <div className="furniture-cover-devices" aria-hidden="true">
+        <div className="furniture-cover-laptop"><div className="cover-browser"><i /><i /><i /></div><img src="/images/furniture/desktop-home.png" alt="" /></div>
+        <div className="furniture-cover-tablet"><img src="/images/furniture/desktop-product.png" alt="" /></div>
+        <div className="furniture-cover-phone furniture-cover-phone-main"><div className="cover-phone-notch" /><img src="/images/furniture/mobile-home.png" alt="" /></div>
+        <div className="furniture-cover-phone furniture-cover-phone-side"><div className="cover-phone-notch" /><img src="/images/furniture/mobile-product.png" alt="" /></div>
+        <span className="furniture-cover-label">DESKTOP · MOBILE<br />END-TO-END FLOW</span>
+      </div>
+    </figure>
+  )
+}
+
 function ProjectHero({ project }: { project: Project }) {
   return (
     <header className="project-hero" style={{ '--project-color': project.color } as React.CSSProperties}>
@@ -14,7 +35,7 @@ function ProjectHero({ project }: { project: Project }) {
       <h1>{project.title.toUpperCase()}</h1>
       <div className="project-hero-intro"><p>{project.heroStatement}</p><ul>{project.categories.map((category) => <li key={category}>{category}</li>)}</ul></div>
       {project.slug === 'furniture' && <a className="furniture-live-link" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link"><span>VIEW THE LIVE EXPERIENCE</span><strong>My Furniture Store Redesign Project Link</strong><ArrowRight /></a>}
-      {project.slug === 'furniture' ? <figure className="furniture-hero-media"><img src="/images/furniture/cover.png" alt={project.heroAlt} /></figure> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label="PROJECT HERO MEDIA" />}
+      {project.slug === 'furniture' ? <FurnitureCover alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label="PROJECT HERO MEDIA" />}
       <a href="#overview" className="project-scroll" data-cursor="link">SCROLL TO EXPLORE <ArrowDown size={15} /></a>
     </header>
   )
