@@ -95,7 +95,7 @@ export const projects: Project[] = [
     number: '04',
     title: 'My Furniture Store',
     eyebrow: 'End-to-end commerce redesign',
-    year: '2026',
+    year: '2025',
     categories: ['UI/UX Design', 'Responsive Commerce', 'React Development'],
     summary: 'An end-to-end furniture commerce redesign—from interface audit and Figma system to a fully coded responsive shopping experience.',
     heroStatement: 'From interface audit to a warm, accessible and fully coded furniture shopping experience.',

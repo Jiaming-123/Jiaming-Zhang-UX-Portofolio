@@ -58,7 +58,7 @@ export function FurnitureCaseStudy() {
           <SectionLabel number="01">PROJECT OVERVIEW</SectionLabel>
           <div className="furniture-intro-grid">
             <h2>From interface audit to a coded furniture commerce experience.</h2>
-            <div><p>I independently led the complete process: competitor review, heuristic analysis, information architecture, art direction, responsive UI design, prototyping, front-end implementation, testing and deployment.</p><dl><div><dt>ROLE</dt><dd>UI/UX Designer & Front-end Developer</dd></div><div><dt>SCOPE</dt><dd>Desktop 1440 · Mobile 393</dd></div><div><dt>TOOLS</dt><dd>Figma · React · TypeScript · CSS · Vercel</dd></div><div><dt>DELIVERABLE</dt><dd>End-to-end responsive shopping prototype</dd></div></dl></div>
+            <div><p>I independently led the complete process: competitor review, heuristic analysis, information architecture, art direction, responsive UI design, prototyping, front-end implementation, testing and deployment.</p><dl><div><dt>ROLE</dt><dd>UI/UX Designer & Front-end Developer</dd></div><div><dt>SCOPE</dt><dd>Desktop 1440 · Mobile 393</dd></div><div><dt>TOOLS</dt><dd>Figma · React · TypeScript · CSS · Codex · ChatGPT · Vercel</dd></div><div><dt>YEAR</dt><dd>2025</dd></div><div><dt>DELIVERABLE</dt><dd>End-to-end responsive shopping prototype</dd></div></dl></div>
           </div>
         </Reveal>
       </section>
@@ -105,7 +105,7 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="06">RESPONSIVE EXPERIENCE</SectionLabel>
           <div className="furniture-heading"><h2>Desktop supports comparison. Mobile supports sequence and touch.</h2><p>The same product and catalogue logic is preserved across breakpoints. Desktop uses horizontal grouping and persistent context; mobile uses vertical rhythm, two-column discovery, large touch targets and sticky commerce actions.</p></div>
-          <div className="responsive-pair"><figure><img src="/images/furniture/desktop-home.png" alt="Desktop furniture store homepage design" /><figcaption>DESKTOP · 1440PX</figcaption></figure><figure><img src="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /><figcaption>MOBILE · 393PX</figcaption></figure></div>
+          <div className="responsive-pair"><figure><div className="responsive-scroll"><img src="/images/furniture/desktop-home.png" alt="Desktop furniture store homepage design" /></div><figcaption><span>DESKTOP · 1440PX</span><small>SCROLL TO VIEW FULL PAGE</small></figcaption></figure><figure><div className="responsive-scroll"><img src="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /></div><figcaption><span>MOBILE · 393PX</span><small>SCROLL TO VIEW FULL PAGE</small></figcaption></figure></div>
         </Reveal>
       </section>
 
