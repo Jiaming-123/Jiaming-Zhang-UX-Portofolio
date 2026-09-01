@@ -105,7 +105,10 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="06">RESPONSIVE EXPERIENCE</SectionLabel>
           <div className="furniture-heading"><h2>Desktop supports comparison. Mobile supports sequence and touch.</h2><p>The same product and catalogue logic is preserved across breakpoints. Desktop uses horizontal grouping and persistent context; mobile uses vertical rhythm, two-column discovery, large touch targets and sticky commerce actions.</p></div>
-          <div className="responsive-pair"><figure><div className="responsive-scroll"><img src="/images/furniture/desktop-home.png" alt="Desktop furniture store homepage design" /></div><figcaption><span>DESKTOP · 1440PX</span><small>SCROLL TO VIEW FULL PAGE</small></figcaption></figure><figure><div className="responsive-scroll"><img src="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /></div><figcaption><span>MOBILE · 393PX</span><small>SCROLL TO VIEW FULL PAGE</small></figcaption></figure></div>
+          <div className="responsive-pair">
+            <figure><div className="responsive-screen"><div className="responsive-scroll" tabIndex={0}><img src="/images/furniture/desktop-home.png" alt="Desktop furniture store homepage design" /></div><span className="scroll-guide" aria-hidden="true" /></div><figcaption><span>DESKTOP · 1440PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
+            <figure><div className="responsive-screen"><div className="responsive-scroll" tabIndex={0}><img src="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /></div><span className="scroll-guide" aria-hidden="true" /></div><figcaption><span>MOBILE · 393PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
+          </div>
         </Reveal>
       </section>
 
