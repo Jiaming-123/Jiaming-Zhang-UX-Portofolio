@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, Code2, Layers3, MousePointer2, Smartphone, TestTube2, Workflow } from 'lucide-react'
 import { Reveal, SectionLabel } from './Content'
@@ -37,6 +37,31 @@ function AutoShowcase({ items, mobile = false }: { items: { title: string; note?
             <figcaption><span>{mobile ? 'MOBILE 393PX' : 'DESKTOP 1440PX'} · AUTO PLAYS EVERY 3.2S</span><h3>{items[active].title}</h3>{items[active].note && <p>{items[active].note}</p>}</figcaption>
           </motion.figure>
         </AnimatePresence>
+      </div>
+    </div>
+  )
+}
+
+function ScrollablePreview({ image, alt }: { image: string; alt: string }) {
+  const screenRef = useRef<HTMLDivElement>(null)
+  const [showCue, setShowCue] = useState(false)
+
+  useEffect(() => {
+    const screen = screenRef.current
+    if (!screen) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setShowCue(true)
+      observer.disconnect()
+    }, { threshold: .25 })
+    observer.observe(screen)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={screenRef} className={`responsive-screen${showCue ? ' show-scroll-cue' : ''}`}>
+      <div className="responsive-scroll" tabIndex={0} data-lenis-prevent data-lenis-prevent-wheel aria-label="Scrollable full-page interface preview">
+        <img src={image} alt={alt} />
       </div>
     </div>
   )
@@ -106,8 +131,8 @@ export function FurnitureCaseStudy() {
           <SectionLabel number="06">RESPONSIVE EXPERIENCE</SectionLabel>
           <div className="furniture-heading"><h2>Desktop supports comparison. Mobile supports sequence and touch.</h2><p>The same product and catalogue logic is preserved across breakpoints. Desktop uses horizontal grouping and persistent context; mobile uses vertical rhythm, two-column discovery, large touch targets and sticky commerce actions.</p></div>
           <div className="responsive-pair">
-            <figure><div className="responsive-screen"><div className="responsive-scroll" tabIndex={0}><img src="/images/furniture/desktop-home.png" alt="Desktop furniture store homepage design" /></div><span className="scroll-guide" aria-hidden="true" /></div><figcaption><span>DESKTOP · 1440PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
-            <figure><div className="responsive-screen"><div className="responsive-scroll" tabIndex={0}><img src="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /></div><span className="scroll-guide" aria-hidden="true" /></div><figcaption><span>MOBILE · 393PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
+            <figure><ScrollablePreview image="/images/furniture/desktop-home.png" alt="Desktop furniture store homepage design" /><figcaption><span>DESKTOP · 1440PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
+            <figure><ScrollablePreview image="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /><figcaption><span>MOBILE · 393PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
           </div>
         </Reveal>
       </section>
