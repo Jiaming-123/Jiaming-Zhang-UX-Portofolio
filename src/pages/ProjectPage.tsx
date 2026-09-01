@@ -2,6 +2,7 @@ import { ArrowDown, ArrowRight, GitBranch, Languages, ShieldCheck, UserRoundChec
 import { Link, useParams } from 'react-router-dom'
 import { BoardGameMateIteration } from '../components/BoardGameMateIteration'
 import { CaseStudySection, Gallery, HorizontalDemo, LandingDemo, MediaPlaceholder, Reveal, SectionLabel, VideoPlayer } from '../components/Content'
+import { FurnitureCaseStudy } from '../components/FurnitureCaseStudy'
 import { Footer } from '../components/Layout'
 import { projectBySlug, projects, type Project } from '../data/projects'
 import { NotFoundPage } from './InfoPages'
@@ -12,7 +13,8 @@ function ProjectHero({ project }: { project: Project }) {
       <div className="project-hero-top"><span>{project.eyebrow.toUpperCase()} / {project.year}</span><span>CASE STUDY · {project.number} / 05</span></div>
       <h1>{project.title.toUpperCase()}</h1>
       <div className="project-hero-intro"><p>{project.heroStatement}</p><ul>{project.categories.map((category) => <li key={category}>{category}</li>)}</ul></div>
-      <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : project.slug === 'furniture' ? 'interface' : 'mobile'} label="PROJECT HERO MEDIA" />
+      {project.slug === 'furniture' && <a className="furniture-live-link" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link"><span>VIEW THE LIVE EXPERIENCE</span><strong>My Furniture Store Redesign Project Link</strong><ArrowRight /></a>}
+      {project.slug === 'furniture' ? <figure className="furniture-hero-media"><img src="/images/furniture/cover.png" alt={project.heroAlt} /></figure> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label="PROJECT HERO MEDIA" />}
       <a href="#overview" className="project-scroll" data-cursor="link">SCROLL TO EXPLORE <ArrowDown size={15} /></a>
     </header>
   )
@@ -132,7 +134,7 @@ export default function ProjectPage() {
     <>
       {!isBoardGameMate && <ProjectHero project={project} />}
       <main className="case-study">
-        {isBoardGameMate ? <BoardGameMateIteration /> : <>
+        {isBoardGameMate ? <BoardGameMateIteration /> : project.slug === 'furniture' ? <><FurnitureCaseStudy /><Link className="next-project" to={`/projects/${nextProject.slug}`} data-cursor="media"><span>NEXT CASE STUDY · {nextProject.number}</span><h2>{nextProject.title}</h2><ArrowRight /></Link></> : <>
         <ProjectOverview project={project} />
         <CaseStudySection number="02" label="PROBLEM / CONTEXT" title="The experience behind the problem."><p>{project.problem}</p><div className="context-note"><span>DESIGN QUESTION</span><p>How might the experience reduce uncertainty while giving people enough context to make their own next decision?</p></div></CaseStudySection>
         <CaseStudySection number="03" label="RESEARCH / DISCOVERY" title="Looking for the moments that shape confidence."><p>{project.research}</p></CaseStudySection>
