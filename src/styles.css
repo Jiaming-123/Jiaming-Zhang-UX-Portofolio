@@ -496,7 +496,6 @@ p { text-wrap: pretty; }
 .furniture-cover-kicker { margin: clamp(50px,9vw,106px) 0 16px; color: #85743d; font-size: .6rem; font-weight: 700; letter-spacing: .16em; }
 .furniture-cover-copy h2 { margin: 0; font: 600 clamp(3.7rem,6.2vw,7.1rem)/.83 'Space Grotesk'; letter-spacing: -.085em; }
 .furniture-cover-copy h2 i { color: #8d7828; font-style: normal; }
-.furniture-cover-summary { max-width: 330px; margin: 28px 0 0; color: #5c514d; font: 400 clamp(.82rem,1.1vw,1rem)/1.55 'Space Grotesk'; }
 .furniture-cover-mark { display: flex; align-items: center; gap: 13px; margin-top: auto; color: #6b5d57; font-size: .52rem; letter-spacing: .12em; }
 .furniture-cover-mark b { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; background: #231f20; color: #fff8f0; font: 600 .8rem 'Space Grotesk'; letter-spacing: -.07em; }
 .furniture-cover-devices { position: absolute; inset: 0 0 0 33%; z-index: 2; pointer-events: none; }
@@ -509,7 +508,7 @@ p { text-wrap: pretty; }
 .furniture-cover-phone { width: 16%; height: 47%; border: 6px solid #231f20; border-radius: 18px; }
 .furniture-cover-phone-main { top: 26%; right: 27%; z-index: 3; transform: rotate(7deg); }
 .furniture-cover-phone-side { top: 10%; right: 5%; transform: rotate(17deg); }
-.cover-phone-notch { position: absolute; top: 3px; left: 50%; z-index: 1; width: 43%; height: 9px; border-radius: 0 0 8px 8px; background: #231f20; transform: translateX(-50%); }
+.cover-dynamic-island { position: absolute; top: 7px; left: 50%; z-index: 1; width: 38px; height: 10px; border-radius: 999px; background: #0b0909; box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); transform: translateX(-50%); }
 .furniture-cover-label { position: absolute; right: 9%; bottom: 8%; z-index: 4; padding: 8px 11px; border: 1px solid rgba(35,31,32,.22); border-radius: 8px; background: rgba(255,248,240,.84); color: #5c514d; font-size: .48rem; font-weight: 700; letter-spacing: .12em; line-height: 1.6; backdrop-filter: blur(8px); }
 .furniture-case { --furn-gold: #dbca83; --furn-cream: #fff8f0; --furn-ink: #231f20; --furn-soft: #e9dfaf; background: #070f1d; }
 .furniture-case img { display: block; max-width: 100%; }
@@ -690,7 +689,6 @@ p { text-wrap: pretty; }
   .furniture-cover-tags span { padding: 8px 10px; font-size: .47rem; }
   .furniture-cover-kicker { margin: 34px 0 9px; font-size: .5rem; }
   .furniture-cover-copy h2 { font-size: clamp(3.35rem, 15vw, 4.5rem); }
-  .furniture-cover-summary { max-width: 250px; margin-top: 16px; font-size: .72rem; }
   .furniture-cover-mark { display: none; }
   .furniture-cover-devices { top: 290px; left: 0; }
   .furniture-cover-laptop { top: 13%; right: 9%; width: 66%; height: 62%; padding: 12px 5px 5px; border-width: 5px; border-bottom-width: 8px; }
@@ -698,7 +696,6 @@ p { text-wrap: pretty; }
   .furniture-cover-phone { width: 21%; height: 43%; border-width: 4px; border-radius: 12px; }
   .furniture-cover-phone-main { top: 28%; right: 27%; }
   .furniture-cover-phone-side { top: 12%; right: 4%; }
-  .cover-phone-notch { height: 6px; }
   .furniture-cover-label { right: 7%; bottom: 3%; font-size: .4rem; }
   .audit-lenses, .principle-grid, .build-grid, .process-track, .journey-track { grid-template-columns: 1fr; }
   .audit-lenses article, .principle-grid article, .build-grid article { min-height: 220px; }
