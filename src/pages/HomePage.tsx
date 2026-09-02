@@ -8,6 +8,7 @@ import { projects, visualItems } from '../data/projects'
 
 export default function HomePage() {
   const landing = projects[0]
+  const selectedProjects = [projects[1], projects[3], projects[2], projects[4]]
   return (
     <>
       <Hero />
@@ -83,7 +84,7 @@ export default function HomePage() {
           <div><h2>DESIGN ACROSS<br />SCREENS, SYSTEMS<br /><span>&amp; SERVICES.</span></h2><p>Selected projects exploring how research, interaction, and visual systems can make complex experiences feel clear and human.</p></div>
         </Reveal>
         <div className="project-list home-project-grid">
-          {projects.slice(1).map((project, index) => <Reveal key={project.slug}><ProjectCard project={{ ...project, number: String(index + 1).padStart(2, '0') }} /></Reveal>)}
+          {selectedProjects.map((project, index) => <Reveal key={project.slug}><ProjectCard project={{ ...project, number: String(index + 1).padStart(2, '0') }} /></Reveal>)}
         </div>
         <div className="section-action"><MagneticButton to="/work" className="button-secondary">VIEW ALL PROJECTS</MagneticButton></div>
       </section>

@@ -95,6 +95,7 @@ p { text-wrap: pretty; }
 .about-preview { contain-intrinsic-size: auto 1700px; }
 .site-footer { contain-intrinsic-size: auto 680px; }
 .home-featured { background: var(--panel); }
+.selected-work { content-visibility: visible; }
 .home-featured > .reveal { position: relative; z-index: 1; }
 .home-cursor-grid { position: absolute; inset: 0; z-index: 0; opacity: .64; mask-image: linear-gradient(to bottom, transparent 2%, #000 14%, #000 82%, transparent 100%); }
 .home-landing-heading { margin: 0 0 54px; }
