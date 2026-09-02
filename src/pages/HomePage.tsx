@@ -1,5 +1,4 @@
 import { ArrowRight, Check, Sparkles } from 'lucide-react'
-import { Hero } from '../components/Hero'
 import { Footer, MagneticButton } from '../components/Layout'
 import { Gallery, MediaPlaceholder, ProjectCard, Reveal, SectionLabel } from '../components/Content'
 import BorderGlow from '../components/BorderGlow'
@@ -9,13 +8,14 @@ export default function HomePage() {
   const landing = projects[0]
   return (
     <>
-      <Hero />
-      <section className="home-featured" id="featured">
+      <section className="home-featured home-landing-project" id="featured">
         <Reveal>
-          <SectionLabel number="01">FEATURED / GRADUATION PROJECT</SectionLabel>
-          <div className="featured-heading">
-            <div><span>LANDING</span><span>APP</span></div>
-            <p>An AI-powered transition assistant helping international students navigate their first steps in a new country.</p>
+          <div className="home-landing-heading">
+            <SectionLabel number="01">GRADUATION PROJECT / AI SERVICE</SectionLabel>
+            <div className="home-landing-title-row">
+              <h1>Landing App</h1>
+              <p>An AI-powered transition assistant helping international students navigate their first steps in a new country.</p>
+            </div>
           </div>
           <BorderGlow
             className="featured-border-glow"
@@ -60,10 +60,10 @@ export default function HomePage() {
 
       <section className="selected-work" id="work">
         <Reveal className="section-intro">
-          <SectionLabel number="02">SELECTED WORK</SectionLabel>
+          <SectionLabel number="02">DESIGN ACROSS SCREENS, SYSTEMS &amp; SERVICES</SectionLabel>
           <div><h2>DESIGN ACROSS<br />SCREENS, SYSTEMS<br /><span>&amp; SERVICES.</span></h2><p>Selected projects exploring how research, interaction, and visual systems can make complex experiences feel clear and human.</p></div>
         </Reveal>
-        <div className="project-list">
+        <div className="project-list home-project-grid">
           {projects.slice(1).map((project, index) => <Reveal key={project.slug}><ProjectCard project={{ ...project, number: String(index + 1).padStart(2, '0') }} /></Reveal>)}
         </div>
         <div className="section-action"><MagneticButton to="/work" className="button-secondary">VIEW ALL PROJECTS</MagneticButton></div>

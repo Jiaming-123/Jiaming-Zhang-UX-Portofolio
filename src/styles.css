@@ -94,6 +94,10 @@ p { text-wrap: pretty; }
 .about-preview { contain-intrinsic-size: auto 1700px; }
 .site-footer { contain-intrinsic-size: auto 680px; }
 .home-featured { background: var(--panel); }
+.home-landing-heading { margin: 0 0 54px; }
+.home-landing-title-row { display: grid; grid-template-columns: 7fr 5fr; gap: 30px; align-items: end; margin-top: 62px; }
+.home-landing-title-row h1 { margin: 0; font: 500 clamp(4rem, 8vw, 8.5rem)/.88 'Space Grotesk'; letter-spacing: -.075em; }
+.home-landing-title-row p { max-width: 480px; margin: 0 0 8px; color: #cbd5e1; font: 400 clamp(1.05rem, 1.5vw, 1.4rem)/1.5 'Space Grotesk'; letter-spacing: -.025em; }
 .featured-heading { display: grid; grid-template-columns: 7fr 5fr; gap: 30px; align-items: end; margin: 90px 0 70px; }
 .featured-heading > div { font: 500 clamp(4.5rem, 10.5vw, 10.5rem)/.74 'Space Grotesk'; letter-spacing: -.075em; }
 .featured-heading > div span { display: block; }
@@ -145,6 +149,8 @@ p { text-wrap: pretty; }
 .section-intro h2 span { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.62); }
 .section-intro > div:last-child > p { max-width: 460px; margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.7; }
 .project-list { width: min(100%, 1586px); margin-inline: auto; display: grid; gap: 130px; }
+.home-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 3vw, 54px); row-gap: clamp(72px, 9vw, 150px); }
+.home-project-grid .project-card { min-width: 0; }
 .project-card { --project-color: #0066ff; }
 .project-card .media-placeholder, .project-card .boardgamemate-cover { min-height: 0; aspect-ratio: 1586 / 992; }
 .work-index > .project-card { width: min(100%, 1586px); justify-self: center; }
@@ -814,6 +820,8 @@ p { text-wrap: pretty; }
   .boardgamemate-overview-grid { gap: 55px; }
   .boardgamemate-cover { min-height: 500px; }
   .boardgamemate-cover-card { width: clamp(140px, 21vw, 220px); }
+  .home-landing-title-row { grid-template-columns: 1fr 1fr; }
+  .home-project-grid { column-gap: 24px; row-gap: 90px; }
   .boardgamemate-overview-copy h1 { font-size: 4rem; }
   .boardgamemate-discover-grid, .boardgamemate-research-heading { grid-template-columns: 1fr 1fr; }
   .boardgamemate-discover-note, .boardgamemate-research-heading > div { grid-column: 2; }
@@ -847,6 +855,10 @@ p { text-wrap: pretty; }
   .featured-heading { grid-template-columns: 1fr; margin: 65px 0 45px; }
   .featured-heading > div { font-size: clamp(4rem, 20vw, 6.2rem); }
   .featured-heading > p { font-size: 1.05rem; }
+  .home-landing-heading { margin-bottom: 40px; }
+  .home-landing-title-row { grid-template-columns: 1fr; gap: 28px; margin-top: 48px; }
+  .home-landing-title-row h1 { font-size: clamp(3.6rem, 17vw, 6rem); }
+  .home-landing-title-row p { font-size: 1.05rem; }
   .featured-stage { min-height: auto; grid-template-columns: 1fr; padding: 32px 18px; border-radius: 18px; }
   .featured-border-glow { --border-radius: 18px !important; }
   .feature-timeline { order: 2; transform: none; padding: 20px; }
@@ -860,6 +872,7 @@ p { text-wrap: pretty; }
   .section-intro h2 { font-size: clamp(3rem, 14vw, 4.4rem); }
   .section-intro > div:last-child > p { font-size: .84rem; }
   .project-list, .work-index { gap: 90px; }
+  .home-project-grid { grid-template-columns: 1fr; gap: 90px; }
   .project-card .media-placeholder, .work-index .featured-card .media-placeholder { min-height: 0; aspect-ratio: 1586 / 992; }
   .furniture-project-cover-image { height: auto; aspect-ratio: 1586 / 992; border-radius: inherit; object-fit: contain; }
   .media-alt { left: 14px; right: 14px; bottom: 13px; align-items: flex-start; flex-direction: column; gap: 6px; }
