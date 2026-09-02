@@ -2,6 +2,7 @@ import { ArrowRight, Check, Sparkles } from 'lucide-react'
 import { Footer, MagneticButton } from '../components/Layout'
 import { Gallery, MediaPlaceholder, ProjectCard, Reveal, SectionLabel } from '../components/Content'
 import BorderGlow from '../components/BorderGlow'
+import CursorGrid from '../components/CursorGrid'
 import { projects, visualItems } from '../data/projects'
 
 export default function HomePage() {
@@ -9,6 +10,22 @@ export default function HomePage() {
   return (
     <>
       <section className="home-featured home-landing-project" id="featured">
+        <CursorGrid
+          className="home-cursor-grid"
+          cellSize={70}
+          color="#38BDF8"
+          radius={170}
+          falloff="smooth"
+          holdTime={320}
+          fadeDuration={760}
+          lineWidth={1.1}
+          maxOpacity={0.62}
+          fillOpacity={0.02}
+          gridOpacity={0}
+          cellRadius={2}
+          clickPulse
+          pulseSpeed={620}
+        />
         <Reveal>
           <div className="home-landing-heading">
             <SectionLabel number="01">GRADUATION PROJECT / AI SERVICE</SectionLabel>

@@ -94,6 +94,8 @@ p { text-wrap: pretty; }
 .about-preview { contain-intrinsic-size: auto 1700px; }
 .site-footer { contain-intrinsic-size: auto 680px; }
 .home-featured { background: var(--panel); }
+.home-featured > .reveal { position: relative; z-index: 1; }
+.home-cursor-grid { position: absolute; inset: 0; z-index: 0; opacity: .64; mask-image: linear-gradient(to bottom, transparent 2%, #000 14%, #000 82%, transparent 100%); }
 .home-landing-heading { margin: 0 0 54px; }
 .home-landing-title-row { display: grid; grid-template-columns: 7fr 5fr; gap: 30px; align-items: end; margin-top: 62px; }
 .home-landing-title-row h1 { margin: 0; font: 500 clamp(4rem, 8vw, 8.5rem)/.88 'Space Grotesk'; letter-spacing: -.075em; }
@@ -822,6 +824,7 @@ p { text-wrap: pretty; }
   .boardgamemate-cover-card { width: clamp(140px, 21vw, 220px); }
   .home-landing-title-row { grid-template-columns: 1fr 1fr; }
   .home-project-grid { column-gap: 24px; row-gap: 90px; }
+  .home-cursor-grid { opacity: .46; }
   .boardgamemate-overview-copy h1 { font-size: 4rem; }
   .boardgamemate-discover-grid, .boardgamemate-research-heading { grid-template-columns: 1fr 1fr; }
   .boardgamemate-discover-note, .boardgamemate-research-heading > div { grid-column: 2; }
@@ -859,6 +862,7 @@ p { text-wrap: pretty; }
   .home-landing-title-row { grid-template-columns: 1fr; gap: 28px; margin-top: 48px; }
   .home-landing-title-row h1 { font-size: clamp(3.6rem, 17vw, 6rem); }
   .home-landing-title-row p { font-size: 1.05rem; }
+  .home-cursor-grid { opacity: .3; }
   .featured-stage { min-height: auto; grid-template-columns: 1fr; padding: 32px 18px; border-radius: 18px; }
   .featured-border-glow { --border-radius: 18px !important; }
   .feature-timeline { order: 2; transform: none; padding: 20px; }
