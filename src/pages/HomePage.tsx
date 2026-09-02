@@ -1,4 +1,5 @@
 import { ArrowRight, Check, Sparkles } from 'lucide-react'
+import { Hero } from '../components/Hero'
 import { Footer, MagneticButton } from '../components/Layout'
 import { Gallery, MediaPlaceholder, ProjectCard, Reveal, SectionLabel } from '../components/Content'
 import BorderGlow from '../components/BorderGlow'
@@ -9,6 +10,7 @@ export default function HomePage() {
   const landing = projects[0]
   return (
     <>
+      <Hero />
       <section className="home-featured home-landing-project" id="featured">
         <CursorGrid
           className="home-cursor-grid"
