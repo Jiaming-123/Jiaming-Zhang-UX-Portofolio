@@ -43,18 +43,20 @@ export function MediaPlaceholder({ alt, className = '', label = 'IMAGE DIRECTION
 }
 
 export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+  const isFurniture = project.slug === 'furniture'
+
   return (
     <article className={`project-card ${featured ? 'featured-card' : ''}`} style={{ '--project-color': project.color } as React.CSSProperties}>
       <BorderGlow
-        className="project-border-glow"
+        className={`project-border-glow${isFurniture ? ' project-border-glow-furniture' : ''}`}
         edgeSensitivity={32}
         glowColor="194 93 58"
         backgroundColor="#07101f"
         borderRadius={22}
-        glowRadius={28}
-        glowIntensity={0.72}
+        glowRadius={isFurniture ? 40 : 28}
+        glowIntensity={isFurniture ? 1.15 : 0.72}
         coneSpread={22}
-        colors={[project.color, '#0066ff', '#00d4ff']}
+        colors={isFurniture ? ['#38bdf8', '#00d4ff', project.color] : [project.color, '#0066ff', '#00d4ff']}
         fillOpacity={0.18}
       >
         <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">

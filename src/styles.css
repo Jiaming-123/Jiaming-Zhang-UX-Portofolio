@@ -164,6 +164,7 @@ p { text-wrap: pretty; }
 .project-card .media-placeholder, .project-card .boardgamemate-cover { min-height: 0; aspect-ratio: 1586 / 992; }
 .work-index > .project-card { width: min(100%, 1586px); justify-self: center; }
 .project-border-glow { --border-radius: var(--radius) !important; }
+.project-border-glow-furniture { border-color: rgba(56,189,248,.22); }
 .project-border-glow .project-visual-link { border-radius: inherit; }
 .project-visual-link { position: relative; display: block; overflow: hidden; border-radius: var(--radius); }
 .project-cover-image { display: block; width: 100%; height: auto; aspect-ratio: 1586 / 992; object-fit: cover; }
