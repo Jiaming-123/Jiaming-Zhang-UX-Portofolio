@@ -812,6 +812,7 @@ p { text-wrap: pretty; }
 .bgm-flow-media[data-count='2'] .bgm-flow-screen:nth-child(1) { transform: translateY(-3%) rotate(-3deg); }
 .bgm-flow-media[data-count='2'] .bgm-flow-screen:nth-child(2) { transform: translateY(4%) rotate(3deg); }
 .bgm-flow-screen:hover { z-index: 4; transform: translateY(-3%) scale(1.035); filter: drop-shadow(0 35px 46px rgba(0,0,0,.5)); }
+.bgm-flow-mobile-controls { display: none; }
 .bgm-flow-copy { min-width: 0; max-width: 590px; }
 .bgm-flow-copy > span { color: var(--cyan); font-size: .58rem; letter-spacing: .17em; }
 .bgm-flow-copy h3 { margin: 30px 0 24px; font: 500 clamp(2.7rem, 4.4vw, 4.8rem)/.96 'Space Grotesk'; letter-spacing: -.06em; }
@@ -1135,11 +1136,14 @@ p { text-wrap: pretty; }
   .bgm-product-journey li:nth-child(3)::after { display: none; }
   .bgm-flow-list { margin-top: 50px; }
   .bgm-flow, .bgm-flow:nth-child(even) { gap: 38px; padding: 90px 0; }
-  .bgm-flow-media { min-height: 560px; }
-  .bgm-flow-screen, .bgm-flow-media[data-count='2'] .bgm-flow-screen { width: min(72%, 300px); margin: 0; }
-  .bgm-flow-screen:nth-child(n+2) { display: none; }
-  .bgm-flow-screen:nth-child(1), .bgm-flow-media[data-count='2'] .bgm-flow-screen:nth-child(1) { transform: none; }
+  .bgm-flow-media { min-height: min(150vw, 610px); overflow: hidden; touch-action: pan-y; }
+  .bgm-flow-screen, .bgm-flow-media[data-count='2'] .bgm-flow-screen { position: absolute; inset: 50% auto auto 50%; display: block; width: min(64vw, 260px); margin: 0; translate: -50% -50%; transform: none; cursor: grab; user-select: none; will-change: transform; }
+  .bgm-flow-screen:active { cursor: grabbing; }
+  .bgm-flow-screen img { pointer-events: none; }
   .bgm-flow-media::before { inset: 3% 0; }
+  .bgm-flow-mobile-controls { position: absolute; z-index: 10; right: 18px; bottom: 18px; display: flex; align-items: center; gap: 8px; padding: 5px; border: 1px solid rgba(148,163,184,.2); border-radius: 999px; background: rgba(5,11,24,.82); backdrop-filter: blur(12px); }
+  .bgm-flow-mobile-controls button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; background: #1f513d; color: #fff; cursor: pointer; font-size: .85rem; }
+  .bgm-flow-mobile-controls span { min-width: 44px; color: #e2e8f0; font-size: .5rem; letter-spacing: .12em; text-align: center; }
   .bgm-flow-copy h3 { margin-top: 24px; font-size: 2.65rem; }
   .bgm-flow-copy > p { font-size: .86rem; }
   .bgm-flow-journey { gap: 10px 0; }

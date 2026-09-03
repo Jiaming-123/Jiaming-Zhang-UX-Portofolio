@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion, useReducedMotion, type PanInfo } from 'framer-motion'
 import { ArrowUpRight, X } from 'lucide-react'
 import { SectionLabel } from './Content'
 
@@ -263,16 +264,74 @@ function PrototypeModal({ flow, onClose }: { flow: BoardGameMateFlow; onClose: (
   )
 }
 
+function FlowMediaCarousel({ flow }: { flow: BoardGameMateFlow }) {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+  const reduceMotion = useReducedMotion()
+  const imageCount = flow.images.length
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)')
+    const update = () => setIsMobile(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
+
+  const move = (direction: 1 | -1) => {
+    setActiveIndex((current) => (current + direction + imageCount) % imageCount)
+  }
+
+  const onDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (Math.abs(info.offset.x) < 48 && Math.abs(info.velocity.x) < 320) return
+    move(info.offset.x < 0 ? 1 : -1)
+  }
+
+  return (
+    <div className="bgm-flow-media" data-count={imageCount} aria-label={`${flow.label} interface sequence`}>
+      {flow.images.map((image, index) => {
+        const stackPosition = (index - activeIndex + imageCount) % imageCount
+        const stackStates = [
+          { x: 0, y: 0, scale: 1, rotate: 0, opacity: 1 },
+          { x: 26, y: 12, scale: 0.94, rotate: 2.4, opacity: 0.88 },
+          { x: 48, y: 24, scale: 0.88, rotate: 4.8, opacity: 0.7 },
+        ]
+        const mobileState = stackStates[Math.min(stackPosition, stackStates.length - 1)]
+        const isActive = stackPosition === 0
+
+        return (
+          <motion.figure
+            key={image.nodeId}
+            className={`bgm-flow-screen bgm-flow-screen-${index + 1}`}
+            data-stack-position={stackPosition}
+            style={{ zIndex: isMobile ? imageCount - stackPosition : imageCount - index }}
+            animate={isMobile ? mobileState : undefined}
+            transition={reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 280, damping: 28 }}
+            drag={isMobile && isActive && imageCount > 1 ? 'x' : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.22}
+            onDragEnd={onDragEnd}
+            aria-hidden={isMobile && !isActive}
+          >
+            <img src={`${imageRoot}/${image.file}`} width={786} height={1704} loading="lazy" decoding="async" alt={image.alt} draggable={false} />
+          </motion.figure>
+        )
+      })}
+      {imageCount > 1 && (
+        <div className="bgm-flow-mobile-controls" aria-label={`${flow.label} image carousel controls`}>
+          <button type="button" onClick={() => move(-1)} aria-label="Show previous interface">←</button>
+          <span aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(imageCount).padStart(2, '0')}</span>
+          <button type="button" onClick={() => move(1)} aria-label="Show next interface">→</button>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function FinalUIFlow({ flow, onOpen }: { flow: BoardGameMateFlow; onOpen: (flow: BoardGameMateFlow) => void }) {
   return (
     <article className="bgm-flow">
-      <div className="bgm-flow-media" data-count={flow.images.length} aria-label={`${flow.label} interface sequence`}>
-        {flow.images.map((image, index) => (
-          <figure key={image.nodeId} className={`bgm-flow-screen bgm-flow-screen-${index + 1}`}>
-            <img src={`${imageRoot}/${image.file}`} width={786} height={1704} loading="lazy" decoding="async" alt={image.alt} />
-          </figure>
-        ))}
-      </div>
+      <FlowMediaCarousel flow={flow} />
       <div className="bgm-flow-copy">
         <span>{flow.id} / {flow.label}</span>
         <h3>{flow.title}</h3>
