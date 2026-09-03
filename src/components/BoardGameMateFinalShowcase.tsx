@@ -341,7 +341,7 @@ function FinalUIFlow({ flow, onOpen }: { flow: BoardGameMateFlow; onOpen: (flow:
           {flow.visualJourney.map((step) => <li key={step}>{step}</li>)}
         </ol>
         <small>{flow.principle}</small>
-        <button type="button" onClick={() => onOpen(flow)} aria-label={`Try BoardGameMate flow: ${flow.label.toLowerCase()}`}>TRY THIS FLOW <ArrowUpRight /></button>
+        <button type="button" onClick={() => onOpen(flow)} aria-label={`Try BoardGameMate flow: ${flow.label.toLowerCase()}`}>Try This Flow <ArrowUpRight /></button>
       </div>
     </article>
   )
