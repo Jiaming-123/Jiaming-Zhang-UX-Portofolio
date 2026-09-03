@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowLeft, ArrowRight, Check, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
-import { BoardGameMateCover } from './BoardGameMateCover'
 import BorderGlow from './BorderGlow'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -59,7 +58,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         fillOpacity={0.18}
       >
         <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-          {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : project.slug === 'furniture' ? <img className="furniture-project-cover-image" src="/images/furniture/furniture-cover.png" width={3172} height={1984} loading="lazy" decoding="async" alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
+          {project.slug === 'boardgamemate' ? <img className="project-cover-image" src="/images/boardgamemate/boardgamemate-cover.png" width={3172} height={1984} loading="lazy" decoding="async" alt={project.heroAlt} /> : project.slug === 'furniture' ? <img className="project-cover-image" src="/images/furniture/myfurniturestore-cover.png" width={3172} height={1984} loading="lazy" decoding="async" alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
           <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
         </Link>
       </BorderGlow>

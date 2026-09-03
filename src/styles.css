@@ -155,12 +155,18 @@ p { text-wrap: pretty; }
 .project-list { width: min(100%, 1586px); margin-inline: auto; display: grid; gap: 130px; }
 .home-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 3vw, 54px); row-gap: clamp(72px, 9vw, 150px); }
 .home-project-grid .project-card { min-width: 0; }
+.home-project-grid .project-card { transition: transform .5s cubic-bezier(.22, 1, .36, 1), filter .5s ease; will-change: transform; }
+@media (hover: hover) and (pointer: fine) {
+  .home-project-grid .project-card:hover { transform: translateY(-10px); }
+  .home-project-grid .project-card:hover .project-border-glow { box-shadow: 0 24px 54px rgba(0,0,0,.28), 0 0 34px color-mix(in srgb, var(--project-color) 22%, transparent); }
+}
 .project-card { --project-color: #0066ff; }
 .project-card .media-placeholder, .project-card .boardgamemate-cover { min-height: 0; aspect-ratio: 1586 / 992; }
 .work-index > .project-card { width: min(100%, 1586px); justify-self: center; }
 .project-border-glow { --border-radius: var(--radius) !important; }
 .project-border-glow .project-visual-link { border-radius: inherit; }
 .project-visual-link { position: relative; display: block; overflow: hidden; border-radius: var(--radius); }
+.project-cover-image { display: block; width: 100%; height: auto; aspect-ratio: 1586 / 992; object-fit: cover; }
 .project-visual-link .media-placeholder { transition: transform .75s cubic-bezier(.22,1,.36,1), border-color .4s; }
 .project-visual-link:hover .media-placeholder { transform: scale(1.018); border-color: color-mix(in srgb, var(--project-color), white 20%); }
 .view-pill { position: absolute; right: 22px; bottom: 22px; display: flex; align-items: center; gap: 10px; padding: 12px 17px; border-radius: 100px; background: rgba(5,11,24,.96); border: 1px solid rgba(255,255,255,.18); backdrop-filter: none; font-size: .55rem; letter-spacing: .12em; transform: translateY(8px); opacity: 0; transition: .35s ease; }
