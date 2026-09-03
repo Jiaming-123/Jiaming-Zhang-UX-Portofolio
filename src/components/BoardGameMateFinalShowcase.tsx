@@ -5,6 +5,7 @@ import { SectionLabel } from './Content'
 const FIGMA_FILE_KEY = 'n7Zgb0nVXh4GQt9G4fFqbz'
 const FIGMA_PAGE_ID = '2538:2'
 const imageRoot = '/images/boardgamemate/final-ui'
+const guideImageRoot = `${imageRoot}/guides`
 
 type FlowImage = {
   alt: string
@@ -18,6 +19,7 @@ type BoardGameMateFlow = {
   goal: string
   id: string
   images: FlowImage[]
+  steps: FlowStep[]
   label: string
   principle: string
   prototypeStartNode: string
@@ -25,6 +27,14 @@ type BoardGameMateFlow = {
   startInstruction: string
   title: string
   visualJourney: string[]
+}
+
+type FlowStep = {
+  action: string
+  detail: string
+  image: string
+  imageHeight: number
+  imageWidth: number
 }
 
 // Figma sources were read from the file's real flowStartingPoints and exported at 2x.
@@ -42,6 +52,11 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     prototypeStartNode: '2538:6',
     prototypeStartName: 'FLOW 01 — Find and join a game tonight',
     startInstruction: 'Start by selecting the recommended Stardew Valley session.',
+    steps: [
+      { action: 'Join game', detail: 'Select the recommended Stardew Valley session.', image: 'flow-01-card-join.png', imageWidth: 738, imageHeight: 538 },
+      { action: 'Join game', detail: 'Confirm the session from its detail screen.', image: 'flow-01-detail-join.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Confirm seat', detail: 'Complete the join confirmation.', image: 'flow-01-confirm-seat.png', imageWidth: 690, imageHeight: 104 },
+    ],
     images: [
       { file: 'flow-01-discover.png', nodeId: '2538:6', frameName: 'P01 / Discover / Default', alt: 'BoardGameMate Discover screen showing a recommended Stardew Valley session' },
       { file: 'flow-01-session-detail.png', nodeId: '2540:218', frameName: 'P06 / Session / Stardew Valley', alt: 'BoardGameMate Stardew Valley session detail with time, place, compatibility and attendance' },
@@ -59,6 +74,11 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     prototypeStartNode: '2538:96',
     prototypeStartName: 'FLOW 02 — Find a nearby playable opportunity',
     startInstruction: 'Start by opening the nearby map filters.',
+    steps: [
+      { action: 'Tonight', detail: 'Open the nearby-session filters.', image: 'flow-02-filter.png', imageWidth: 144, imageHeight: 60 },
+      { action: 'Apply filters', detail: 'Apply the selected time, level and distance.', image: 'flow-02-apply.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Join game', detail: 'Choose the recommended playable opportunity.', image: 'flow-02-join.png', imageWidth: 738, imageHeight: 538 },
+    ],
     images: [
       { file: 'flow-02-nearby-map.png', nodeId: '2538:96', frameName: 'P03 / Nearby / Map Default', alt: 'BoardGameMate Nearby Map showing playable sessions around Melbourne' },
       { file: 'flow-02-filter.png', nodeId: '2636:417', frameName: 'P04 / Nearby / Filter Sheet / Dimmed', alt: 'BoardGameMate nearby session filters for time, experience level and distance' },
@@ -75,6 +95,11 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     prototypeStartNode: '2538:180',
     prototypeStartName: 'FLOW 03 — Learn Wingspan before play',
     startInstruction: 'Start by continuing the Wingspan learning journey.',
+    steps: [
+      { action: 'Continue learning', detail: 'Open the active Wingspan journey.', image: 'flow-03-continue.png', imageWidth: 288, imageHeight: 88 },
+      { action: 'Next step', detail: 'Move through the Turn Anatomy lesson.', image: 'flow-03-next.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Quick rules', detail: 'Open contextual support for play.', image: 'flow-03-quick-rules.png', imageWidth: 706, imageHeight: 132 },
+    ],
     images: [
       { file: 'flow-03-learn.png', nodeId: '2538:180', frameName: 'P09 / Learn / Overview', alt: 'BoardGameMate Learn screen showing a progressive Wingspan learning journey at 60 percent' },
       { file: 'flow-03-lesson.png', nodeId: '2540:441', frameName: 'P10 / Learn / Turn Anatomy', alt: 'BoardGameMate Turn Anatomy lesson explaining a Wingspan turn' },
@@ -92,6 +117,14 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     prototypeStartNode: '2540:447',
     prototypeStartName: 'FLOW 05 — Host a game',
     startInstruction: 'Start by choosing Host a game.',
+    steps: [
+      { action: 'Start hosting', detail: 'Begin the guided hosting flow.', image: 'flow-04-start-hosting.png', imageWidth: 420, imageHeight: 104 },
+      { action: 'Next · Game', detail: 'Choose Wingspan, then continue.', image: 'flow-04-next.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Next · Time', detail: 'Choose the date and time.', image: 'flow-04-next.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Next · Location', detail: 'Set the meeting place.', image: 'flow-04-next.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Next · Preferences', detail: 'Set player preferences and capacity.', image: 'flow-04-next.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Publish game', detail: 'Review and publish the session.', image: 'flow-04-publish.png', imageWidth: 690, imageHeight: 104 },
+    ],
     images: [
       { file: 'flow-04-create-game.png', nodeId: '2540:447', frameName: 'P12 / Create / Start', alt: 'BoardGameMate Create screen offering a guided Host a game journey' },
       { file: 'flow-04-review.png', nodeId: '2540:457', frameName: 'P17 / Create / Review', alt: 'BoardGameMate session review screen summarising game, time, place and player preferences' },
@@ -109,6 +142,11 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     prototypeStartNode: '2540:461',
     prototypeStartName: 'FLOW 04 — Match and invite Maya',
     startInstruction: 'Start by opening Maya’s player recommendation.',
+    steps: [
+      { action: 'Maya · 92% fit', detail: 'Open Maya’s compatibility profile.', image: 'flow-05-maya.png', imageWidth: 690, imageHeight: 300 },
+      { action: 'Invite to game', detail: 'Choose the session invitation action.', image: 'flow-05-invite.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Send invite', detail: 'Confirm and send Maya the invitation.', image: 'flow-05-send-invite.png', imageWidth: 690, imageHeight: 104 },
+    ],
     images: [
       { file: 'flow-05-player-match.png', nodeId: '2540:461', frameName: 'P19 / Players / Matches', alt: 'BoardGameMate player recommendations showing compatibility scores and match reasons' },
       { file: 'flow-05-match-detail.png', nodeId: '2540:463', frameName: 'P20 / Player Match / Maya', alt: 'BoardGameMate Maya match detail explaining games, play style, skill and availability compatibility' },
@@ -125,7 +163,12 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     principle: 'CONVERSATION IS THE TOOL. PLAYING TOGETHER IS THE GOAL.',
     prototypeStartNode: '2538:436',
     prototypeStartName: 'FLOW 06 — Coordinate and prepare to play',
-    startInstruction: 'Start by opening the active Stardew Valley group.',
+    startInstruction: 'Start by reviewing the active Stardew Valley group.',
+    steps: [
+      { action: 'Attendance', detail: 'Review who is confirmed and which seat is open.', image: 'flow-06-attendance.png', imageWidth: 690, imageHeight: 136 },
+      { action: 'Preparation', detail: 'Open the shared preparation checklist.', image: 'flow-06-preparation.png', imageWidth: 690, imageHeight: 296 },
+      { action: 'Message the group', detail: 'Use chat to confirm the remaining detail.', image: 'flow-06-message.png', imageWidth: 690, imageHeight: 104 },
+    ],
     images: [
       { file: 'flow-06-coordination.png', nodeId: '2538:436', frameName: 'P23 / Group / Stardew Valley', alt: 'BoardGameMate active Stardew Valley group showing attendance, preparation and coordination' },
       { file: 'flow-06-table-ready.png', nodeId: '2540:487', frameName: 'P23C / Chat / Table Ready', alt: 'BoardGameMate table-ready state showing four confirmed players and completed preparation' },
@@ -199,6 +242,19 @@ function PrototypeModal({ flow, onClose }: { flow: BoardGameMateFlow; onClose: (
           <aside id="bgm-prototype-instructions">
             <div><span>GOAL</span><p>{flow.goal}</p></div>
             <div><span>START HERE</span><p>{flow.startInstruction}</p></div>
+            <div className="bgm-prototype-steps">
+              <span>BUTTON ORDER</span>
+              <ol>
+                {flow.steps.map((step, index) => (
+                  <li key={`${flow.id}-${step.action}-${index}`}>
+                    <div className="bgm-prototype-step-image">
+                      <img src={`${guideImageRoot}/${step.image}`} width={step.imageWidth} height={step.imageHeight} loading="lazy" decoding="async" alt={`Button ${index + 1}: ${step.action}`} />
+                    </div>
+                    <div><b>{String(index + 1).padStart(2, '0')} · {step.action}</b><p>{step.detail}</p></div>
+                  </li>
+                ))}
+              </ol>
+            </div>
             <a href={prototypeUrl(flow.prototypeStartNode)} target="_blank" rel="noreferrer">OPEN FULL PROTOTYPE <ArrowUpRight /></a>
           </aside>
         </div>
@@ -256,7 +312,11 @@ export function BoardGameMateFinalShowcase() {
           <ol className="bgm-product-journey" aria-label="Complete BoardGameMate product journey">
             {['Discover', 'Match', 'Join', 'Learn', 'Coordinate', 'Play'].map((step) => <li key={step}>{step}</li>)}
           </ol>
-          <button type="button" className="bgm-complete-prototype" onClick={() => openFlow(boardGameMateFlows[0])}>EXPLORE COMPLETE PROTOTYPE <ArrowUpRight /></button>
+          <button type="button" className="bgm-complete-prototype" onClick={() => openFlow(boardGameMateFlows[0])}>
+            <span>INTERACTIVE PROTOTYPE</span>
+            <strong>Explore BoardGameMate Interactive Prototype</strong>
+            <ArrowUpRight />
+          </button>
         </div>
       </div>
       <div className="bgm-flow-list">
