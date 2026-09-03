@@ -779,6 +779,61 @@ p { text-wrap: pretty; }
 .iteration-outcome-copy { grid-column: 2; }
 .iteration-outcome-copy p { margin: 0 0 24px; }
 .iteration-outcome-copy p:last-child { margin-bottom: 0; }
+
+/* BoardGameMate final product flows */
+.iteration-showcase-heading > div { max-width: 760px; }
+.iteration-showcase-heading h3 { max-width: 720px; }
+.iteration-showcase-heading > div > p { max-width: 620px; }
+.bgm-product-journey { display: grid; grid-template-columns: repeat(6, 1fr); margin: 55px 0 34px; padding: 0; list-style: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.bgm-product-journey li { position: relative; padding: 18px 10px; color: #e2e8f0; font-size: .56rem; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+.bgm-product-journey li:not(:last-child)::after { content: '→'; position: absolute; right: -5px; color: var(--cyan); }
+.bgm-complete-prototype, .bgm-flow-copy > button { display: inline-flex; align-items: center; gap: 10px; padding: 0; border: 0; background: transparent; cursor: pointer; color: #e2e8f0; font-size: .56rem; letter-spacing: .14em; }
+.bgm-complete-prototype svg, .bgm-flow-copy > button svg { width: 15px; height: 15px; color: var(--cyan); transition: transform .28s ease; }
+.bgm-complete-prototype:hover svg, .bgm-flow-copy > button:hover svg { transform: translate(3px, -3px); }
+.bgm-flow-list { margin-top: 80px; }
+.bgm-flow { min-width: 0; display: grid; grid-template-columns: minmax(0, 7fr) minmax(360px, 5fr); gap: clamp(55px, 7vw, 120px); align-items: center; min-height: min(900px, 88vh); padding: clamp(110px, 11vw, 180px) 0; border-top: 1px solid var(--line); content-visibility: auto; contain-intrinsic-size: auto 900px; }
+.bgm-flow:nth-child(even) { grid-template-columns: minmax(360px, 5fr) minmax(0, 7fr); }
+.bgm-flow:nth-child(even) .bgm-flow-media { order: 2; }
+.bgm-flow:nth-child(even) .bgm-flow-copy { order: 1; justify-self: end; }
+.bgm-flow-media { position: relative; min-width: 0; width: 100%; min-height: 690px; display: flex; align-items: center; justify-content: center; isolation: isolate; }
+.bgm-flow-media::before { content: ''; position: absolute; inset: 8% 3%; z-index: -1; border: 1px solid rgba(56,189,248,.11); border-radius: 28px; background: radial-gradient(circle at 50% 50%, rgba(0,102,255,.12), transparent 62%), rgba(11,18,32,.38); }
+.bgm-flow-screen { position: relative; width: min(35%, 260px); margin: 0 -1.5%; transition: transform .3s cubic-bezier(.22,1,.36,1), filter .3s ease; filter: drop-shadow(0 28px 35px rgba(0,0,0,.38)); }
+.bgm-flow-screen img { width: 100%; height: auto; border: 1px solid rgba(255,255,255,.12); border-radius: clamp(18px, 2vw, 30px); background: #fbf7ee; }
+.bgm-flow-screen:nth-child(1) { transform: translateY(3%) rotate(-4deg); }
+.bgm-flow-screen:nth-child(2) { z-index: 2; transform: translateY(-3%); }
+.bgm-flow-screen:nth-child(3) { transform: translateY(4%) rotate(4deg); }
+.bgm-flow-media[data-count='2'] .bgm-flow-screen { width: min(43%, 305px); margin: 0 -2%; }
+.bgm-flow-media[data-count='2'] .bgm-flow-screen:nth-child(1) { transform: translateY(-3%) rotate(-3deg); }
+.bgm-flow-media[data-count='2'] .bgm-flow-screen:nth-child(2) { transform: translateY(4%) rotate(3deg); }
+.bgm-flow-screen:hover { z-index: 4; transform: translateY(-3%) scale(1.035); filter: drop-shadow(0 35px 46px rgba(0,0,0,.5)); }
+.bgm-flow-copy { min-width: 0; max-width: 590px; }
+.bgm-flow-copy > span { color: var(--cyan); font-size: .58rem; letter-spacing: .17em; }
+.bgm-flow-copy h3 { margin: 30px 0 24px; font: 500 clamp(2.7rem, 4.4vw, 4.8rem)/.96 'Space Grotesk'; letter-spacing: -.06em; }
+.bgm-flow-copy blockquote { margin: 0 0 30px; padding-left: 18px; border-left: 1px solid var(--cyan); color: #fff; font: 400 clamp(1rem, 1.5vw, 1.3rem)/1.45 'Space Grotesk'; letter-spacing: -.02em; }
+.bgm-flow-copy > p { margin: 0; color: #cbd5e1; font-size: .9rem; line-height: 1.85; }
+.bgm-flow-journey { display: flex; flex-wrap: wrap; gap: 0; margin: 38px 0 30px; padding: 0; list-style: none; }
+.bgm-flow-journey li { display: flex; align-items: center; color: var(--muted); font-size: .52rem; letter-spacing: .1em; text-transform: uppercase; }
+.bgm-flow-journey li:not(:last-child)::after { content: '→'; margin: 0 9px; color: var(--cyan); }
+.bgm-flow-copy > small { display: table; margin-bottom: 34px; padding: 9px 12px; border: 1px solid rgba(56,189,248,.3); border-radius: 100px; color: #bae6fd; font-size: .5rem; line-height: 1.45; letter-spacing: .11em; text-transform: uppercase; }
+.bgm-flow-copy > button { padding-bottom: 7px; border-bottom: 1px solid rgba(0,212,255,.45); }
+.bgm-prototype-backdrop { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 24px; overflow-y: auto; background: rgba(1,5,14,.9); }
+.bgm-prototype-modal { width: min(1380px, 96vw); min-height: min(880px, 94vh); overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: #050b18; box-shadow: 0 40px 120px rgba(0,0,0,.62); }
+.bgm-prototype-topbar { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+.bgm-prototype-topbar span, .bgm-prototype-body aside span { color: var(--cyan); font-size: .52rem; letter-spacing: .16em; }
+.bgm-prototype-topbar h2 { margin: 7px 0 0; font: 500 1.05rem/1.2 'Space Grotesk'; letter-spacing: -.02em; }
+.bgm-prototype-topbar > div:last-child { display: flex; align-items: center; gap: 16px; }
+.bgm-prototype-topbar small { color: var(--muted); font-size: .5rem; letter-spacing: .13em; }
+.bgm-prototype-topbar button { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: rgba(255,255,255,.035); cursor: pointer; }
+.bgm-prototype-topbar button svg { width: 18px; }
+.bgm-prototype-body { min-height: calc(min(880px, 94vh) - 87px); display: grid; grid-template-columns: minmax(440px, 1fr) 300px; gap: 28px; padding: 28px; }
+.bgm-prototype-frame { position: relative; min-width: 0; min-height: 0; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(148,163,184,.14); border-radius: 18px; background: #07101f; }
+.bgm-prototype-frame iframe { width: 100%; height: min(78vh, 760px); border: 0; }
+.bgm-prototype-loading { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; color: var(--muted); font-size: .66rem; letter-spacing: .12em; background: #07101f; }
+.bgm-prototype-body aside { align-self: end; display: grid; gap: 28px; padding: 26px 0; }
+.bgm-prototype-body aside > div { padding-top: 16px; border-top: 1px solid var(--line); }
+.bgm-prototype-body aside p { margin: 10px 0 0; color: #e2e8f0; font-size: .76rem; line-height: 1.6; }
+.bgm-prototype-body aside a { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: .53rem; letter-spacing: .13em; }
+.bgm-prototype-body aside a svg { width: 14px; color: var(--cyan); }
 .reflection-section { background: var(--panel); }
 .reflection-section > div > div:last-child { display: grid; grid-template-columns: 6fr 5fr 1fr; gap: 30px; }
 .reflection-section h2 { margin: 0; font: 500 clamp(2.8rem, 5vw, 5rem)/1 'Space Grotesk'; letter-spacing: -.06em; }
@@ -828,6 +883,11 @@ p { text-wrap: pretty; }
   .final-flow b { width: 90px; height: 90px; }
   .iteration-feature { gap: 45px; }
   .iteration-feature-copy h4 { font-size: 3.2rem; }
+  .bgm-flow, .bgm-flow:nth-child(even) { grid-template-columns: 1fr; gap: 55px; min-height: 0; }
+  .bgm-flow:nth-child(even) .bgm-flow-media, .bgm-flow:nth-child(even) .bgm-flow-copy { order: initial; justify-self: start; }
+  .bgm-flow-media { min-height: 620px; }
+  .bgm-flow-copy { max-width: 680px; }
+  .bgm-prototype-body { grid-template-columns: minmax(420px, 1fr) 240px; }
   .boardgamemate-overview-grid { gap: 55px; }
   .boardgamemate-cover { min-height: 500px; }
   .boardgamemate-cover-card { width: clamp(140px, 21vw, 220px); }
@@ -1060,6 +1120,27 @@ p { text-wrap: pretty; }
   .iteration-principles article { min-height: 190px; padding: 24px; }
   .iteration-showcase-heading .section-label { grid-column: 1; }
   .iteration-showcase-heading > div > p { font-size: .78rem; }
+  .bgm-product-journey { grid-template-columns: repeat(3, 1fr); }
+  .bgm-product-journey li:nth-child(3)::after { display: none; }
+  .bgm-flow-list { margin-top: 50px; }
+  .bgm-flow, .bgm-flow:nth-child(even) { gap: 38px; padding: 90px 0; }
+  .bgm-flow-media { min-height: 560px; }
+  .bgm-flow-screen, .bgm-flow-media[data-count='2'] .bgm-flow-screen { width: min(72%, 300px); margin: 0; }
+  .bgm-flow-screen:nth-child(n+2) { display: none; }
+  .bgm-flow-screen:nth-child(1), .bgm-flow-media[data-count='2'] .bgm-flow-screen:nth-child(1) { transform: none; }
+  .bgm-flow-media::before { inset: 3% 0; }
+  .bgm-flow-copy h3 { margin-top: 24px; font-size: 2.65rem; }
+  .bgm-flow-copy > p { font-size: .86rem; }
+  .bgm-flow-journey { gap: 10px 0; }
+  .bgm-prototype-backdrop { display: block; padding: 0; }
+  .bgm-prototype-modal { width: 100%; min-height: 100dvh; border: 0; border-radius: 0; }
+  .bgm-prototype-topbar { min-height: 74px; padding: 14px 18px; }
+  .bgm-prototype-topbar small { display: none; }
+  .bgm-prototype-topbar h2 { max-width: 250px; font-size: .9rem; }
+  .bgm-prototype-body { min-height: calc(100dvh - 74px); grid-template-columns: 1fr; gap: 18px; padding: 16px 16px 28px; }
+  .bgm-prototype-frame iframe { height: min(68dvh, 680px); }
+  .bgm-prototype-body aside { align-self: start; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0; }
+  .bgm-prototype-body aside a { grid-column: 1 / -1; padding: 8px 0 16px; }
   .iteration-feature-list { margin-top: 25px; }
   .iteration-feature { grid-template-columns: 1fr; gap: 40px; padding: 85px 0; }
   .iteration-feature-media, .iteration-feature-list > .iteration-feature:nth-child(even) .iteration-feature-media { order: 1; width: 100%; }
@@ -1092,5 +1173,6 @@ p { text-wrap: pretty; }
   html { scroll-behavior: auto; }
   .iteration-reveal { opacity: 1; transform: none; transition: none; }
   .boardgamemate-research-figure:hover img, .boardgamemate-research-figure:focus-visible img { transform: none; box-shadow: none; }
+  .bgm-flow-screen:hover { transform: none; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
