@@ -137,7 +137,7 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
   {
     id: '05',
     label: 'FIND THE RIGHT PLAYER',
-    title: 'Matching compatibility, not popularity',
+    title: 'Matching through compatibility',
     goal: 'Who would I actually enjoy playing with?',
     description: 'Social metrics such as followers say little about whether two people will enjoy a game together. BoardGameMate instead uses signals such as shared games, skill level, play style, availability and location to explain why another player may be a strong match.',
     visualJourney: ['Discover', 'Player recommendation', 'Maya / match', 'Match explanation', 'Invite to session', 'Invite sent'],
