@@ -65,7 +65,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         </Link>
       </BorderGlow>
       <div className="project-meta">
-        <span className="project-number">{project.number}</span>
+        <span className={`project-number${isFurniture ? ' project-number-furniture' : ''}`}>{project.number}</span>
         <div>
           <h3><Link to={`/projects/${project.slug}`}>{project.title}</Link></h3>
           <p>{project.summary}</p>

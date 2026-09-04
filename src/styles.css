@@ -174,6 +174,7 @@ p { text-wrap: pretty; }
 .project-visual-link:hover .view-pill { transform: translateY(0); opacity: 1; }
 .project-meta { display: grid; grid-template-columns: 1fr 6fr 4fr; gap: 24px; padding: 27px 0 0; border-top: 1px solid transparent; }
 .project-number { color: var(--project-color); font: 500 .7rem 'Space Grotesk'; }
+.project-number-furniture { color: var(--cyan); }
 .project-meta h3 { margin: 0; font: 500 clamp(2rem, 3.4vw, 3.7rem)/1 'Space Grotesk'; letter-spacing: -.055em; }
 .project-meta p { max-width: 600px; margin: 18px 0 0; color: var(--muted); font-size: .85rem; line-height: 1.65; }
 .project-meta ul { justify-content: flex-end; align-content: flex-start; }
