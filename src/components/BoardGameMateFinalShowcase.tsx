@@ -98,8 +98,10 @@ const boardGameMateFlows: BoardGameMateFlow[] = [
     startInstruction: 'Start by continuing the Wingspan learning journey.',
     steps: [
       { action: 'Continue learning', detail: 'Open the active Wingspan journey.', image: 'flow-03-continue.png', imageWidth: 288, imageHeight: 88 },
-      { action: 'Next step', detail: 'Move through the Turn Anatomy lesson.', image: 'flow-03-next.png', imageWidth: 690, imageHeight: 104 },
-      { action: 'Quick rules', detail: 'Open contextual support for play.', image: 'flow-03-quick-rules.png', imageWidth: 706, imageHeight: 132 },
+      { action: 'Next step', detail: 'Complete the Turn Anatomy lesson.', image: 'flow-03-next.png', imageWidth: 690, imageHeight: 104 },
+      { action: 'Continue learning', detail: 'Return to the learning journey after completing the lesson.', image: 'flow-03-continue-complete.png', imageWidth: 345, imageHeight: 52 },
+      { action: 'Ask companion', detail: 'Open the game companion for contextual help.', image: 'flow-03-ask-companion.png', imageWidth: 353, imageHeight: 76 },
+      { action: 'Quick rules', detail: 'Open the in-play rules and scoring reference.', image: 'flow-03-quick-rules.png', imageWidth: 706, imageHeight: 132 },
     ],
     images: [
       { file: 'flow-03-learn.png', nodeId: '2538:180', frameName: 'P09 / Learn / Overview', alt: 'BoardGameMate Learn screen showing a progressive Wingspan learning journey at 60 percent' },

@@ -1153,7 +1153,8 @@ p { text-wrap: pretty; }
   .bgm-prototype-topbar small { display: none; }
   .bgm-prototype-topbar h2 { max-width: 250px; font-size: .9rem; }
   .bgm-prototype-body { min-height: calc(100dvh - 74px); grid-template-columns: 1fr; gap: 18px; padding: 16px 16px 28px; }
-  .bgm-prototype-frame iframe { height: min(68dvh, 680px); }
+  .bgm-prototype-frame { width: min(72vw, 290px); aspect-ratio: 393 / 852; margin-inline: auto; border-radius: 16px; }
+  .bgm-prototype-frame iframe { width: 100%; height: 100%; }
   .bgm-prototype-body aside { align-self: start; display: grid; grid-template-columns: 1fr; gap: 16px; padding: 0; overflow: visible; }
   .bgm-prototype-body aside a { margin-top: 0; padding: 11px 13px; }
   .iteration-feature-list { margin-top: 25px; }
