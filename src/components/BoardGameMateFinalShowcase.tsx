@@ -306,7 +306,7 @@ function FlowMediaCarousel({ flow }: { flow: BoardGameMateFlow }) {
             key={image.nodeId}
             className={`bgm-flow-screen bgm-flow-screen-${index + 1}`}
             data-stack-position={stackPosition}
-            style={{ zIndex: isMobile ? imageCount - stackPosition : imageCount - index }}
+            style={{ zIndex: isMobile ? imageCount - stackPosition : undefined }}
             animate={isMobile ? mobileState : undefined}
             transition={reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 280, damping: 28 }}
             drag={isMobile && isActive && imageCount > 1 ? 'x' : false}
