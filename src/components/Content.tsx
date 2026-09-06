@@ -1,27 +1,34 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowLeft, ArrowRight, Check, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import { BoardGameMateCover } from './BoardGameMateCover'
 import BorderGlow from './BorderGlow'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
   useEffect(() => {
-    if (!ref.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const animation = gsap.fromTo(ref.current, { y: 46, opacity: 0 }, {
-      y: 0, opacity: 1, duration: .9, ease: 'power3.out',
-      scrollTrigger: { trigger: ref.current, start: 'top 88%', once: true },
-      onComplete: () => gsap.set(ref.current, { clearProps: 'transform,opacity' }),
-    })
-    return () => { animation.kill() }
+    const element = ref.current
+    if (!element) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setVisible(true)
+      observer.disconnect()
+    }, { rootMargin: '0px 0px 32% 0px', threshold: 0.01 })
+
+    observer.observe(element)
+    return () => observer.disconnect()
   }, [])
-  return <div ref={ref} className={className}>{children}</div>
+
+  return <div ref={ref} className={`reveal-block${visible ? ' is-visible' : ''}${className ? ` ${className}` : ''}`}>{children}</div>
 }
 
 export function SectionLabel({ number, children }: { number?: string; children: ReactNode }) {

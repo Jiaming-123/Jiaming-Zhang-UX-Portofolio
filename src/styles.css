@@ -86,6 +86,8 @@ p { text-wrap: pretty; }
 .section-label span { color: var(--cyan); }
 .section-label p { margin: 0; }
 .section-label i { height: 1px; background: var(--line); }
+.reveal-block { opacity: 0; transform: translateY(24px); transition: opacity .36s ease-out, transform .42s cubic-bezier(.22, 1, .36, 1); }
+.reveal-block.is-visible { opacity: 1; transform: translateY(0); }
 .home-featured, .selected-work, .visual-preview, .about-preview, .work-index, .visuals-page, .about-page, .case-study { position: relative; padding: 140px var(--side); }
 .home-featured, .selected-work, .visual-preview, .about-preview, .site-footer, .case-section, .insights-section, .prototype-section, .reflection-section { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .home-featured { contain-intrinsic-size: auto 1460px; }
@@ -1064,7 +1066,7 @@ p { text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .iteration-reveal { opacity: 1; transform: none; transition: none; }
+  .reveal-block, .iteration-reveal { opacity: 1; transform: none; transition: none; }
   .boardgamemate-research-figure:hover img, .boardgamemate-research-figure:focus-visible img { transform: none; box-shadow: none; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
