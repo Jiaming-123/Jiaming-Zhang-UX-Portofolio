@@ -45,7 +45,7 @@ export default function HomePage() {
 
       <section className="selected-work" id="work">
         <Reveal className="section-intro">
-          <SectionLabel number="02">SELECTED WORK</SectionLabel>
+          <SectionLabel number="02">DESIGN ACROSS SCREENS, SYSTEMS &amp; SERVICES</SectionLabel>
           <div><h2>DESIGN ACROSS<br />SCREENS, SYSTEMS<br /><span>&amp; SERVICES.</span></h2><p>Selected projects exploring how research, interaction, and visual systems can make complex experiences feel clear and human.</p></div>
         </Reveal>
         <div className="project-list">

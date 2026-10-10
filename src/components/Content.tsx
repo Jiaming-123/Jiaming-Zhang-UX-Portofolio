@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Check, Play, Sparkles, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
-import { BoardGameMateCover } from './BoardGameMateCover'
 import BorderGlow from './BorderGlow'
 import homepageCovers from '../data/homepage-covers.json'
 import { observeProjectReveal } from '../../public/home-project-reveal.mjs'
@@ -55,27 +54,29 @@ export function MediaPlaceholder({ alt, className = '', label = 'IMAGE DIRECTION
 
 export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
   const cover = project.slug === 'unilink' ? homepageCovers.unilink : project.slug === 'culturelens' ? homepageCovers.culturelens : project.slug === 'boardgamemate' ? homepageCovers.boardgamemate : project.slug === 'furniture' ? homepageCovers.furniture : project.slug === 'crownlands' ? homepageCovers.crownlands : undefined
+  const isFurniture = project.slug === 'furniture'
+
   return (
     <article className={`project-card ${featured ? 'featured-card' : ''}`} style={{ '--project-color': project.color } as React.CSSProperties}>
       <BorderGlow
-        className="project-border-glow"
+        className={`project-border-glow${isFurniture ? ' project-border-glow-furniture' : ''}`}
         edgeSensitivity={32}
         glowColor="194 93 58"
         backgroundColor="#07101f"
         borderRadius={22}
-        glowRadius={28}
-        glowIntensity={0.72}
+        glowRadius={isFurniture ? 40 : 28}
+        glowIntensity={isFurniture ? 1.15 : 0.72}
         coneSpread={22}
-        colors={[project.color, '#0066ff', '#00d4ff']}
+        colors={isFurniture ? ['#38bdf8', '#00d4ff', project.color] : [project.color, '#0066ff', '#00d4ff']}
         fillOpacity={0.18}
       >
         <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-          {cover ? <img className="project-cover-image" {...cover} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }} /> : project.slug === 'boardgamemate' ? <BoardGameMateCover /> : project.slug === 'furniture' ? <img className="furniture-project-cover-image" src="/images/furniture/home-project-cover.png" alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant="mobile" label={project.eyebrow.toUpperCase()} />}
+          {cover ? <img className="project-cover-image" {...cover} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }} /> : <MediaPlaceholder alt={project.heroAlt} variant="mobile" label={project.eyebrow.toUpperCase()} />}
           <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
         </Link>
       </BorderGlow>
       <div className="project-meta">
-        <span className="project-number">{project.number}</span>
+        <span className={`project-number${isFurniture ? ' project-number-furniture' : ''}`}>{project.number}</span>
         <div>
           <h3><Link to={`/projects/${project.slug}`}>{project.title}</Link></h3>
           <p>{project.summary}</p>

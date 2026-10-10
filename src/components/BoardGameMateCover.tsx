@@ -4,8 +4,8 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 const assetRoot = '/images/boardgamemate/iteration'
 
 const coverPanels = [
-  { file: 'boardgamemate-discover', label: 'DISCOVER', alt: 'BoardGameMate Discover interface showing a recommended table and compatible players' },
   { file: 'boardgamemate-nearby-map', label: 'MATCH', alt: 'BoardGameMate Nearby interface showing playable sessions on a map' },
+  { file: 'boardgamemate-discover', label: 'DISCOVER', alt: 'BoardGameMate Discover interface showing a recommended table and compatible players' },
   { file: 'boardgamemate-goal-chat', label: 'COORDINATE', alt: 'BoardGameMate coordination interface showing attendance and game preparation' },
 ]
 
@@ -70,8 +70,6 @@ export function BoardGameMateCover() {
             <figcaption><span>{panel.label}</span><i /></figcaption>
           </figure>
         ))}
-        <div className="boardgamemate-cover-flow boardgamemate-cover-flow-one" aria-hidden="true"><span /></div>
-        <div className="boardgamemate-cover-flow boardgamemate-cover-flow-two" aria-hidden="true"><span /></div>
       </motion.div>
       <div className="boardgamemate-cover-caption" aria-hidden="true"><span>BOARDGAMEMATE / 02</span><span>DISCOVER · MATCH · PLAY</span></div>
     </div>
