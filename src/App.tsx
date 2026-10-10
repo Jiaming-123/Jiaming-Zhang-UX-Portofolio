@@ -1,9 +1,12 @@
+import { lazy, Suspense } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import { CursorEffect, Navbar, PageTransition, ScrollToTop, SmoothScroll } from './components/Layout'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { CursorEffect, Navbar, PageTransition, ProjectEntryReset, ScrollToTop, SmoothScroll } from './components/Layout'
 import HomePage from './pages/HomePage'
-import { AboutPage, ContactPage, NotFoundPage, VisualsPage, WorkPage } from './pages/InfoPages'
+import { AboutPage, ContactPage, NotFoundPage } from './pages/InfoPages'
 import ProjectPage from './pages/ProjectPage'
+
+const UniLinkCaseStudy = lazy(() => import('./pages/UniLinkCaseStudy'))
 
 function App() {
   const location = useLocation()
@@ -18,9 +21,10 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-            <Route path="/work" element={<PageTransition><WorkPage /></PageTransition>} />
+            <Route path="/work" element={<Navigate to="/#featured" replace />} />
+            <Route path="/projects/unilink" element={<Suspense fallback={<main style={{minHeight:'100svh',padding:'160px 5vw'}}>Loading UniLink…</main>}><ProjectEntryReset /><UniLinkCaseStudy /></Suspense>} />
+            <Route path="/projects/landing-app" element={<Navigate to="/projects/unilink" replace />} />
             <Route path="/projects/:slug" element={<PageTransition><ProjectPage /></PageTransition>} />
-            <Route path="/visuals" element={<PageTransition><VisualsPage /></PageTransition>} />
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
             <Route path="*" element={<PageTransition><NotFoundPage /></PageTransition>} />

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, Code2, Layers3, MousePointer2, Smartphone, TestTube2, Workflow } from 'lucide-react'
 import { Reveal, SectionLabel } from './Content'
+import '../../public/furniture-design-system.css'
 
 const desktopFlow = [
   { title: 'Discover', note: 'An editorial homepage balances brand storytelling, room-based navigation, new arrivals and social proof.', image: '/images/furniture/desktop-home.png' },
@@ -106,10 +107,6 @@ export function FurnitureCaseStudy() {
         </Reveal>
       </section>
 
-      <section className="furniture-figma-visual">
-        <Reveal><div className="furniture-image-frame"><img src="/images/furniture/foundations.png" alt="Figma foundations showing the furniture brand palette, typography, spacing, radii and elevation" /></div><div className="furniture-image-caption"><span>FIGMA · FOUNDATIONS</span><p>A semantic visual system connects brand expression, readability and reusable implementation tokens.</p></div></Reveal>
-      </section>
-
       <section className="furniture-section furniture-process">
         <Reveal>
           <SectionLabel number="04">DESIGN PROCESS</SectionLabel>
@@ -135,10 +132,6 @@ export function FurnitureCaseStudy() {
             <figure><ScrollablePreview image="/images/furniture/mobile-home.png" alt="Mobile furniture store homepage design" /><figcaption><span>MOBILE · 393PX</span><small>HOVER & SCROLL TO VIEW FULL PAGE</small></figcaption></figure>
           </div>
         </Reveal>
-      </section>
-
-      <section className="furniture-figma-visual furniture-components-visual">
-        <Reveal><div className="furniture-image-frame"><img src="/images/furniture/components.png" alt="Figma responsive component library with buttons, search, quantity, cards, forms and commerce controls" /></div><div className="furniture-image-caption"><span>FIGMA · COMPONENT LIBRARY</span><p>Reusable variants document size, style, state, focus treatment, minimum touch targets and responsive behaviour.</p></div></Reveal>
       </section>
 
       <section className="furniture-section furniture-flow">

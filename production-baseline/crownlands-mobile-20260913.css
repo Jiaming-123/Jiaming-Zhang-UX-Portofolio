@@ -1,0 +1,42 @@
+/* Keep the mobile header and section navigation on the same vertical edge. */
+@media (max-width: 767px) {
+  body.crownlands-theme .nav-shell,
+  body.crownlands-theme .nav-shell.is-compact {
+    height: 70px;
+  }
+
+  body.crownlands-theme .cl-sticky-nav {
+    top: 70px;
+    z-index: 79;
+    margin-block: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  body.crownlands-theme .cl-sticky-nav {
+    top: 64px;
+  }
+}
+
+/* Reserve real space below the fixed menu for the complete hero and logo. */
+@media (max-width: 600px) {
+  body.crownlands-theme .crownlands-page .cl-hero {
+    padding: 94px 12px 24px;
+    min-height: calc(118px + max(230px, 48vw));
+    overflow: hidden;
+  }
+
+  body.crownlands-theme .crownlands-page .cl-hero-bg {
+    top: 94px;
+    bottom: 24px;
+    left: 52%;
+    right: 1%;
+  }
+
+  body.crownlands-theme .crownlands-page .cl-hero h1 {
+    font-size: clamp(1.3rem, 6.6vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -.045em;
+    white-space: nowrap;
+  }
+}

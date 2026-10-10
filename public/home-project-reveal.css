@@ -1,0 +1,57 @@
+/* Card entrance is separate from the existing cover hover interaction. */
+.home-featured-content.reveal-block {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* The entrance wrapper occupies the original cover's grid area. */
+.home-landing-project > .home-featured-content > .home-project-reveal {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  min-width: 0;
+}
+
+.reveal-block.home-project-reveal {
+  opacity: 0;
+  transform: translate3d(0, 56px, 0);
+  transition: opacity .6s ease-out, transform .85s cubic-bezier(.16, 1, .3, 1);
+}
+
+.reveal-block.home-project-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 800px) {
+  .home-landing-project > .home-featured-content > .home-project-reveal {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+@media (min-width: 761px) {
+  .home-project-grid > .home-project-reveal:nth-child(even) {
+    transition-delay: .09s;
+  }
+}
+
+@media (max-width: 760px) {
+  .reveal-block.home-project-reveal {
+    transform: translate3d(0, 36px, 0);
+    transition-duration: .5s, .7s;
+  }
+
+  .reveal-block.home-project-reveal.is-visible {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-block.home-project-reveal,
+  .reveal-block.home-project-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

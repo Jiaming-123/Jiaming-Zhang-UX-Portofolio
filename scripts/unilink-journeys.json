@@ -1,0 +1,138 @@
+{
+  "student": [
+    {
+      "title": "A question appears",
+      "goal": "Understand what to do",
+      "actions": "Searches online, checks university information, compares social content",
+      "touchpoints": "University website Search Social media Friends",
+      "thought": "“I can find answers, but which one applies to me?”",
+      "emotion": "Uncertain",
+      "pain": "Fragmented information and limited context",
+      "opportunity": "Offer a relevant human starting point",
+      "response": "Topic-based discovery"
+    },
+    {
+      "title": "Explore a peer group",
+      "goal": "Find people dealing with a similar issue",
+      "actions": "Browses categories Checks group topic, language and member context",
+      "touchpoints": "UniLink Groups",
+      "thought": "“This feels closer to my situation.”",
+      "emotion": "Curious / cautiously positive",
+      "pain": "Fear of entering irrelevant or overwhelming communities",
+      "opportunity": "Make community scope immediately understandable",
+      "response": "Small topic-specific groups with clear context"
+    },
+    {
+      "title": "Join and ask",
+      "goal": "Get practical low-pressure guidance",
+      "actions": "Joins a group Reads previous discussion Asks a practical question Uses shared resources",
+      "touchpoints": "Group chat Pinned resources",
+      "thought": "“I can ask without starting from zero.”",
+      "emotion": "Reassured",
+      "pain": "Fear of asking a “basic” question",
+      "opportunity": "Reduce social friction",
+      "response": "Peer conversation + visible mentor presence + shared resources"
+    },
+    {
+      "title": "Need more specific help",
+      "goal": "Discuss a personal situation",
+      "actions": "Realises the group answer is too general Moves toward mentor discovery",
+      "touchpoints": "Group Mentor discovery",
+      "thought": "“I need someone who understands my exact situation.”",
+      "emotion": "Focused but uncertain",
+      "pain": "General advice no longer feels sufficient",
+      "opportunity": "Create a natural transition from community to focused support",
+      "response": "Find Mentor"
+    },
+    {
+      "title": "Choose and book a mentor",
+      "goal": "Find a relevant and trustworthy person",
+      "actions": "Filters mentors Checks verified profile Reviews language, background, expertise and availability Selects date, time, mode and topic",
+      "touchpoints": "Mentor list Profile Booking",
+      "thought": "“Why is this person relevant to me?”",
+      "emotion": "Increasing confidence",
+      "pain": "Trust and relevance are difficult to judge online",
+      "opportunity": "Make credibility and fit visible before contact",
+      "response": "Verified profiles + contextual matching + structured booking"
+    },
+    {
+      "title": "Receive support",
+      "goal": "Get focused guidance without repeating everything",
+      "actions": "Joins session Discusses selected topic Continues through service flow Completes / reflects on session",
+      "touchpoints": "Booking During-service interaction Completion",
+      "thought": "“This feels organised, and I know what happens next.”",
+      "emotion": "Supported / relieved",
+      "pain": "Service uncertainty after booking",
+      "opportunity": "Design beyond the confirmation screen",
+      "response": "Clear service states, continuity and post-session feedback"
+    }
+  ],
+  "mentor": [
+    {
+      "title": "Discover mentoring",
+      "goal": "Understand why contributing is worthwhile",
+      "actions": "Learns about peer mentoring and Link Points",
+      "touchpoints": "UniLink mentor experience Rewards",
+      "thought": "“I already help people informally — this could make it more structured.”",
+      "emotion": "Interested",
+      "pain": "Informal support receives little structure or recognition",
+      "opportunity": "Turn existing peer behaviour into sustainable contribution",
+      "response": "Defined mentor role + Link Points"
+    },
+    {
+      "title": "Establish trust and relevance",
+      "goal": "Show what kind of support they can provide",
+      "actions": "Builds profile Shows background, languages and relevant topics Completes verification",
+      "touchpoints": "Profile Verification",
+      "thought": "“Students should know what I can actually help with.”",
+      "emotion": "Confident",
+      "pain": "Generic mentor profiles create mismatched expectations",
+      "opportunity": "Make expertise and identity visible",
+      "response": "Verified, contextual mentor profiles"
+    },
+    {
+      "title": "Receive a structured booking",
+      "goal": "Understand the request before committing",
+      "actions": "Checks topic Reviews date, time, mode and context",
+      "touchpoints": "Booking system",
+      "thought": "“I know what this student wants before the session starts.”",
+      "emotion": "Prepared",
+      "pain": "Unstructured requests create unpredictable time commitments",
+      "opportunity": "Give mentors control and context",
+      "response": "Topic-first structured booking"
+    },
+    {
+      "title": "Prepare",
+      "goal": "Use time efficiently",
+      "actions": "Reviews session topic and relevant context Prepares useful resources if needed",
+      "touchpoints": "Booking details",
+      "thought": "“I can prepare instead of improvising.”",
+      "emotion": "Ready",
+      "pain": "Last-minute context switching",
+      "opportunity": "Reduce cognitive load before support begins",
+      "response": "Visible session context"
+    },
+    {
+      "title": "Provide support",
+      "goal": "Help without becoming responsible for everything",
+      "actions": "Meets student Shares lived experience Points to reliable sources when appropriate",
+      "touchpoints": "During-service flow",
+      "thought": "“I can help with what I know and keep the session focused.”",
+      "emotion": "Engaged",
+      "pain": "Unclear boundaries can create pressure",
+      "opportunity": "Keep topic, duration and expectations visible",
+      "response": "Structured session experience"
+    },
+    {
+      "title": "Complete and receive recognition",
+      "goal": "Close the interaction cleanly",
+      "actions": "Completes session Receives contribution credit Earns Link Points Can redeem rewards",
+      "touchpoints": "Completion Rewards",
+      "thought": "“My time and contribution are recognised.”",
+      "emotion": "Satisfied",
+      "pain": "Informal peer support often disappears without acknowledgement",
+      "opportunity": "Create a sustainable mentor incentive loop",
+      "response": "Link Points → vouchers / rewards"
+    }
+  ]
+}

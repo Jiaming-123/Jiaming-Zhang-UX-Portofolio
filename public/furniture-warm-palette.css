@@ -1,0 +1,103 @@
+/* Furniture case study only: warm paper, oak surfaces and walnut emphasis. */
+html:has(.furniture-case) { background: #fff8f0; }
+body:has(.furniture-case) {
+  --ink: #fff8f0;
+  --panel: #f4e9dc;
+  --muted: #706052;
+  --line: #d6c4b2;
+  --cyan: #805735;
+  --tech: #805735;
+  color: #35281f;
+  background: #fff8f0;
+}
+body:has(.furniture-case) .nav-shell {
+  --cyan: #00d4ff;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, .2);
+  color: #fff;
+  background: #050b18;
+  border-color: transparent;
+}
+body:has(.furniture-case) .nav-shell.is-compact { background: rgba(5, 11, 24, .97); border-color: var(--line); }
+body:has(.furniture-case) .desktop-nav a { color: #cbd5e1; }
+body:has(.furniture-case) .desktop-nav a:is(:hover, .active) { color: #fff; }
+body:has(.furniture-case) .mobile-menu {
+  --cyan: #00d4ff;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, .2);
+  background: radial-gradient(circle at 88% 10%, rgba(0, 102, 255, .32), transparent 35%), #07101f;
+  color: #fff;
+}
+body:has(.furniture-case) .project-hero { background: #fff8f0; color: #35281f; }
+body:has(.furniture-case) .project-hero-intro > p { color: #615043; }
+body:has(.furniture-case) .project-hero-intro li { color: #705137; border-color: #cfb79e; background: #f2e5d6; }
+body:has(.furniture-case) .furniture-live-link {
+  color: #fff8f0;
+  background: #624733;
+  border-color: #624733;
+  box-shadow: 0 12px 32px #5238211a;
+}
+body:has(.furniture-case) .furniture-live-link:hover { background: #503825; box-shadow: 0 18px 40px #52382126; }
+body:has(.furniture-case) .furniture-hero-media { background: #ead9c6; border-color: #cfb79e; box-shadow: 0 24px 65px #5238211f; }
+.furniture-case {
+  --furn-gold: #805735;
+  --furn-cream: #fff8f0;
+  --furn-ink: #35281f;
+  --furn-soft: #ead9c6;
+  --muted: #706052;
+  --line: #d6c4b2;
+  background: #fff8f0;
+  color: #35281f;
+}
+.furniture-case :is(.furniture-intro, .furniture-section, .furniture-figma-visual) { background: #fff8f0; }
+.furniture-case :is(.furniture-audit, .furniture-journey, .furniture-mobile-flow, .furniture-testing) { background: #f6ecdf; }
+.furniture-case :is(.furniture-intro-grid > div > p, .furniture-heading > p, .principles-lead, .audit-table article p:last-child, .outcome-grid p) { color: #615043; }
+.furniture-case .furniture-principles blockquote { color: #493322; }
+.furniture-case .section-label { color: #706052; }
+.furniture-case .section-label span { color: #805735; }
+.furniture-case .section-label i { background: #d6c4b2; }
+.furniture-case :is(.audit-lenses article, .journey-track article, .build-grid article, .testing-grid article) {
+  --muted: #615043;
+  background: #ead9c6;
+  border-color: #cfb79e;
+  box-shadow: 0 6px 18px #52382108;
+}
+.furniture-case :is(.principle-grid article, .motion-card) {
+  --muted: #eadbcb;
+  --furn-gold: #e8c49c;
+  --line: #927258;
+  color: #fff8f0;
+  background: #624733;
+  border-color: #80634b;
+  box-shadow: 0 14px 30px #52382114;
+}
+.furniture-case .audit-table { border-color: #b89675; }
+.furniture-case .audit-table-head { background: #ecddcc; }
+.furniture-case .process-track { background: #f2e5d6; border-color: #cfb79e; }
+.furniture-case .responsive-pair figure { background: #e6d2ba; border-color: #c5a787; }
+.furniture-case .responsive-pair figcaption { color: #624733; }
+.furniture-case .responsive-pair figcaption small { color: #615043; }
+.furniture-case :is(.furniture-image-frame, .furniture-showcase-image) { border-color: #cfb79e; box-shadow: 0 20px 55px #52382114; }
+.furniture-case .furniture-image-caption span { color: #706052; }
+.furniture-case .furniture-showcase-tabs { background: #f2e5d6; }
+.furniture-case .furniture-showcase-tabs button { color: #615043; }
+.furniture-case .furniture-showcase-tabs button:hover { background: #e6d2ba; color: #35281f; }
+.furniture-case .furniture-showcase-tabs button.active { background: #624733; color: #fff8f0; }
+.furniture-case .furniture-showcase-tabs button.active span { color: #e8c49c; }
+.furniture-case .motion-specs { background: #f2e5d6; }
+.furniture-case .vibe-workflow { background: #e2c5a3; color: #35281f; }
+.furniture-case .vibe-workflow :is(ol, li) { border-color: #b38e68; }
+body:has(.furniture-case) .case-next-project[data-case-theme="furniture"] {
+  --next-bg: #fff8f0;
+  --next-ink: #35281f;
+  --next-muted: #706052;
+  --next-line: #d6c4b2;
+  --next-hover: #f2e5d6;
+}
+body:has(.furniture-case) .site-footer {
+  --muted: #eadbcb;
+  --line: #927258;
+  --cyan: #e8c49c;
+  color: #fff8f0;
+  background: #493322;
+}

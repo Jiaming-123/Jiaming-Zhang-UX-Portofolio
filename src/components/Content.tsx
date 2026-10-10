@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import { BoardGameMateCover } from './BoardGameMateCover'
 import BorderGlow from './BorderGlow'
+import homepageCovers from '../data/homepage-covers.json'
+import { observeProjectReveal } from '../../public/home-project-reveal.mjs'
 
-export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
+export function Reveal({ children, className = '', variant = 'default' }: { children: ReactNode; className?: string; variant?: 'default' | 'project' }) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const element = ref.current
     if (!element) return
+    if (variant === 'project') return observeProjectReveal(element, () => setVisible(true))
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setVisible(true)
       return
@@ -26,9 +29,9 @@ export function Reveal({ children, className = '' }: { children: ReactNode; clas
 
     observer.observe(element)
     return () => observer.disconnect()
-  }, [])
+  }, [variant])
 
-  return <div ref={ref} className={`reveal-block${visible ? ' is-visible' : ''}${className ? ` ${className}` : ''}`}>{children}</div>
+  return <div ref={ref} className={`reveal-block${variant === 'project' ? ' home-project-reveal' : ''}${visible ? ' is-visible' : ''}${className ? ` ${className}` : ''}`}>{children}</div>
 }
 
 export function SectionLabel({ number, children }: { number?: string; children: ReactNode }) {
@@ -51,6 +54,7 @@ export function MediaPlaceholder({ alt, className = '', label = 'IMAGE DIRECTION
 }
 
 export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+  const cover = project.slug === 'unilink' ? homepageCovers.unilink : project.slug === 'culturelens' ? homepageCovers.culturelens : project.slug === 'boardgamemate' ? homepageCovers.boardgamemate : project.slug === 'furniture' ? homepageCovers.furniture : project.slug === 'crownlands' ? homepageCovers.crownlands : undefined
   return (
     <article className={`project-card ${featured ? 'featured-card' : ''}`} style={{ '--project-color': project.color } as React.CSSProperties}>
       <BorderGlow
@@ -66,7 +70,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         fillOpacity={0.18}
       >
         <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-          {project.slug === 'boardgamemate' ? <BoardGameMateCover /> : project.slug === 'furniture' ? <img className="furniture-project-cover-image" src="/images/furniture/home-project-cover.png" alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant={project.slug === 'crownlands' ? 'board' : 'mobile'} label={project.eyebrow.toUpperCase()} />}
+          {cover ? <img className="project-cover-image" {...cover} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }} /> : project.slug === 'boardgamemate' ? <BoardGameMateCover /> : project.slug === 'furniture' ? <img className="furniture-project-cover-image" src="/images/furniture/home-project-cover.png" alt={project.heroAlt} /> : <MediaPlaceholder alt={project.heroAlt} variant="mobile" label={project.eyebrow.toUpperCase()} />}
           <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
         </Link>
       </BorderGlow>

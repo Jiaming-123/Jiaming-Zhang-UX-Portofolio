@@ -1,0 +1,54 @@
+{
+  "source": "A1 Report .pdf",
+  "sourcePath": "User-supplied A1-Week5/A1 Report .pdf",
+  "assets": [
+    {
+      "slug": "navi-ai-guide",
+      "page": 7,
+      "width": 1588,
+      "height": 1172,
+      "extraction": "Original embedded design visual; no surrounding report content."
+    },
+    {
+      "slug": "same-speak",
+      "page": 15,
+      "width": 1028,
+      "height": 706,
+      "extraction": "Original embedded design visual; no surrounding report content."
+    },
+    {
+      "slug": "do-it-together",
+      "page": 22,
+      "width": 838,
+      "height": 622,
+      "extraction": "Original embedded design visual; no surrounding report content."
+    },
+    {
+      "slug": "recap-school",
+      "page": 29,
+      "width": 1796,
+      "height": 870,
+      "extraction": "Original embedded design visual; no surrounding report content."
+    },
+    {
+      "slug": "uni-matcher",
+      "page": 41,
+      "width": 1579,
+      "height": 1092,
+      "extraction": "Original embedded design visual; no surrounding report content."
+    },
+    {
+      "slug": "sure-u",
+      "page": 47,
+      "width": 1841,
+      "height": 1308,
+      "extraction": "Rendered original PDF at 300dpi; cropped to all three screen visuals.",
+      "cropPoints": [
+        58.44,
+        144.53,
+        500.44,
+        458.28
+      ]
+    }
+  ]
+}

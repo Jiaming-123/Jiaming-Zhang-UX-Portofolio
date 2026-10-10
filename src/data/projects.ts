@@ -1,4 +1,4 @@
-export type ProjectSlug = 'landing-app' | 'boardgamemate' | 'culturelens' | 'furniture' | 'crownlands'
+export type ProjectSlug = 'unilink' | 'landing-app' | 'boardgamemate' | 'culturelens' | 'furniture' | 'crownlands'
 
 export type Project = {
   slug: ProjectSlug
@@ -22,27 +22,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'landing-app',
+    slug: 'unilink',
     number: '01',
-    title: 'Landing App',
-    eyebrow: 'Graduation project',
+    title: 'UniLink — Peer Support for International Students',
+    eyebrow: 'UX case study',
     year: '2026',
-    categories: ['UX Product Design', 'AI Agent', 'Service Design'],
-    summary: 'An AI-powered transition assistant helping international students navigate their first steps in a new country.',
-    heroStatement: 'Helping international students move from uncertainty to confidence through a personalised AI settlement assistant.',
-    heroAlt: 'Mobile AI assistant interface helping an international student complete arrival tasks such as SIM card, bank setup and university registration',
-    color: '#0066FF',
-    overview: 'Landing App turns the first weeks after arrival into a clear, supported sequence. It brings essential tasks, reliable information, and timely guidance into one personal settlement experience—without asking a student to understand every local system at once.',
-    problem: 'International students face fragmented information, unclear next steps, and difficulty accessing reliable support after arrival. The challenge is not a lack of information; it is knowing what applies, what to trust, and what to do next while adapting to an unfamiliar place.',
-    research: 'Discovery focused on the lived transition from arrival to everyday independence. Interview themes, student pain points, and the end-to-end arrival journey were mapped together to reveal where information becomes action—and where students are most likely to lose confidence.',
+    categories: ['UX Research', 'Product Design', 'Service Design'],
+    summary: 'A research-led peer support platform connecting international students with relevant communities and verified senior mentors.',
+    heroStatement: 'Peer groups and verified mentors help international students find relevant, trusted support.',
+    heroAlt: 'UniLink peer groups and verified mentor booking screens',
+    color: '#1d3b63',
+    overview: 'A 12-week, six-person UX project focused on low-pressure peer groups and bookable senior mentors.',
+    problem: 'Students can find information, but often struggle to judge relevance, credibility and the next step.',
+    research: 'Stakeholder interviews and concept evaluation informed a focus on human connection, contextual relevance and trust.',
     insights: [
-      { title: 'Sequence matters', text: 'Advice becomes useful when it appears in the order a student needs it, not as one overwhelming checklist.' },
-      { title: 'Trust must be visible', text: 'Students need to understand where information comes from and when a human should become involved.' },
-      { title: 'Context changes the answer', text: 'Arrival date, language, institution, and personal circumstances shape the right next step.' },
+      { title: 'Context matters', text: 'Useful advice needs to fit the student’s situation.' },
+      { title: 'Trust is relational', text: 'Identity and lived experience help students judge who to ask.' },
+      { title: 'Different levels of support', text: 'Groups support everyday questions; mentors provide focused guidance.' },
     ],
-    direction: 'The service is structured around a personalised timeline and an AI guide that translates intent into a practical next action. Verified sources, bilingual explanation, appointment guidance, provider connection, and human escalation work as one service—not separate features.',
-    finalExperience: 'A student can ask in their own words, receive a concise explanation, and move directly into a relevant action. Completed tasks update the timeline so the experience progressively shifts from urgent setup to healthcare, community, and daily life.',
-    reflection: 'Designing with AI meant defining its limits as carefully as its capabilities. The strongest outcome is not an assistant that answers everything; it is a service that builds confidence through transparent sources, sensible sequencing, and a clear path to human support.',
+    direction: 'Groups and Mentors became the two final product pillars after concept exploration and scope reduction.',
+    finalExperience: 'Discover a relevant group, find a verified mentor, book a focused session and continue through the service.',
+    reflection: 'Scope, mentor capacity, service status and reward clarity are essential design decisions. The prototype is a tested proposition, not a deployed service.',
   },
   {
     slug: 'boardgamemate',

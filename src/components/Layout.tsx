@@ -1,14 +1,16 @@
-import { useEffect, useState, type MouseEvent, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, useState, type MouseEvent, type ReactNode } from 'react'
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { setupProjectNavbar } from '../../public/project-navbar.mjs'
+import '../../public/project-navbar.css'
+import '../../public/project-chapters.css'
 
 const navItems = [
-  { label: 'Work', to: '/work' },
-  { label: 'Visuals', to: '/visuals' },
+  { label: 'Work', to: '/#featured' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -16,21 +18,32 @@ const navItems = [
 gsap.registerPlugin(ScrollTrigger)
 
 export function SmoothScroll() {
+  const { pathname } = useLocation()
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (pathname.replace(/\/$/, '') === '/projects/unilink' || pathname.replace(/\/$/, '') === '/projects/landing-app' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const lenis = new Lenis({ duration: .82, smoothWheel: true, wheelMultiplier: .84, syncTouch: false })
     const updateScrollTriggers = () => ScrollTrigger.update()
     const updateLenis = (time: number) => lenis.raf(time * 1000)
+    const resetScroll = () => lenis.scrollTo(0, { immediate: true, force: true })
+    const chapterScroll = (event: Event) => {
+      const request = event as CustomEvent<{ top: number; immediate: boolean; onComplete?: () => void }>
+      event.preventDefault()
+      lenis.scrollTo(request.detail.top, { immediate: request.detail.immediate, duration: .65, force: true, onComplete: request.detail.onComplete })
+    }
 
     lenis.on('scroll', updateScrollTriggers)
     gsap.ticker.add(updateLenis)
+    window.addEventListener('portfolio:reset-scroll', resetScroll)
+    window.addEventListener('portfolio:chapter-scroll', chapterScroll)
 
     return () => {
       lenis.off('scroll', updateScrollTriggers)
       gsap.ticker.remove(updateLenis)
+      window.removeEventListener('portfolio:reset-scroll', resetScroll)
+      window.removeEventListener('portfolio:chapter-scroll', chapterScroll)
       lenis.destroy()
     }
-  }, [])
+  }, [pathname])
   return null
 }
 
@@ -45,14 +58,19 @@ export function ScrollToTop() {
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [compact, setCompact] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setCompact(window.scrollY > 36)
+    const onScroll = () => {
+      setCompact(window.scrollY > 36)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [pathname])
+
+  useEffect(() => setupProjectNavbar(pathname, setHidden), [pathname])
 
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => {
@@ -62,11 +80,13 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`nav-shell ${compact ? 'is-compact' : ''}`} aria-label="Primary navigation">
+      <header className={`nav-shell ${compact ? 'is-compact' : ''} ${hidden ? 'ul-nav-hidden' : ''}`} aria-label="Primary navigation">
         <Link className="monogram" to="/" aria-label="Jiaming Zhang, home" data-cursor="link">JZ<span>.</span></Link>
         <nav className="desktop-nav" aria-label="Main menu">
           {navItems.map((item) => (
-            <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{item.label}</NavLink>
+            item.label === 'Work'
+              ? <a key={item.to} href={item.to} data-cursor="link">{item.label}</a>
+              : <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{item.label}</NavLink>
           ))}
         </nav>
         <span className="nav-status"><i />AVAILABLE FOR OPPORTUNITIES</span>
@@ -82,7 +102,7 @@ export function Navbar() {
             <nav aria-label="Mobile menu">
               {navItems.map((item, index) => (
                 <motion.div key={item.to} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .06 }}>
-                  <Link to={item.to}><small>0{index + 1}</small>{item.label}<ArrowUpRight size={25} /></Link>
+                  {item.label === 'Work' ? <a href={item.to}><small>0{index + 1}</small>{item.label}<ArrowUpRight size={25} /></a> : <Link to={item.to}><small>0{index + 1}</small>{item.label}<ArrowUpRight size={25} /></Link>}
                 </motion.div>
               ))}
             </nav>
@@ -94,7 +114,37 @@ export function Navbar() {
   )
 }
 
+function useProjectEntryReset() {
+  const { pathname, hash } = useLocation()
+  // AnimatePresence waits for the outgoing page. Reset on the incoming page's
+  // actual mount, not only when the URL changes while the old page is visible.
+  useLayoutEffect(() => {
+    if (!pathname.startsWith('/projects/') || hash) return
+    const restoration = history.scrollRestoration
+    const anchoring = document.documentElement.style.overflowAnchor
+    history.scrollRestoration = 'manual'
+    document.documentElement.style.overflowAnchor = 'none'
+    const reset = () => {
+      window.dispatchEvent(new Event('portfolio:reset-scroll'))
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    }
+    window.addEventListener('pageshow', reset)
+    reset()
+    return () => {
+      window.removeEventListener('pageshow', reset)
+      history.scrollRestoration = restoration
+      document.documentElement.style.overflowAnchor = anchoring
+    }
+  }, [pathname, hash])
+}
+
+export function ProjectEntryReset() {
+  useProjectEntryReset()
+  return null
+}
+
 export function PageTransition({ children }: { children: ReactNode }) {
+  useProjectEntryReset()
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -160,6 +210,9 @@ export function CursorEffect() {
 }
 
 export function Footer() {
+  const { pathname } = useLocation()
+  if (pathname.startsWith('/projects/')) return null
+
   const toTop = () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   return (
     <footer className="site-footer" id="contact">
@@ -168,7 +221,7 @@ export function Footer() {
       <div className="footer-bottom">
         <div className="footer-links">
           <Link to="/contact" data-cursor="link">EMAIL <ArrowUpRight size={15} /></Link>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-cursor="link">LINKEDIN <ArrowUpRight size={15} /></a>
+          <a href="https://www.linkedin.com/in/jiaming-zhang-996b52280/" target="_blank" rel="noopener noreferrer" data-cursor="link">LINKEDIN <ArrowUpRight size={15} /></a>
         </div>
         <p>Jiaming Zhang<br />UX / Product Designer</p>
         <button type="button" onClick={toTop} data-cursor="link">BACK TO TOP <span>↑</span></button>

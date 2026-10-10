@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1586" height="992" viewBox="0 0 1586 992">
+  <defs>
+    <filter id="deviceShadow" x="-30%" y="-30%" width="170%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#231F20" flood-opacity=".20"/>
+    </filter>
+    <clipPath id="macScreen"><rect x="720" y="176" width="457" height="286" rx="2"/></clipPath>
+    <clipPath id="ipadScreen"><rect x="1017" y="531" width="468" height="350" rx="8"/></clipPath>
+    <clipPath id="phoneScreen"><rect x="15" y="14" width="160" height="353" rx="24"/></clipPath>
+    <filter id="invertLuma" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
+    </filter>
+    <mask id="iphoneAlpha" maskUnits="userSpaceOnUse" x="0" y="0" width="614" height="532" mask-type="luminance">
+      <image href="cover-iphone-template.png" x="0" y="0" width="614" height="532" filter="url(#invertLuma)"/>
+    </mask>
+    <mask id="ipadAlpha" maskUnits="userSpaceOnUse" x="0" y="0" width="980" height="791" mask-type="luminance">
+      <image href="cover-ipad-template.png" x="0" y="0" width="980" height="791" filter="url(#invertLuma)"/>
+    </mask>
+  </defs>
+
+  <rect width="1586" height="992" rx="28" fill="#FFF8F0"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#231F20">
+    <g font-size="13" letter-spacing="1.9">
+      <rect x="74" y="62" width="132" height="40" rx="20" fill="none" stroke="#231F20" stroke-opacity=".22"/>
+      <text x="140" y="87" text-anchor="middle">UX PROJECT</text>
+      <rect x="220" y="62" width="170" height="40" rx="20" fill="none" stroke="#231F20" stroke-opacity=".22"/>
+      <text x="305" y="87" text-anchor="middle">UI DEVELOPMENT</text>
+    </g>
+    <text x="80" y="224" fill="#85743D" font-size="15" font-weight="700" letter-spacing="3">MY FURNITURE STORE</text>
+    <text x="76" y="364" font-size="92" font-weight="700" letter-spacing="-6">Furniture</text>
+    <text x="76" y="474" font-size="92" font-weight="700" letter-spacing="-6">Website</text>
+    <text x="76" y="584" fill="#947E20" font-size="92" font-weight="700" letter-spacing="-6">Redesign</text>
+    <circle cx="92" cy="906" r="27" fill="#231F20"/>
+    <text x="92" y="913" text-anchor="middle" fill="#FFF8F0" font-size="15" font-weight="700">JZ.</text>
+    <text x="134" y="912" fill="#6B5D57" font-size="12" letter-spacing="1.5">2025 · Furniture Website <tspan fill="#947E20">Redesign</tspan></text>
+  </g>
+
+  <g filter="url(#deviceShadow)">
+    <image href="cover-macbook-template.png" x="570" y="80" width="760" height="554" preserveAspectRatio="xMidYMid meet"/>
+    <image href="desktop-home.png" x="720" y="176" width="457" height="984" preserveAspectRatio="xMidYMin slice" clip-path="url(#macScreen)"/>
+    <rect x="917" y="176" width="64" height="10" rx="0 0 6 6" fill="#050505"/>
+  </g>
+
+  <g filter="url(#deviceShadow)">
+    <svg x="990" y="506" width="520" height="406" viewBox="65 70 850 660" overflow="hidden">
+      <image href="cover-ipad-template.png" x="0" y="0" width="980" height="791" mask="url(#ipadAlpha)"/>
+    </svg>
+    <image href="desktop-product.png" x="1017" y="531" width="468" height="715" preserveAspectRatio="xMidYMin slice" clip-path="url(#ipadScreen)"/>
+  </g>
+
+  <g transform="translate(798 350) rotate(-7 95 192)" filter="url(#deviceShadow)">
+    <svg x="0" y="0" width="190" height="384" viewBox="35 24 238 482" overflow="hidden">
+      <image href="cover-iphone-template.png" x="0" y="0" width="614" height="532" mask="url(#iphoneAlpha)"/>
+    </svg>
+    <g clip-path="url(#phoneScreen)">
+      <svg x="15" y="14" width="160" height="353" viewBox="0 0 393 867" preserveAspectRatio="xMidYMin slice">
+        <image href="mobile-home.png" x="0" y="0" width="393" height="2740" preserveAspectRatio="xMidYMin meet"/>
+      </svg>
+    </g>
+    <rect x="75" y="20" width="40" height="10" rx="5" fill="#050505"/>
+  </g>
+
+  <g transform="translate(1270 74) rotate(14 95 192)" filter="url(#deviceShadow)">
+    <svg x="0" y="0" width="190" height="384" viewBox="35 24 238 482" overflow="hidden">
+      <image href="cover-iphone-template.png" x="0" y="0" width="614" height="532" mask="url(#iphoneAlpha)"/>
+    </svg>
+    <g clip-path="url(#phoneScreen)">
+      <svg x="15" y="14" width="160" height="353" viewBox="0 0 393 867" preserveAspectRatio="xMidYMin slice">
+        <image href="mobile-living.png" x="0" y="0" width="393" height="1800" preserveAspectRatio="xMidYMin meet"/>
+      </svg>
+    </g>
+    <rect x="75" y="20" width="40" height="10" rx="5" fill="#050505"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="1288" y="864" width="210" height="66" rx="14" fill="#FFF8F0" fill-opacity=".94" stroke="#231F20" stroke-opacity=".18"/>
+    <text x="1393" y="890" text-anchor="middle" fill="#5C514D" font-size="11" font-weight="700" letter-spacing="1.6">DESKTOP · MOBILE</text>
+    <text x="1393" y="912" text-anchor="middle" fill="#5C514D" font-size="11" font-weight="700" letter-spacing="1.6">END-TO-END FLOW</text>
+  </g>
+</svg>

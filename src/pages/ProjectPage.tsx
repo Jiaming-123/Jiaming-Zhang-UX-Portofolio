@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowRight, GitBranch, Languages, ShieldCheck, UserRoundCheck } from 'lucide-react'
+import { lazy, Suspense } from 'react'
+import { ArrowDown, ArrowRight, ArrowUpRight, GitBranch, Languages, ShieldCheck, UserRoundCheck } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { BoardGameMateIteration } from '../components/BoardGameMateIteration'
 import { CaseStudySection, Gallery, HorizontalDemo, LandingDemo, MediaPlaceholder, Reveal, SectionLabel, VideoPlayer } from '../components/Content'
@@ -7,10 +8,12 @@ import { Footer } from '../components/Layout'
 import { projectBySlug, projects, type Project } from '../data/projects'
 import { NotFoundPage } from './InfoPages'
 
+const CultureLensCaseStudy = lazy(() => import('./CultureLensCaseStudy'))
+
 function ProjectHero({ project }: { project: Project }) {
   return (
     <header className="project-hero" style={{ '--project-color': project.color } as React.CSSProperties}>
-      <div className="project-hero-top"><span>{project.eyebrow.toUpperCase()} / {project.year}</span><span>CASE STUDY · {project.number} / 05</span></div>
+      <div className="project-hero-top"><span>{project.eyebrow.toUpperCase()} / {project.year}</span></div>
       <h1>{project.title.toUpperCase()}</h1>
       <div className="project-hero-intro"><p>{project.heroStatement}</p><ul>{project.categories.map((category) => <li key={category}>{category}</li>)}</ul></div>
       {project.slug === 'furniture' && <a className="furniture-live-link" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link"><span>VIEW THE LIVE EXPERIENCE</span><strong>My Furniture Store Redesign Project Link</strong><ArrowRight /></a>}
@@ -127,6 +130,8 @@ export default function ProjectPage() {
   const { slug } = useParams()
   const project = projectBySlug(slug)
   if (!project) return <NotFoundPage />
+  if (project.slug === 'landing-app') return <main className="unilink-empty-page" aria-label="UniLink" style={{ minHeight: '100svh' }} />
+  if (project.slug === 'culturelens') return <Suspense fallback={<p role="status">Opening CultureLens…</p>}><CultureLensCaseStudy /></Suspense>
   const currentIndex = projects.findIndex((item) => item.slug === project.slug)
   const nextProject = projects[(currentIndex + 1) % projects.length]
   const isBoardGameMate = project.slug === 'boardgamemate'
@@ -134,7 +139,7 @@ export default function ProjectPage() {
     <>
       {!isBoardGameMate && <ProjectHero project={project} />}
       <main className="case-study">
-        {isBoardGameMate ? <BoardGameMateIteration /> : project.slug === 'furniture' ? <><FurnitureCaseStudy /><Link className="next-project" to={`/projects/${nextProject.slug}`} data-cursor="media"><span>NEXT CASE STUDY · {nextProject.number}</span><h2>{nextProject.title}</h2><ArrowRight /></Link></> : <>
+        {isBoardGameMate ? <><BoardGameMateIteration /><Link className="case-next-project" data-case-theme="boardgamemate" to="/projects/furniture"><span>NEXT PROJECT</span><strong>My Furniture Store</strong><ArrowUpRight aria-hidden="true" /></Link></> : project.slug === 'furniture' ? <><FurnitureCaseStudy /><Link className="case-next-project" data-case-theme="furniture" to="/projects/culturelens"><span>NEXT PROJECT</span><strong>CultureLens Concierge</strong><ArrowUpRight aria-hidden="true" /></Link></> : <>
         <ProjectOverview project={project} />
         <CaseStudySection number="02" label="PROBLEM / CONTEXT" title="The experience behind the problem."><p>{project.problem}</p><div className="context-note"><span>DESIGN QUESTION</span><p>How might the experience reduce uncertainty while giving people enough context to make their own next decision?</p></div></CaseStudySection>
         <CaseStudySection number="03" label="RESEARCH / DISCOVERY" title="Looking for the moments that shape confidence."><p>{project.research}</p></CaseStudySection>

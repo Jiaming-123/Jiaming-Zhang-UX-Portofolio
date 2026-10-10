@@ -1,0 +1,6 @@
+/* The exported Furniture artwork contains transparent padding on all edges.
+   Bleed it beneath the card's existing rounded clipping without resizing the card. */
+.project-border-glow-furniture .project-visual-link > .project-cover-image {
+  transform: scale(1.02);
+  transform-origin: center;
+}

@@ -1,0 +1,32 @@
+{
+  "unilink": {
+    "src": "/images/homepage-covers/unilink-20261010-v3.webp",
+    "width": 1586,
+    "height": 992,
+    "alt": "UniLink peer support cover — 2026 · UniLink, with an AI-generated cover image disclosure"
+  },
+  "culturelens": {
+    "src": "/images/homepage-covers/culturelens-20261010-v2.webp",
+    "width": 2378,
+    "height": 1488,
+    "alt": "CultureLens Concierge: a more personal museum journey, with an AI-generated cover image disclosure"
+  },
+  "boardgamemate": {
+    "src": "/images/homepage-covers/boardgamemate-20261010-v2.webp",
+    "width": 2379,
+    "height": 1488,
+    "alt": "BoardGameMate: a social tabletop companion app — 2024 · BoardGameMate"
+  },
+  "furniture": {
+    "src": "/images/homepage-covers/furniture-20261010-v2.webp",
+    "width": 1586,
+    "height": 992,
+    "alt": "Furniture Website Redesign — 2025 · Furniture Website Redesign"
+  },
+  "crownlands": {
+    "src": "/images/homepage-covers/crownlands-20261010-v3.webp",
+    "width": 2379,
+    "height": 1488,
+    "alt": "Crownlands physical board game and browser-based game implementation — 2026 · Crownlands Game Design, with an AI-generated cover image disclosure"
+  }
+}

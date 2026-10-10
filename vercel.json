@@ -1,5 +1,16 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist-production",
+  "cleanUrls": false,
+  "redirects": [
+    { "source": "/work", "destination": "/#featured", "permanent": true },
+    { "source": "/projects/landing-app", "destination": "/projects/unilink", "permanent": true }
+  ],
   "rewrites": [
+    {
+      "source": "/projects/unilink",
+      "destination": "/projects/unilink/index.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

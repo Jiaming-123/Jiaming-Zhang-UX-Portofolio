@@ -96,7 +96,7 @@ const featureScreens: FeatureScreen[] = [
     heading: 'From browsing content to finding a table',
     paragraphs: [
       <>The original home screen prioritised posts and general exploration. In the redesign, the first screen focuses on the user&apos;s most likely intent: finding something they can actually play. Recommended sessions surface the game, place, time, available seats and a clear <strong>Join game</strong> action immediately.</>,
-      <>I also introduced compatibility cues such as <strong>“Great fit for relaxed co-op play”</strong> and <strong>Players you&apos;ll click with</strong>. This creates the foundation for recommendations based on game preference, skill level, play style, availability and location rather than proximity alone.</>,
+      <>We also introduced compatibility cues such as <strong>“Great fit for relaxed co-op play”</strong> and <strong>Players you&apos;ll click with</strong>. This creates the foundation for recommendations based on game preference, skill level, play style, availability and location rather than proximity alone.</>,
     ],
     principle: 'Reduce time-to-table',
   },
@@ -117,7 +117,7 @@ const featureScreens: FeatureScreen[] = [
     label: '03 / LEARN',
     heading: 'Turning tutorials into a learning journey',
     paragraphs: [
-      <>The previous Tutorial screen worked more like a catalogue of games. Research showed that the harder problem was learning efficiently: dense rulebooks and long videos can interrupt the flow of play. I redesigned learning as a progressive journey with short, manageable steps and visible progress.</>,
+      <>The previous Tutorial screen worked more like a catalogue of games. Research showed that the harder problem was learning efficiently: dense rulebooks and long videos can interrupt the flow of play. We redesigned learning as a progressive journey with short, manageable steps and visible progress.</>,
       <><strong>Quick tutorial, Turn anatomy, Scoring and First-game strategy</strong> break the learning curve into smaller decisions. The game companion and quick in-play rules extend support into the actual session, allowing users to get contextual help without leaving the experience.</>,
     ],
     principle: 'Support players before and during play',
@@ -187,6 +187,7 @@ export function BoardGameMateIteration() {
             <div><dt>PROJECT</dt><dd>BoardGameMate</dd></div>
             <div><dt>DISCIPLINES</dt><dd>UX Design · Product Design · Interaction Design</dd></div>
             <div><dt>YEAR</dt><dd>2024</dd></div>
+            <div><dt>TEAM</dt><dd>3-person group project</dd></div>
             <div><dt>MY CONTRIBUTION</dt><dd>Product strategy<br />User research<br />Product design</dd></div>
             <div><dt>RESEARCH METHODS</dt><dd>Double Diamond framework and EDIPT five-step design thinking process.<ul><li>User interviews</li><li>Focus groups</li><li>Cognitive walkthrough</li><li>Heuristic evaluation</li></ul></dd></div>
           </dl>
@@ -198,7 +199,7 @@ export function BoardGameMateIteration() {
         <div className="boardgamemate-discover-grid">
           <div>
             <h2>Discover phase</h2>
-            <p>I began by looking beyond the interface to understand what makes tabletop play feel inviting, difficult or socially uncertain. The research focused on the moments before a game starts: finding people, choosing a suitable game and feeling prepared enough to join.</p>
+            <p>We began by looking beyond the interface to understand what makes tabletop play feel inviting, difficult or socially uncertain. The research focused on the moments before a game starts: finding people, choosing a suitable game and feeling prepared enough to join.</p>
           </div>
           <div className="boardgamemate-discover-note"><span>RESEARCH FOCUS</span><p>From finding a game to feeling ready to play with other people.</p><i /></div>
         </div>
@@ -255,7 +256,7 @@ export function BoardGameMateIteration() {
           <h2 id="boardgame-iteration-title">From a social feed to a task-first companion</h2>
           <div>
             <p>The early BoardGameMate prototype already included discovery, tutorials, communities, profiles and messaging, but testing the overall experience revealed a more fundamental problem: there were many features, yet the main user goal was not clear enough. A player who simply wanted to find a game for tonight still had to move between feeds, profiles and messages before knowing whether there was actually a table they could join.</p>
-            <p>I therefore reframed the product around the complete journey of getting people to the same table. Instead of treating each feature as an isolated destination, the revised experience follows a clearer flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
+            <p>We therefore reframed the product around the complete journey of getting people to the same table. Instead of treating each feature as an isolated destination, the revised experience follows a clearer flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
           </div>
         </div>
       </IterationReveal>
@@ -309,7 +310,7 @@ export function BoardGameMateIteration() {
         <div className="iteration-outcome-grid">
           <div>
             <h3>Designing the system, not just the screens</h3>
-            <p>The most important outcome of this iteration was a shift in how I approached the product. Instead of asking <strong>“What features should a board-game app have?”</strong>, I started asking <strong>“What needs to happen for someone to successfully join and enjoy a game?”</strong> That changed the relationship between every major feature.</p>
+            <p>The most important outcome of this iteration was a shift in how we approached the product. Instead of asking <strong>“What features should a board-game app have?”</strong>, we started asking <strong>“What needs to happen for someone to successfully join and enjoy a game?”</strong> That changed the relationship between every major feature.</p>
           </div>
           <ol className="iteration-journey" aria-label="BoardGameMate product journey">
             {['Discover', 'Match', 'Learn', 'Coordinate', 'Play'].map((step) => <li key={step}>{step}</li>)}

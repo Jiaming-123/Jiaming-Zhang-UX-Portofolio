@@ -1,0 +1,11 @@
+.hero[data-orb-motion] { overflow: clip; isolation: isolate; }
+.hero[data-orb-motion] .hero-orb {
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  animation: none;
+  transition: none;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}

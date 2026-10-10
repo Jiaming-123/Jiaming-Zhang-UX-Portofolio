@@ -1,0 +1,25 @@
+/* Keep the disclosure pinned to the image, outside its animated surface. */
+.culturelens-concept-visual .culturelens-cv-frame > .culturelens-cv-badge {
+  inset: auto 12px 12px auto;
+  z-index: 6;
+  max-width: calc(100% - 24px);
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: #f7f5f1ed;
+  color: #263b35;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .culturelens-concept-visual .culturelens-cv-frame > .culturelens-cv-badge {
+    inset: auto 8px 8px auto;
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+}

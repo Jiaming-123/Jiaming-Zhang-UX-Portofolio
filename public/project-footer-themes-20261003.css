@@ -1,0 +1,29 @@
+/* Per-project footer tokens, scoped by the mounted case study. */
+body:has(.ul-case) .site-footer {
+  --footer-bg: #d6edf7; --footer-ink: #183552; --footer-muted: #4e687f;
+  --footer-line: #a6c8dc; --footer-accent: #2d6c9e;
+}
+body:has(.furniture-case) .site-footer {
+  --footer-bg: #493322; --footer-ink: #fff8f0; --footer-muted: #eadbcb;
+  --footer-line: #927258; --footer-accent: #e8c49c;
+}
+body:has(.culturelens-page) .site-footer {
+  --footer-bg: #e6e8df; --footer-ink: #252c2b; --footer-muted: #5e6863;
+  --footer-line: #bec7ba; --footer-accent: #176657;
+}
+body:has(.crownlands-page) .site-footer {
+  --footer-bg: #161815; --footer-ink: #eee5cf; --footer-muted: #c5b99f;
+  --footer-line: #64583f; --footer-accent: #d4b16b;
+}
+body:has(:is(.ul-case, .furniture-case, .culturelens-page, .crownlands-page)) .site-footer {
+  --muted: var(--footer-muted); --line: var(--footer-line); --cyan: var(--footer-accent);
+  background: var(--footer-bg);
+  color: var(--footer-ink);
+  border-color: var(--footer-line);
+}
+body:has(:is(.ul-case, .furniture-case, .culturelens-page, .crownlands-page)) .site-footer h2 span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--footer-ink);
+}
+body:has(:is(.ul-case, .furniture-case, .culturelens-page, .crownlands-page)) .site-footer a:hover { color: var(--footer-accent); }
+body:has(:is(.ul-case, .furniture-case, .culturelens-page, .crownlands-page)) .site-footer :focus-visible { outline-color: var(--footer-accent); }

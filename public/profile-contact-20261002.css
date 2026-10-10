@@ -1,0 +1,9 @@
+
+.about-profile .about-portrait{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center;border-radius:24px;border:1px solid var(--line)}
+.contact-actions{justify-self:end;width:max-content;max-width:100%}
+.contact-actions .contact-row{display:grid;grid-template-columns:100px minmax(0,1fr) 24px;gap:24px;align-items:center;padding:24px 0;border-top:1px solid var(--line)}
+.contact-actions .contact-row .contact-label{text-align:left;font:500 1.25rem "Space Grotesk",sans-serif}
+.contact-email-addresses{display:flex;flex-direction:column;gap:10px;color:#cbd5e1;font-size:.8rem;line-height:1.5;overflow-wrap:anywhere}
+.contact-actions .contact-linkedin svg{grid-column:3;grid-row:1}
+.contact-actions .contact-linkedin:hover{padding-left:0}
+@media(max-width:600px){.contact-actions{justify-self:stretch;width:100%}.contact-actions .contact-row{grid-template-columns:100px minmax(0,1fr) 20px;gap:16px}.contact-actions .contact-row .contact-label{font-size:1rem}.contact-email-addresses{font-size:.72rem}}

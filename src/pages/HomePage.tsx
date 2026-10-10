@@ -1,61 +1,46 @@
-import { ArrowRight, Check, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { Hero } from '../components/Hero'
-import { Footer, MagneticButton } from '../components/Layout'
-import { Gallery, MediaPlaceholder, ProjectCard, Reveal, SectionLabel } from '../components/Content'
+import { Footer } from '../components/Layout'
+import { ProjectCard, Reveal, SectionLabel } from '../components/Content'
 import BorderGlow from '../components/BorderGlow'
-import { projects, visualItems } from '../data/projects'
+import { projects } from '../data/projects'
+import homepageCovers from '../data/homepage-covers.json'
+import '../../public/home-project-reveal.css'
 
 export default function HomePage() {
   const landing = projects[0]
+  const cover = homepageCovers.unilink
   return (
     <>
       <Hero />
       <section className="home-featured" id="featured">
-        <Reveal>
-          <SectionLabel number="01">FEATURED / GRADUATION PROJECT</SectionLabel>
+        <div className="reveal-block is-visible home-featured-content">
+          <SectionLabel number="01">GRADUATION PROJECT</SectionLabel>
           <div className="featured-heading">
-            <div><span>LANDING</span><span>APP</span></div>
-            <p>An AI-powered transition assistant helping international students navigate their first steps in a new country.</p>
+            <div><span>UNI</span><span>LINK</span></div>
+            <p>A research-led peer support platform connecting first-year international students with relevant communities and verified senior mentors.</p>
           </div>
-          <BorderGlow
-            className="featured-border-glow"
-            edgeSensitivity={32}
-            glowColor="194 93 58"
-            backgroundColor="#070e1b"
-            borderRadius={32}
-            glowRadius={30}
-            glowIntensity={0.78}
-            coneSpread={22}
-            colors={[landing.color, '#0066ff', '#00d4ff']}
-            fillOpacity={0.16}
-          >
-            <div className="featured-stage" data-cursor="media">
-              <div className="feature-halo" aria-hidden="true" />
-              <div className="feature-timeline glass-panel">
-                <div className="mini-label"><span>YOUR ARRIVAL PLAN</span><span>02 / 06</span></div>
-                {['Arrival', 'SIM Card', 'Bank', 'University', 'Healthcare', 'Daily Life'].map((item, index) => <div className={index < 2 ? 'done' : index === 2 ? 'current' : ''} key={item}><i>{index < 2 ? <Check size={11} /> : index + 1}</i><span>{item}</span></div>)}
-              </div>
-              <div className="feature-phone">
-                <div className="phone-status"><span>9:41</span><i /><span>•••</span></div>
-                <div className="phone-head"><b>Landing</b><span>AI settlement guide</span></div>
-                <div className="phone-chat user">How do I open a bank account?</div>
-                <div className="phone-chat ai"><Sparkles size={14} /><span>You&apos;ll need your passport, local address and enrolment document. I can compare nearby branches and help you prepare.</span></div>
-                <div className="phone-action"><small>NEXT ACTION</small><b>Prepare your documents</b><span>View verified checklist <ArrowRight size={12} /></span></div>
-              </div>
-              <div className="feature-assistant glass-panel">
-                <div className="mini-label"><span>AI GUIDANCE</span><i /></div>
-                <Sparkles size={22} />
-                <h3>One clear next step.</h3>
-                <p>Personal, verified, bilingual support that moves with every completed task.</p>
-                <div><span>OFFICIAL SOURCES</span><span>HUMAN ESCALATION</span></div>
-              </div>
-            </div>
-          </BorderGlow>
+          <Reveal variant="project">
+            <BorderGlow
+              className="featured-border-glow project-border-glow"
+              edgeSensitivity={32}
+              glowColor="194 93 58"
+              backgroundColor="#07101f"
+              borderRadius={22}
+              glowRadius={28}
+              glowIntensity={0.72}
+              coneSpread={22}
+              colors={[landing.color, '#0066ff', '#00d4ff']}
+              fillOpacity={0.18}
+            >
+              <Link to="/projects/unilink" className="unilink-blank-cover project-visual-link" aria-label="View UniLink case study" data-cursor="media"><img className="unilink-cover-image project-cover-image" {...cover} loading="lazy" decoding="async" /><span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span></Link>
+            </BorderGlow>
+          </Reveal>
           <div className="featured-footer">
             <ul>{landing.categories.map((category) => <li key={category}>{category}</li>)}</ul>
-            <MagneticButton to="/projects/landing-app">VIEW CASE STUDY</MagneticButton>
           </div>
-        </Reveal>
+        </div>
       </section>
 
       <section className="selected-work" id="work">
@@ -64,29 +49,10 @@ export default function HomePage() {
           <div><h2>DESIGN ACROSS<br />SCREENS, SYSTEMS<br /><span>&amp; SERVICES.</span></h2><p>Selected projects exploring how research, interaction, and visual systems can make complex experiences feel clear and human.</p></div>
         </Reveal>
         <div className="project-list">
-          {projects.slice(1).map((project, index) => <Reveal key={project.slug}><ProjectCard project={{ ...project, number: String(index + 1).padStart(2, '0') }} /></Reveal>)}
+          {projects.slice(1).map((project, index) => <Reveal variant="project" key={project.slug}><ProjectCard project={{ ...project, number: String(index + 1).padStart(2, '0') }} /></Reveal>)}
         </div>
-        <div className="section-action"><MagneticButton to="/work" className="button-secondary">VIEW ALL PROJECTS</MagneticButton></div>
       </section>
 
-      <section className="visual-preview" id="visuals">
-        <Reveal className="section-intro visual-intro">
-          <SectionLabel number="03">VISUAL ARCHIVE</SectionLabel>
-          <div><h2>VISUAL<br />EXPERIMENTS.</h2><p>A collection of graphic experiments, typography and visual explorations. A supporting practice that sharpens composition, hierarchy, and craft.</p></div>
-        </Reveal>
-        <Gallery items={visualItems.slice(0, 4)} />
-        <div className="section-action"><MagneticButton to="/visuals" className="button-secondary">EXPLORE THE ARCHIVE</MagneticButton></div>
-      </section>
-
-      <section className="about-preview" id="about">
-        <Reveal>
-          <SectionLabel number="04">ABOUT</SectionLabel>
-          <div className="about-preview-grid">
-            <div><span>JIAMING<br />ZHANG</span><MediaPlaceholder alt="Portrait of Jiaming Zhang, UX Designer based in Melbourne" variant="poster" label="PORTRAIT DIRECTION" /></div>
-            <div className="about-preview-copy"><h2>UX Designer<br />based in Melbourne.</h2><p>I explore the space between people, products, and systems—using research to understand what matters and design to make the next interaction feel natural.</p><ul>{['UX Research', 'Product Design', 'Interaction Design', 'Service Design', 'AI Experience Design', 'Visual Communication'].map((skill) => <li key={skill}>{skill}</li>)}</ul><MagneticButton to="/about">MORE ABOUT ME</MagneticButton></div>
-          </div>
-        </Reveal>
-      </section>
       <Footer />
     </>
   )

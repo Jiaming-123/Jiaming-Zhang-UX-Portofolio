@@ -1,0 +1,25 @@
+/* Align the featured cover with the two-column project covers below it. */
+.home-landing-project>.reveal-block{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:3vw;row-gap:32px;align-items:center}
+.home-landing-project .home-landing-heading{display:contents}
+.home-landing-project .home-landing-heading>.section-label{grid-column:1/-1;margin-bottom:24px}
+.home-landing-project .home-landing-title-row{grid-column:1;grid-row:2;display:block;margin:0;padding-right:24px}
+.home-landing-project .home-landing-title-row p{margin:32px 0 0;max-width:480px}
+.home-landing-project .featured-border-glow{grid-column:2;grid-row:2/4;min-width:0;width:100%;--border-radius:22px!important}
+.home-landing-project .unilink-blank-cover{aspect-ratio:1586/992;min-height:0}
+.home-landing-project .featured-footer{grid-column:1;grid-row:3;margin-top:0;align-self:end}
+.home-featured.home-landing-project{padding-bottom:64px}
+/* One blue halo for every project cover, including the featured UniLink. */
+.project-border-glow{transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+@media(hover:hover) and (pointer:fine){
+  .featured-border-glow.project-border-glow:hover{transform:translateY(-10px)}
+  .project-border-glow:hover,
+  .project-border-glow:focus-within,
+  .home-project-grid .project-card:hover .project-border-glow{
+    box-shadow:0 24px 54px rgb(0 0 0 / 28%),0 0 0 1px rgb(56 189 248 / 48%),0 0 26px rgb(0 212 255 / 27%),0 0 52px rgb(0 150 255 / 20%);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .project-border-glow{transition:none}
+  .featured-border-glow.project-border-glow:hover{transform:none}
+}
+@media(max-width:800px){.home-landing-project>.reveal-block{grid-template-columns:minmax(0,1fr);row-gap:32px}.home-landing-project .home-landing-heading>.section-label{margin-bottom:8px}.home-landing-project .home-landing-title-row{grid-column:1;grid-row:2;padding-right:0}.home-landing-project .featured-border-glow{grid-column:1;grid-row:3}.home-landing-project .home-landing-title-row p{margin-top:24px}.home-landing-project .featured-footer{grid-column:1;grid-row:4}}

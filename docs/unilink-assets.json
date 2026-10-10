@@ -1,0 +1,283 @@
+{
+  "sourceDirectory": "User-supplied unilink folder (original PNG exports)",
+  "format": "Original PNG files copied byte-for-byte; no screen content edited.",
+  "screens": [
+    {
+      "path": "hero/home.png",
+      "sourceFilename": "Joined Housing Help — v4 Gold points ribbon.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "0f180adf94e4c1bf47fe0602661e69b46d661240dc68f2f9b5be420098c2bacc",
+      "placement": "main sequence"
+    },
+    {
+      "path": "groups/discover.png",
+      "sourceFilename": "Find group section.png",
+      "width": 786,
+      "height": 1728,
+      "sha256": "36394a1720ab725275220efddbc625bce2b47074ed92ad9290c74fe48c3f8a2e",
+      "placement": "main sequence"
+    },
+    {
+      "path": "groups/housing.png",
+      "sourceFilename": "Housing Help.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "6187c129faa211ab3cab298640641416b9b1bd4a2f4b9450ed2ed3061baad5d0",
+      "placement": "main sequence"
+    },
+    {
+      "path": "groups/joined.png",
+      "sourceFilename": "Group chat entry.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "fb53efaecbf54dc875f115a32e8904ca624558b9650443b64cfaf9e9e32deb26",
+      "placement": "main sequence"
+    },
+    {
+      "path": "groups/chat.png",
+      "sourceFilename": "Housing Help_副本.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "b53dae732d077a85e94ed46577ea8ca28e169e2ecc4a234c224c1450b62945bc",
+      "placement": "main sequence"
+    },
+    {
+      "path": "mentors/discover.png",
+      "sourceFilename": "Choose your mentor.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "f25dd481856564192c4b50f3244bb87de27987ddcc1edb2aac905b8869809b61",
+      "placement": "main sequence"
+    },
+    {
+      "path": "mentors/profile.png",
+      "sourceFilename": "Mentor Profile-1.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "c7dc5f5c506a2246f02b32efc9570de8a87e5c72a72e1170ae72ce45b0e4c17f",
+      "placement": "main sequence"
+    },
+    {
+      "path": "mentors/reviews.png",
+      "sourceFilename": "Ratings & reviews.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "296e9526634a3d88bd6dc674ab9457c18a578bfcfb223032efd48d855cacf367",
+      "placement": "main sequence"
+    },
+    {
+      "path": "booking/date-mode.png",
+      "sourceFilename": "Select date.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "329eaabd64ce0aa637ca00de354a8e487f4b45da3cb7d1b08f8d15bd1eb2862a",
+      "placement": "main sequence"
+    },
+    {
+      "path": "booking/time.png",
+      "sourceFilename": "Select time.png",
+      "width": 786,
+      "height": 1710,
+      "sha256": "2f8a159ca243005b9ae75e327131aa9a1029856837961d5e504784d91226db27",
+      "placement": "main sequence"
+    },
+    {
+      "path": "booking/topic.png",
+      "sourceFilename": "Choose topic.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "0f5fbc408a47026d69ca8b1d3fdd10b6b32358751876bdac05546506f01c21de",
+      "placement": "main sequence"
+    },
+    {
+      "path": "booking/review.png",
+      "sourceFilename": "Review.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "68ce86d6f9021ca6f3dea724492b4761ea500a6a500767c9329ce751a65ecabe",
+      "placement": "main sequence"
+    },
+    {
+      "path": "booking/confirmation.png",
+      "sourceFilename": "Confirmation.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "e579036982c4257f9cb25031871dadc95833cdbf4608a16c73ab51fd123290fc",
+      "placement": "main sequence"
+    },
+    {
+      "path": "during-service/bookings.png",
+      "sourceFilename": "v4 — Confirmed booking & Gold points ribbon.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "71361d8074c049c8188e5ea25f773a8fd7bc8b39a9303cc37d6a363048331f08",
+      "placement": "main sequence"
+    },
+    {
+      "path": "during-service/details.png",
+      "sourceFilename": "Booking details.png",
+      "width": 786,
+      "height": 1716,
+      "sha256": "190cbf1ad208582315220ed0361eb18583670bc8d9765d551b78dec3f09608f8",
+      "placement": "main sequence"
+    },
+    {
+      "path": "during-service/live.png",
+      "sourceFilename": "Session live.png",
+      "width": 786,
+      "height": 1718,
+      "sha256": "b5116214c873f602faca8b7c4889abe1e947f2aa286b1dee173163d46bfc8625",
+      "placement": "main sequence"
+    },
+    {
+      "path": "during-service/complete.png",
+      "sourceFilename": "Session complete.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "5b5cbca1755597487ccd2d473358c7601974e7706f48156c695d16ab13e7dba4",
+      "placement": "main sequence"
+    },
+    {
+      "path": "during-service/feedback.png",
+      "sourceFilename": "Rate your experience.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "5e1bddeb31ca1c83700903f751d58979e9c1d6c50e8d4d480ac563e95c83cd7f",
+      "placement": "main sequence"
+    },
+    {
+      "path": "groups/request-sent.png",
+      "sourceFilename": "Housing Help-1.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "cf8a20c2f6d2e87e57973a2c8e273856d7374fc40f66a64839b1826c76a7e2c1",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "groups/request-points.png",
+      "sourceFilename": "Housing Help-2.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "5cecf392ee2ee38404407db7eac52a9f3de1707339f280c899d8cb74339cd700",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "mentor-account/home-request.png",
+      "sourceFilename": "Joined Housing Help — v4 Gold points ribbon-1.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "7825e5b28459eea0daa18fa010de5ad667770de7db20e036b6f449eaf47357ad",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "mentor-account/join-request.png",
+      "sourceFilename": "Request.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "c12c8108036dce5f7e4126de37040be2d79900ccb5c95748b7abe010d54a4327",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "mentor-account/request-approved.png",
+      "sourceFilename": "Request approved.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "6e6b666ba82fec67f53fe8ec38e9cb23efbac1435828b83a51d864c5f4991347",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "mentor-account/home-approved.png",
+      "sourceFilename": "Joined Housing Help — v4 Gold points ribbon-2.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "4b33145f72c1268bca19e58c432636535d3a694ec9c0aaee342987c52538e2b1",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "booking/points-request.png",
+      "sourceFilename": "Mentor Profile-2.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "b7f21806c6cf5e2b8f15cd3bdf6baf6febd2fe5076708d2439e558965dc52f4c",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "during-service/review-received.png",
+      "sourceFilename": "07 — Report received-1.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "19f83f37b585f2cd2a6238c96e6ff2f295615ea8950ff2e5fe3e688b7d6e5482",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "during-service/points-earned.png",
+      "sourceFilename": "07 — Report received.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "4a9693596b4830c0a7ab8c60e24de924cc558c6e96eba44a273b8d8a87448dcf",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "mentor-account/profile.png",
+      "sourceFilename": "Mentor Profile.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "e3e8f27cf8c9b72f5bbe164ef0952d1705ec2e17c232e21e0155284e2d315d48",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "mentor-account/service-history.png",
+      "sourceFilename": "Service History.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "53eca33fc402551c96c361d637bb385d8ae05de01cc39d43684bbc60660ee389",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "rewards/catalogue.png",
+      "sourceFilename": "Rewards.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "3cefa4483ee5e8c14bc3dfbaeaefa2e86e910c455c14bae4081c508e51079fcd",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "rewards/points.png",
+      "sourceFilename": "View Points.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "ef89e0c9641dc464ea30397edcf2cd33e885899cc4fec436504cf94885343b88",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "rewards/detail.png",
+      "sourceFilename": "Rewards-1.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "a999b57d061a61cd8e5b0c1cb5338c58379009bce8fea6c2fe67af0fcf03b1b1",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "rewards/redeemed.png",
+      "sourceFilename": "Rewards-2.png",
+      "width": 786,
+      "height": 1714,
+      "sha256": "5e0d3147e809731bb90d867f750eb865af643cf58a9c3b3502dbf94362ad3eca",
+      "placement": "supplementary gallery"
+    },
+    {
+      "path": "rewards/vouchers.png",
+      "sourceFilename": "My Vouchers.png",
+      "width": 786,
+      "height": 1704,
+      "sha256": "cc5382d6f0c2c947a4f337e15b25bb45ec2d02599034ec6eb9b4850be4d5f8f4",
+      "placement": "supplementary gallery"
+    }
+  ],
+  "pending": [
+    "during-service/unavailable",
+    "during-service/backup",
+    "during-service/handover"
+  ]
+}

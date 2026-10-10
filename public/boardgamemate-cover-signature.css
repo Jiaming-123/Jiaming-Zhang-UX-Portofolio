@@ -1,0 +1,30 @@
+.boardgamemate-cover-signature {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 18px);
+  color: #fff;
+  pointer-events: none;
+  text-shadow: 0 1px 6px #000;
+}
+
+.boardgamemate-cover-monogram {
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+  width: clamp(36px, 3.6vw, 56px);
+  height: clamp(36px, 3.6vw, 56px);
+  border-radius: 50%;
+  background: rgba(5, 11, 24, .9);
+  font: 600 clamp(18px, 1.6vw, 24px)/1 'Space Grotesk', sans-serif;
+  letter-spacing: -.07em;
+}
+
+.boardgamemate-cover-monogram > span { color: #00d4ff; }
+.boardgamemate-cover-year {
+  font: 500 clamp(11px, 1vw, 15px)/1.2 'Space Grotesk', sans-serif;
+  letter-spacing: .08em;
+}

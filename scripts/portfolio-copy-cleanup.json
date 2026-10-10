@@ -1,0 +1,46 @@
+[
+  {
+    "from": "Portfolio synthesis of G2/G3. This map is a design interpretation, not a user-research finding.",
+    "to": "",
+    "removeElement": "small"
+  },
+  {
+    "from": "Derived service blueprint · G3 service and architecture evidence, extended into a portfolio synthesis.",
+    "to": "",
+    "removeElement": "small"
+  },
+  {
+    "from": "Workshop judgement, not quantitative validation. The original axes, notes and marker circles are preserved.",
+    "to": "",
+    "removeElement": "small"
+  },
+  {
+    "from": "These are evaluation directions, not completed user-study results.",
+    "to": "",
+    "removeElement": "small"
+  },
+  {
+    "from": "Group project comparison, synthesised from A2.G2 pp. 14–16. No numerical scoring.",
+    "to": "Group project comparison"
+  },
+  {
+    "from": "G2 · SPECULATIVE SMART MUSEUM",
+    "to": "SPECULATIVE SMART MUSEUM"
+  },
+  {
+    "from": "G3 · VOICEFLOW PROTOTYPE",
+    "to": "VOICEFLOW PROTOTYPE"
+  },
+  {
+    "from": "G2 concepts, physical prototype and desktop walkthrough; G3 Voiceflow structure, conversations, dummy data and breakdown analysis.",
+    "to": "Concepts, physical prototype and desktop walkthrough; Voiceflow structure, conversations, dummy data and breakdown analysis."
+  },
+  {
+    "from": "The original prototype sits around the forehead / upper head. Its slim band leaves the eyes unobstructed. Proposed features below are grounded in the report, not validated engineering specifications.",
+    "to": "The original prototype sits around the forehead / upper head. Its slim band leaves the eyes unobstructed."
+  },
+  {
+    "from": "G2 documented a head-worn physical prototype and desktop walkthrough. The refined images retain this forehead placement and are explicitly labelled concept visualisations.",
+    "to": "The refined images retain the forehead placement of the physical prototype and are explicitly labelled concept visualisations."
+  }
+]

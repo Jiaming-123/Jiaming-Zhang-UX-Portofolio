@@ -1,0 +1,37 @@
+/* Cover-inspired sky blue and pale sea blue, scoped to the UniLink case study. */
+.ul-case .ul-hero {
+  background:radial-gradient(ellipse at 100% 0%,#c5e1ff 0%,transparent 62%),linear-gradient(155deg,#f2faff 0%,var(--ul-sky) 70%);
+}
+.ul-case .ul-hero-screens::after { background:linear-gradient(transparent,var(--ul-sky)); }
+.ul-case .ul-research,.ul-case .ul-design,.ul-case .ul-reflection { background:var(--ul-card); }
+.ul-case .ul-concepts,.ul-case .ul-sustainability { background:var(--ul-sea); }
+.ul-case .ul-question { background:var(--ul-sea); border-color:var(--ul-line); }
+.ul-case .ul-insight,.ul-case .ul-two-lanes article { background:var(--ul-sky); }
+.ul-case .ul-insight:nth-child(2),.ul-case .ul-insight:nth-child(3),.ul-case .ul-two-lanes article:last-child { background:var(--ul-sea); }
+.ul-case .ul-artifacts button,.ul-case .ul-product-stage,.ul-case .ul-mobile-screen { background:var(--ul-sky); border-color:var(--ul-line); }
+.ul-case .ul-screen-pending { background:var(--ul-card); border-color:#9dbed7; }
+.ul-case .ul-hypothesis { background:var(--ul-card); border-color:var(--ul-line); }
+.ul-case .ul-hypothesis--uni-matcher { background:var(--ul-sky); border-color:#86b7d8; }
+.ul-case .ul-hypothesis-image { background:var(--ul-sea); }
+.ul-case .ul-sketch-expand { background:#f5fbfff0; border-color:var(--ul-line); }
+.ul-case .ul-lightbox,.ul-case .ul-concept-dialog { background:var(--ul-paper); border-color:var(--ul-line); }
+/* Evidence dialogs are rendered directly into the document body. */
+body.unilink-page>.ul-lightbox { background:#eef8ff; border-color:#bfd9ea; }
+.ul-case .ul-timeline { background:#eef8fff5; border-color:var(--ul-line); }
+.ul-case .ul-timeline ol::before { background:var(--ul-line); }
+.ul-case .ul-timeline ol::after { background:var(--ul-accent); }
+.ul-case .ul-nav-dot { background:var(--ul-paper); border-color:var(--ul-line); }
+.ul-case .ul-timeline .is-complete .ul-nav-dot { color:var(--ul-accent); border-color:#6c9fc4; }
+.ul-case .ul-timeline [aria-current] { color:var(--ul-blue); }
+.ul-case .ul-timeline [aria-current] .ul-nav-dot { background:var(--ul-blue); color:#fff; }
+.ul-case .ul-title-mark,.ul-case .ul-hero-editorial em,.ul-case .ul-contribution>span,
+.ul-case .ul-step-number,.ul-case .ul-iteration-title>span,.ul-case .ul-iteration-body dt,
+.ul-case .ul-value-loop article>span,.ul-case .ul-value-loop svg,.ul-case .ul-trust-rule>span,
+.ul-case .ul-hypothesis-category,.ul-case .ul-exploration-principles article>span,
+.ul-case .ul-concept-dialog-header span { color:var(--ul-accent); }
+.ul-case .ul-contribution { border-color:#6c9fc4; }
+.ul-case .ul-step-number i { background:#9dbed7; }
+.ul-case .ul-hero-title,.ul-case .ul-meta,.ul-case .ul-source,.ul-case .ul-source i,
+.ul-case .ul-two-lanes ul,.ul-case .ul-value-loop article,.ul-case .ul-loop-return,
+.ul-case .ul-hypothesis-status,.ul-case .ul-hypothesis-hint,.ul-case .ul-exploration-convergence,
+.ul-case .ul-exploration-principles article,.ul-case .ul-system-strip span { border-color:var(--ul-line); }

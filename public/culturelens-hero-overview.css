@@ -1,0 +1,34 @@
+.culturelens-hero-top > span:only-child { margin-left: auto; }
+.culturelens-page .culturelens-hero-overview {
+  display: block;
+  padding: 28px 0 34px;
+}
+.culturelens-hero-overview .culturelens-overview-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+.culturelens-hero-overview .culturelens-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 48px;
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--cl-muted, #5e6b67);
+}
+.culturelens-hero-overview .culturelens-overview-grid p {
+  margin: 0;
+  max-width: none;
+}
+.culturelens-hero-overview .culturelens-overview-grid strong {
+  color: var(--cl-ink, #283d37);
+}
+@media (max-width: 760px) {
+  .culturelens-page .culturelens-hero-overview { padding: 22px 0 28px; }
+  .culturelens-hero-overview .culturelens-overview-heading { flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .culturelens-hero-overview .culturelens-overview-grid { grid-template-columns: 1fr; gap: 20px; font-size: 14px; }
+}
