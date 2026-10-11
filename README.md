@@ -2,47 +2,60 @@
 
 Live website: https://jiamingzhang-portfolio.vercel.app
 
-This repository contains the full inputs needed to build the current portfolio: Home, About, Contact, UniLink, BoardGameMate, My Furniture Store, CultureLens Concierge and Crownlands.
+All current pages are built from the editable React / TypeScript source in this repository. The development homepage and production homepage now use the same implementation. There is no separate preserved, minified implementation to patch.
 
-## Open and run in VS Code
+## Open in VS Code
 
-Open this repository folder in VS Code. Install Node.js 20 or newer, then use the terminal:
+Open this repository folder, install Node.js 20 or newer, then run:
 
 ```sh
 npm install
+npm run dev
+```
+
+For a release-equivalent preview:
+
+```sh
 npm run build
 npm test
 npm run preview
 ```
 
-Open the local URL printed by the preview command. The VS Code **Terminal → Run Task** menu also includes production build, tests and preview tasks. This is the current full website preview; `npm run dev` is only the source-development app and does not reproduce all preserved production pages.
+The VS Code **Terminal → Run Task** menu provides full-site build, tests and preview tasks.
 
-## Where the website lives
+## Where to edit
 
-| Folder / file | Purpose |
+| Website area | Source |
 | --- | --- |
-| `src/` | React / TypeScript page, component, data and style source, including the standalone UniLink case study. |
-| `public/` | Current covers, screenshots, videos, game resources, navigation helpers and supplementary CSS. |
-| `production-baseline/` | Preserved production HTML, JavaScript, CSS and resources from the newer live portfolio. Keep this snapshot unchanged during routine edits. |
-| `scripts/stage-production.mjs` | Applies the current full-site changes to that preserved snapshot and integrates the rebuilt UniLink page. |
-| `tests/` | Regression tests for current website content, assets, navigation and interactions. Run after building. |
-| `docs/` | Implementation notes, asset provenance and production preservation manifest. Older dated reports describe historical releases. |
-| `vercel.json` | Full-site build output and route configuration for Git-connected deployments. |
+| Homepage layout and project order | `src/pages/HomePage.tsx` |
+| Homepage name, introduction and motion | `src/components/Hero.tsx` |
+| About and Contact | `src/pages/InfoPages.tsx` |
+| Navigation, scrolling and shared footer | `src/components/Layout.tsx` |
+| UniLink | `src/pages/UniLinkCaseStudy.tsx`, `src/components/unilink/`, `src/data/unilink.ts` |
+| BoardGameMate | `src/components/BoardGameMateIteration.tsx`, `src/components/BoardGameMateFinalShowcase.tsx` |
+| My Furniture Store | `src/components/FurnitureCaseStudy.tsx`, furniture hero in `src/pages/ProjectPage.tsx` |
+| CultureLens | `src/pages/CultureLensCaseStudy.tsx`, `src/components/culturelens/` |
+| Crownlands case study | `src/pages/CrownlandsPage.tsx`, `src/crownlands.css` |
+| Crownlands game interface | `src/components/crownlands/CrownlandsGame.tsx` |
+| Crownlands board and scoring | `src/crownlands/boardData.ts` |
+| Crownlands legal moves and AI | `src/crownlands/gameRules.ts` |
+| Crownlands rounds and match state | `src/crownlands/matchState.ts` |
+| Covers and homepage project metadata | `src/data/homepage-covers.json`, `src/data/projects.ts` |
+| Shared styles | `src/styles.css`, `src/styles/`, imported CSS in `public/` |
+| Images, videos and game resources | `public/` |
 
-Important: some historical React source is older than the production website. The newer compiled pages are preserved in `production-baseline/`; they are not a reconstruction of the original missing TypeScript source. Current changes to those preserved pages are explicitly recorded in the staging script and public assets. Everything required for the production build is now inside this repository; no external `_work` directory is needed.
+`index.html` is the React entry document, not the entire website. `dist-production/`, `dist-unilink/`, `node_modules/` and `.vercel/output/` are generated; do not edit them.
 
-## Build and publish
+## Build and deployment
 
-`npm run build` creates the complete site in `dist-production/` and Vercel Build Output in `.vercel/output/`. Both are generated and ignored by Git. `vercel.json` explicitly selects `dist-production` for Git-connected builds.
+`npm run build` compiles the main portfolio and the standalone UniLink document, then combines them into `dist-production/` and Vercel Build Output in `.vercel/output/`. UniLink retains its separate document so its navigation and scroll behaviour remain unchanged.
 
-For a manually linked Vercel checkout, build and test first, then publish the prebuilt output:
+`scripts/stage-production.mjs` integrates the compiled UniLink entry, gives browser helpers cache-safe filenames, and writes route/output metadata. It does not perform string replacements in compiled React code. `docs/production-restoration-manifest.json` records the current build's source entries and output hashes.
 
-```sh
-npm run build
-npm test
-vercel deploy --prebuilt --prod
-```
+Build and test before publishing. A GitHub push may trigger automatic Vercel deployment: first review the changes and obtain publication approval. Do not commit credentials, `.env`, generated output or `node_modules`.
 
-Do not publish `dist/` as the whole website: `npm run build:source` is only for general source development and can omit newer preserved pages.
+## Cleanup and recovery
 
-Do not commit `.env` files, `.vercel` project credentials or `node_modules`. GitHub file timestamps show the last commit that changed each file; unchanged configuration files can legitimately retain older dates.
+The obsolete `production-baseline/` runtime, old generic placeholder case studies, unused Visual Archive, removed CultureLens simulation and its compatibility build were retired when the current pages were migrated to source.
+
+The previous repository state is recoverable from commit `589f33c6f940d1c41729d8b7744fe089938eea56`. The migration keeps the live design, covers, content removals and prototype links as its reference; it is not a redesign.

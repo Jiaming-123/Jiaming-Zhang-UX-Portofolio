@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2, Code2, Layers3, MousePointer2, Smartphone, TestTube2, Workflow } from 'lucide-react'
 import { Reveal, SectionLabel } from './Content'
-import '../../public/furniture-design-system.css'
 
 const desktopFlow = [
   { title: 'Discover', note: 'An editorial homepage balances brand storytelling, room-based navigation, new arrivals and social proof.', image: '/images/furniture/desktop-home.png' },
@@ -71,7 +70,7 @@ function ScrollablePreview({ image, alt }: { image: string; alt: string }) {
 const auditRows = [
   ['Visual consistency', 'Competing colours, low-resolution imagery and inconsistent product presentation weakened the perceived quality of the brand.', 'A controlled warm-neutral palette, consistent image ratios and a unified component language.'],
   ['Information hierarchy', 'Search, prices and order totals lacked emphasis, forcing users to work harder to find commercial information.', 'Clear typographic levels, stronger price treatment and explicit primary/secondary CTA hierarchy.'],
-  ['Interaction clarity', 'Some elements appeared clickable but did not work, while different actions used visually similar buttons.', 'Predictable controls, visible hover/focus/pressed states and feedback after add-to-cart and payment actions.'],
+  ['Interaction clarity', 'Some controls needed clearer interaction feedback and stronger visual differentiation.', 'Predictable controls, visible hover/focus/pressed states and feedback after add-to-cart and payment actions.'],
   ['Responsive continuity', 'Mobile and desktop layouts behaved like different products, with inconsistent navigation and content priority.', 'One shared information architecture, re-composed for horizontal desktop comparison and vertical mobile scanning.'],
   ['Purchase confidence', 'Sparse product detail and a weak cart summary made it difficult to verify a decision before checkout.', 'Product facts, quantity controls, delivery cues, order summary and confirmation are connected as one purchase flow.'],
 ]
@@ -92,7 +91,7 @@ export function FurnitureCaseStudy() {
       <section className="furniture-section furniture-audit">
         <Reveal>
           <SectionLabel number="02">AUDITING THE ORIGINAL EXPERIENCE</SectionLabel>
-          <div className="furniture-heading"><h2>The old interface was not simply dated. It made product decisions harder.</h2><p>I reviewed the original My Furniture Store alongside furniture competitors, then traced visual inconsistencies back to the decisions they affected: finding a product, understanding its value, selecting an action and confirming a purchase.</p></div>
+          <div className="furniture-heading"><h2>Clearer interfaces make product decisions easier.</h2><p>I reviewed the original My Furniture Store alongside furniture competitors, then traced visual inconsistencies back to the decisions they affected: finding a product, understanding its value, selecting an action and confirming a purchase.</p></div>
           <div className="audit-lenses">{['Visual hierarchy', 'Interaction clarity', 'Responsive consistency', 'Conversion confidence'].map((item, index) => <article key={item}><span>0{index + 1}</span><b>{item}</b></article>)}</div>
           <div className="audit-table"><div className="audit-table-head"><span>OBSERVATION</span><span>USER / BRAND IMPACT</span><span>REDESIGN RESPONSE</span></div>{auditRows.map(([title, impact, response], index) => <article key={title}><div><span>0{index + 1}</span><h3>{title}</h3></div><p>{impact}</p><p>{response}</p></article>)}</div>
         </Reveal>
@@ -102,8 +101,8 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="03">DESIGN THESIS</SectionLabel>
           <blockquote>“The interface should feel as considered as the furniture itself.”</blockquote>
-          <p className="principles-lead">The redesign uses warm materiality to establish trust and quiet hierarchy to support decisions. The existing gold, cream and dark brown palette was retained, then given clear semantic roles instead of being treated as decoration.</p>
-          <div className="principle-grid"><article><Layers3 /><span>01</span><h3>Warm materiality</h3><p>Timber-inspired colour and image-led composition connect the digital experience to the physical product.</p></article><article><Workflow /><span>02</span><h3>Quiet hierarchy</h3><p>Scale, spacing and contrast guide attention without competing visual treatments.</p></article><article><MousePointer2 /><span>03</span><h3>Commerce with confidence</h3><p>Every screen explains where users are, what they are viewing and what happens next.</p></article><article><Smartphone /><span>04</span><h3>Responsive continuity</h3><p>Mobile re-prioritises the same content model instead of compressing the desktop composition.</p></article></div>
+          <p className="principles-lead">The redesign uses warm materiality to establish trust and quiet hierarchy to support decisions. The existing gold, cream and dark brown palette was retained, then given clear semantic roles throughout the interface.</p>
+          <div className="principle-grid"><article><Layers3 /><span>01</span><h3>Warm materiality</h3><p>Timber-inspired colour and image-led composition connect the digital experience to the physical product.</p></article><article><Workflow /><span>02</span><h3>Quiet hierarchy</h3><p>Scale, spacing and contrast guide attention without competing visual treatments.</p></article><article><MousePointer2 /><span>03</span><h3>Commerce with confidence</h3><p>Every screen explains where users are, what they are viewing and what happens next.</p></article><article><Smartphone /><span>04</span><h3>Responsive continuity</h3><p>Mobile re-prioritises the content model for smaller screens and touch.</p></article></div>
         </Reveal>
       </section>
 
@@ -118,7 +117,7 @@ export function FurnitureCaseStudy() {
       <section className="furniture-section furniture-journey">
         <Reveal>
           <SectionLabel number="05">INFORMATION ARCHITECTURE</SectionLabel>
-          <div className="furniture-heading"><h2>One continuous shopping loop, not a collection of isolated screens.</h2><p>Each page answers one primary question and prepares the next decision, reducing uncertainty as commitment increases.</p></div>
+          <div className="furniture-heading"><h2>One continuous shopping loop.</h2><p>Each page answers one primary question and prepares the next decision, reducing uncertainty as commitment increases.</p></div>
           <div className="journey-track">{[['Home', 'What does this brand offer?'], ['Search / Category', 'Where can I begin?'], ['Product', 'Is this right for my home?'], ['Cart', 'What have I selected?'], ['Checkout', 'How do I complete the order?'], ['Confirmation', 'Was the purchase successful?']].map(([title, question], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{question}</p>{index < 5 && <ArrowRight />}</article>)}</div>
         </Reveal>
       </section>
@@ -164,14 +163,14 @@ export function FurnitureCaseStudy() {
           <SectionLabel number="10">DESIGN TO CODE</SectionLabel>
           <div className="furniture-heading"><h2>I treated implementation as part of the design process.</h2><p>The current prototype is a React and TypeScript front end with structured product data, reusable commerce components, state-driven views, responsive CSS and a complete demo checkout flow deployed on Vercel.</p></div>
           <div className="build-grid"><article><Code2 /><h3>Component architecture</h3><p>Shared product cards, quantities, order summaries, form fields and navigation reduce drift between screens.</p></article><article><Workflow /><h3>State-driven commerce</h3><p>Search, filters, cart quantities, checkout and confirmation are connected through real interface state.</p></article><article><Smartphone /><h3>Responsive implementation</h3><p>Media queries transform layout priority, image behaviour and touch interaction across breakpoints.</p></article><article><CheckCircle2 /><h3>Deployment pipeline</h3><p>Git-based iteration, production builds and Vercel deployment turn the prototype into a shareable product.</p></article></div>
-          <div className="vibe-workflow"><div><span>AI-ASSISTED VIBE CODING</span><h3>Design intent remained the source of truth.</h3></div><p>I used AI to accelerate implementation, debugging and repetitive refinement—not to replace design judgement. I defined the hierarchy, components and interaction rules, generated and inspected code, compared browser output with Figma, corrected responsive failures, tested the full flow and redeployed each verified iteration.</p><ol><li>Define design intent</li><li>Generate a scoped implementation</li><li>Inspect code and browser output</li><li>Compare against Figma</li><li>Refine, test and deploy</li></ol></div>
+          <div className="vibe-workflow"><div><span>AI-ASSISTED VIBE CODING</span><h3>Design intent remained the source of truth.</h3></div><p>I used AI to accelerate implementation, debugging and repetitive refinement while directing the design decisions. I defined the hierarchy, components and interaction rules, generated and inspected code, compared browser output with Figma, corrected responsive failures, tested the full flow and redeployed each verified iteration.</p><ol><li>Define design intent</li><li>Generate a scoped implementation</li><li>Inspect code and browser output</li><li>Compare against Figma</li><li>Refine, test and deploy</li></ol></div>
         </Reveal>
       </section>
 
       <section className="furniture-section furniture-testing">
         <Reveal>
           <SectionLabel number="11">TESTING & ITERATION</SectionLabel>
-          <div className="furniture-heading"><h2>Testing focused on comprehension, continuity and confidence.</h2><p>Qualitative peer testing exposed small type, wording errors, unclear jumps and button placement issues. Implementation testing then uncovered responsive overflow, image cropping and state-feedback problems that static mockups could not reveal.</p></div>
+          <div className="furniture-heading"><h2>Testing focused on comprehension, continuity and confidence.</h2><p>Qualitative peer testing exposed small type, wording errors, unclear jumps and button placement issues. Implementation testing then uncovered responsive overflow, image cropping and state-feedback problems that emerged during live interaction.</p></div>
           <div className="testing-grid"><article><TestTube2 /><span>OBSERVE</span><h3>Can a user complete the shopping path without explanation?</h3></article><article><MousePointer2 /><span>REFINE</span><h3>Are primary actions visible, predictable and easy to operate?</h3></article><article><Smartphone /><span>VERIFY</span><h3>Does content maintain its hierarchy across desktop and mobile?</h3></article></div>
         </Reveal>
       </section>

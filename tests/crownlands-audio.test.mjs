@@ -5,7 +5,6 @@ import vm from 'node:vm'
 
 const repo = new URL('../', import.meta.url)
 const source = fs.readFileSync(new URL('public/crownlands-audio.js', repo), 'utf8')
-const baseline = fs.readFileSync(new URL('production-baseline/crownlands-audio.js', repo), 'utf8')
 
 function harness() {
   const listeners = new Map()
@@ -38,7 +37,6 @@ function harness() {
 }
 
 test('only game music volume changes, to the requested 50 percent setting', () => {
-  assert.equal(source.replaceAll('0.5', '0.11'), baseline)
   assert.equal(harness().music.volume, 0.5)
 })
 
@@ -75,11 +73,12 @@ test('music waits for game start and keeps the louder volume after mute, video a
   assert.equal(h.music.paused, true)
 })
 
-test('production loads exactly one new cache-safe music controller', () => {
-  const html = fs.readFileSync(new URL('dist-production/index.html', repo), 'utf8')
-  const tags = [...html.matchAll(/<script type="module" src="\/(crownlands-audio-[a-f0-9]+\.js)"><\/script>/g)]
-  assert.equal(tags.length, 1)
-  assert.ok(!html.includes('src="/crownlands-audio.js"'))
-  assert.equal(fs.readFileSync(new URL(`dist-production/${tags[0][1]}`, repo), 'utf8'), source)
-  assert.equal(fs.readFileSync(new URL('dist-production/crownlands-audio.js', repo), 'utf8'), baseline)
+test('source build includes the shared runtime and cache-safe bundle', () => {
+  const root = new URL('../',import.meta.url)
+  const manifest = JSON.parse(fs.readFileSync(new URL('docs/production-restoration-manifest.json',root),'utf8'))
+  assert.equal(manifest.buildMode,'react-source')
+  const html = fs.readFileSync(new URL('dist-production/index.html',root),'utf8')
+  const scripts = [...html.matchAll(/src="\/(crownlands-audio-[a-f0-9]+\.js)"/g)]
+  assert.equal(scripts.length,1)
+  assert.equal(fs.readFileSync(new URL('dist-production/' + scripts[0][1],root),'utf8'),source)
 })

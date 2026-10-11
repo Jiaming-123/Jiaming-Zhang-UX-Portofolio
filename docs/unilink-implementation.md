@@ -10,7 +10,7 @@ Implemented in the existing React 18 / Vite 5 / React Router 6 portfolio. The pa
 - `src/data/unilink.ts`: screen paths, sequence rationale, research sources and iteration stories.
 - `src/styles/unilink.css`: scoped editorial design and responsive/static layouts.
 - `public/images/unilink`: 34 original PNG screen exports, report/notes evidence, two composite-persona SVGs, two synthesized journey SVGs and cover.
-- `scripts/build-unilink-meta.mjs`: emits route-specific title, description, canonical and Open Graph metadata into the production build. `vercel.json` routes this URL to that HTML entry, preserving the existing SPA fallback elsewhere.
+- `unilink.html` and `vite.unilink.config.ts`: define and compile the standalone page, including its route-specific title, description, canonical and Open Graph metadata. `scripts/stage-production.mjs` integrates that entry into the full-site build. `vercel.json` routes this URL to that HTML entry, preserving the existing SPA fallback elsewhere. The former `scripts/build-unilink-meta.mjs` compatibility helper was retired in the October React-source migration.
 
 Existing Inter and Space Grotesk fonts, outer header/footer, card treatment and project listing remain in use. The final Figma's navy/warm-neutral/gold palette takes precedence over the brief's older purple description; restrained lilac is used for editorial annotations.
 

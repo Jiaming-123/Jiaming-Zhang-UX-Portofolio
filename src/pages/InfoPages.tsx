@@ -1,30 +1,9 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Footer, MagneticButton } from '../components/Layout'
-import { Gallery, MediaPlaceholder, Reveal, SectionLabel } from '../components/Content'
-import { visualItems } from '../data/projects'
 
-export function VisualsPage() {
-  const [featured, ...rest] = visualItems
-  return (
-    <>
-      <header className="page-hero visuals-hero">
-        <span className="page-eyebrow">SECONDARY PRACTICE / 2024—2026</span>
-        <h1>VISUAL<br /><span>ARCHIVE.</span></h1>
-        <p>Graphic design, typography, branding, and poster studies that sharpen the visual language behind my product work.</p>
-      </header>
-      <main className="visuals-page">
-        <SectionLabel number="01">FEATURED STUDY</SectionLabel>
-        <div className="visual-feature" data-cursor="media">
-          <MediaPlaceholder alt={featured.alt} variant="poster" label="FEATURED / POSTER DESIGN" />
-          <span><b>{featured.title}</b><small>{featured.year} · {featured.category}</small></span>
-        </div>
-        <SectionLabel number="02">ALL EXPLORATIONS</SectionLabel>
-        <Gallery items={[featured, ...rest]} />
-      </main>
-      <Footer />
-    </>
-  )
-}
+import { Footer, MagneticButton } from '../components/Layout'
+
+import { Reveal, SectionLabel } from '../components/Content'
+
 
 const capabilityGroups = [
   { number: '01', title: 'Understand', items: ['UX Research', 'Interview Synthesis', 'Journey Mapping', 'Service Blueprinting'] },

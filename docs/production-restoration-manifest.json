@@ -1,1060 +1,58 @@
 {
-  "baselineDeployment": "dpl_Cbxby6GsJLECfJc1o9iUKfJAjtfH",
-  "portfolioEntry": "assets/index-portfolio-eccd686d9d48.js",
-  "retained": [
-    {
-      "path": "CREDITS.md",
-      "sha256": "a5e924c351740cdd0be6cf4a06eab098f024c16a9b4245021ec1b6c45220165d",
-      "unchanged": true
-    },
-    {
-      "path": "assets/CrownlandsPage-CZSjQEIo.css",
-      "sha256": "77b02c32553d5b4055b921eb5f79504f5bafafa5cf7fb13119a07dc57b47331b",
-      "unchanged": true
-    },
-    {
-      "path": "assets/CrownlandsPage-CultureLens-20260913.js",
-      "sha256": "26253378919c83d093af77ab162078c513dc26710b6d7ebab2dc1c083202b1b3",
-      "unchanged": false
-    },
-    {
-      "path": "assets/CrownlandsPage-CzpQpLtn.js",
-      "sha256": "218205cf8c4ec421d06f0234fe7338443c523072840202649d5ee88021dfed5c",
-      "unchanged": true
-    },
-    {
-      "path": "assets/culturelens-case-study.css",
-      "sha256": "6ac07776bd0db3b0b0d0cd76f5626d83b38be386a8794bc789972bf87eb06cfe",
-      "unchanged": true
-    },
-    {
-      "path": "assets/culturelens-case-study.js",
-      "sha256": "7d105d0f9d198f345b626ca088677a9a423b12dca6fe1a93eae440a00bee1f5d",
-      "unchanged": true
-    },
-    {
-      "path": "assets/culturelens-runtime.js",
-      "sha256": "a7edcb804b31e56ddd2087c91fe709012e6a6aebd80569822b2f0ea0de65eb46",
-      "unchanged": false
-    },
-    {
-      "path": "assets/index-CultureLens-20260913.js",
-      "sha256": "72f534e33914e0f7e0cd9df48a0b3470dadd1f27a0b815befd8817e64b43d1d4",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-CultureLens-Cover-20260914.js",
-      "sha256": "ad76307e2f2eb11b756a3fe8ef2013576d7de88b47f90422286a3a0c3e2c5a16",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-DMLcCS6x.js",
-      "sha256": "cf30f12055fe34ab5afe9779933e05a719053a8b64d6be3f466bdfeb9448629b",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-LinkedIn-20260918.js",
-      "sha256": "e9c6c8992d5c887b165558debe51018296f50e8b2d68e68f2697596b068a2acf",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-LtrsLnHK.css",
-      "sha256": "9f9968fbc669d891ddcbcc5fcd53110f951328ea501efa1ecc731621d927353f",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-NoVisuals-20260917.js",
-      "sha256": "ba7f2a70d0cf9e1c912101bb2ee99aa5b99a3a075d8e2e41b92a8ebdfbec4cb2",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-UniLink-20260911.js",
-      "sha256": "cf30f12055fe34ab5afe9779933e05a719053a8b64d6be3f466bdfeb9448629b",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-UniLinkBlank-20260918.js",
-      "sha256": "4fe2052064cb0c4dbb3c44361ec5f6e31ffc03f7fe3dea181261c286b93f11c1",
-      "unchanged": true
-    },
-    {
-      "path": "assets/index-UniLinkEmpty-20260925.js",
-      "sha256": "7a9e265f4a9ab82ec5c618b7aa17fb10861aacfdb56cf2264667498b9b8997a8",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/artifacts/crownlands-sellsheet.jpg",
-      "sha256": "fccf8be6d19c85ab5ea9b1a13e9396165e5ddb49a8bc18e4b0c5c65ebff5b89c",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/audio/background-music.mp3",
-      "sha256": "4790712512ccb5db81ed2ac53d8ff3921cf75ec0fa099575f7452ae3861bf93f",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/board/crownlands-map.jpg",
-      "sha256": "c70bbff8021be3dc90a852293015d8744c9a0cbc3088537e79e6cb0ed46b9f28",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/cards/action-card-backs.jpg",
-      "sha256": "87c3672b5c615a31f1c23a7acdfe040ac2d00e62735f0cace947a7a58473602d",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/cards/action-cards-sheet.jpg",
-      "sha256": "4991a996096a24eae25618c3cbaf27075c1f92956401676fa0b24c0315809d48",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/bases.png",
-      "sha256": "0f94c5be67bdc10b087030fca08ca63708aecbe4970fdf2c45bc7bdb58102b7e",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/card-back.webp",
-      "sha256": "abd8fb2f919e0128b2b0cbf6cf288c053cc51cdaa15e434739db1d1ee99ec376",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/contest.webp",
-      "sha256": "04cf6ea4205e76aecf0227d2635d9f84d524c41b82f63cafa7a71910eb59ec88",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/crownlands-logo-cutout.png",
-      "sha256": "f72f0516d7609238e0897a008b74016b88637531b510c60c2b0dc9efb42e4df4",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/expand.webp",
-      "sha256": "3064eb77204e4e3e7ed83161b7e5cca38d7736e33d46759c96c8ea84188fff73",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/final-playtest.webp",
-      "sha256": "9980645a31af4f32b34853fd59f0d2f3e2cc92e80800b4040a05ab15beb3a330",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/flag-black.png",
-      "sha256": "192bef29e135b0f4ec8e251af394d8b7c8aa3ac4c7343aac473c8a349a6c3779",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/flag-blue.png",
-      "sha256": "067db23a1cc4fc07073d817a7cb19bb3b6475c2b531c366caeb15b571af2a81b",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/flag-red.png",
-      "sha256": "461d149f8ec5b1ff8599005828158f51acbbee64ff561a810b61b23da74f976c",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/flag-yellow.png",
-      "sha256": "270500646d3bb0ac05b45f20712decc3193e854ac45a9ccf5fd428814a296440",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/flags.png",
-      "sha256": "2549c27f1c007dfcba93bf6f816fbd9df799bf3f09d046f527e80273150d199c",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/logo.webp",
-      "sha256": "aa80ffd2902ba4a3d057565a870e36b4f9ea3bd7fdc0312dbea6827d83a9ffb9",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/overview.png",
-      "sha256": "ced44e20f8b93fedc27aa69bf5cc8caf4ab790244d063f5d2776ac65951d8d1f",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/parchment.webp",
-      "sha256": "177e5f2a264ddc1d5a9b984e31e223e7b05f9b389a6c30aac0cdc7394ab0ef92",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/physical-set.webp",
-      "sha256": "5305ff36c6d6ced600425cb15f5b2112b312b864bd51051a434b31f94702784e",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/pieces.png",
-      "sha256": "afb58ae3f5c6eb6a441d0f259f12a79bd81dd177b2886c9780f690f798a8d797",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/reinforce.webp",
-      "sha256": "7963c8a4ee9e251ac6e84443e2f36c1f39b1dc7c45a98815a51e4738ce641d17",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/reposition.webp",
-      "sha256": "a7b7c647698185159aa93f6264223accbeb4f061848f4accf79202114d8606a6",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/soldier-black.png",
-      "sha256": "dbf58ba52128ca5abbe16da9e97035a17a175fc92b5972e4336482ba8c49334c",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/soldier-blue.png",
-      "sha256": "29587b36bd21407fd87caddb0252aa730ebba64837bd4b9db986d743114d013a",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/soldier-red.png",
-      "sha256": "00e4eab1185a313cf0ab7aaa0808e78143011a10fd0ecdb596283c2524ca77f8",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/soldier-yellow.png",
-      "sha256": "19dfa3da2bc865542571bbd245e501d0e33a00a6196c0dec6ee809814642b11d",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/soldiers.png",
-      "sha256": "4ba202fca1ad6f910cb002f94b3c3279bb79642d0deeb618f71523181812a8d6",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/spaces.png",
-      "sha256": "6a778e44dd2a156e0b4d5c6ed48d6eab89dbd1fb7945ef2822958613de4b154a",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/spinner.png",
-      "sha256": "302deae7b0c4fd1fd2e87502185e2e27e93400774f4a787ea94b7258c10e7ff1",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/elements/tracker.webp",
-      "sha256": "66a35f828cd17573249983e994db052102118276942253d749b8c891adc4f973",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/process/early-board-prototype.jpg",
-      "sha256": "afb4be61434df587a9ee70ff8d3614fd7ae3f35facce574dd42a1692d192ae53",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/process/early-brainstorm.jpg",
-      "sha256": "c5275742968460a8fd92940439b20efd7e070d9c85c3bed48316aec7f54f9cd1",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/process/playtest-grid.jpg",
-      "sha256": "d68110b2973ec04b71183bda693315e0b813990883202989ec2f61829e8f3c70",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/process/playtest-map.jpg",
-      "sha256": "3b44ccb6e53fe3b4d2c794a1fad90fe7e0be3931c38904563c226c225daff167",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/rules/rules-01.jpg",
-      "sha256": "37e933a0999c5c32c588c7cdf19d37ed512a3a679ee55fb74dec50bf7ba2f47d",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/rules/rules-02.jpg",
-      "sha256": "2279445bf339688ab9ec3d265b9d4e907ce506b63e8d13eadb6a53c15b7bed64",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands/video/introduction.mp4",
-      "sha256": "7e0b6fc68d4bae949226322b0489ef83cd35a36e530028ec63828710ef834194",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands-audio.js",
-      "sha256": "09ef22684524378bca1611ef044a8d4c3171a31c66e51cee95f25bddaaa39372",
-      "unchanged": true
-    },
-    {
-      "path": "crownlands-mobile-20260913.css",
-      "sha256": "56a7f712439060405b726986adffc3182d8715de99d671604007c2318cd4beda",
-      "unchanged": true
-    },
-    {
-      "path": "furniture-mobile-hero-20260918.css",
-      "sha256": "4bd39ea239c2e09843ebd4433a8c80890f068019c05ebeb4f9f05858af34d68a",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/boardgamemate-cover.png",
-      "sha256": "28089b2c1885509e86669bef8600b035bfe322b933f4dcfd929052c6a06e7e51",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-01-discover.png",
-      "sha256": "be2f80d8a853491646ca4045ab7a84f1cb9d756131e49cd62455596aa2a2c4b2",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-01-joined.png",
-      "sha256": "3e53cb0c195aefc3b06ae49dd2c9b8c7b43d8622e95e31c6e8268d875c5bece4",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-01-session-detail.png",
-      "sha256": "42119c3676ab6a25240245c6fcb6c533e534a59a4f39a29a345e744983345eaa",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-02-filter.png",
-      "sha256": "3e2742fa47a92928907f1fceee52d9b866857f7aef7eaaa658d806a4e6d57a3d",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-02-nearby-map.png",
-      "sha256": "27b491d3c1300651dad4e8202d296bb8fbf55dd230e1b819d0ad3a6f818d8a81",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-03-learn.png",
-      "sha256": "41d43363fe63e53021e04dcb0f55d2e1c5ab56888aa63240fdc4d43f9142cf88",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-03-lesson.png",
-      "sha256": "e9d12cb527711ef19df603af977c1b7433d4034db7af711594a7171d0b4ab976",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-03-quick-rules.png",
-      "sha256": "26d29d40d24c0da0a195ed4ae58a29079c841a9dde45223eb07e4b0098b38211",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-04-create-game.png",
-      "sha256": "0e63cc2e2165f43df3fe2e9c165a0e3ce4c7f562311028d15a3565a67b6d4c77",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-04-published.png",
-      "sha256": "f7c4d275aabf407bf6dec7b1dba607ab69e22668e8be41aac11909bc30a91c14",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-04-review.png",
-      "sha256": "dec440b147298e97ba7d3cfa7a80dbd2163856a62041ee9b2785c9c8a9531705",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-05-invite.png",
-      "sha256": "e75833c5fcc4e2ac8e577421fefa3c71304cf40862029b5ab62c1afb993640d1",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-05-match-detail.png",
-      "sha256": "1eba70b9d48970bed0399fb9d126d4e5116638525d951322bc869525a4a7ccc5",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-05-player-match.png",
-      "sha256": "4005d32047bd8b965f22fbfa111a31c53304f6b29b54be127529601aff868351",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-06-coordination.png",
-      "sha256": "61cd03769b366e116f79de9538a35c2b64850346b77eda43865802d1807eea45",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/flow-06-table-ready.png",
-      "sha256": "9457141d46431d787e6b2c3aa847e575f88ecf068cecec3eecdcd6eb0c95e46b",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-01-card-join.png",
-      "sha256": "22bdd77558ac22069c5c1c94683ee89e76f7b7c11a13aa21a5a753d94a5ba9d2",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-01-confirm-seat.png",
-      "sha256": "b29b5bbe9d793d05078d3553ba0d4b1ffd5afbfd0550e5da60052163652950e9",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-01-detail-join.png",
-      "sha256": "198660170f5c8fb5bae0ddb47efe74acabbbf80a461b99339b6b457a8057a581",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-02-apply.png",
-      "sha256": "fa2616639ec8d9fc02ad8cf1b1e0004c6d4bcf9cef185a52ef4c3a17c728fefa",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-02-filter.png",
-      "sha256": "8603fcb2945e427383b40964daf24fa001c92efbc0f6b950b423ca16aa317029",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-02-join.png",
-      "sha256": "21a4ac462b79bc8acec12c631545de6755a3ae23c68ee4a45deaa84c9cca35ec",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-03-ask-companion.png",
-      "sha256": "97917322eb907661cdc843446d721dfa216808e7754a4732c2d8b3f78938eca4",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-03-continue-complete.png",
-      "sha256": "3fbd2f81be517f779063ab489e8130e767d17c69b997e8ec09d7957c1f202b77",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-03-continue.png",
-      "sha256": "3435f4c63506881b7eb99b3cc8847617e3492a2689f38c0558d2e16c81b0559e",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-03-next.png",
-      "sha256": "1a3e711a118e4bb0464f0c087ef57133d2b3bd2fe1bdafe51689d0bf58233a47",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-03-quick-rules.png",
-      "sha256": "e513ecaa9212c77c0d25e8680bcb9b01219d6818c2efb0391362386160ad9e99",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-04-next.png",
-      "sha256": "2dd0022a3a787a14d0a7c232f26bdad37f098283b71a8e6bd54c5e4c4370b4b7",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-04-publish.png",
-      "sha256": "0a38d1bedf5bfc19bcf2658f55a7a477e569a7b0f60bc35aac38652fae4e62cb",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-04-start-hosting.png",
-      "sha256": "20585614f1572c2cd71f4b3e79f87b113497bfcd4aa7b2180344382d3fcdecb9",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-05-invite.png",
-      "sha256": "e4229106b2a19956ff5467bb372b842f3f088e17074e75379b8367f2f95e017f",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-05-maya.png",
-      "sha256": "e9f3377da99a1ee5b0baa30f0355b4b5d92aa94dc71a17447c3446e8045d753b",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-05-send-invite.png",
-      "sha256": "549bd54f49fd9b4faca8068ae33bd854d297d38317d7417002a0c08b84e710a1",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-06-attendance.png",
-      "sha256": "1a24a4dfcce8f0960ca33a28f138935451da90d944166ef25702012f84caee70",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-06-message.png",
-      "sha256": "248977ab60824e00f232ed0d7e77b5c30eba338de8ab45d1048ff54802236dc4",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/final-ui/guides/flow-06-preparation.png",
-      "sha256": "193e4a5150e756abb0b24162d4b99ebc101f76ac3054d828e9736179f9949d91",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-community-720.png",
-      "sha256": "621b2cfaed076c8481e013cab8fef9dcad9d1d45cc2f066cecb3a72faab8c65c",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-community.png",
-      "sha256": "176842fd3225e63a7ad733f053fe2e9f6cc49f945e72abcec23cc65357e36620",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-discover-720.png",
-      "sha256": "a6be204b9a18c20105494fab12d1ea2c8c61022841aa18f7543fac5542c27f6c",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-discover.png",
-      "sha256": "daf0d9ee2de85e934590fe9ed511a5a5e0e7dda18a4943ab2f135b74c04d63c7",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-early-design-1200.png",
-      "sha256": "5aed8ac75fc29a368f3b4a321c6f3a2ccbf7e4aedebb7172331c3b43df44076d",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-early-design-720.png",
-      "sha256": "52525a00f29cb63c49f3c26dc93b21e7acb2e0966b9cef13e82a438118553e65",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-early-design.png",
-      "sha256": "dfd0e7a3753ee38f54d5669c510fb1ac3c6f85e53cd68ba2587f8b89491f8f49",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-goal-chat-720.png",
-      "sha256": "d7ae39ed71104d2fbb5ca5502154165f89a3f0090fe902108f4e86a55b0dd338",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-goal-chat.png",
-      "sha256": "28a802ae31ea3fd6418b6454ffdd3f22b141799d94db05152d80e92bc87d56fa",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-learn-720.png",
-      "sha256": "a4eb76dc91a7b1982ed6fae141201128423a9240a3e136d9d9a7adcf549493e7",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-learn.png",
-      "sha256": "9471d69773a37f8324f7a4c55864fa7647a6c42caba59473d5826b9f2cea0f92",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-nearby-map-720.png",
-      "sha256": "7cfc20841d044b9e09c0594a36f8d0f167ef5015bb419f3077dd6852daf1dc36",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-nearby-map.png",
-      "sha256": "eaf0eb07c3cf97a11e4fa203db3301864faa1b100768765414cbb516d2e6e790",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-player-profile-720.png",
-      "sha256": "eae4ac59d4d2c4ec0e38c3001efeb515fc3b5c67cf74bdf06aca5dbae6ec664a",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/iteration/boardgamemate-player-profile.png",
-      "sha256": "e6a8d252d054c08e567c5b5fcb242590aa8aca8b9f69011d19a8251e223795f4",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-persona-alice-960.png",
-      "sha256": "0db2f6b4dcf9294b04b15cd41c4c244e16931521f7db4a7157f6bfeff4092de2",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-persona-alice.png",
-      "sha256": "51d83eef1db63aba6b15479963f1b1e0795e82979b3dd9f0a75e116b0fc4676d",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-persona-leo-960.png",
-      "sha256": "874792f72a41765408a49d1ce8d855cce0f92c28717caa5cfc1d2d45d97380f0",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-persona-leo.png",
-      "sha256": "7ca77067a57d68f95db07cb79054077e9e36f90cfe30f95d7c5ca31a169344e7",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-01-960.png",
-      "sha256": "7c4975c1f2d2b34a53515c3896b40c658665f30accca01d6c1783bcbf72e4ae6",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-01.png",
-      "sha256": "273f0c6bcb49497e61573580e8e4bb5989cb073c3ad368bb45307fe799ff70ce",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-02-960.png",
-      "sha256": "0a6806727462714011469fdf334631f4482309478fb36c03a8ac13728d5ab650",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-02.png",
-      "sha256": "5744eb9ea46f1f6cfa7b3c41fccb0055fe7293cf4b9b097b1d3614a64b46fb72",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-03-960.png",
-      "sha256": "ce51500966e82e32787c490e20a3214dbb7d0ccd97e98b541f1f67b4c4c1ad7c",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-03.png",
-      "sha256": "859f71bd03dbbb2e874a2de93cacb84e2ddbbcb84b9f1d905e71b4d22e2c0cdc",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-04-960.png",
-      "sha256": "d6ccdf52b3e4a701a4207f5a3070eda4446d7ea4d983a7bb50a7370c21390697",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-04.png",
-      "sha256": "12137e20f665635f8e10ebb269091aac56c1f3bc677e07619c8c79f5a136c3ca",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-05-960.png",
-      "sha256": "10abd480a9a7d64442940abdc3498e952819de9ede587625b34ffc6055592282",
-      "unchanged": true
-    },
-    {
-      "path": "images/boardgamemate/research/boardgamemate-sketch-05.png",
-      "sha256": "457d9c3d635b656db5e737b3f12edca69dd5e3bb52406d08a5de9047b0c88e0a",
-      "unchanged": true
-    },
-    {
-      "path": "images/crownlands-cover.png",
-      "sha256": "ca49849594216b8cf697468571feb66e990c93e35eda36094fc78e330b7143cd",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/added-cart.png",
-      "sha256": "5e7774c09c715fdc5fc97fa4aa855dcd955e1e1cecbe384c9fefc765682068c0",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/components.png",
-      "sha256": "e07f9a6ce41b5059a3d5ee65a6a82e15ba0de98e60645d323b73e02a50e6e3c0",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/cover-clean-composite.svg",
-      "sha256": "0c8ba9261a6b62e5d0500df5e0dc6c7b6d203b70df1a78af7ce63e93b89c6edd",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/cover-ipad-template.png",
-      "sha256": "7501bcca9b2fe640669aa79e23bd654c406540204ed440c3144b9b8cce627a12",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/cover-iphone-template.png",
-      "sha256": "4b1e96113bc469fa986b35b695e9a0c06748ee3858737ceaad1513af8a257fa1",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/cover-macbook-template.png",
-      "sha256": "74542e0cf7afc4c96eb82aa5f69d9f5ac094d184431de26f3da6e586023d2285",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/cover.png",
-      "sha256": "ed6aaad798b1357b0a29265b83ca6e2e8df80a39d56a76e5d33ea07ed80d4e15",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/desktop-checkout.png",
-      "sha256": "566fbe864b939e3aedd58d8859e973651c1d96fb8d8f7902a16e8abfaece1ae7",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/desktop-confirmation.png",
-      "sha256": "a0e7e4f96f3fb5fb1612b5aedeb37a26464f2f9b3068826fa895ab0f228bb2c6",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/desktop-home.png",
-      "sha256": "64e06a143fd15fa21dbb439edaf2fc2516c64030a1e4366f95b53c59f0cc383f",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/desktop-product.png",
-      "sha256": "3fa9572625d747f41b13e5469523919af6ec71b506e44cd092758c3b25147218",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/foundations.png",
-      "sha256": "eabb1d0529ba9ea3e69dcaff45e56221fbd447a20fb5b9120a3d63fd694ca2bb",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/furniture-cover.png",
-      "sha256": "985156089e488e536ddb403b1d05078d56f14f6c710555e249e2f41e1b36e195",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/home-project-cover.png",
-      "sha256": "7a7e4f05a7aa8c1c2ee2b15c50ca9387f8add10fd6b61e861b4bf133ef03ff24",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-cart.png",
-      "sha256": "5b60b0f6ff0f5d95e9704ef45b621942c41515725f4de858ef2d766de83f4c8a",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-checkout.png",
-      "sha256": "9318dc147af3d38e31a25a0988d7b040cf28501fa5798a89255e99fddc49f905",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-confirmation.png",
-      "sha256": "785364a093ec6b127b5faa068dd1787439e529bbf5ba7743a6b67d622c56e8d7",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-home.png",
-      "sha256": "a446aeeeeac83a3b78127d27d3de59750c64de75755c3880d9d1e25eb848dac1",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-living.png",
-      "sha256": "8417886cf3a8ec656ec0fa566f67c464463d6b046d986e2cac45c00f8666f093",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-menu.png",
-      "sha256": "e2e0bcd1a357d04e8c85fdf8693cd3e2182eeaca9a57f304f1a4bb3c3c43cad2",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/mobile-product.png",
-      "sha256": "f0dcafea2e041320526322c518824f6d98cafe02952f984d3fe5abb4b3e62821",
-      "unchanged": true
-    },
-    {
-      "path": "images/furniture/myfurniturestore-cover.png",
-      "sha256": "06eeb48b67ca9d555f1dd59d040ee0f3f4cd9cf6d27150451e6b19506d45d5d4",
-      "unchanged": true
-    },
-    {
-      "path": "index.html",
-      "sha256": "0fed961c433910cf01d366b5000205d27eccc46c1af8725e68a2146ce418f571",
-      "unchanged": false
-    },
-    {
-      "path": "media/CultureLens-Discover-Exhibition.mp4",
-      "sha256": "d383d13604f35164c4f06ded31d0c15e876f244ab25ef5d7d25059f585d09088",
-      "unchanged": true
-    },
-    {
-      "path": "media/CultureLens-Plan-Museum-Visit.mp4",
-      "sha256": "b8506df6ffb8321eefed3f298a51b2c7a58011a6e75d50b25b441f749fee9c47",
-      "unchanged": true
-    },
-    {
-      "path": "media/README.md",
-      "sha256": "05f5bf2cb3e167d8f388f7adcd22070bbffc9b9c3859c071a749b3d20d81b690",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-cover-agentic-20260914.webp",
-      "sha256": "289fef768b90532c04d07e8f95d45d67d7c175a86354eb4e30ed0e1b33ab3e44",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-museband-product-projection-20260914.webp",
-      "sha256": "2bdb5d70e749797314b87c71a460483f913315221b06eac65446aca5f555acae",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-museband-product-v2.webp",
-      "sha256": "33ea57d5e432c65915bc0fef19460939a5408f6c48e53ce431f9960e6ad99194",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-museband-product.webp",
-      "sha256": "0715a256818a14120635f3618f0317b48f6ac1811aac36cfef5ee78f5008a5f7",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-museband-scenario.webp",
-      "sha256": "019036e7406ff0eedc33bb98169c778585f8ece8ddbe9a691cf12d338f68b3a7",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-xr-scenario.webp",
-      "sha256": "701c879838295fb1b58f5fd4ad5077f9eac7a4fc326e19e4b37d8d2785380a49",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/culturelens-xr-system.webp",
-      "sha256": "6afc9a6c6bdeee4113f3731e5a3c5b98c8c692c8d18761655a54b1361f98c591",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/g2-walkthrough.webp",
-      "sha256": "588762071d957c29f147c351425dee7f6e09bea04e5c08178e651350bb4507c7",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/g3-breakdowns.webp",
-      "sha256": "1840d981a4a4a5acd3bcc8dc2449222a1577ebb06c4341833f98490b7ce73518",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/g3-sketches.webp",
-      "sha256": "3ece53c7335311bcdeee0e2fc11852b30d067277237f1f5134a0ce29860af056",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-conversation-sketch.webp",
-      "sha256": "7c938608a47a03548d618e68d83495f6e49f82d340836f9972cd19a5bad2c769",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-draft-storyboard.webp",
-      "sha256": "960ee49cff624c6ca395c35753b33ed0e06b8d73e20aee6413ba4ee0359492c6",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-idea-portfolio.webp",
-      "sha256": "f2614d589776684074439e5a126dcc667f6fce55e42bdc2f1b5f0d707ca6f11d",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-physical-prototype.webp",
-      "sha256": "dda4efb0f3cbe7227885786be4d12885e5fae4016356ce2760254a19f24de9f4",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-01.webp",
-      "sha256": "3bfd4bab5a5ef378ab3f2b0862c397a23f8f43da2aa362caeae69fd47c8207bd",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-02.webp",
-      "sha256": "5e1f1f6544101c4448f815d0aa6df15bf87718d645a73f7725b9769be37dce77",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-03.webp",
-      "sha256": "43cdef1050b7442b47643d3a1564297ef60ccb0a47ace0fb76de00cbf74330b7",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-04.webp",
-      "sha256": "ff93bb9463bc4d98cb77db43a26e84ab7ee15199fa76aaebf3eb7395a82f8b80",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-05.webp",
-      "sha256": "ca6dbd6fea12c581f6b83a7b715ca0f1c0389a5a1190f32ad279c97c8cc0bdff",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-06.webp",
-      "sha256": "3273594c5720ebd88b30768026453d43fe0d5144ee8b0f29f8ccc343217985a0",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-museband-walkthrough-07.webp",
-      "sha256": "71fa29d257ebaa67e2a4f3f23e765a36445c128ac8631e2d42f8c31dca797ef7",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-01.webp",
-      "sha256": "e30e84ad89992b3e20d74934d6ec3024ef10927783cc8184d0b3edbd1563753f",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-02.webp",
-      "sha256": "5aeb33b3588321613ea15644930bd756a1ee7263be2b869cf6dc1c80ffbed29d",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-03.webp",
-      "sha256": "fdb8acdd5f4b4db841f4c6afa35b12970f17582858ef2cd8b1006a23b7ad16d0",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-04.webp",
-      "sha256": "b4f758020d34749bc881d403970bdf0a4d47e1166e6cf81493fc28fa1a4af787",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-05.webp",
-      "sha256": "983ba46136bfb4e80fc0a656913c792512335de67efd663cd8b8e6c9788dd28e",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-06.webp",
-      "sha256": "f7662587ed72f33bff13deeaa9d6cb816cc9281b0f9370fa0c2d674c012d31b2",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-07.webp",
-      "sha256": "337541e8f96d81e9eda389c97c50b74bf49895fe254fdcbf41e18b98a00699a3",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-panel-08.webp",
-      "sha256": "3080a0191c647fa01da6b64e639a852be61ef8d5ac4655d09a00e01b99f7a08f",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-service-storyboard.webp",
-      "sha256": "7ce2a24f892b575c3a331c0750bf8598cf38de66faa2cc5b6beaaf733eab0341",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-confirmation.webp",
-      "sha256": "8433983186012d6594f89576016ce7686fddfdaba9546514ff68099b0cea8fc6",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-formatting.webp",
-      "sha256": "81bcdb1c0e9cf73f75eebd08ac1dde032c595eb01740ae96e38d9b240eb49c78",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-recommendation.webp",
-      "sha256": "89d0a45b471c88466f9024fa57d2ff79273d39315d630bd94f77bab974d0ad09",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-request.webp",
-      "sha256": "a3f2ddc7da4e31af7ad5dcf3168a2fc448ba29e84b51be1fbbaa04fd2f9ec2eb",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-routing.webp",
-      "sha256": "20e005e1ac138cb90656976bec590ed2384d44b6e87ba0ef3686739f4c37bb97",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-state-canvas.webp",
-      "sha256": "ab56a329e85c6bf0bfd580d50365d3cc67ee25d03a67b7378a9dd9a98ee507c1",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-state.webp",
-      "sha256": "3f6f89850ef4cf8248e01211a278b7d6702547c0963604b7df8ee4e55cd63a77",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-voiceflow-ticket-input.webp",
-      "sha256": "c613fa36061d9ab187e94a28d5ee69b11c79c9135718c53cf3b258c14d0e51ee",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/culturelens-xr-original-sketch.webp",
-      "sha256": "97523b6c5a38a580ae1842b750afbefdd119953703678077601b501a431d5cab",
-      "unchanged": true
-    },
-    {
-      "path": "media/culturelens/process/manifest.json",
-      "sha256": "24272ab237cad4164ed6b8e8cade8b83c72a31481c8900461b14884582eb3f15",
-      "unchanged": true
-    },
-    {
-      "path": "project-mobile-grids-20260918.css",
-      "sha256": "08bb4b4876d3790578e468593eb1c3f17ca16f7ca7eb3174ddf295dc2379a3b9",
-      "unchanged": true
-    },
-    {
-      "path": "unilink-blank-cover-20260918.css",
-      "sha256": "c6334dbddc71cf2e8ba4e19f36fce2c01b04ab9766641b1c6b3b881ae2ba3a1e",
-      "unchanged": true
-    }
+  "buildMode": "react-source",
+  "portfolioEntry": "assets/index-CZ4nIBm3.js",
+  "sourceEntries": [
+    "src/main.tsx",
+    "src/unilink-entry.tsx"
   ],
   "files": [
     {
-      "path": "CREDITS.md",
-      "sha256": "a5e924c351740cdd0be6cf4a06eab098f024c16a9b4245021ec1b6c45220165d"
+      "path": ".vite/manifest.json",
+      "sha256": "62791a8a1a8fa4ec7586bb5288c15c83701f0f00d53a4ced550a942c00ac4df8"
+    },
+    {
+      "path": "assets/CrownlandsPage-BrKwpeH7.js",
+      "sha256": "4ac1a2f1b4c27ff10e2ffd4aa8cb214d25d0f79d6b8f5023e6b5ac7702a2e6f3"
     },
     {
       "path": "assets/CrownlandsPage-CZSjQEIo.css",
       "sha256": "77b02c32553d5b4055b921eb5f79504f5bafafa5cf7fb13119a07dc57b47331b"
     },
     {
-      "path": "assets/CrownlandsPage-CultureLens-20260913.js",
-      "sha256": "26253378919c83d093af77ab162078c513dc26710b6d7ebab2dc1c083202b1b3"
+      "path": "assets/CultureLensCaseStudy-CjCjClgo.js",
+      "sha256": "af708cecd6b28f3497164344334b1d8385cd6dc001e5b57a43656f5ba14d0f41"
     },
     {
-      "path": "assets/CrownlandsPage-CzpQpLtn.js",
-      "sha256": "218205cf8c4ec421d06f0234fe7338443c523072840202649d5ee88021dfed5c"
+      "path": "assets/CultureLensCaseStudy-THLQzZVO.css",
+      "sha256": "ef0ed5e5ba30aa0b3066f1867111a2018e4e8a95d420de949a5e1a7fedb0433d"
     },
     {
-      "path": "assets/CrownlandsPage-rules-scroll-88403c3cb8b7.js",
-      "sha256": "a99d57c91dda6c461ad05d7800029d280ad8666667813c294616eedd2008c962"
+      "path": "assets/UniLinkCaseStudy-BRXxJPFn.css",
+      "sha256": "d9654d7a21c36eefc82262bb631071140ee7169e4d5fa09889333a27b90b7204"
     },
     {
-      "path": "assets/culturelens-case-study-394db2cedde8.js",
-      "sha256": "394db2cedde89715f01677247597e586e237eb63b4b567644175ef555315b1de"
+      "path": "assets/UniLinkCaseStudy-DpYu18el.js",
+      "sha256": "5b2f3a216eed1554d708f9cf336edaaf7abb624803496f18f040453f85741a2f"
     },
     {
-      "path": "assets/culturelens-case-study.css",
-      "sha256": "6ac07776bd0db3b0b0d0cd76f5626d83b38be386a8794bc789972bf87eb06cfe"
+      "path": "assets/check-CzJZ95n0.js",
+      "sha256": "c529ab4c6a4765728e34d2f35ec05b114460d474ad5098772296aed2b791f723"
     },
     {
-      "path": "assets/culturelens-case-study.js",
-      "sha256": "7d105d0f9d198f345b626ca088677a9a423b12dca6fe1a93eae440a00bee1f5d"
+      "path": "assets/index-CZ4nIBm3.js",
+      "sha256": "231564ab5bbf4d66facf93299febfcab7764d201bdc049dc0921d70992d44979"
     },
     {
-      "path": "assets/culturelens-navigation-a413bac0e6e0.mjs",
-      "sha256": "a413bac0e6e09e4744ae766a41db62cb4f394c5068aadee3e98f7919882e28c9"
+      "path": "assets/index-D0n19o4q.css",
+      "sha256": "9f9d605382f5e63b561df7c18b7849fb2e2f3e71416f07384926507cd6c77c94"
     },
     {
-      "path": "assets/culturelens-runtime.js",
-      "sha256": "a7edcb804b31e56ddd2087c91fe709012e6a6aebd80569822b2f0ea0de65eb46"
+      "path": "assets/play-Cmmv1C-P.js",
+      "sha256": "6f608c170a04bb7b2e5bb3977d9982246c94d2be4da7cdca99ed01bfd573b4ce"
     },
     {
-      "path": "assets/home-project-reveal-b7014b519802.mjs",
-      "sha256": "b7014b51980266b08ebb0eb9f84dc8822f8c97b576ed8433c963d64116b9270f"
-    },
-    {
-      "path": "assets/index-CultureLens-20260913.js",
-      "sha256": "72f534e33914e0f7e0cd9df48a0b3470dadd1f27a0b815befd8817e64b43d1d4"
-    },
-    {
-      "path": "assets/index-CultureLens-Cover-20260914.js",
-      "sha256": "ad76307e2f2eb11b756a3fe8ef2013576d7de88b47f90422286a3a0c3e2c5a16"
-    },
-    {
-      "path": "assets/index-DMLcCS6x.js",
-      "sha256": "cf30f12055fe34ab5afe9779933e05a719053a8b64d6be3f466bdfeb9448629b"
-    },
-    {
-      "path": "assets/index-LinkedIn-20260918.js",
-      "sha256": "e9c6c8992d5c887b165558debe51018296f50e8b2d68e68f2697596b068a2acf"
-    },
-    {
-      "path": "assets/index-LtrsLnHK.css",
-      "sha256": "9f9968fbc669d891ddcbcc5fcd53110f951328ea501efa1ecc731621d927353f"
-    },
-    {
-      "path": "assets/index-NoVisuals-20260917.js",
-      "sha256": "ba7f2a70d0cf9e1c912101bb2ee99aa5b99a3a075d8e2e41b92a8ebdfbec4cb2"
-    },
-    {
-      "path": "assets/index-UniLink-20260911.js",
-      "sha256": "cf30f12055fe34ab5afe9779933e05a719053a8b64d6be3f466bdfeb9448629b"
-    },
-    {
-      "path": "assets/index-UniLinkBlank-20260918.js",
-      "sha256": "4fe2052064cb0c4dbb3c44361ec5f6e31ffc03f7fe3dea181261c286b93f11c1"
-    },
-    {
-      "path": "assets/index-UniLinkEmpty-20260925.js",
-      "sha256": "7a9e265f4a9ab82ec5c618b7aa17fb10861aacfdb56cf2264667498b9b8997a8"
-    },
-    {
-      "path": "assets/index-portfolio-eccd686d9d48.js",
-      "sha256": "eccd686d9d4856339bcb87bcb98b954475bf94ae2de7990668575ae6ec638c5f"
-    },
-    {
-      "path": "assets/project-chapters-9a3490c59250.mjs",
-      "sha256": "9a3490c59250208e67636a20335da2f63614c189122f59b1d7cacd40c91b1d00"
-    },
-    {
-      "path": "assets/project-navbar-7db5c6bd1243.mjs",
-      "sha256": "7db5c6bd1243008f5eaf93ce8dc8a47ed2afc65da9c0e08889ecb64dd4a0f219"
+      "path": "boardgamemate-cover-signature.css",
+      "sha256": "aaf8e981e1f0fe3697ee83125c8fad5560a98d84441e2072e52a4b90ba13fde3"
     },
     {
       "path": "case-next-project-20261002.css",
@@ -1218,47 +216,63 @@
     },
     {
       "path": "crownlands-audio.js",
-      "sha256": "09ef22684524378bca1611ef044a8d4c3171a31c66e51cee95f25bddaaa39372"
+      "sha256": "39dce1b2af70c0499ecb4673aa9a004960ea7b2dac02c0a841a22b249beb31bc"
     },
     {
       "path": "crownlands-mobile-20260913.css",
       "sha256": "56a7f712439060405b726986adffc3182d8715de99d671604007c2318cd4beda"
     },
     {
-      "path": "culturelens-ai-image-label-64f7cb4af33f.css",
+      "path": "culturelens-ai-image-label.css",
       "sha256": "64f7cb4af33fe6053d20487e867fa5b4c02445e17de50f3bce007a8967f1c924"
     },
     {
-      "path": "culturelens-hero-overview-a63c03b70d92.css",
+      "path": "culturelens-hero-overview.css",
       "sha256": "a63c03b70d92771664a30ed0ebe4e16c25d3b4b2b651a142258686ecd17c3b04"
     },
     {
-      "path": "furniture-cover-fill-5bd12a953f11.css",
-      "sha256": "5bd12a953f112f96128f8afeb27f4f839e411131410c8cd652bcb014843d62ed"
+      "path": "culturelens-navigation.d.mts",
+      "sha256": "0a06f6367a13dc00457d3d170f5678aa9ca7d4e2efdaa2123a784144a6a5fada"
     },
     {
-      "path": "furniture-design-system-02f6d9324ec1.css",
-      "sha256": "02f6d9324ec14b3d4776f1c254024833822810798cad47164e1fd3a826c38d6a"
+      "path": "culturelens-navigation.mjs",
+      "sha256": "a413bac0e6e09e4744ae766a41db62cb4f394c5068aadee3e98f7919882e28c9"
+    },
+    {
+      "path": "furniture-cover-fill.css",
+      "sha256": "5bd12a953f112f96128f8afeb27f4f839e411131410c8cd652bcb014843d62ed"
     },
     {
       "path": "furniture-mobile-hero-20260918.css",
       "sha256": "4bd39ea239c2e09843ebd4433a8c80890f068019c05ebeb4f9f05858af34d68a"
     },
     {
-      "path": "furniture-warm-palette-016dae62d0ba.css",
+      "path": "furniture-warm-palette.css",
       "sha256": "016dae62d0bab98e61ff9a84334d3ab0b0fdd78b9cd78f5d1fe667896b8325f3"
-    },
-    {
-      "path": "hero-orb-motion-a59bf1688ba7.css",
-      "sha256": "a59bf1688ba7e421183f2503433d0ccadfb71274ba53445bb6e02228b8ece28a"
     },
     {
       "path": "hero-orb-motion-b523d5152f3a.mjs",
       "sha256": "b523d5152f3a93811426f6db7e25d97d61ecdabddaadab71c9f86d7cc7b71f95"
     },
     {
-      "path": "home-project-reveal-76d43382a9f1.css",
+      "path": "hero-orb-motion.css",
+      "sha256": "a59bf1688ba7e421183f2503433d0ccadfb71274ba53445bb6e02228b8ece28a"
+    },
+    {
+      "path": "hero-orb-motion.mjs",
+      "sha256": "b523d5152f3a93811426f6db7e25d97d61ecdabddaadab71c9f86d7cc7b71f95"
+    },
+    {
+      "path": "home-project-reveal.css",
       "sha256": "76d43382a9f190dfb248fc1ba2d93b85bf87c116706ab759343ca443f3d648e0"
+    },
+    {
+      "path": "home-project-reveal.d.mts",
+      "sha256": "49b046802b98588d19fcd95dffe7efa0e0f21d2931ee3b2e7ed273b03bc23421"
+    },
+    {
+      "path": "home-project-reveal.mjs",
+      "sha256": "b7014b51980266b08ebb0eb9f84dc8822f8c97b576ed8433c963d64116b9270f"
     },
     {
       "path": "images/boardgamemate/boardgamemate-cover.png",
@@ -1621,20 +635,52 @@
       "sha256": "04231b5b1690230212d8c6593e110d33636f3b186c9df905798bdcea79da0473"
     },
     {
+      "path": "images/homepage-covers/boardgamemate-20261010.webp",
+      "sha256": "e7eeba8052ac929a44cf050c99145b5ceeb51853ade02a735c659424ed1a6295"
+    },
+    {
+      "path": "images/homepage-covers/crownlands-20261007.webp",
+      "sha256": "d119f8adfc1e1f140c26aaeadc4b69337cdf8f7f83f5957ae1d00928ae842149"
+    },
+    {
+      "path": "images/homepage-covers/crownlands-20261010-v2.webp",
+      "sha256": "18506db2cac36bebfbac6437e6290c61bf2ac65aad0e7b2f197d55a5e9dc3bd2"
+    },
+    {
       "path": "images/homepage-covers/crownlands-20261010-v3.webp",
       "sha256": "c4cf5fa5606fe44ced62b44163e1c05b54e75f45bf1fe8e29a4111641abbce3e"
+    },
+    {
+      "path": "images/homepage-covers/culturelens-20261007.webp",
+      "sha256": "798207db98058f07343264e3595100c21bec39d8bb523b65adcca637b0821079"
     },
     {
       "path": "images/homepage-covers/culturelens-20261010-v2.webp",
       "sha256": "fa4ea8503d1dbb3149dc67d02f5b8804c49d1de69d9b421d002bc83c6c946082"
     },
     {
+      "path": "images/homepage-covers/culturelens-20261010.webp",
+      "sha256": "01d184e1aced9e2f806de33c7105e43669b9f5829563096a731777f6d226fec0"
+    },
+    {
       "path": "images/homepage-covers/furniture-20261010-v2.webp",
       "sha256": "97794fe485530927fa340eedc71024560cc5ca916f6e06102707924d6107c591"
     },
     {
+      "path": "images/homepage-covers/unilink-20261007.webp",
+      "sha256": "2abc944db33617f3e837aa00ca25779ce8b0ce6b905618ad853f582b00d2b1e1"
+    },
+    {
+      "path": "images/homepage-covers/unilink-20261010-v2.webp",
+      "sha256": "9db8bbbff4444f3cbfe1723167759644e17d46f2f6a3e6a1b8065ae02b9c578d"
+    },
+    {
       "path": "images/homepage-covers/unilink-20261010-v3.webp",
       "sha256": "278db54c7eb0f7dacd6523bd213605ac02cccf8c9bf5ef8622860c3ecd18b92b"
+    },
+    {
+      "path": "images/homepage-covers/unilink-20261010.webp",
+      "sha256": "ee48db48c2434ca1ce266f6c83c768db306884ef123cf719199887d4a619a71d"
     },
     {
       "path": "images/jiaming-portrait.jpg",
@@ -1910,7 +956,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "0fed961c433910cf01d366b5000205d27eccc46c1af8725e68a2146ce418f571"
+      "sha256": "08c2cc3a6bd776d0924942f3635a15350a20c8218ec92ee59207d3dedeeae29a"
     },
     {
       "path": "media/CultureLens-Discover-Exhibition.mp4",
@@ -2085,6 +1131,10 @@
       "sha256": "24272ab237cad4164ed6b8e8cade8b83c72a31481c8900461b14884582eb3f15"
     },
     {
+      "path": "portfolio-navigation-c253f2b71a89.js",
+      "sha256": "c253f2b71a895d17b4195c5a82744ecd22d67e84baa2149f7ebbd54669d3aa53"
+    },
+    {
       "path": "portfolio-navigation.js",
       "sha256": "c253f2b71a895d17b4195c5a82744ecd22d67e84baa2149f7ebbd54669d3aa53"
     },
@@ -2093,12 +1143,12 @@
       "sha256": "862df102dc6b939cd225331d953859d6be5ff83a0f55e75522b24f0b499bb597"
     },
     {
-      "path": "project-chapters-de1683a8a721.css",
+      "path": "project-chapters.css",
       "sha256": "de1683a8a72103f4b3322867de716df8b3ce5f4c59a48405855511d46a053775"
     },
     {
-      "path": "project-footer-themes-20261003-eac1bc57b0ca.css",
-      "sha256": "eac1bc57b0ca72cbdfa037c92a2e19ce082686b9098702882d3dcaa23a66abec"
+      "path": "project-chapters.mjs",
+      "sha256": "9a3490c59250208e67636a20335da2f63614c189122f59b1d7cacd40c91b1d00"
     },
     {
       "path": "project-footer-themes-20261003.css",
@@ -2109,20 +1159,28 @@
       "sha256": "08bb4b4876d3790578e468593eb1c3f17ca16f7ca7eb3174ddf295dc2379a3b9"
     },
     {
-      "path": "project-navbar-fa546e2db5b1.css",
+      "path": "project-navbar.css",
       "sha256": "fa546e2db5b1d515e61808cfc72a14857e24e59d25560dd0b191556b90c4ab1f"
     },
     {
+      "path": "project-navbar.d.mts",
+      "sha256": "754b41314e3d3a8eb2b63a1ffb6a89fd47d9cd5fdc0d787ead1250dbca32bc64"
+    },
+    {
+      "path": "project-navbar.mjs",
+      "sha256": "1b6be8353f0be66bc79a2c5ab04052debc112e5123da311e5bfb9249c84c664c"
+    },
+    {
       "path": "projects/unilink/index.html",
-      "sha256": "0bbd750004a75a98b32dea83dee5735f4cf61150f4ce68bca2d47cebe61afbf0"
+      "sha256": "82e91bf56009c530e997204ce07b126c4ee752a569dbea218c76764dc76e6bf8"
     },
     {
-      "path": "unilink-assets/unilink-1I7nhiM2.css",
-      "sha256": "a6eda4c00a95d2bb29c65da1670d8387625ff599b6cb8d152ac6623f70a80b12"
-    },
-    {
-      "path": "unilink-assets/unilink-BH2j5Xpy.js",
+      "path": "unilink-assets/unilink-BMb3kFQo.js",
       "sha256": "f340c0d616baf2e370945aa0ff52750dd3f1cf6f0f9c240884c2dd2eb588d859"
+    },
+    {
+      "path": "unilink-assets/unilink-CZFlMath.css",
+      "sha256": "dfdb6ccfe6c96e8292569496f5134719bca929c9a7f284eb29ba6f24607d4c5b"
     },
     {
       "path": "unilink-blank-cover-20260918.css",

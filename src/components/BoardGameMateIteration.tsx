@@ -103,7 +103,7 @@ export function BoardGameMateIteration() {
             <h1 id="boardgamemate-project-title">BoardGameMate is a tabletop companion designed to make playing together easier.</h1>
             <div>
               <p>It helps players discover nearby game sessions, find compatible people, learn unfamiliar games, and coordinate everything from joining a table to getting ready to play.</p>
-              <p>Instead of another board game social feed, BoardGameMate focuses on one simple goal: getting people around the same table faster.</p>
+              <p>BoardGameMate focuses on one simple goal: getting people around the same table faster.</p>
             </div>
           </div>
           <dl className="boardgamemate-meta">
@@ -157,7 +157,7 @@ export function BoardGameMateIteration() {
           <span>PREVIOUS SYSTEM / 03</span>
           <div>
             <h3>Early interface</h3>
-            <p>The first high-fidelity version leaned heavily on familiar social-media patterns. The home screen centred on posts, the nearby map focused on individual players, profiles prioritised followers and posts, and chat worked mainly as generic messaging. While this created a friendly community experience, it did not fully reflect the strongest needs identified in the research: finding suitable people to play with, learning unfamiliar games efficiently and coordinating real-world sessions.</p>
+            <p>The first high-fidelity version leaned heavily on familiar social-media patterns. The home screen centred on posts, the nearby map focused on individual players, profiles prioritised followers and posts, and chat worked mainly as generic messaging. Research highlighted three priorities for the next iteration: finding suitable people to play with, learning unfamiliar games efficiently and coordinating real-world sessions.</p>
           </div>
         </div>
         <figure className="iteration-early-figure">
@@ -178,8 +178,8 @@ export function BoardGameMateIteration() {
         <div className="iteration-intro-grid">
           <h2 id="boardgame-iteration-title">From a social feed to a task-first companion</h2>
           <div>
-            <p>The early BoardGameMate prototype already included discovery, tutorials, communities, profiles and messaging, but testing the overall experience revealed a more fundamental problem: there were many features, yet the main user goal was not clear enough. A player who simply wanted to find a game for tonight still had to move between feeds, profiles and messages before knowing whether there was actually a table they could join.</p>
-            <p>We therefore reframed the product around the complete journey of getting people to the same table. Instead of treating each feature as an isolated destination, the revised experience follows a clearer flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
+            <p>The early BoardGameMate prototype already included discovery, tutorials, communities, profiles and messaging, and testing highlighted an opportunity to organise these features around a clearer user goal. A player who simply wanted to find a game for tonight still had to move between feeds, profiles and messages before knowing whether there was actually a table they could join.</p>
+            <p>We therefore reframed the product around the complete journey of getting people to the same table. The revised experience follows a clear flow — <strong>Discover, Match, Learn, Coordinate and Play</strong>. The iteration focused on turning information into action, reducing unnecessary steps and making each screen support a specific user decision.</p>
           </div>
         </div>
       </IterationReveal>
@@ -189,13 +189,13 @@ export function BoardGameMateIteration() {
           <span>TESTING REFLECTION / 02</span>
           <div>
             <h3>What changed after testing</h3>
-            <p>Reviewing the prototype suggested that the main issue was not a lack of functionality, but a lack of hierarchy. Showing nearby players did not automatically help someone find a playable session, a tutorial library did not necessarily make a game easier to learn, and a normal chat still left users organising attendance and preparation manually. The redesign therefore shifted from <strong>feature thinking</strong> toward <strong>task and system thinking</strong>: what does a player actually need to do before they can successfully join and enjoy a table?</p>
+            <p>Reviewing the prototype highlighted the value of a stronger hierarchy: surface playable sessions, guide learning in context, and organise attendance and preparation together. The redesign therefore shifted from <strong>feature thinking</strong> toward <strong>task and system thinking</strong>: what does a player actually need to do before they can successfully join and enjoy a table?</p>
           </div>
         </div>
         <div className="iteration-principles" aria-label="Three reframing principles">
-          <article><span>01</span><h4>Find a playable opportunity</h4><p>not simply nearby people</p></article>
-          <article><span>02</span><h4>Understand compatibility</h4><p>not simply social popularity</p></article>
-          <article><span>03</span><h4>Coordinate the session</h4><p>not simply send messages</p></article>
+          <article><span>01</span><h4>Find a playable opportunity</h4><p>See sessions with available seats</p></article>
+          <article><span>02</span><h4>Understand compatibility</h4><p>Compare play styles and shared games</p></article>
+          <article><span>03</span><h4>Coordinate the session</h4><p>Confirm attendance and preparation</p></article>
         </div>
       </IterationReveal>
 
@@ -205,8 +205,8 @@ export function BoardGameMateIteration() {
         <SectionLabel>ITERATION OUTCOME</SectionLabel>
         <div className="iteration-outcome-grid">
           <div>
-            <h3>Designing the system, not just the screens</h3>
-            <p>The most important outcome of this iteration was a shift in how we approached the product. Instead of asking <strong>“What features should a board-game app have?”</strong>, we started asking <strong>“What needs to happen for someone to successfully join and enjoy a game?”</strong> That changed the relationship between every major feature.</p>
+            <h3>Designing a connected system</h3>
+            <p>The most important outcome of this iteration was a shift in how we approached the product. We centred the work on one question: <strong>“What needs to happen for someone to successfully join and enjoy a game?”</strong> That changed the relationship between every major feature.</p>
           </div>
           <ol className="iteration-journey" aria-label="BoardGameMate product journey">
             {['Discover', 'Match', 'Learn', 'Coordinate', 'Play'].map((step) => <li key={step}>{step}</li>)}

@@ -1,7 +1,13 @@
-# Production website
+# Source-built portfolio
 
-The newer production portfolio is preserved in the checked-in `production-baseline/` directory (deployment `dpl_Cbxby6GsJLECfJc1o9iUKfJAjtfH`). The general React source in this checkout predates several homepage, BoardGameMate, Furniture and Crownlands updates. **Do not deploy `dist/` as the whole website.**
+The current website is built from React / TypeScript in `src/` and assets/helpers in `public/`. Do not reintroduce a separate minified production baseline or patch compiled JavaScript by string replacement.
 
-Use `npm run build` to assemble the preserved portfolio plus the standalone UniLink page into `dist-production/` and `.vercel/output/`. `scripts/stage-production.mjs` checks the baseline and verifies that unrelated project files remain unchanged. Deploy this output with `vercel deploy --prebuilt --prod`.
+Use `npm run build` for the full portfolio and standalone UniLink document. The release output is `dist-production/` and `.vercel/output/`; these generated directories are ignored by Git. `scripts/stage-production.mjs` integrates the UniLink document, cache-safe browser helpers and deployment routes only.
 
-Keep the baseline read-only during routine edits. Current production changes to the preserved pages live in `scripts/stage-production.mjs` and `public/`. `build:source` is only for source development and is not the production release. Review and update the preservation manifest deliberately if an existing project needs to change. Run `npm run build` and `npm test` before publishing or pushing release changes.
+Keep the current visual design, page content, project cover images, removed sections, prototype links and navigation behaviour unchanged unless the user requests otherwise. Crownlands game source is in `src/crownlands/` and `src/components/crownlands/`.
+
+Run TypeScript, `npm run build`, `npm test` and lint after relevant changes. Verify page layouts and game interactions in a local preview for release-impacting changes.
+
+Before pushing or deploying, explain the changes to the user and obtain publication approval. A GitHub push can automatically deploy.
+
+The pre-migration state is recoverable from commit `589f33c6f940d1c41729d8b7744fe089938eea56`. Historical design/asset documentation may remain as reference; it is not an alternative production implementation.

@@ -81,13 +81,10 @@ test('navigation cleans up on route exit and keeps Lenis in sync with clicks', (
   assert.ok(read('src/components/Layout.tsx').includes("window.removeEventListener('portfolio:chapter-scroll', chapterScroll)"))
 })
 
-test('the production output uses cache-safe chapter modules and styling', () => {
-  const html = read('dist-production/index.html')
-  assert.match(html, /project-chapters-[a-f0-9]+\.css/)
-  const manifest = JSON.parse(read('docs/production-restoration-manifest.json'))
-  const entry = read(`dist-production/${manifest.portfolioEntry}`)
-  assert.ok(entry.includes('portfolio:chapter-scroll'))
-  const dir = new URL('../dist-production/assets/', import.meta.url)
-  const navbar = fs.readdirSync(dir).find(f => /^project-navbar-[a-f0-9]+\.mjs$/.test(f))
-  assert.match(fs.readFileSync(new URL(navbar, dir), 'utf8'), /\.\/project-chapters-[a-f0-9]+\.mjs/)
+test('source build includes the shared runtime and cache-safe bundle', () => {
+  const root = new URL('../',import.meta.url)
+  const manifest = JSON.parse(fs.readFileSync(new URL('docs/production-restoration-manifest.json',root),'utf8'))
+  const entry = fs.readFileSync(new URL('dist-production/' + manifest.portfolioEntry,root),'utf8')
+  assert.equal(manifest.buildMode,'react-source')
+  assert.ok(entry.includes("case-chapter-mark monogram"))
 })

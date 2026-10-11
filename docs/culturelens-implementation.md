@@ -1,5 +1,7 @@
 # CultureLens case study — implementation notes
 
+> Historical implementation / release notes from September 2026, not current build instructions. The October React-source migration retired the minified `production-baseline`, compatibility adapter, simulation and Test chapter. Current CultureLens keeps six chapters and original prototype recordings. Use the repository README for the current source map, `npm run build`, `npm test` and deployment workflow; do not follow the historical commands below.
+
 ## Scope
 
 Only `/projects/culturelens` is redesigned. `ProjectPage.tsx` selects a lazy, dedicated page. The existing Navbar, Footer, portfolio typefaces, route transitions and other project pages remain shared and unchanged. All new visual selectors are CultureLens-specific. No dependency was added.

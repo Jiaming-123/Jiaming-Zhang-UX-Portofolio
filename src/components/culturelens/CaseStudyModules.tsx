@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
+
 import { ArrowRight, ArrowUpRight, MoveRight, Play } from 'lucide-react'
-import { architecture, blueprint, comparison, failures, journey, museumLayers, proposals, transfers } from '../../data/cultureLensData'
+
+import { blueprint, comparison, journey, museumLayers, proposals, transfers } from '../../data/cultureLensData'
 
 import ConceptVisual from './ConceptVisual'
-import { ProposalProcess, ComparisonProof, VoiceflowEvidence } from './ProcessEvidence'
+
+import { ProposalProcess, ComparisonProof } from './ProcessEvidence'
 
 export function Evidence({ title, children }: { title: string; children: React.ReactNode }) {
   return <details className="culturelens-evidence"><summary>{title}<span aria-hidden="true">+</span></summary><div>{children}</div></details>
 }
+
 export function MuseumSystemMap() {
   const [active, setActive] = useState(0)
   return <div className="culturelens-system-map"><div className="culturelens-map-layers" aria-label="Museum system layers">{museumLayers.map((layer, i) => <button key={layer.name} aria-pressed={active === i} onClick={() => setActive(i)} onFocus={() => setActive(i)} onMouseEnter={() => setActive(i)}><span>0{i + 1}</span><strong>{layer.name}</strong><div>{layer.nodes.map(node => <span key={node}>{node}</span>)}</div><ArrowUpRight size={18} /></button>)}</div><aside aria-live="polite"><span className="culturelens-label">RELATIONSHIP IN FOCUS</span><h4>{museumLayers[active].name}</h4><p>{museumLayers[active].detail}</p><span className="culturelens-label">SYSTEM CONSEQUENCE</span><p>{museumLayers[active].consequence}</p></aside></div>
@@ -48,29 +52,22 @@ export function ProposalExplorer() {
   }
   return <><div ref={container} className="culturelens-proposal-explorer culturelens-sequential-proposals"><aside><span className="culturelens-label">THREE SYSTEM LAYERS</span><h3>One museum.<br />Three directions.</h3><p>Scroll through the journey, the context and the live moment.</p><div className="culturelens-proposal-tabs" aria-label="Explore museum proposals">{proposals.map((proposal, index) => <button key={proposal.short} aria-pressed={active === index} aria-controls={`culturelens-proposal-${index}`} onPointerEnter={event => { if (event.pointerType === 'mouse' && active !== index) goToLayer(index) }} onClick={() => goToLayer(index)}><span>0{index + 1}</span><strong>{proposal.short}</strong><ArrowRight size={17} /></button>)}</div></aside><div className="culturelens-proposal-sequence">{proposals.map((_, index) => <ProposalLayer key={index} index={index} />)}</div></div><ComparisonProof /><Evidence title="Compare all three proposals · qualitative assessment"><div className="culturelens-table-wrap"><table><caption>Group project comparison</caption><thead><tr><th scope="col">Dimension</th>{proposals.map(p => <th scope="col" key={p.short}>{p.short}</th>)}</tr></thead><tbody>{comparison.map(([dimension, ...cells]) => <tr key={dimension}><th scope="row">{dimension}</th>{cells.map(cell => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></Evidence><div className="culturelens-selection"><span>DECISION CHECKPOINT 02</span><h3>MuseBand brought the system into the live moment.</h3><p>The service journey offered the strongest preparation framework. XR offered the strongest interpretation direction. MuseBand connected focus, sensory comfort, routes, access, objects, crowds and operations in one testable concept.</p><p className="culturelens-question">Can smart support personalise the museum without personalising control?</p></div></>
 }
+
 export function ConceptTransition() {
   const [active, setActive] = useState(0)
   return <div className="culturelens-transfer"><div className="culturelens-transfer-head"><div><small>SPECULATIVE SMART MUSEUM</small><h3>MuseBand</h3></div><MoveRight aria-hidden="true" /><div><small>VOICEFLOW PROTOTYPE</small><h3>CultureLens</h3></div></div><div className="culturelens-transfer-rows">{transfers.map(([from, to], i) => <button key={from} onClick={() => setActive(i)} onFocus={() => setActive(i)} onMouseEnter={() => setActive(i)} aria-pressed={active === i}><strong>{from}</strong><span className="culturelens-transfer-line" aria-hidden="true" /><span>{to}</span></button>)}</div><p>DECISION CHECKPOINT 03 · Keep the principles. Make their consequences testable through conversation.</p></div>
 }
+
 export function ServiceBlueprint() {
   const [stage, setStage] = useState(0)
   const labels = ['User action', 'Frontstage service', 'Agent / decision logic', 'Backstage data', 'Human / governance']
   return <div className="culturelens-blueprint"><div className="culturelens-stage-rail" aria-label="Service stages">{blueprint.map((s, i) => <button key={s.stage} aria-pressed={stage === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setStage(i) }} onFocus={() => setStage(i)} onClick={() => setStage(i)}><span>0{i + 1}</span>{s.stage}</button>)}</div><div className="culturelens-blueprint-body" key={stage}><div className="culturelens-blueprint-title"><span className="culturelens-label">STAGE 0{stage + 1}</span><h3>{blueprint[stage].stage}</h3><p>{blueprint[stage].why}</p><button onClick={() => setStage((stage + 1) % blueprint.length)}>Next stage <ArrowRight size={16} /></button></div><dl>{labels.map((label, i) => <div key={label}><dt>{label}</dt><dd>{blueprint[stage].rows[i]}</dd></div>)}</dl></div></div>
 }
-export function AgentArchitecture() {
-  const [active, setActive] = useState(0)
-  const item = architecture[active]
-  return <div className="culturelens-architecture"><div className="culturelens-intents" aria-label="Trace an example intent">{architecture.map((a, i) => <button aria-pressed={active === i} onClick={() => setActive(i)} onFocus={() => setActive(i)} onMouseEnter={() => setActive(i)} key={a.prompt}>{a.prompt}<ArrowUpRight size={16} /></button>)}</div><div className="culturelens-routing"><div className="culturelens-core"><span className="culturelens-label">CORE AGENT</span><h3>CultureLens Concierge</h3><p>Interpret intent → route the request</p></div><svg className="culturelens-branches" viewBox="0 0 900 70" preserveAspectRatio="none" aria-hidden="true"><path d="M450 0V28H150V70 M450 28V70 M450 28H750V70" /><path key={active} className="culturelens-active-path" d={active === 0 ? 'M450 0V28H150V70' : active === 2 ? 'M450 0V70' : 'M450 0V28H750V70'} /></svg><div className="culturelens-module-row">{[architecture[0], architecture[2], architecture[1]].map(module => <div className={item.kind === module.kind ? 'is-active' : ''} key={module.kind}><span className="culturelens-label">{module.kind}</span><h4>{module.route}</h4></div>)}</div><div className="culturelens-trace" aria-live="polite"><span className="culturelens-label">DECISION TRACE</span><p>{item.action}</p><dl><dt>Data</dt><dd>{item.data}</dd><dt>State</dt><dd>{item.state}</dd><dt>Action boundary</dt><dd>Prepare → review → user confirmation</dd></dl></div></div><div className="culturelens-trust-layers"><div><span>01 / PROTOTYPE SERVICE DATA</span><p>Dummy tickets, crowd, weather, transport and support points.</p></div><div><span>02 / CURATOR-REVIEWED KNOWLEDGE</span><p>Required governance layer for museum information, catalogue and explanation summaries.</p></div><div><span>03 / HUMAN / OFFICIAL SUPPORT</span><p>Official labels and museum staff for live help and contested interpretation.</p></div></div></div>
-}
-export function FailureLab() {
-  const [active, setActive] = useState(0)
-  const [after, setAfter] = useState(false)
-  const item = failures[active]
-  return <div className="culturelens-failure-lab"><div className="culturelens-failure-tabs" aria-label="Choose a Voiceflow failure">{failures.map((failure, i) => <button key={failure.title} aria-pressed={active === i} onPointerEnter={event => { if (event.pointerType === 'mouse' && active !== i) { setActive(i); setAfter(false) } }} onFocus={() => { if (active !== i) { setActive(i); setAfter(false) } }} onClick={() => { setActive(i); setAfter(false) }}><span>0{i + 1}</span>{failure.title}</button>)}</div><div className="culturelens-failure-detail"><VoiceflowEvidence active={active} /><div className="culturelens-failure-display"><div className="culturelens-toggle" aria-label="View before or after"><button aria-pressed={!after} onPointerEnter={event => { if (event.pointerType === 'mouse') setAfter(false) }} onFocus={() => setAfter(false)} onClick={() => setAfter(false)}>Before</button><button aria-pressed={after} onPointerEnter={event => { if (event.pointerType === 'mouse') setAfter(true) }} onFocus={() => setAfter(true)} onClick={() => setAfter(true)}>After refinement</button></div><span className="culturelens-label">{after ? 'REFINED STATE' : 'OBSERVED BREAKDOWN'} · RECREATED FROM PROJECT EVIDENCE</span><p className={after ? 'culturelens-code good' : 'culturelens-code'}>{after ? item.after : item.before}</p>{after && active === 0 && <div className="culturelens-example-buttons"><span>Yes, continue</span><span>Choose another exhibition</span><span>Compare first</span></div>}</div><dl><div><dt>Break</dt><dd>{item.break}</dd></div><div><dt>Diagnose</dt><dd>{item.diagnose}</dd></div><div><dt>Refine</dt><dd>{item.refine}</dd></div><div><dt>System consequence</dt><dd>{item.consequence}</dd></div></dl><small>Build → test → diagnose → refine</small></div></div>
-}
+
 export function PrototypeEvidence() {
   return <div className="culturelens-video-grid">{[['Happy path · discover, plan, visit', '/media/CultureLens-Discover-Exhibition.mp4', 'Original Happy path recording · 1:47. Exhibition discovery, reservation review and language adjustment.'], ['Deviation path · clarify & recover', '/media/CultureLens-Plan-Museum-Visit.mp4', 'Original Deviation path recording · 0:54. Ambiguous comfort needs and honest limits on live information.']].map(([title, src, description], i) => <EvidenceVideo key={src} title={title} src={src} description={description} index={i} />)}</div>
 }
+
 function EvidenceVideo({ title, src, description, index }: { title: string; src: string; description: string; index: number }) {
   const [started, setStarted] = useState(false)
   const [error, setError] = useState(false)

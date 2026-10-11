@@ -86,16 +86,6 @@ export function ComparisonProof() {
     ['museband-physical-prototype', 'P3 / MuseBand', 'A head-worn paper prototype plus a tabletop system walkthrough.', 'A2.G2 p. 11'],
   ].map(([file, label, text, source]) => <article key={file}><span className="culturelens-label">{label}</span><ProcessImage file={file} alt={text} source={source} className={file.includes('sketch') ? 'culturelens-sketch-alpha' : ''} /><p>{text}</p></article>)}</div>
 }
-const failureEvidence = [
-  ['voiceflow-formatting', 'Actual conversation with exposed link formatting.', 'A2.G3 p. 25', 'The source fragment records the presentation breakdown. The native before/after view explains the refinement.'],
-  ['voiceflow-routing', 'Voiceflow debug log reporting an invalid Playbook transfer.', 'A2.G3 p. 25', 'The invalid transfer is visible in the original build log; the routing explanation is a portfolio reconstruction.'],
-  ['voiceflow-state', 'Original reservation handoff showing exhibition 0 instead of the selected exhibition.', 'A2.G3 p. 26', 'The selected exhibition is lost at the handoff. The refined state flow below makes the variable transfer explicit.'],
-  ['voiceflow-ticket-input', 'Original Voiceflow ticket categories and visitor-count input instructions.', 'A2.G3 p. 26', 'Source evidence defines ticket categories and input examples. The structured parsing view is a native reconstruction, not a screenshot of implemented parser code.'],
-]
-export function VoiceflowEvidence({ active }: { active: number }) {
-  const [file, alt, source, caption] = failureEvidence[active]
-  return <div className="culturelens-voiceflow-source"><span className="culturelens-label">VOICEFLOW BUILD · SOURCE EVIDENCE</span><ProcessImage key={file} file={file} alt={alt} source={source} /><p>{caption}</p></div>
-}
 export function ConversationEvidence() {
   return <div className="culturelens-conversation-evidence"><span className="culturelens-label">ORIGINAL CONVERSATION · INTENT → RECOMMENDATION → CONFIRMATION</span><div>{[
     ['voiceflow-request', 'A visitor requests a quiet exhibition'],
