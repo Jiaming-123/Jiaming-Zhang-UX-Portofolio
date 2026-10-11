@@ -79,13 +79,6 @@ function MuseBandEvidence() {
 export function ProposalProcess({ active }: { active: number }) {
   return active === 0 ? <StoryboardEvidence /> : active === 1 ? <XrEvidence /> : <MuseBandEvidence />
 }
-export function ComparisonProof() {
-  return <div className="culturelens-comparison-proof">{[
-    ['service-storyboard', 'P1 / Service journey', 'Storyboards made preparation, adjustment and reflection visible.', 'A2.G2 pp. 3, 26'],
-    ['xr-original-sketch', 'P2 / Living Context Gallery', 'The original spatial sketch anchored interpretation to the object.', 'A2.G2 p. 7'],
-    ['museband-physical-prototype', 'P3 / MuseBand', 'A head-worn paper prototype plus a tabletop system walkthrough.', 'A2.G2 p. 11'],
-  ].map(([file, label, text, source]) => <article key={file}><span className="culturelens-label">{label}</span><ProcessImage file={file} alt={text} source={source} className={file.includes('sketch') ? 'culturelens-sketch-alpha' : ''} /><p>{text}</p></article>)}</div>
-}
 export function ConversationEvidence() {
   return <div className="culturelens-conversation-evidence"><span className="culturelens-label">ORIGINAL CONVERSATION · INTENT → RECOMMENDATION → CONFIRMATION</span><div>{[
     ['voiceflow-request', 'A visitor requests a quiet exhibition'],

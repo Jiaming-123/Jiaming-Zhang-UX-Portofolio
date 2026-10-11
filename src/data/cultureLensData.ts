@@ -27,15 +27,6 @@ export const proposals = [
   { title: 'MuseBand — Personal Focus Layer', short: 'The live moment', layer: 'Smart-museum support', thesis: 'Make focus, comfort and control adjustable in the moment.', value: 'Connect object stories, route choice, captions, haptics and crowd-aware support within a shared exhibition.', risk: 'Prompts can distract; wearables can exclude. Tracking, hygiene, charging and staff workload matter.', response: 'Explain suggestions, allow opt-out, minimise data and provide non-device alternatives.', source: 'A2.G2 · pp. 10–16', assets: ['culturelens-museband-scenario.webp', 'culturelens-museband-product-projection-20260914.webp'] },
 ]
 
-export const comparison = [
-  ['Visitor value', 'Prepared entry; continuous adjustment', 'Context, use and cultural connection', 'Focus, comfort and route choice in the moment'],
-  ['System value', 'A coherent before–during–after service', 'A narrative spine connecting objects', 'Visitors, objects, crowds and operations connected'],
-  ['Accessibility', 'Simple modes; sensory and seated routes', 'Captions; low-sensory, non-headset access', 'Haptics and captions; equivalent non-device support'],
-  ['Ethical challenge', 'Choice overload; fixed visitor labels', 'False certainty; cultural misrepresentation', 'Surveillance, exclusion and behavioural control'],
-  ['Futures fit', 'Personalised, access-aware services', 'Spatial, embodied cultural interpretation', 'Adaptive systems with visible visitor control'],
-  ['Prototype evidence', 'Service storyboard and touchpoints', 'XR canvas and concept sketches', 'Physical prototype and desktop walkthrough'],
-]
-
 export const transfers = [
   ['Personalisation', 'Context-aware recommendations'], ['Accessibility', 'Language, comfort and access support'],
   ['Real-time adjustment', 'Editable visit state'], ['Visitor control', 'Confirm / change / reject / cancel'],
