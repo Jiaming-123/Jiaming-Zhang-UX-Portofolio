@@ -16,7 +16,7 @@ function FurnitureHero({ project }: { project: Project }) {
       <h1>{project.title.toUpperCase()}</h1>
       <div className="project-hero-intro"><p>{project.heroStatement}</p><ul>{project.categories.map((category) => <li key={category}>{category}</li>)}</ul></div>
       <a className="furniture-live-link" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link"><span>VIEW THE LIVE EXPERIENCE</span><strong>My Furniture Store Redesign Project Link</strong><ArrowRight /></a>
-      <figure className="furniture-hero-media"><img src="/images/furniture/cover.png" alt={project.heroAlt} /></figure>
+      <figure className="furniture-hero-media"><img src="/images/furniture/hero-poster-20261011.png" alt="My Furniture Store responsive redesign poster with Furniture for real Australian homes text and a timber bedroom" width={1302} height={814} /></figure>
       <a href="#overview" className="project-scroll" data-cursor="link">SCROLL TO EXPLORE <ArrowDown size={15} /></a>
     </header>
   )

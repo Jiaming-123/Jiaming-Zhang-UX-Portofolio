@@ -1,6 +1,6 @@
 {
   "buildMode": "react-source",
-  "portfolioEntry": "assets/index-BizXV9T_.js",
+  "portfolioEntry": "assets/index-Bki3GHUf.js",
   "sourceEntries": [
     "src/main.tsx",
     "src/unilink-entry.tsx"
@@ -8,11 +8,11 @@
   "files": [
     {
       "path": ".vite/manifest.json",
-      "sha256": "088aa709f5253ef1002fbf52ef08501a7e0114dd968dd7aa3a4d78074527b0e7"
+      "sha256": "a69617a463e830327e766ccc4fd2c5ea542c81bdff6e5cea58b33871ae7ae2a2"
     },
     {
-      "path": "assets/CrownlandsPage-BRrGcwPW.js",
-      "sha256": "02364985593837382d4917bea801330ae2a5ec99740fb984c7e6285ed029bf67"
+      "path": "assets/CrownlandsPage-CVx6o5ZU.js",
+      "sha256": "67febf9aaf959429bdfcc689768cd3ee0491d091e08ebaa9faf85566a58c0c1e"
     },
     {
       "path": "assets/CrownlandsPage-CZSjQEIo.css",
@@ -23,32 +23,32 @@
       "sha256": "4bbbe9b143f144a33443348b60fd81ba89440e0b846738d3fc85b8da56ad2c67"
     },
     {
-      "path": "assets/CultureLensCaseStudy-DBLuMlK8.js",
-      "sha256": "e636dc4ef8499166d07c94812bdab53e7e9a392efe1edb9409757fe6126ca761"
+      "path": "assets/CultureLensCaseStudy-BPCvEZ-b.js",
+      "sha256": "a6a2a1cca34b578090797c624cca61d36d5b850db797105aaed8847668dfa4ae"
     },
     {
       "path": "assets/UniLinkCaseStudy-BRXxJPFn.css",
       "sha256": "d9654d7a21c36eefc82262bb631071140ee7169e4d5fa09889333a27b90b7204"
     },
     {
-      "path": "assets/UniLinkCaseStudy-Cw_FRirH.js",
-      "sha256": "c3c16d47479ea6097148b06d2e7aec213b6590b9c155310e446765ddf350d8b2"
+      "path": "assets/UniLinkCaseStudy-B_u76_bV.js",
+      "sha256": "a160b34f6f140f2f2a1e7f6506fed66a88e84222906fa61652043f37797579bd"
     },
     {
-      "path": "assets/check-DcG0leqd.js",
-      "sha256": "460f999573efe308abe3e8219c5eb7a7c97af0e8b6120544d6bed0decd4c36a3"
+      "path": "assets/check-CqNyk9gW.js",
+      "sha256": "818300cbc2aaec51613ef75c946814765c6759c58aa82263fe8657227a9e319b"
     },
     {
-      "path": "assets/index-BizXV9T_.js",
-      "sha256": "6870eb7c2f0e7007c4452dcab1abbd0dd1cccd2ae882ae1527c4d05f2a93cf65"
+      "path": "assets/index-Bki3GHUf.js",
+      "sha256": "a8431b800ded39fddba58804604529d678366b2175849cc46fdf412199f27f04"
     },
     {
       "path": "assets/index-hhKMZT0v.css",
       "sha256": "c8c96984b95e713f66458f765769c271d20f2ea8253fa818bcbbb45d0c8e3e22"
     },
     {
-      "path": "assets/play-BVegtDUh.js",
-      "sha256": "ecbe30946338e5e2b4232ea96b5009980aab770bac4ee62f0fd8ff04d9cd79f9"
+      "path": "assets/play-CXKdxXjs.js",
+      "sha256": "d6d5c9c9c6c45eefbec0653a1b012d6cf1220568018c4c2ff9d17943b4f9812f"
     },
     {
       "path": "boardgamemate-cover-signature.css",
@@ -595,6 +595,10 @@
       "sha256": "985156089e488e536ddb403b1d05078d56f14f6c710555e249e2f41e1b36e195"
     },
     {
+      "path": "images/furniture/hero-poster-20261011.png",
+      "sha256": "73e42b2deb20da935f00b8c21baefb9496d927ecc4a9a090d5a94babe394a673"
+    },
+    {
       "path": "images/furniture/home-project-cover.png",
       "sha256": "7a7e4f05a7aa8c1c2ee2b15c50ca9387f8add10fd6b61e861b4bf133ef03ff24"
     },
@@ -956,7 +960,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "2191cec8a64b316b579eb1804fdd4b8f67a34ed7e0de56cb49e7b31876955af7"
+      "sha256": "60375a5573ebda0982b56dd023d74a48323281129fa6c6e5f0df5949293d3789"
     },
     {
       "path": "media/CultureLens-Discover-Exhibition.mp4",
