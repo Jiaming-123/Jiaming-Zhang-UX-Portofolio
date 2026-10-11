@@ -84,5 +84,5 @@ export function ConversationEvidence() {
     ['voiceflow-request', 'A visitor requests a quiet exhibition'],
     ['voiceflow-recommendation', 'The prototype presents an exhibition recommendation'],
     ['voiceflow-confirmation', 'Review details before confirm, change or cancel'],
-  ].map(([file, alt]) => <ProcessImage key={file} file={file} alt={alt} source="A2.G3 p. 4" />)}</div><details className="culturelens-evidence"><summary>Earlier sketch and state wiring <span aria-hidden="true">+</span></summary><div className="culturelens-source-pair"><ProcessImage file="conversation-sketch" alt="Original hand-drawn conversation screens" source="A2.G3 p. 14" /><ProcessImage file="voiceflow-state-canvas" alt="Original Voiceflow canvas showing selected-exhibition state and response wiring" source="A2.G3 p. 26" /></div></details></div>
+  ].map(([file, alt]) => <ProcessImage key={file} file={file} alt={alt} source="A2.G3 p. 4" />)}</div></div>
 }
