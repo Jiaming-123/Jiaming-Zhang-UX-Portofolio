@@ -15,25 +15,21 @@
 .culturelens-page a{display:inline-flex;align-items:center;gap:10px;min-height:44px}
 .culturelens-page svg{flex-shrink:0}
 .culturelens-page .culturelens-label{display:block;font-size:10px;font-weight:600;letter-spacing:.15em;line-height:1.6;color:var(--cl-accent)}
-.culturelens-hero{padding:32px var(--cl-pad) 0;max-width:1800px;margin:auto}
-.culturelens-hero-top,.culturelens-hero-bottom{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.1em;align-items:center}
-.culturelens-hero-top{padding-bottom:20px;border-bottom:1px solid var(--cl-line)}
-.culturelens-hero-top>span:only-child{margin-left:auto}
-.culturelens-hero-title{display:flex;justify-content:space-between;align-items:center;padding:40px 0}
+.culturelens-hero{padding:68px var(--cl-pad) 0;max-width:1800px;margin:auto}
+.culturelens-hero-bottom{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.1em;align-items:center}
+.culturelens-hero-title{border-top:1px solid var(--cl-line);padding:40px 0}
 .culturelens-hero-title h1{font-size:clamp(70px,11.4vw,180px);line-height:.84;letter-spacing:-.085em}
 .culturelens-hero-title h1>span{color:var(--cl-accent)}
 .culturelens-hero-title h1 small{display:block;font:400 clamp(18px,2.3vw,34px)/1.3 'Space Grotesk',sans-serif;letter-spacing:-.04em;color:var(--cl-ink);margin-top:22px}
-.culturelens-edition{font-size:10px;letter-spacing:.1em;line-height:1.45;align-self:flex-end;padding-bottom:6px}.culturelens-edition i{font-style:normal;color:var(--cl-accent);display:block;margin-top:10px}
 .culturelens-hero-composition{display:grid;grid-template-columns:4fr 7fr;gap:6%;border-top:1px solid var(--cl-line);padding:32px 0 40px}
-.culturelens-gallery-label h2{font-size:clamp(34px,4vw,62px);margin:32px 0 24px;line-height:1.04}.culturelens-gallery-label p{font-size:14px;max-width:380px}.culturelens-gallery-label>a{margin-top:22px;border-bottom:1px solid var(--cl-ink);font-size:13px;font-weight:500}
-.culturelens-hero-system{position:relative;display:grid;grid-template-columns:1fr 1.2fr;align-content:center;gap:20px;min-height:440px;background:#dfe4db;padding:34px;overflow:hidden}
-.culturelens-hero-grid{position:absolute;inset:0;background-image:linear-gradient(#bac5b733 1px,transparent 1px),linear-gradient(90deg,#bac5b733 1px,transparent 1px);background-size:36px 36px}
-.culturelens-exhibit-label{z-index:1;align-self:center;padding:25px 0}.culturelens-exhibit-label>span,.culturelens-exhibit-label>small{font-size:9px;letter-spacing:.12em;display:block}.culturelens-exhibit-label strong{font:500 clamp(25px,3vw,46px)/1.1 'Space Grotesk';letter-spacing:-.05em;display:block;margin:22px 0}
-.culturelens-hero-interface{z-index:1;background:#f8f8f0;box-shadow:0 14px 35px #283d2915;padding:24px;border:1px solid #b8c6b6;transform:translateY(-10px)}
+.culturelens-gallery-label h2{font-size:clamp(34px,4vw,62px);margin:48px 0 28px;line-height:1.04}.culturelens-gallery-label p{font-size:14px;max-width:380px}
+.culturelens-hero-system{position:relative;display:grid;grid-template-columns:1fr 1.2fr;align-content:start;gap:30px;min-height:clamp(440px,38.5vw,620px);background:#19675b;padding:24px 34px 18px;overflow:hidden}
+.culturelens-exhibit-label{align-self:center;padding:25px 0}.culturelens-exhibit-label>span{font-size:9px;letter-spacing:.12em;display:block;color:#061e19}.culturelens-exhibit-label strong{font:500 clamp(25px,3vw,46px)/1.1 'Space Grotesk';letter-spacing:-.05em;display:block;margin:22px 0;color:#f8f8f0}
+.culturelens-hero-interface{background:#f8f8f0;padding:24px;border:1px solid #b8c6b6}
 .culturelens-hero-interface>p{font:400 clamp(20px,1.9vw,30px)/1.25 'Space Grotesk';color:var(--cl-ink);margin:24px 0}
-.culturelens-hero-interface>div:not(.culturelens-interface-options){display:flex;justify-content:space-between;border-top:1px solid var(--cl-line);padding-top:18px;color:var(--cl-accent);font-size:9px;letter-spacing:.08em}.culturelens-hero-interface h3{font-size:21px;margin:16px 0 8px;letter-spacing:-.04em}.culturelens-hero-interface>small{font-size:10px}
+.culturelens-interface-needs{border-top:1px solid var(--cl-line);padding-top:18px;color:var(--cl-accent);font-size:9px;letter-spacing:.08em}.culturelens-interface-result{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:16px 0 8px}.culturelens-interface-result>svg{color:var(--cl-accent)}.culturelens-hero-interface h3{font-size:21px;letter-spacing:-.04em}.culturelens-hero-interface>small{font-size:10px}
 .culturelens-interface-options{display:flex;gap:12px;font-size:10px;margin-top:24px;border-top:1px solid var(--cl-line);padding-top:14px}.culturelens-interface-options span:last-child{color:var(--cl-accent);margin-left:auto}
-.culturelens-hero-trace{grid-column:1/-1;z-index:1;border-top:1px solid #a9b7a5;display:grid;gap:10px;padding-top:18px}.culturelens-hero-trace>span{font-size:9px;letter-spacing:.12em}.culturelens-hero-trace code{font-size:11px;white-space:normal}
+.culturelens-hero-trace{grid-column:1/-1;border-top:1px solid #a9b7a5;display:grid;gap:10px;padding-top:18px;color:#061e19}.culturelens-hero-trace>span{font-size:9px;letter-spacing:.12em}.culturelens-hero-trace code{font-size:11px;white-space:normal}
 .culturelens-hero-bottom{border-top:1px solid var(--cl-line);padding:12px 0}
 .culturelens-chapter-nav{position:sticky;top:64px;z-index:60;display:flex;align-items:center;gap:35px;padding:0 var(--cl-pad);background:#f2f0e8fa;color:#303a35;border-block:1px solid var(--cl-line)}
 .culturelens-nav-mark{font:600 20px 'Space Grotesk';white-space:nowrap}.culturelens-nav-mark>span{color:var(--cl-accent)}
@@ -66,6 +62,23 @@
 @media(max-width:380px){.culturelens-page{--cl-pad:18px}.culturelens-hero-system{padding:16px;gap:10px}.culturelens-hero-interface{padding:12px}.culturelens-hero-interface>p{font-size:18px}.culturelens-hero-interface h3{font-size:17px}.culturelens-hero-trace code{font-size:9px}.culturelens-interface-options{font-size:7px;gap:6px}.culturelens-gallery-label h2{font-size:40px}.culturelens-transfer-head h3{font-size:25px}.culturelens-transfer-rows button{font-size:11px;gap:10px}}
 .culturelens-page{background:linear-gradient(to bottom,#050b18 0 92px,var(--cl-paper) 92px 100%)}
 .culturelens-visual-slot:not(.culturelens-product-slot) :is(img,.culturelens-slot-placeholder){aspect-ratio:16/10}
+/* Keep the hero readable before the service card becomes too narrow. */
+@media(max-width:960px){
+  .culturelens-page .culturelens-hero-composition{grid-template-columns:1fr;gap:30px}
+  .culturelens-page .culturelens-gallery-label h2{margin-top:22px}
+  .culturelens-page .culturelens-hero-system{min-height:0}
+}
+@media(max-width:560px){
+  .culturelens-page .culturelens-hero-system{grid-template-columns:1fr;gap:22px;padding:22px}
+  .culturelens-page .culturelens-exhibit-label{padding:0}
+  .culturelens-page .culturelens-exhibit-label strong{font-size:32px;margin:16px 0 0}
+  .culturelens-page .culturelens-hero-interface{padding:22px}
+  .culturelens-page .culturelens-hero-interface>p{font-size:24px}
+  .culturelens-page .culturelens-hero-interface>.culturelens-label{font-size:9px}
+  .culturelens-page .culturelens-hero-interface h3{font-size:21px}
+  .culturelens-page .culturelens-interface-options{font-size:10px}
+  .culturelens-page .culturelens-hero-overview .culturelens-overview-grid{grid-template-columns:1fr}
+}
 @media(min-width:761px){.culturelens-proposal-explorer>aside{position:sticky;top:145px;align-self:start}}
 @media(max-width:760px){.culturelens-page{background:linear-gradient(to bottom,#050b18 0 70px,var(--cl-paper) 70px 100%)}.culturelens-gallery-label h2 br:nth-child(2){display:initial}}
 @media(prefers-reduced-motion:reduce){.culturelens-page *,.culturelens-page *::before,.culturelens-page *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.culturelens-hero-interface{transform:none}}

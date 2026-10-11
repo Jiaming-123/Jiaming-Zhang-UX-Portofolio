@@ -54,8 +54,8 @@ test('numbered case-study labels remain removed without losing project metadata'
   assert.ok(!culture.includes('SELECTED CASE STUDY / 03'))
   assert.ok(main.includes('project-hero-top'))
   assert.ok(main.includes('VIEW CASE STUDY'))
-  assert.ok(culture.includes('FUTURES THINKING → SERVICE DESIGN → AGENTIC AI'))
-  assert.match(read('public/culturelens-hero-overview.css'), /culturelens-hero-top\s*>\s*span:only-child\s*\{\s*margin-left:\s*auto/)
+  assert.ok(culture.includes('— Agentic Museum Concierge'))
+  assert.ok(culture.includes('PROJECT OVERVIEW'))
 })
 
 const covers = JSON.parse(read('src/data/homepage-covers.json'))
@@ -90,7 +90,7 @@ test('Crownlands restores the real game and native scrolling rules, without its 
 
 test('CultureLens retains original evidence but excludes the removed simulation and Test chapter', () => {
   for (const text of ['#culturelens-simulation','AGENT / ARCHITECTURE & INTERACTION','React simulation above','Make the next move.']) assert.ok(!culture.includes(text), text)
-  for (const text of ['#culturelens-agent','AGENT / ORIGINAL VOICEFLOW BUILD','THE ORIGINAL VOICEFLOW BUILD','The recordings document the original Voiceflow project.','Leave the meaningful decisions with people.']) assert.ok(culture.includes(text), text)
+  for (const text of ['culturelens-chapter-nav','AGENT / ORIGINAL VOICEFLOW BUILD','THE ORIGINAL VOICEFLOW BUILD','The recordings document the original Voiceflow project.','Leave the meaningful decisions with people.']) assert.ok(culture.includes(text), text)
   assert.ok(!fs.existsSync(new URL('src/components/culturelens/AgentSimulation.tsx',repo)))
   assert.ok(!read('src/pages/CultureLensCaseStudy.tsx').includes('<Chapter id="test"'))
   assert.ok(read('src/pages/CultureLensCaseStudy.tsx').includes('<PrototypeEvidence />'))

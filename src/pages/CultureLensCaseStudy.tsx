@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { ArrowDown, ArrowUpRight, Check, MoveRight } from 'lucide-react'
+import { ArrowUpRight, Check, MoveRight } from 'lucide-react'
 import { Footer } from '../components/Layout'
 import { IdeaPortfolio, ConversationEvidence } from '../components/culturelens/ProcessEvidence'
 import { ConceptTransition, MuseumSystemMap, ProposalExplorer, PrototypeEvidence, ServiceBlueprint } from '../components/culturelens/CaseStudyModules'
@@ -27,11 +27,38 @@ export default function CultureLensCaseStudy() {
   }, [])
   return <><main ref={root} className="culturelens-page">
     <header className="culturelens-hero">
-      <div className="culturelens-hero-top"><span>FUTURES THINKING → SERVICE DESIGN → AGENTIC AI</span></div>
-      <div className="culturelens-hero-title"><h1>Culture<span>Lens</span><small>— Agentic Museum Concierge</small></h1><span className="culturelens-edition">CULTURE<br />IN CONTEXT.<br /><i>AGENCY<br />BY DESIGN.</i></span></div>
-      <div className="culturelens-hero-composition"><div className="culturelens-gallery-label"><span className="culturelens-label">EXHIBITION 03 / A SERVICE IN EVOLUTION</span><h2>What should<br />an intelligent<br />museum leave<br /><em>to you?</em></h2><p>A futures-led service design case study exploring how agentic AI can guide visitors from discovery to a user-confirmed visit plan while preserving agency, accessibility and cultural trust.</p><a href="#culturelens-agent">Explore the prototype evidence <ArrowUpRight size={18} /></a></div><div className="culturelens-hero-system" aria-label="Concept diagram: culture, context, choice"><div className="culturelens-hero-grid" aria-hidden="true" /><div className="culturelens-exhibit-label"><span>01 / CULTURAL EXPERIENCE</span><strong>People.<br />Objects.<br />Shared meaning.</strong><small>THE MUSEUM IS THE CONTEXT.</small></div><div className="culturelens-hero-interface"><span className="culturelens-label">02 / SERVICE INTERFACE</span><p>“Something quiet.<br />In Chinese.<br />Somewhere to sit.”</p><div><span>NEEDS CAPTURED</span><Check size={16} /></div><h3>Everyday Objects,<br />Shared Cultures</h3><small>Prototype catalogue · 45 min · Low sensory</small><div className="culturelens-interface-options"><span>Compare</span><span>Change</span><span>Confirm ↗</span></div></div><div className="culturelens-hero-trace"><span>03 / DECISION TRACE</span><code>request → context → suggestion → your choice</code></div></div></div>
+      <div className="culturelens-hero-title">
+        <h1>Culture<span>Lens</span><small>— Agentic Museum Concierge</small></h1>
+      </div>
+      <div className="culturelens-hero-composition">
+        <div className="culturelens-gallery-label">
+          <h2>What should<br />an intelligent<br />museum leave<br /><em>to you?</em></h2>
+          <p>A futures-led service design case study exploring how agentic AI can guide visitors from discovery to a user-confirmed visit plan while preserving agency, accessibility and cultural trust.</p>
+        </div>
+        <div className="culturelens-hero-system" aria-label="Concept diagram: culture, context, choice">
+          <div className="culturelens-exhibit-label">
+            <span>01 / CULTURAL EXPERIENCE</span>
+            <strong>People.<br />Objects.<br />Shared<br />meaning.</strong>
+          </div>
+          <div className="culturelens-hero-interface">
+            <span className="culturelens-label">02 / SERVICE INTERFACE</span>
+            <p>“Something quiet.<br />In Chinese.<br />Somewhere to sit.”</p>
+            <div className="culturelens-interface-needs"><span>NEEDS CAPTURED</span></div>
+            <div className="culturelens-interface-result">
+              <h3>Everyday Objects,<br />Shared Cultures</h3>
+              <Check size={16} aria-hidden="true" />
+            </div>
+            <small>Prototype catalogue · 45 min · Low sensory</small>
+            <div className="culturelens-interface-options"><span>Compare</span><span>Change</span><span>Confirm ↗</span></div>
+          </div>
+          <div className="culturelens-hero-trace">
+            <span>03 / DECISION TRACE</span>
+            <code>request → context → suggestion → your<br />choice</code>
+          </div>
+        </div>
+      </div>
       <section className="culturelens-hero-bottom culturelens-hero-overview" aria-label="Project overview">
-        <div className="culturelens-overview-heading"><span>PROJECT OVERVIEW</span><a href="#culturelens-frame">6 CHAPTERS · 5 MIN MAINLINE <ArrowDown size={14} /></a></div>
+        <div className="culturelens-overview-heading"><span>PROJECT OVERVIEW</span></div>
         <div className="culturelens-overview-grid"><p><strong>Context</strong><br />2026 · University of Melbourne · 3-person group project</p><p><strong>Disciplines</strong><br />Futures Thinking · Service Design · Systems Thinking · Agentic AI · Conversation Design · Prototyping</p><p><strong>Evidence</strong><br />Concepts, physical prototype and desktop walkthrough; Voiceflow structure, conversations, dummy data and breakdown analysis.</p><p><strong>Scope</strong><br />A refined design prototype. No real museum partnership, live booking integration or measured real-world impact is claimed.</p></div>
       </section>
     </header>
