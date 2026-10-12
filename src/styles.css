@@ -49,7 +49,8 @@ p { text-wrap: pretty; }
 .desktop-nav a.active::after { right: 0; }
 .contact-note i { width: 6px; height: 6px; border-radius: 50%; background: #5df2af; box-shadow: 0 0 12px #5df2af; }
 .menu-button { display: none; justify-self: end; border: 0; background: transparent; padding: 8px; }
-.mobile-menu { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; padding: 22px; background: radial-gradient(circle at 88% 10%, rgba(0, 102, 255, .32), transparent 35%), #07101f; }
+.mobile-menu { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; padding: 22px; isolation: isolate; overflow: clip; background: #050b18; }
+.mobile-menu::before { content: ''; position: absolute; z-index: -1; top: 0; right: -38vw; width: 125vw; height: 125vw; border-radius: 50%; pointer-events: none; background: linear-gradient(180deg, rgba(255, 255, 255, .3) 0%, rgba(0, 102, 255, .13) 38%, rgba(0, 102, 255, 0) 72%); }
 .mobile-menu-head { display: flex; align-items: center; justify-content: space-between; font: 600 1.2rem 'Space Grotesk'; }
 .mobile-menu-head button { display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; width: 46px; height: 46px; background: rgba(255,255,255,.04); }
 .mobile-menu nav { margin: auto 0; }
