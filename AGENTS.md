@@ -8,6 +8,6 @@ Keep the current visual design, page content, project cover images, removed sect
 
 Run TypeScript, `npm run build`, `npm test` and lint after relevant changes. Verify page layouts and game interactions in a local preview for release-impacting changes.
 
-Before pushing or deploying, explain the changes to the user and obtain publication approval. A GitHub push can automatically deploy.
+For user-requested website changes, explain which code changed, then sync GitHub and publish to Vercel without asking for a separate publication confirmation. The user explicitly requested this workflow on 2026-10-12. This does not authorize unrelated changes or releases for read-only questions. A GitHub push can automatically deploy; verify the intended commit is live, and initiate deployment from that same commit if Git integration does not trigger it.
 
 The pre-migration state is recoverable from commit `589f33c6f940d1c41729d8b7744fe089938eea56`. Historical design/asset documentation may remain as reference; it is not an alternative production implementation.
