@@ -75,13 +75,18 @@
  .ul-exploration-principles { gap:24px; }
 }
 @media(max-width:600px) {
- .ul-hypothesis-grid { grid-template-columns:1fr; gap:16px; }
- .ul-hypothesis { height:450px; }
- .ul-hypothesis-heading { inset:24px 24px auto; }
- .ul-hypothesis-heading h3 { font-size:30px; }
- .ul-hypothesis-rest { inset:145px 24px 80px; }
- .ul-hypothesis-rest p { font-size:17px; }
- .ul-hypothesis-preview { inset:111px 16px 65px; }
+ .ul-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .ul-hypothesis { height:400px; }
+ .ul-hypothesis-heading { inset:16px 14px auto; }
+ .ul-hypothesis-category { font-size:7px; gap:5px; letter-spacing:.06em; }
+ .ul-hypothesis-category>span:last-child { flex-shrink:0; }
+ .ul-hypothesis-heading h3 { font-size:20px; margin-top:12px; }
+ .ul-hypothesis-rest { inset:118px 14px 62px; }
+ .ul-case .ul-hypothesis-rest p { font-size:12.5px; line-height:1.6; }
+ .ul-hypothesis-hint { inset-inline:14px; bottom:16px; padding-top:12px; font-size:9px; gap:5px; }
+ .ul-hypothesis-preview { inset:112px 10px 60px; gap:10px; }
+ .ul-case .ul-hypothesis-preview p { font-size:10px; line-height:1.5; margin:0 2px; }
+ .ul-sketch-expand { width:44px; height:44px; top:114px; right:12px; }
  .ul-exploration-convergence { margin-top:55px; padding-top:35px; }
  .ul-exploration-principles { grid-template-columns:1fr; gap:26px; margin:30px 0; }
  .ul-exploration-principles h4 { margin-top:15px; }

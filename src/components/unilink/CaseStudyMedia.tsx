@@ -5,6 +5,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { type Artifact, type Screen } from '../../data/unilink'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export function ScreenImage({ screen, eager = false }: { screen: Screen; eager?: boolean }) {
   const [failed, setFailed] = useState(false)
   return screen.pending || failed ? <div className="ul-screen-pending" role="img" aria-label={`${screen.title}: authentic Figma export pending`}>
@@ -19,14 +21,14 @@ export function FeatureStory({ flow }: { flow: { id: string; label: string; titl
     const root = ref.current
     if (!root) return
     const mm = gsap.matchMedia()
-    mm.add('(min-width: 901px) and (prefers-reduced-motion: no-preference)', () => {
-      const layers = root.querySelectorAll('.ul-screen-layer')
-      gsap.set(layers, {autoAlpha: 0, y: 20})
-      gsap.set(layers[0], {autoAlpha:1, y:0})
+    const setupStory = (reduced: boolean) => {
+      const track = root.querySelector('.ul-screen-track')
+      const layers = Array.from(root.querySelectorAll('.ul-screen-layer'))
+      if (!track) return
+      gsap.set(track, {yPercent:0})
       const show = (i: number) => {
         setActive(i)
-        gsap.to(layers, {autoAlpha:0, y:12, duration:.22, overwrite:true})
-        gsap.to(layers[i], {autoAlpha:1, y:0, duration:.4, ease:'power2.out', overwrite:true})
+        gsap.to(track, {yPercent:-100*i, duration:reduced?0:.4, ease:'power2.out', overwrite:true})
       }
       const steps = Array.from(root.querySelectorAll('.ul-flow-step'))
       let current = -1
@@ -34,9 +36,16 @@ export function FeatureStory({ flow }: { flow: { id: string; label: string; titl
         let next = 0
         steps.forEach((step,i) => { if(step.getBoundingClientRect().top < window.innerHeight * .55) next=i })
         if(next !== current) { current=next; show(next) }
+        const bounds = root.getBoundingClientRect()
+        if (bounds.top < window.innerHeight * 1.5 && bounds.bottom > 0) {
+          for (const layer of layers.slice(next, next+2)) layer.querySelector('img')?.setAttribute('loading', 'eager')
+        }
       }
       ScrollTrigger.create({trigger:root,start:'top bottom',end:'bottom top',onUpdate:sync,onRefresh:sync})
-    }, ref)
+      sync()
+    }
+    mm.add('(prefers-reduced-motion: no-preference)', () => setupStory(false), ref)
+    mm.add('(prefers-reduced-motion: reduce)', () => setupStory(true), ref)
     return () => mm.revert()
   }, [flow.id])
   return <div className="ul-feature" id={`flow-${flow.id}`} ref={ref}>
@@ -44,12 +53,12 @@ export function FeatureStory({ flow }: { flow: { id: string; label: string; titl
     <div className="ul-flow-layout">
       <div className="ul-product-stage">
         <div className="ul-stage-index"><span>UNILINK / {flow.id.toUpperCase()}</span><span>{String(active + 1).padStart(2,'0')} / {String(flow.screens.length).padStart(2,'0')}</span></div>
-        <div className="ul-screen-stack">{flow.screens.map((s, i) => <div className="ul-screen-layer" key={s.path} style={{visibility:i===0?'visible':'hidden'}}><div className="ul-screen-window"><ScreenImage screen={s} /></div></div>)}</div>
+        <div className="ul-screen-stack"><div className="ul-screen-track">{flow.screens.map((s, i) => <div className="ul-screen-layer" key={s.path} aria-hidden={active!==i}><div className="ul-screen-window"><ScreenImage screen={s} /></div></div>)}</div></div>
         <span className="ul-stage-caption">Original Figma frames · Scroll to follow the decisions</span>
+        <ArtifactGallery className="ul-stage-zoom" actionLabel="Enlarge screen" items={[{src:flow.screens[active].path,title:flow.screens[active].title,caption:flow.screens[active].why,width:flow.screens[active].width,height:flow.screens[active].height}]} />
       </div>
-      <div className="ul-flow-text">{flow.screens.map((s, i) => <article className="ul-flow-step" key={s.path}>
+      <div className="ul-flow-text">{flow.screens.map((s, i) => <article className={`ul-flow-step ${active===i?'is-active':''}`} key={s.path} aria-current={active===i?'step':undefined}>
         <span className="ul-step-number">{String(i+1).padStart(2,'0')} <i /> {flow.id.toUpperCase()}</span><h4>{s.title}</h4><p>{s.why}</p>
-        <div className="ul-mobile-screen"><ScreenImage screen={s} /></div>
       </article>)}</div>
     </div>
   </div>

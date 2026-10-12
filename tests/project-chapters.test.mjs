@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { chapterProjects, activeChapterIndex } from '../public/project-chapters.mjs'
+import { chapterProjects, activeChapterIndex, chapterRailScrollLeft } from '../public/project-chapters.mjs'
 
 const read = file => fs.readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
 
@@ -47,6 +47,22 @@ test('scroll spy and anchor landing use the same responsive reading line', () =>
   assert.equal(activeChapterIndex([-500, 109, 1800], 106), 0)
   assert.equal(activeChapterIndex([-6000, -3000, 154], 154), 2)
   assert.equal(activeChapterIndex([200, 1800], 106), 0)
+  assert.equal(activeChapterIndex([-6000, -3000, 400], 128, true), 2)
+  assert.equal(activeChapterIndex([-6000, -3000, 400], 128, false), 1)
+})
+
+test('mobile rails center the active chapter using viewport-relative bounds', () => {
+  assert.equal(chapterRailScrollLeft(0, 300, 900, 400, 100), 300)
+  assert.equal(chapterRailScrollLeft(300, 300, 900, 100, 100), 300)
+  assert.equal(chapterRailScrollLeft(300, 300, 900, -300, 100), 0)
+  assert.equal(chapterRailScrollLeft(0, 300, 900, 800, 100), 600)
+  assert.equal(chapterRailScrollLeft(0, 900, 900, 400, 100), 0)
+  const module = read('public/project-chapters.mjs')
+  assert.ok(module.includes('linkBox.left - listBox.left'))
+  assert.ok(!module.includes('link.offsetLeft'))
+  assert.ok(module.includes('changed || becameVisible || railWidth !== list.clientWidth'))
+  assert.ok(!module.includes('scrollIntoView('))
+  assert.ok(module.includes("document.body.style.removeProperty('--case-chapter-height')"))
 })
 
 test('Crownlands primary navigation retains the shared navy and cyan palette without availability status', () => {

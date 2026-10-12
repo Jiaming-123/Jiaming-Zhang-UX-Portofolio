@@ -8,10 +8,15 @@ export const chapterProjects = {
   crownlands: { name: 'Crownlands', hero: '.cl-hero', chapters: [['Overview', '.cl-overview'], ['How to Play', '#how-to-play'], ['Play', '#play'], ['Design Thinking', '#design-thinking'], ['Playtesting', '#playtesting'], ['Outcome', '#outcome']] },
 };
 
-export function activeChapterIndex(tops, readingLine) {
+export function activeChapterIndex(tops, readingLine, atPageEnd = false) {
+  if (atPageEnd && tops.length) return tops.length - 1;
   let active = 0;
   tops.forEach((top, index) => { if (top <= readingLine + 2) active = index; });
   return active;
+}
+
+export function chapterRailScrollLeft(scrollLeft, viewportWidth, contentWidth, relativeLeft, itemWidth) {
+  return Math.min(Math.max(0, contentWidth - viewportWidth), Math.max(0, scrollLeft + relativeLeft - (viewportWidth - itemWidth) / 2));
 }
 
 export function setupProjectChapters(pathname) {
@@ -21,6 +26,8 @@ export function setupProjectChapters(pathname) {
   document.body.classList.add('case-chapters-enabled');
   let nav, hero, sections = [], links = [], items = [];
   let frame = 0, active = -1, anchor = null, moving = false, disposed = false;
+  let railWidth = 0, wasVisible = false;
+  const previousChapterHeight = document.body.style.getPropertyValue('--case-chapter-height');
   const originals = [];
   const legacy = [];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -108,12 +115,18 @@ export function setupProjectChapters(pathname) {
     if (!nav) mount();
     if (!nav) return;
     const visible = hero.getBoundingClientRect().bottom <= 160;
+    const becameVisible = visible && !wasVisible;
+    wasVisible = visible;
     nav.classList.toggle('is-visible', visible);
     nav.inert = !visible;
     nav.setAttribute('aria-hidden', String(!visible));
+    document.body.style.setProperty('--case-chapter-height', `${nav.offsetHeight}px`);
     sections.forEach(section => { section.style.scrollMarginTop = `${readingLine()}px`; });
-    const next = activeChapterIndex(sections.map(section => section.getBoundingClientRect().top), readingLine());
-    if (next !== active) {
+    const tops = sections.map(section => section.getBoundingClientRect().top);
+    const atPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2 && tops.at(-1) < window.innerHeight;
+    const next = activeChapterIndex(tops, readingLine(), atPageEnd);
+    const changed = next !== active;
+    if (changed) {
       active = next;
       links.forEach((link, index) => {
         items[index].classList.toggle('is-complete', index <= active);
@@ -121,8 +134,16 @@ export function setupProjectChapters(pathname) {
         else link.removeAttribute('aria-current');
       });
       nav.querySelector('.case-chapter-current').textContent = `${String(active + 1).padStart(2, '0')} / ${project.chapters[active][0]}`;
-      const list = nav.querySelector('ol'), link = links[active];
-      if (list.scrollWidth > list.clientWidth) list.scrollTo({ left: Math.max(0, link.offsetLeft - list.clientWidth / 2 + link.offsetWidth / 2), behavior: 'instant' });
+    }
+    const list = nav.querySelector('ol'), link = links[active];
+    if (changed || becameVisible || railWidth !== list.clientWidth) {
+      railWidth = list.clientWidth;
+      if (list.scrollWidth > list.clientWidth && link) {
+        // A link is positioned inside its li: offsetLeft is not its rail position.
+        const listBox = list.getBoundingClientRect(), linkBox = link.getBoundingClientRect();
+        const left = chapterRailScrollLeft(list.scrollLeft, list.clientWidth, list.scrollWidth, linkBox.left - listBox.left, linkBox.width);
+        list.scrollTo({ left, behavior: 'auto' });
+      }
     }
     align();
   };
@@ -148,6 +169,8 @@ export function setupProjectChapters(pathname) {
     });
     legacy.forEach(({ old, hidden, inert }) => { if (hidden === null) old.removeAttribute('aria-hidden'); else old.setAttribute('aria-hidden', hidden); old.inert = inert; });
     document.body.classList.remove('case-chapters-enabled');
+    if (previousChapterHeight) document.body.style.setProperty('--case-chapter-height', previousChapterHeight);
+    else document.body.style.removeProperty('--case-chapter-height');
     window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); window.removeEventListener('scrollend', complete);
     window.removeEventListener('wheel', release); window.removeEventListener('touchstart', release); window.removeEventListener('pointerdown', release); window.removeEventListener('keydown', key);
     document.removeEventListener('transitionend', schedule);
