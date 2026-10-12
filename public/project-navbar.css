@@ -20,11 +20,6 @@ body.crownlands-theme .nav-shell .monogram { color: #fff; }
 body.crownlands-theme .nav-shell .monogram span { color: #00d4ff; }
 body.crownlands-theme .nav-shell .desktop-nav a { color: #cbd5e1; }
 body.crownlands-theme .nav-shell .desktop-nav a:is(:hover, .active) { color: #fff; }
-body.crownlands-theme .nav-shell .nav-status { color: #94a3b8; }
-body.crownlands-theme .nav-shell .nav-status i {
-  background: #5df2af;
-  box-shadow: 0 0 12px #5df2af;
-}
 body:has(.nav-shell.ul-nav-hidden) .culturelens-chapter-nav,
 body:has(.nav-shell.ul-nav-hidden) .cl-sticky-nav {
   top: 0;

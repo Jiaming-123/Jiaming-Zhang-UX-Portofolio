@@ -89,7 +89,6 @@ export function Navbar() {
               : <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{item.label}</NavLink>
           ))}
         </nav>
-        <span className="nav-status"><i />AVAILABLE FOR OPPORTUNITIES</span>
         <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}><Menu size={22} /></button>
       </header>
       <AnimatePresence>

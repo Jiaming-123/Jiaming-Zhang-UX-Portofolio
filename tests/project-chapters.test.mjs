@@ -49,11 +49,11 @@ test('scroll spy and anchor landing use the same responsive reading line', () =>
   assert.equal(activeChapterIndex([200, 1800], 106), 0)
 })
 
-test('Crownlands primary navigation matches the shared navy, cyan and green palette', () => {
+test('Crownlands primary navigation retains the shared navy and cyan palette without availability status', () => {
   const css = read('public/project-navbar.css')
   assert.match(css, /body\.crownlands-theme \.nav-shell \{[^}]*color: #fff;[^}]*background: #050b18;/)
   assert.ok(css.includes('.nav-shell .monogram span { color: #00d4ff; }'))
-  assert.match(css, /body\.crownlands-theme \.nav-shell \.nav-status i \{[^}]*background: #5df2af;/)
+  assert.ok(!css.includes('.nav-status'))
   assert.ok(css.includes('.nav-shell .desktop-nav a:is(:hover, .active) { color: #fff; }'))
   assert.ok(!css.includes('display:'))
   assert.ok(read('public/project-chapters.css').includes('#b2955b'))

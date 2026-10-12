@@ -2,7 +2,6 @@
 .crownlands-theme .nav-shell { color: #e6dec9; background: rgba(14,24,34,.96); border-color: rgba(178,149,91,.22); }
 .crownlands-theme .nav-shell.is-compact { background: rgba(14,24,34,.98); }
 .crownlands-theme .nav-shell .monogram span, .crownlands-theme .nav-shell .active { color: #b2955b; }
-.crownlands-theme .nav-status i { background: #b2955b; box-shadow: 0 0 12px rgba(178,149,91,.45); }
 .crownlands-theme .site-footer { color: #e6dec9; border-color: rgba(178,149,91,.22); background: #101816; }
 .crownlands-theme .site-footer h2 span { -webkit-text-stroke-color: rgba(178,149,91,.68); }
 .crownlands-theme .custom-cursor { border-color: #b2955b; background: rgba(178,149,91,.15); }
