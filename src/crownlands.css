@@ -246,9 +246,15 @@
 .cl-fullscreen-shell{overflow:hidden!important}
 .cl-game-full{height:100dvh;min-height:0;overflow:hidden;display:flex;flex-direction:column}
 .cl-game-full .cl-match-toolbar,.cl-game-full>.cl-scoreboard,.cl-game-full>.cl-game-status{flex:0 0 auto}
-.cl-game-full .cl-battle-layout{flex:1;min-height:0;grid-template-columns:220px minmax(0,1fr);padding:8px 12px;gap:12px;overflow:hidden}
-.cl-game-full .cl-hand-sidebar{min-height:0;overflow:auto}
-.cl-game-full .cl-board-wrap{width:min(100%,calc((100dvh - 245px)*1.414));max-height:none;align-self:start;justify-self:center}
+.cl-game-full .cl-battle-layout{flex:1;min-height:0;grid-template-columns:clamp(260px,28vw,720px) minmax(0,1fr);padding:8px 12px;gap:16px;overflow:hidden;align-items:stretch}
+.cl-game-full .cl-hand-sidebar{min-width:0;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:10px}
+.cl-game-full .cl-hand-sidebar h3{margin-bottom:0}
+.cl-game-full .cl-image-hand{flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px}
+.cl-game-full .cl-image-hand button{min-width:0;min-height:0}
+.cl-game-full .cl-image-hand .cl-action-card-art{height:100%}
+.cl-game-full .cl-image-hand img{width:100%;height:100%;max-height:none;object-fit:contain}
+.cl-game-full .cl-hand-sidebar>p{margin:0}
+.cl-game-full .cl-board-wrap{width:min(100%,calc((100dvh - 245px)*1.414));max-height:none;align-self:start;justify-self:start}
 
 @media(max-width:900px){
  .cl-process-strip article{display:block}.cl-phase-images{height:auto}.cl-process-strip .cl-phase-images img{grid-row:auto;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}.cl-process-strip .cl-early-paper-phase .cl-phase-images img{aspect-ratio:3/4}
@@ -267,6 +273,22 @@
 @media(max-height:600px) and (orientation:landscape){
  .cl-game-full .cl-battle-layout{grid-template-columns:170px minmax(0,1fr)}
  .cl-game-full .cl-board-wrap{width:min(100%,calc((100dvh - 170px)*1.414));max-height:none}
+}
+
+/* Touch layouts keep the map first, followed by one row of four action cards. */
+@media(max-width:900px){
+ .cl-inline-game .cl-battle-layout,.cl-game-full .cl-battle-layout{display:flex;flex-direction:column;gap:16px;padding:8px;overflow:visible;flex:0 0 auto}
+ .cl-game-full{height:auto;min-height:100dvh;overflow:auto}
+ .cl-fullscreen-shell{overflow:auto!important}
+ .cl-game-v2 .cl-board-wrap{order:0;width:100%;max-height:none;align-self:auto}
+ .cl-hand-sidebar{order:1;width:100%}
+ .cl-game-full .cl-hand-sidebar{display:block;overflow:visible}
+ .cl-game-full .cl-hand-sidebar h3{display:block;margin-bottom:12px}
+ .cl-game-full .cl-hand-sidebar>p{display:block;margin-top:8px}
+ .cl-image-hand,.cl-game-full .cl-image-hand{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto;gap:6px}
+ .cl-game-full .cl-image-hand .cl-action-card-art{height:auto}
+ .cl-game-full .cl-image-hand img{width:100%;height:auto;max-height:none}
+ .cl-image-hand button:hover,.cl-image-hand button:focus-visible{transform:none}
 }
 
 body.crownlands-game-active .nav-shell,
