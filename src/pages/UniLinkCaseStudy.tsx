@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Footer } from '../components/Layout'
 import CaseStudyTimeline from '../components/unilink/CaseStudyTimeline'
 import ConceptExploration from '../components/unilink/ConceptExploration'
+import UniLinkStory from '../components/unilink/UniLinkStory'
 import { ArtifactGallery, FeatureStory, ScreenImage } from '../components/unilink/CaseStudyMedia'
 import { chapters, chapterId, flows, insights, iterations, prototypeUrl, recoveryScreens, researchArtifacts, supplementaryScreens, testingArtifacts } from '../data/unilink'
 import '../styles/unilink.css'
@@ -65,6 +66,7 @@ export default function UniLinkCaseStudy() {
         <dl className="ul-meta"><div><dt>TEAM</dt><dd>6 people</dd></div><div><dt>DURATION</dt><dd>12 weeks / one semester</dd></div><div><dt>ROLE</dt><dd>UX Designer · UX Researcher</dd></div><div><dt>FOCUS</dt><dd>Framing · Synthesis · Mentor experience · Evaluation</dd></div></dl>
         <p className="ul-hero-footnote">Key contributor to problem framing, research synthesis, concept convergence and design decisions.</p>
       </section>
+      <UniLinkStory />
       <section className="ul-section ul-problem" id={chapterId('Problem')} tabIndex={-1}>
         <Heading index={1} title="Information was abundant. Confidence was harder to find."><p>New international students move between university websites, social platforms, friends and service providers. Relevance, sequence and credibility are rarely clear across all of them.</p></Heading>
         <div className="ul-source-field">{[['OFFICIAL SOURCES','Reliable','Fragmented and difficult to personalise'],['SOCIAL CONTENT','Fast and relatable','Inconsistent and sometimes promotional'],['PEERS','Contextual and human','Credibility and availability vary']].map(([label,title,copy])=><article className="ul-source" key={label}><span>{label}</span><h3>{title}</h3><p>{copy}</p><i aria-hidden="true"/></article>)}</div>
