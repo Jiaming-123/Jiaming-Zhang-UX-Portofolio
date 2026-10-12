@@ -32,3 +32,20 @@ test('Final Design has one clipped vertical screen track rather than repeated mo
   assert.ok(component.includes('actionLabel="Enlarge screen"'))
   assert.ok(css.includes('.ul-stage-zoom figure>button { min-height:44px'))
 })
+
+test('mobile peer-support card groups use two columns and compact readable type', () => {
+  const css = read('src/styles/unilink.css')
+  const mobile = css.slice(css.indexOf('@media(max-width:600px)'))
+  for (const selector of ['.ul-source-field', '.ul-evidence-field', '.ul-two-lanes', '.ul-value-loop', '.ul-future>div']) {
+    const rule = mobile.slice(mobile.indexOf(selector)).split('}')[0]
+    assert.ok(rule.includes('grid-template-columns:repeat(2,minmax(0,1fr))'), selector)
+  }
+  assert.ok(mobile.includes('.ul-insight h3 { font-size:clamp(18px,4.8vw,23px)'))
+  assert.ok(mobile.includes('.ul-insight p { font-size:12.5px; line-height:1.65'))
+  assert.ok(css.includes('.ul-lane-connector { display:none; }'))
+  const concepts = read('src/styles/unilink-concepts.css').split('@media(max-width:600px)')[1]
+  assert.match(concepts, /\.ul-exploration-principles \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/)
+  assert.match(concepts, /\.ul-exploration-outcomes \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/)
+  assert.ok(!mobile.includes('line-clamp'))
+  assert.ok(css.includes('.ul-persona-sequence { display:block; }'))
+})

@@ -34,6 +34,12 @@ The smallest layout uses a 12px grid gap, 14px internal horizontal insets, 20px 
 }
 ```
 
+## Other parallel mobile card groups
+
+Mobile two-column rules also cover official/social/peer source summaries, the four Research insights, concept-convergence principles, Groups/Mentors outcomes, the two Strategy cards, the student/mentor/sponsor incentive cards, and future metrics. Research and supplementary evidence galleries retain two columns with their existing enlarge controls. Body text is 12.5px with a 1.65 line height in the compact text-card groups; Research insight headings scale from 18 to 23px. All descriptions remain complete, without line clamping.
+
+Personas and their journey images stay full-width. Detailed testing findings remain editorial rows rather than being squeezed into narrow cards. Desktop layouts and the confirmed 8 + 3 + 2 participant summary are unchanged.
+
 ## Final Design: one screen stage and a scrolling narrative
 
 Previously, the stage was hidden at 900px and below, and every narrative article contained a second full-size screenshot. Those duplicate `.ul-mobile-screen` elements and their fallback CSS are removed.

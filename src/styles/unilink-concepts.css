@@ -72,7 +72,7 @@
 }
 @media(max-width:900px) {
  .ul-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
- .ul-exploration-principles { gap:24px; }
+ .ul-exploration-principles { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 }
 @media(max-width:600px) {
  .ul-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
@@ -88,12 +88,14 @@
  .ul-case .ul-hypothesis-preview p { font-size:10px; line-height:1.5; margin:0 2px; }
  .ul-sketch-expand { width:44px; height:44px; top:114px; right:12px; }
  .ul-exploration-convergence { margin-top:55px; padding-top:35px; }
- .ul-exploration-principles { grid-template-columns:1fr; gap:26px; margin:30px 0; }
+ .ul-exploration-principles { grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px 12px; margin:30px 0; }
  .ul-exploration-principles h4 { margin-top:15px; }
- .ul-exploration-outcomes { grid-template-columns:1fr; }
- .ul-exploration-outcomes article { padding:30px; }
- .ul-exploration-outcomes article+article { border-left:0; border-top:1px solid #526984; }
- .ul-exploration-outcomes h4 { font-size:38px; }
+ .ul-case .ul-exploration-principles p { font-size:12.5px; line-height:1.65; }
+ .ul-exploration-outcomes { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .ul-exploration-outcomes article { padding:22px 14px; min-width:0; }
+ .ul-exploration-outcomes article+article { border-left:1px solid #526984; border-top:0; }
+ .ul-exploration-outcomes h4 { font-size:clamp(22px,5vw,28px); margin:20px 0 14px; }
+ .ul-case .ul-exploration-outcomes p { font-size:12.5px; line-height:1.65; }
  .ul-concept-dialog { width:96vw; }
  .ul-concept-dialog-header { padding:18px 16px 12px; }
  .ul-concept-dialog-header h2 { font-size:22px; }
