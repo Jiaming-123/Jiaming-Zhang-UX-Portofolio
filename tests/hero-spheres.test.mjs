@@ -27,3 +27,11 @@ test('hero implementation document contains the current complete component and s
   assert.ok(doc.includes(read('src/components/Hero.tsx').trim()))
   assert.ok(doc.includes(read('src/styles/hero-spheres.css').trim()))
 })
+
+test('hero restores the original single-keyword rotation and cleans up its timer', () => {
+  const hero = read('src/components/Hero.tsx')
+  assert.ok(hero.includes("['PRODUCT', 'SERVICE', 'AI', 'INTERACTION', 'EXPERIENCE']"))
+  for (const value of ['1700)', 'window.clearInterval(interval)', '!isInView || !pageVisible || reducedMotion', 'AnimatePresence mode="wait"', "initial={{ y: 12, opacity: 0 }}", 'exit={{ y: -12, opacity: 0 }}', 'duration: .3']) assert.ok(hero.includes(value), value)
+  assert.ok(!hero.includes('keyword-line--list'))
+  assert.ok(!read('src/styles/hero-spheres.css').includes('keyword-line--list'))
+})

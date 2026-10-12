@@ -77,27 +77,41 @@ W 代表 Hero 的宽度，H 代表 Hero 实际高度，V 代表小视口高度�
 - 改亮度或蓝色强度：改 linear-gradient 里的 rgba alpha 值。
 - 改起始亮部位置：同时改该球的静态 transform 和对应 keyframes 的 from/to，保持前后相差 ±360°，才能无缝循环。
 
+## DESIGNING 关键词轮播
+
+已恢复原来的单词轮播：PRODUCT → SERVICE → AI → INTERACTION → EXPERIENCE → PRODUCT。
+每 1700ms 切换，退出和进入动画各 300ms；旧词向上淡出，新词从下方进入，一次仅显示一个词。
+首屏不可见或页面隐藏时不更新；系统减少动态效果时固定显示 PRODUCT。
+右侧介绍区域保留 146px 最小高度，避免轮播取代五行列表后把其他介绍文字向下挪动。
+
 ## 完整 Hero 组件
 
 ```tsx
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import '../styles/hero-spheres.css'
 
-const keywords = ['PRODUCT', 'INTERACTION', 'EXPERIENCE', 'SERVICE', 'AI']
+const keywords = ['PRODUCT', 'SERVICE', 'AI', 'INTERACTION', 'EXPERIENCE']
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null)
   const isInView = useInView(heroRef, { amount: .08 })
   const reducedMotion = useReducedMotion()
   const [pageVisible, setPageVisible] = useState(() => !document.hidden)
+  const [keyword, setKeyword] = useState(0)
 
   useEffect(() => {
     const onVisibility = () => setPageVisible(!document.hidden)
     document.addEventListener('visibilitychange', onVisibility)
     return () => document.removeEventListener('visibilitychange', onVisibility)
   }, [])
+
+  useEffect(() => {
+    if (!isInView || !pageVisible || reducedMotion) return
+    const interval = window.setInterval(() => setKeyword(current => (current + 1) % keywords.length), 1700)
+    return () => window.clearInterval(interval)
+  }, [isInView, pageVisible, reducedMotion])
 
   return (
     <section ref={heroRef} className={`hero hero--rotating-spheres ${isInView ? 'is-in-view' : ''} ${pageVisible ? '' : 'hero--page-hidden'}`} id="top">
@@ -115,9 +129,9 @@ export function Hero() {
           <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
             <p className="hero-intro">UX Design student at the University of Melbourne, creating digital and physical experiences through interaction, systems and play.</p>
-            <div className="keyword-line keyword-line--list">
+            <div className="keyword-line">
               <span>DESIGNING</span>
-              <div>{keywords.map(word => <b key={word}>{word}</b>)}</div>
+              {reducedMotion ? <b>{keywords[0]}</b> : <AnimatePresence mode="wait" initial={false}><motion.b key={keywords[keyword]} initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -12, opacity: 0 }} transition={{ duration: .3 }}>{keywords[keyword]}</motion.b></AnimatePresence>}
             </div>
           </div>
         </div>
@@ -175,11 +189,8 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
 .hero--rotating-spheres .hero-kicker { position: absolute; top: 28.5svh; right: var(--side); }
 .hero.hero--rotating-spheres h1 { margin: 0; flex-shrink: 0; overflow: visible; font-size: clamp(5rem, 13vw, 14rem); line-height: .77; }
 .hero.hero--rotating-spheres .hero-foot { flex-shrink: 0; margin-top: auto; align-items: start; }
-.hero--rotating-spheres .hero-intro-wrap { max-width: 420px; }
+.hero--rotating-spheres .hero-intro-wrap { max-width: 420px; min-height: 146px; }
 .hero--rotating-spheres .hero-foot .hero-intro { font-size: .8rem; }
-.hero--rotating-spheres .keyword-line--list { height: auto; align-items: start; overflow: visible; }
-.hero--rotating-spheres .keyword-line--list>div { display: grid; gap: 4px; }
-.hero--rotating-spheres .keyword-line--list { font-size: .52rem; }
 
 @keyframes hero-sphere-clockwise { from { transform: rotate(180deg); } to { transform: rotate(540deg); } }
 @keyframes hero-sphere-counterclockwise { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }

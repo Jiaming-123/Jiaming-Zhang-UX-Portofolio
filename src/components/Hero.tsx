@@ -1,21 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import '../styles/hero-spheres.css'
 
-const keywords = ['PRODUCT', 'INTERACTION', 'EXPERIENCE', 'SERVICE', 'AI']
+const keywords = ['PRODUCT', 'SERVICE', 'AI', 'INTERACTION', 'EXPERIENCE']
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null)
   const isInView = useInView(heroRef, { amount: .08 })
   const reducedMotion = useReducedMotion()
   const [pageVisible, setPageVisible] = useState(() => !document.hidden)
+  const [keyword, setKeyword] = useState(0)
 
   useEffect(() => {
     const onVisibility = () => setPageVisible(!document.hidden)
     document.addEventListener('visibilitychange', onVisibility)
     return () => document.removeEventListener('visibilitychange', onVisibility)
   }, [])
+
+  useEffect(() => {
+    if (!isInView || !pageVisible || reducedMotion) return
+    const interval = window.setInterval(() => setKeyword(current => (current + 1) % keywords.length), 1700)
+    return () => window.clearInterval(interval)
+  }, [isInView, pageVisible, reducedMotion])
 
   return (
     <section ref={heroRef} className={`hero hero--rotating-spheres ${isInView ? 'is-in-view' : ''} ${pageVisible ? '' : 'hero--page-hidden'}`} id="top">
@@ -33,9 +40,9 @@ export function Hero() {
           <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
             <p className="hero-intro">UX Design student at the University of Melbourne, creating digital and physical experiences through interaction, systems and play.</p>
-            <div className="keyword-line keyword-line--list">
+            <div className="keyword-line">
               <span>DESIGNING</span>
-              <div>{keywords.map(word => <b key={word}>{word}</b>)}</div>
+              {reducedMotion ? <b>{keywords[0]}</b> : <AnimatePresence mode="wait" initial={false}><motion.b key={keywords[keyword]} initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -12, opacity: 0 }} transition={{ duration: .3 }}>{keywords[keyword]}</motion.b></AnimatePresence>}
             </div>
           </div>
         </div>

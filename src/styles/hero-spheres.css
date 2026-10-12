@@ -42,11 +42,8 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
 .hero--rotating-spheres .hero-kicker { position: absolute; top: 28.5svh; right: var(--side); }
 .hero.hero--rotating-spheres h1 { margin: 0; flex-shrink: 0; overflow: visible; font-size: clamp(5rem, 13vw, 14rem); line-height: .77; }
 .hero.hero--rotating-spheres .hero-foot { flex-shrink: 0; margin-top: auto; align-items: start; }
-.hero--rotating-spheres .hero-intro-wrap { max-width: 420px; }
+.hero--rotating-spheres .hero-intro-wrap { max-width: 420px; min-height: 146px; }
 .hero--rotating-spheres .hero-foot .hero-intro { font-size: .8rem; }
-.hero--rotating-spheres .keyword-line--list { height: auto; align-items: start; overflow: visible; }
-.hero--rotating-spheres .keyword-line--list>div { display: grid; gap: 4px; }
-.hero--rotating-spheres .keyword-line--list { font-size: .52rem; }
 
 @keyframes hero-sphere-clockwise { from { transform: rotate(180deg); } to { transform: rotate(540deg); } }
 @keyframes hero-sphere-counterclockwise { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
