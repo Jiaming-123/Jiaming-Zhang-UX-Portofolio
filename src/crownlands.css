@@ -4,7 +4,6 @@
 .crownlands-theme .nav-shell .monogram span, .crownlands-theme .nav-shell .active { color: #b2955b; }
 .crownlands-theme .site-footer { color: #e6dec9; border-color: rgba(178,149,91,.22); background: #101816; }
 .crownlands-theme .site-footer h2 span { -webkit-text-stroke-color: rgba(178,149,91,.68); }
-.crownlands-theme .custom-cursor { border-color: #b2955b; background: rgba(178,149,91,.15); }
 .crownlands-page { --cl-navy:#0e1822; --cl-charcoal:#151817; --cl-forest:#17231d; --cl-brown:#211a17; --cl-gold:#b2955b; --cl-brass:#7d6840; --cl-parchment:#d8c8a5; --cl-red:#642f2f; --cl-blue:#314c63; --cl-text:#e6dec9; --cl-muted:#a69d88; --cl-line:rgba(216,200,165,.16); min-height:100vh; overflow:clip; color:var(--cl-text); background:var(--cl-charcoal); font-family:Inter,sans-serif; }
 .crownlands-page * { box-sizing:border-box; }
 .crownlands-page button,.crownlands-page a { font:inherit; }
