@@ -71,4 +71,14 @@
     font-size: 14px;
     line-height: 1.65;
   }
+  /* Crownlands Outcome: three full-width learning cards, in reading order. */
+  .crownlands-page .cl-learnings {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  .crownlands-page .cl-learnings > h3 {
+    padding: 20px 12px;
+    font-size: clamp(14px,4.5vw,26px);
+    line-height: 1.25;
+    white-space: nowrap;
+  }
 }
