@@ -8,7 +8,7 @@
 - 截图风格及响应式样式：`src/styles/unilink-story.css`
 - 页面接入：`src/pages/UniLinkCaseStudy.tsx`，在 Overview hero 之后、Problem 之前渲染 `<UniLinkStory />`
 - 视频：`public/media/unilink/unilink-story-20261012.mp4`
-- 从用户设计截图提取的封面（含截图中的播放图标）：`public/media/unilink/unilink-story-poster-20261012.jpg`
+- 用户提供的清晰封面（无损 WebP；播放图标独立覆盖，保留原有样式、位置与比例）：`public/media/unilink/unilink-story-poster-v2-20261012.webp`
 - 回归测试：`tests/unilink-story.test.mjs`
 
 说明文字以 **An introduction video** 开头，按用户原文保留。
@@ -23,7 +23,7 @@
 
 原始文件 `IFO30008_Group12_A2_UniLink.mp4`：282919010 bytes。
 
-发布文件：92915504 bytes；减少 67.2%。封面：101337 bytes。
+发布文件：92915504 bytes；减少 67.2%。封面：1246476 bytes。
 
 - 分辨率：2940 × 1656，未缩小。
 - 帧率：30fps，未改变，无丢帧或重复帧。
@@ -44,7 +44,7 @@ import { useEffect, useRef, useState } from 'react'
 import '../../styles/unilink-story.css'
 
 const videoSource = '/media/unilink/unilink-story-20261012.mp4'
-const posterSource = '/media/unilink/unilink-story-poster-20261012.jpg'
+const posterSource = '/media/unilink/unilink-story-poster-v2-20261012.webp'
 
 export default function UniLinkStory() {
   const [started, setStarted] = useState(false)
@@ -108,7 +108,11 @@ export default function UniLinkStory() {
             aria-label={failed ? 'Retry the UniLink introduction video' : 'Play the UniLink introduction video'}
             onClick={() => { setFailed(false); setStarted(true) }}
           >
-            <img src={posterSource} alt="INFO 30008 Interactive Technology Project — A2 Group 12 Presentation, UniLink" width={1034} height={586} loading="lazy" decoding="async" />
+            <img src={posterSource} alt="INFO 30008 Interactive Technology Project — A2 Group 12 Presentation, UniLink" width={3428} height={1926} loading="lazy" decoding="async" />
+            <svg className="ul-story-play-icon" viewBox="0 0 104 104" aria-hidden="true" focusable="false">
+              <circle cx="52" cy="52" r="51.5" fill="#172b4c" fillOpacity=".4" stroke="#739fed" />
+              <path d="M42 35 L70 52 L42 69 Z" fill="#74a3ef" stroke="#183552" strokeWidth=".7" />
+            </svg>
           </button>
         )}
       </figure>
@@ -170,6 +174,17 @@ export default function UniLinkStory() {
 .ul-story-play:focus-visible {
   outline: 3px solid var(--ul-accent);
   outline-offset: 5px;
+}
+
+/* Preserve the original cover's grey circle and blue play icon independently. */
+.ul-story-play-icon {
+  position: absolute;
+  left: 48.35%;
+  top: 54.25%;
+  width: 10.05%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .ul-story-error {
@@ -332,7 +347,7 @@ import { read, builtJS } from './helpers/build.mjs'
 const component = read('src/components/unilink/UniLinkStory.tsx')
 const page = read('src/pages/UniLinkCaseStudy.tsx')
 const videoPath = 'media/unilink/unilink-story-20261012.mp4'
-const posterPath = 'media/unilink/unilink-story-poster-20261012.jpg'
+const posterPath = 'media/unilink/unilink-story-poster-v2-20261012.webp'
 
 test('UniLink story matches the requested introduction and precedes Problem', () => {
   assert.ok(component.includes('01 / INTRODUCTION'))
@@ -346,6 +361,16 @@ test('UniLink video mounts only after play, with native controls and offscreen c
     assert.ok(component.includes(required), required)
   }
   assert.ok(!component.includes('onTimeUpdate'))
+})
+
+test('UniLink clean cover keeps the existing play overlay and click behaviour', () => {
+  assert.ok(component.includes('width={3428} height={1926}'))
+  assert.ok(component.includes('className="ul-story-play-icon"'))
+  assert.ok(component.includes('setFailed(false); setStarted(true)'))
+  const css = read('src/styles/unilink-story.css')
+  assert.ok(css.includes('left: 48.35%'))
+  assert.ok(css.includes('top: 54.25%'))
+  assert.ok(css.includes('pointer-events: none'))
 })
 
 test('UniLink video and poster are included unchanged in both release outputs', () => {
@@ -381,5 +406,4 @@ test('UniLink MP4 metadata is ahead of media data for progressive playback', () 
   assert.ok(boxes.indexOf('moov') < boxes.indexOf('mdat'))
 })
 ```
-
 

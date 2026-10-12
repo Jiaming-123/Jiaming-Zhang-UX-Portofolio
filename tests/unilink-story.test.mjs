@@ -6,7 +6,7 @@ import { read, builtJS } from './helpers/build.mjs'
 const component = read('src/components/unilink/UniLinkStory.tsx')
 const page = read('src/pages/UniLinkCaseStudy.tsx')
 const videoPath = 'media/unilink/unilink-story-20261012.mp4'
-const posterPath = 'media/unilink/unilink-story-poster-20261012.jpg'
+const posterPath = 'media/unilink/unilink-story-poster-v2-20261012.webp'
 
 test('UniLink story matches the requested introduction and precedes Problem', () => {
   assert.ok(component.includes('01 / INTRODUCTION'))
@@ -20,6 +20,16 @@ test('UniLink video mounts only after play, with native controls and offscreen c
     assert.ok(component.includes(required), required)
   }
   assert.ok(!component.includes('onTimeUpdate'))
+})
+
+test('UniLink clean cover keeps the existing play overlay and click behaviour', () => {
+  assert.ok(component.includes('width={3428} height={1926}'))
+  assert.ok(component.includes('className="ul-story-play-icon"'))
+  assert.ok(component.includes('setFailed(false); setStarted(true)'))
+  const css = read('src/styles/unilink-story.css')
+  assert.ok(css.includes('left: 48.35%'))
+  assert.ok(css.includes('top: 54.25%'))
+  assert.ok(css.includes('pointer-events: none'))
 })
 
 test('UniLink video and poster are included unchanged in both release outputs', () => {

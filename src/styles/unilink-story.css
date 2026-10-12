@@ -49,6 +49,17 @@
   outline-offset: 5px;
 }
 
+/* Preserve the original cover's grey circle and blue play icon independently. */
+.ul-story-play-icon {
+  position: absolute;
+  left: 48.35%;
+  top: 54.25%;
+  width: 10.05%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 .ul-story-error {
   max-width: 1104px;
   margin: 18px auto 0;
