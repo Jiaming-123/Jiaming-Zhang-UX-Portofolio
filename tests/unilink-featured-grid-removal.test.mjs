@@ -7,5 +7,5 @@ test('home UniLink feature removes interactive grid while preserving content and
   assert.ok(!page.includes('CursorGrid'))
   assert.ok(!read('src/styles.css').includes('.home-cursor-grid'))
   for (const retained of ['<h1>UniLink</h1>', 'GRADUATION PROJECT', 'to="/projects/unilink"', 'unilink-cover-image', 'landing.categories.map', '<BorderGlow']) assert.ok(page.includes(retained))
-  assert.ok(read('src/components/Hero.tsx').includes('<CursorGrid'))
+  assert.ok(read('src/components/Hero.tsx').includes('hero--rotating-spheres'))
 })

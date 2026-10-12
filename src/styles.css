@@ -59,15 +59,6 @@ p { text-wrap: pretty; }
 .custom-cursor { position: fixed; left: 0; top: 0; z-index: 200; border-radius: 50%; pointer-events: none; background: rgba(0, 212, 255, .18); border: 1px solid rgba(0, 212, 255, .9); contain: strict; will-change: transform, width, height, opacity; }
 
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; isolation: isolate; }
-.hero-grid { position: absolute; inset: 0; z-index: -4; opacity: .22; background-image: linear-gradient(rgba(56,189,248,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.11) 1px, transparent 1px); background-size: 7.14vw 7.14vw; mask-image: linear-gradient(to bottom, transparent 4%, #000 34%, transparent 98%); }
-.hero-cursor-grid { position: absolute; inset: 0; z-index: -1; opacity: .9; mask-image: linear-gradient(to bottom, transparent 2%, #000 20%, #000 78%, transparent 100%); }
-.hero::after { content: ''; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 52% 59%, transparent 0, rgba(5,11,24,.35) 45%, #050b18 88%); }
-.hero-orb { position: absolute; border-radius: 50%; filter: none; z-index: -3; opacity: 1; will-change: transform; transform: translateZ(0); }
-.hero-orb-one { width: 56vw; height: 56vw; background: radial-gradient(circle, rgba(0,102,255,.3) 0, rgba(0,102,255,.13) 38%, transparent 72%); left: 17%; top: 4%; animation: drift 10s ease-in-out infinite alternate; }
-.hero-orb-two { width: 34vw; height: 34vw; background: radial-gradient(circle, rgba(0,212,255,.2) 0, rgba(0,212,255,.08) 36%, transparent 72%); right: -3%; bottom: 1%; animation: drift 13s ease-in-out infinite alternate-reverse; }
-.particles { position: absolute; inset: 0; z-index: -1; }
-.particles i { position: absolute; left: calc((var(--i) * 17% + 8%) % 94%); top: calc((var(--i) * 29% + 10%) % 88%); width: 2px; height: 2px; border-radius: 50%; background: #fff; opacity: calc(.1 + (var(--i) % 4) * .08); box-shadow: 0 0 10px var(--cyan); animation: float calc(5s + var(--i) * .3s) ease-in-out infinite alternate; }
-.hero:not(.is-in-view) .hero-orb, .hero:not(.is-in-view) .particles i { animation-play-state: paused; }
 .hero-content { width: 100%; padding: 140px var(--side) 110px; }
 .hero-kicker { display: flex; justify-content: flex-end; color: var(--muted); font-size: .64rem; letter-spacing: .2em; }
 .hero-location { line-height: 1.7; text-align: right; }
@@ -234,8 +225,6 @@ p { text-wrap: pretty; }
 .footer-bottom button { justify-self: end; display: flex; gap: 10px; align-items: center; padding: 0; color: var(--muted); border: 0; background: transparent; font-size: .58rem; letter-spacing: .12em; }
 .footer-bottom button span { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid var(--line); border-radius: 50%; }
 
-@keyframes drift { to { transform: translate3d(10%, -6%, 0) scale(1.12); } }
-@keyframes float { to { transform: translate3d(0, -20px, 0); opacity: .65; } }
 
 /* Index and information pages */
 .page-hero { position: relative; min-height: 85svh; padding: 180px var(--side) 80px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: radial-gradient(circle at 72% 28%, rgba(0,102,255,.22), transparent 36%); }
@@ -866,7 +855,6 @@ p { text-wrap: pretty; }
   .desktop-nav { display: none; }
   .menu-button { display: grid; place-items: center; }
   .hero { min-height: 820px; }
-  .hero-cursor-grid { opacity: .58; mask-image: linear-gradient(to bottom, transparent, #000 17%, #000 78%, transparent); }
   .hero-content { padding-top: 110px; padding-bottom: 130px; }
   .hero-kicker span:last-child { display: none; }
   .hero h1 { margin-top: 70px; font-size: clamp(4.1rem, 22.5vw, 7.2rem); line-height: .78; }
@@ -1097,8 +1085,6 @@ p { text-wrap: pretty; }
   .custom-cursor { display: none; }
   .view-pill { opacity: 1; transform: none; }
   .nav-shell.is-compact, .glass-panel, .view-pill { backdrop-filter: none; }
-  .hero-orb { filter: none; animation: none; }
-  .hero-cursor-grid { opacity: .46; }
   .feature-halo { filter: none; }
 }
 

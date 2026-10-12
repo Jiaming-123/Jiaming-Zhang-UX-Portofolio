@@ -1,0 +1,70 @@
+/* Homepage rotating-gradient spheres. Size and speed are configured below. */
+.hero.hero--rotating-spheres {
+  --sphere-size: min(100svh, 58vw);
+  --sphere-period: 48s;
+  overflow: clip;
+  background: #050b18;
+}
+
+.hero--rotating-spheres::after { display: none; }
+/* Keep the sphere continuous behind the top navigation; scrolled nav stays solid. */
+body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+.hero-spheres { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hero-sphere {
+  position: absolute;
+  top: 50%;
+  margin-top: calc(var(--sphere-size) / -2);
+  width: var(--sphere-size);
+  height: var(--sphere-size);
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.3) 0%, rgba(0,102,255,.13) 38%, rgba(0,102,255,0) 72%);
+  transform-origin: center;
+  will-change: transform;
+}
+.hero-sphere--left { left: 0; transform: rotate(180deg); animation: hero-sphere-clockwise var(--sphere-period) linear infinite; }
+.hero-sphere--right { right: 0; animation: hero-sphere-counterclockwise var(--sphere-period) linear infinite; }
+.hero--rotating-spheres:not(.is-in-view) .hero-sphere,
+.hero--rotating-spheres.hero--page-hidden .hero-sphere { animation-play-state: paused; }
+
+.hero.hero--rotating-spheres .hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  min-height: 760px;
+  padding: 35.8svh var(--side) 5svh;
+  gap: 52px;
+}
+.hero--rotating-spheres .hero-kicker { position: absolute; top: 28.5svh; right: var(--side); }
+.hero.hero--rotating-spheres h1 { margin: 0; flex-shrink: 0; overflow: visible; font-size: clamp(5rem, 13vw, 14rem); line-height: .77; }
+.hero.hero--rotating-spheres .hero-foot { flex-shrink: 0; margin-top: auto; align-items: start; }
+.hero--rotating-spheres .hero-intro-wrap { max-width: 420px; }
+.hero--rotating-spheres .hero-foot .hero-intro { font-size: .8rem; }
+.hero--rotating-spheres .keyword-line--list { height: auto; align-items: start; overflow: visible; }
+.hero--rotating-spheres .keyword-line--list>div { display: grid; gap: 4px; }
+.hero--rotating-spheres .keyword-line--list { font-size: .52rem; }
+
+@keyframes hero-sphere-clockwise { from { transform: rotate(180deg); } to { transform: rotate(540deg); } }
+@keyframes hero-sphere-counterclockwise { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero.hero--rotating-spheres { --sphere-size: min(90svh, 76vw); }
+  .hero.hero--rotating-spheres .hero-content { padding-top: 34svh; }
+  .hero--rotating-spheres .hero-kicker { top: 24svh; }
+}
+@media (max-width: 767px) {
+  .hero.hero--rotating-spheres { --sphere-size: 132vw; min-height: 820px; }
+  .hero-sphere--left { left: -40vw; top: 36%; }
+  .hero-sphere--right { right: -55vw; top: 47%; }
+  .hero.hero--rotating-spheres .hero-content { height: auto; min-height: 820px; padding: 190px var(--side) 100px; gap: 52px; }
+  .hero.hero--rotating-spheres h1 { font-size: clamp(4.1rem, 22.5vw, 7.2rem); padding-bottom: .4em; }
+  .hero.hero--rotating-spheres .hero-foot { margin-top: 0; gap: 28px; }
+  .hero--rotating-spheres .hero-intro-wrap { max-width: 100%; gap: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero--rotating-spheres .hero-sphere { animation: none; will-change: auto; }
+}

@@ -11,8 +11,8 @@ let html = fs.readFileSync(path.join(target, 'index.html'), 'utf8')
 let uniLinkHtml = fs.readFileSync(path.join(unilink, 'unilink.html'), 'utf8')
 if (!uniLinkHtml.includes('data-app="unilink"')) throw new Error('Build the standalone UniLink entry first.')
 // Hash the plain browser helpers as well as Vite's compiled assets, so existing
-// visitors receive the current navigation, motion and game music controller.
-for (const file of ['portfolio-navigation.js', 'hero-orb-motion.mjs', 'crownlands-audio.js']) {
+// visitors receive the current navigation and game music controller.
+for (const file of ['portfolio-navigation.js', 'crownlands-audio.js']) {
   const content = fs.readFileSync(path.join(repo, 'public', file))
   const extension = path.extname(file)
   const cacheSafe = path.basename(file, extension) + '-' + hash(content).slice(0,12) + extension
