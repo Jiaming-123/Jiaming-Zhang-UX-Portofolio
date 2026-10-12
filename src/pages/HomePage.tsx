@@ -4,7 +4,6 @@ import { Hero } from '../components/Hero'
 import { Footer } from '../components/Layout'
 import { ProjectCard, Reveal, SectionLabel } from '../components/Content'
 import BorderGlow from '../components/BorderGlow'
-import CursorGrid from '../components/CursorGrid'
 import { projects } from '../data/projects'
 import homepageCovers from '../data/homepage-covers.json'
 import '../../public/home-project-reveal.css'
@@ -17,7 +16,6 @@ export default function HomePage() {
     <>
       <Hero />
       <section className="home-featured home-landing-project" id="featured">
-        <CursorGrid className="home-cursor-grid" cellSize={70} color="#38BDF8" radius={170} falloff="smooth" holdTime={320} fadeDuration={760} lineWidth={1.1} maxOpacity={0.62} fillOpacity={0.02} gridOpacity={0} cellRadius={2} clickPulse pulseSpeed={620} />
         <div className="reveal-block is-visible home-featured-content">
           <div className="home-landing-heading">
           <SectionLabel number="01">GRADUATION PROJECT</SectionLabel>
