@@ -39,7 +39,7 @@ export function Hero() {
         <div className="hero-foot">
           <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
-            <p className="hero-intro">UX Design student at the University of Melbourne, creating digital and physical experiences through interaction, systems and play.</p>
+            <p className="hero-intro">Hi! I am a UX Design student at the University of Melbourne, interesting in creating digital and physical experiences through interaction, systems and play.</p>
             <div className="keyword-line">
               <span>DESIGNING</span>
               {reducedMotion ? <b>{keywords[0]}</b> : <AnimatePresence mode="wait" initial={false}><motion.b key={keywords[keyword]} initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -12, opacity: 0 }} transition={{ duration: .3 }}>{keywords[keyword]}</motion.b></AnimatePresence>}
