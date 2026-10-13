@@ -34,4 +34,4 @@ body.unilink-page>.ul-lightbox { background:#eef8ff; border-color:#bfd9ea; }
 .ul-case .ul-hero-title,.ul-case .ul-meta,.ul-case .ul-source,.ul-case .ul-source i,
 .ul-case .ul-two-lanes ul,.ul-case .ul-value-loop article,.ul-case .ul-loop-return,
 .ul-case .ul-hypothesis-status,.ul-case .ul-hypothesis-hint,.ul-case .ul-exploration-convergence,
-.ul-case .ul-exploration-principles article,.ul-case .ul-system-strip span { border-color:var(--ul-line); }
+.ul-case .ul-exploration-principles article { border-color:var(--ul-line); }

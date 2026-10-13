@@ -149,12 +149,6 @@ body.unilink-page:has(.nav-shell:not(.ul-nav-hidden)) .ul-timeline { transform:t
 .ul-recovery-grid button img { width:100%; height:auto; aspect-ratio:590 / 1278; object-fit:contain; }
 .ul-recovery-grid .ul-screen-pending { min-height:300px; height:330px; max-width:none; }
 .ul-recovery-grid figcaption { font-size:12px; margin-top:15px; }
-.ul-consistency { margin-top:70px; padding:35px 0; border-top:1px solid var(--ul-line); }
-.ul-consistency h3 { font-size:35px; margin:20px 0; }
-.ul-consistency p { max-width:740px; color:var(--ul-muted); font-size:14px; }
-.ul-system-strip { display:flex; flex-wrap:wrap; gap:12px; margin:28px 0; }
-.ul-system-strip span { border:1px solid #cfd3d9; border-radius:30px; padding:10px 18px; font-size:11px; }
-.ul-consistency small { color:var(--ul-muted); font-size:11px; }
 .ul-test-sample { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2.5fr); gap:30px; align-items:center; padding:35px 0; border-block:1px solid var(--ul-line); }
 .ul-test-counts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); position:relative; --ul-digit-center:16px; --ul-digit-height:54px; }
 .ul-test-counts>strong { padding-right:12px; }
@@ -325,7 +319,6 @@ body.unilink-page:has(.nav-shell:not(.ul-nav-hidden)) .ul-timeline { transform:t
  .ul-screen-pending>svg { margin:22px 0; }
  .ul-recovery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 12px; }
  .ul-recovery-grid .ul-screen-pending { height:280px; min-height:280px; }
- .ul-consistency h3 { font-size:29px; }
  .ul-test-sample { gap:18px 10px; align-items:start; }
  .ul-test-counts { --ul-digit-center:13px; --ul-digit-height:45px; }
  .ul-test-sample strong { font-size:45px; }
