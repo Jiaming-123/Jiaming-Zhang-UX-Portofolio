@@ -52,7 +52,8 @@ test('case studies omit footers; Home and About retain them; Contact does not du
 test('numbered case-study labels remain removed without losing project metadata', () => {
   assert.ok(!main.includes('CASE STUDY · '))
   assert.ok(!culture.includes('SELECTED CASE STUDY / 03'))
-  assert.ok(main.includes('project-hero-top'))
+  assert.ok(main.includes('furniture-poster-hero'))
+  assert.ok(main.includes('End-to-end commerce website redesign / 2025'))
   assert.ok(main.includes('VIEW CASE STUDY'))
   assert.ok(culture.includes('— Agentic Museum Concierge'))
   assert.ok(culture.includes('PROJECT OVERVIEW'))

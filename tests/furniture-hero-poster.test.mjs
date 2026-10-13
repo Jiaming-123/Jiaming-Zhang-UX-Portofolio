@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import { read, builtJS } from './helpers/build.mjs'
 
 test('Furniture hero uses the supplied October poster without changing the homepage cover', () => {
-  const path = '/images/furniture/hero-poster-20261011.png'
+  const path = '/images/furniture/hero-group38-20261013.png'
   const source = read('src/pages/ProjectPage.tsx')
   assert.ok(source.includes(path))
   assert.ok(source.includes('width={1302} height={814}'))

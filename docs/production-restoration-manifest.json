@@ -1,6 +1,6 @@
 {
   "buildMode": "react-source",
-  "portfolioEntry": "assets/index-pgtG0_TC.js",
+  "portfolioEntry": "assets/index-9wZMV2uk.js",
   "sourceEntries": [
     "src/main.tsx",
     "src/unilink-entry.tsx"
@@ -8,11 +8,11 @@
   "files": [
     {
       "path": ".vite/manifest.json",
-      "sha256": "5a45bb79968234ca02d57eddbf9559594827faca9496c62006c277a711af9711"
+      "sha256": "082fa0ca866ce1091260d18a381a3d89be9c2eb3cea0837dc82e8e21c8934796"
     },
     {
-      "path": "assets/CrownlandsPage-Bq-pvK5g.js",
-      "sha256": "6b59afbccc3ff29c47fc5a1b0a1c3a686c472bf82f53a654c7168e08a82a2b45"
+      "path": "assets/CrownlandsPage-Cb8fwedl.js",
+      "sha256": "162ae3f09a5f444e0cde8496cb1f93836c7d18488ee350808f9c48189576eb9e"
     },
     {
       "path": "assets/CrownlandsPage-xVBfFMi8.css",
@@ -23,32 +23,32 @@
       "sha256": "4bbbe9b143f144a33443348b60fd81ba89440e0b846738d3fc85b8da56ad2c67"
     },
     {
-      "path": "assets/CultureLensCaseStudy-DJaYp23T.js",
-      "sha256": "da6dc54ff458eedf7d4cdbaea4123efe08803b695aa8d29e64395e8461c00d4d"
+      "path": "assets/CultureLensCaseStudy-BJ6Xq2XJ.js",
+      "sha256": "91ffc8edc92f08be02df356d70c66d03dcb1786619ac02b6efd912019603c6cd"
     },
     {
-      "path": "assets/UniLinkCaseStudy-BSZv-ldF.js",
-      "sha256": "2891878afef2d51e19817927a9c49e3e05f2d60e9931b04b28cc87e92b46dfad"
+      "path": "assets/UniLinkCaseStudy-DLubCsm6.js",
+      "sha256": "a7c8b3277c871b23fa84355c1bd071650c3b9a5eb6d661d83363ec8abc753c58"
     },
     {
       "path": "assets/UniLinkCaseStudy-DuMgjFxH.css",
       "sha256": "8844b6f8cb89c0922fc80d8d0409eef153abb7f6bd652da233db17ab56e13519"
     },
     {
-      "path": "assets/check-BdxywUdN.js",
-      "sha256": "d81a3e633cc8d75373994800c76db94d0c83c844a8df1b6c72c7de04f3274f66"
+      "path": "assets/check-C1ce-F5f.js",
+      "sha256": "78df6277589867dd4495f3b113cda669d3bb1ff34079f45d6ef1f92e29690dee"
     },
     {
-      "path": "assets/index-D4MmNrdQ.css",
-      "sha256": "604d4574d2d85434655c7b77548f26ea755fa78046894d97ca2a85c617a51c83"
+      "path": "assets/index-9wZMV2uk.js",
+      "sha256": "cffce404e5c12de859775149534b202d9ae9afeffa80dbd9881b8ead3fd079c0"
     },
     {
-      "path": "assets/index-pgtG0_TC.js",
-      "sha256": "faa98dcdbb65aeb933559b2e52caf51f8ef7e24101739ed0a9ea2d164b75c6e3"
+      "path": "assets/index-Cp0G73Ip.css",
+      "sha256": "89b2bc29e0ee07c54a26b353f614ae1effc648829769d6aa062cf58a9e271771"
     },
     {
-      "path": "assets/play-C8StJqmv.js",
-      "sha256": "a23163028bd4a6a5e26acb4b5cc29e154b8bf96f44c783019c5e10e66ce7757b"
+      "path": "assets/play-BCHib8y6.js",
+      "sha256": "9e2ca4d2ecff68c86d5037d3c8eb2c3ba6178c3f043f4a0eb1fef3387b31c29b"
     },
     {
       "path": "boardgamemate-cover-signature.css",
@@ -583,6 +583,10 @@
       "sha256": "985156089e488e536ddb403b1d05078d56f14f6c710555e249e2f41e1b36e195"
     },
     {
+      "path": "images/furniture/hero-group38-20261013.png",
+      "sha256": "b415e8d6499e47cd43adf54d3df1a6f6bef943dff00b9f030a17c8dd51495aea"
+    },
+    {
       "path": "images/furniture/hero-poster-20261011.png",
       "sha256": "73e42b2deb20da935f00b8c21baefb9496d927ecc4a9a090d5a94babe394a673"
     },
@@ -948,7 +952,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "a2be66529e4d104d828a401d82bb5762cdf16f395a764b1992810fc47c35dd3a"
+      "sha256": "01eda8ca95149ad022ac66d10e52944339075ccbdbc541b83ce30498bb8766fa"
     },
     {
       "path": "media/CultureLens-Discover-Exhibition.mp4",
@@ -1176,15 +1180,15 @@
     },
     {
       "path": "projects/unilink/index.html",
-      "sha256": "af6e279370fe81479b783107f5ec11b928ed2761174824115742f76c8670557e"
+      "sha256": "bcf53b873ed7ab3b26e4715e0966f20768615d5db6d81e9b3ae759ea698aec06"
     },
     {
-      "path": "unilink-assets/unilink-Cc9_sdZ_.js",
+      "path": "unilink-assets/unilink-C-WAYpsc.js",
       "sha256": "d7d85376a0875f1954f0b3ae80b95461f2672112ad56f6853bc5e6100f7e7bd8"
     },
     {
-      "path": "unilink-assets/unilink-yv1JFsd9.css",
-      "sha256": "d007f403968011246caac8267f361634e981b0335e280bb85cdf9f80050d8ac2"
+      "path": "unilink-assets/unilink-DJU2aqlg.css",
+      "sha256": "c369ea1df8266276a03ad5a70e651dd982f9f16c2d24a63fb8fca2024ffb5235"
     },
     {
       "path": "unilink-blank-cover-20260918.css",

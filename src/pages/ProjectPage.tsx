@@ -1,23 +1,20 @@
 import { lazy, Suspense } from 'react'
-import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { BoardGameMateIteration } from '../components/BoardGameMateIteration'
 import { FurnitureCaseStudy } from '../components/FurnitureCaseStudy'
-import { projectBySlug, type Project } from '../data/projects'
+import { projectBySlug } from '../data/projects'
 import { NotFoundPage } from './InfoPages'
+import '../styles/furniture-hero.css'
 
 const CultureLensCaseStudy = lazy(() => import('./CultureLensCaseStudy'))
 const CrownlandsPage = lazy(() => import('./CrownlandsPage'))
 
-function FurnitureHero({ project }: { project: Project }) {
+function FurnitureHero() {
   return (
-    <header className="project-hero" style={{ '--project-color': project.color } as React.CSSProperties}>
-      <div className="project-hero-top"><span>{project.eyebrow.toUpperCase()} / {project.year}</span></div>
-      <h1>{project.title.toUpperCase()}</h1>
-      <div className="project-hero-intro"><p>{project.heroStatement}</p><ul>{project.categories.map((category) => <li key={category}>{category}</li>)}</ul></div>
-      <a className="furniture-live-link" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link"><span>VIEW THE LIVE EXPERIENCE</span><strong>My Furniture Store Redesign Project Link</strong><ArrowRight /></a>
-      <figure className="furniture-hero-media"><img src="/images/furniture/hero-poster-20261011.png" alt="My Furniture Store responsive redesign poster with Furniture for real Australian homes text and a timber bedroom" width={1302} height={814} /></figure>
-      <a href="#overview" className="project-scroll" data-cursor="link">SCROLL TO EXPLORE <ArrowDown size={15} /></a>
+    <header className="project-hero furniture-poster-hero">
+      <h1 className="sr-only">My Furniture Store</h1>
+      <figure className="furniture-poster-media"><img src="/images/furniture/hero-group38-20261013.png" alt="End-to-end commerce website redesign / 2025. My Furniture Store. A high-spec commerce prototype that keeps the original product photography and catalogue information with new palette and layout design by me, with a more editorial, accessible and smooth shopping experience. Australian made timber furniture." width={1302} height={814} fetchPriority="high" /></figure>
     </header>
   )
 }
@@ -33,6 +30,6 @@ export default function ProjectPage() {
   if (slug === 'culturelens') return <Suspense fallback={<p role="status">Opening CultureLens…</p>}><CultureLensCaseStudy /></Suspense>
   if (slug === 'crownlands') return <Suspense fallback={<p role="status">Opening Crownlands…</p>}><CrownlandsPage /></Suspense>
   if (slug === 'boardgamemate') return <main className="case-study"><BoardGameMateIteration /><NextProject slug="furniture" title="My Furniture Store" theme="boardgamemate" /></main>
-  if (slug === 'furniture') return <><FurnitureHero project={project} /><main className="case-study"><FurnitureCaseStudy /><NextProject slug="culturelens" title="CultureLens Concierge" theme="furniture" /></main></>
+  if (slug === 'furniture') return <><FurnitureHero /><main className="case-study"><FurnitureCaseStudy /><NextProject slug="culturelens" title="CultureLens Concierge" theme="furniture" /></main></>
   return <NotFoundPage />
 }
