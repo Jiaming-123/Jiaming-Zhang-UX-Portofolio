@@ -126,7 +126,6 @@ export function Hero() {
           <motion.span className="outline-type" initial={reducedMotion ? false : { y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: .18 }}>ZHANG</motion.span>
         </h1>
         <div className="hero-foot">
-          <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
             <p className="hero-intro">UX Design student at the University of Melbourne, creating digital and physical experiences through interaction, systems and play.</p>
             <div className="keyword-line">
@@ -189,7 +188,7 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
 .hero--rotating-spheres .hero-kicker { position: absolute; top: 28.5svh; right: var(--side); }
 .hero.hero--rotating-spheres h1 { margin: 0; flex-shrink: 0; overflow: visible; font-size: clamp(5rem, 13vw, 14rem); line-height: .77; }
 .hero.hero--rotating-spheres .hero-foot { flex-shrink: 0; margin-top: auto; align-items: start; }
-.hero--rotating-spheres .hero-intro-wrap { max-width: 420px; min-height: 146px; }
+.hero--rotating-spheres .hero-intro-wrap { grid-column: 2; max-width: 420px; min-height: 146px; }
 .hero--rotating-spheres .hero-foot .hero-intro { font-size: .8rem; }
 
 @keyframes hero-sphere-clockwise { from { transform: rotate(180deg); } to { transform: rotate(540deg); } }
@@ -207,7 +206,7 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
   .hero.hero--rotating-spheres .hero-content { height: auto; min-height: 820px; padding: 190px var(--side) 100px; gap: 52px; }
   .hero.hero--rotating-spheres h1 { font-size: clamp(4.1rem, 22.5vw, 7.2rem); padding-bottom: .4em; }
   .hero.hero--rotating-spheres .hero-foot { margin-top: 0; gap: 28px; }
-  .hero--rotating-spheres .hero-intro-wrap { max-width: 100%; gap: 24px; }
+  .hero--rotating-spheres .hero-intro-wrap { grid-column: 1; max-width: 100%; gap: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero--rotating-spheres .hero-sphere { animation: none; will-change: auto; }
