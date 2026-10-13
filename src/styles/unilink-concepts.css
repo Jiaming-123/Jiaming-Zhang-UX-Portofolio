@@ -72,16 +72,19 @@
 }
 @media(max-width:900px) {
  .ul-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .ul-hypothesis { height:auto; min-height:300px; padding-bottom:76px; }
+ .ul-hypothesis-heading { position:relative; inset:auto; margin:20px 20px 0; }
+ .ul-hypothesis-rest { position:relative; inset:auto; margin:24px 20px 0; }
  .ul-exploration-principles { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 }
 @media(max-width:600px) {
  .ul-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
- .ul-hypothesis { height:400px; }
- .ul-hypothesis-heading { inset:16px 14px auto; }
+ .ul-hypothesis { height:auto; min-height:280px; padding-bottom:70px; }
+ .ul-hypothesis-heading { inset:auto; margin:16px 14px 0; }
  .ul-hypothesis-category { font-size:7px; gap:5px; letter-spacing:.06em; }
  .ul-hypothesis-category>span:last-child { flex-shrink:0; }
  .ul-hypothesis-heading h3 { font-size:20px; margin-top:12px; }
- .ul-hypothesis-rest { inset:118px 14px 62px; }
+ .ul-hypothesis-rest { inset:auto; margin:22px 14px 0; }
  .ul-case .ul-hypothesis-rest p { font-size:12.5px; line-height:1.6; }
  .ul-hypothesis-hint { inset-inline:14px; bottom:16px; padding-top:12px; font-size:9px; gap:5px; }
  .ul-hypothesis-preview { inset:112px 10px 60px; gap:10px; }

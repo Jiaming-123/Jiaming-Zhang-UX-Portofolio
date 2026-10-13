@@ -8,7 +8,7 @@ import CaseStudyTimeline from '../components/unilink/CaseStudyTimeline'
 import ConceptExploration from '../components/unilink/ConceptExploration'
 import UniLinkStory from '../components/unilink/UniLinkStory'
 import { ArtifactGallery, FeatureStory, ScreenImage } from '../components/unilink/CaseStudyMedia'
-import { chapters, chapterId, flows, insights, iterations, prototypeUrl, recoveryScreens, researchArtifacts, supplementaryScreens, testingArtifacts } from '../data/unilink'
+import { chapters, chapterId, flows, insights, iterations, prototypeUrl, recoveryScreens, researchArtifacts, supplementaryScreens } from '../data/unilink'
 import '../styles/unilink.css'
 import '../styles/unilink-palette.css'
 
@@ -99,7 +99,6 @@ export default function UniLinkCaseStudy() {
         <Heading index={6} title="Testing both sides of the service."><p>A peer-support platform has to make sense to the person asking and the person giving their time. Evaluation followed discovery, trust, booking, mentor control and rewards.</p></Heading>
         <div className="ul-test-sample"><div className="ul-test-counts"><strong>8<span>first-year international students</span></strong><span className="ul-test-plus" aria-hidden="true">+</span><strong>3<span>Current peer mentors</span></strong><span className="ul-test-plus" aria-hidden="true">+</span><strong>2<span>Aspiring peer mentors</span></strong></div><p>13 participants in the team evaluation. The selected detail findings below are grounded in the student and mentor interviews.</p></div>
         <div className="ul-iterations">{iterations.map((t,i)=><article key={t.title}><div className="ul-iteration-title"><span>0{i+1}</span><h3>{t.title}</h3></div><div className="ul-iteration-body"><blockquote>“{t.quote}”<cite>{t.who} · supplied Week 9 UBE responses</cite></blockquote><dl><div><dt>EVIDENCE</dt><dd>{t.finding}</dd></div><div><dt>IMPLICATION</dt><dd>{t.implication}</dd></div><div><dt>DESIGN RESPONSE</dt><dd>{t.response}</dd></div></dl><span className="ul-response-status">{t.status}</span></div></article>)}</div>
-        <details className="ul-evidence-disclosure"><summary>Inspect testing and iteration evidence <span>4 artefacts ↗</span></summary><ArtifactGallery items={testingArtifacts}/><div className="ul-evidence-pending"><strong>Full evaluation overview</strong><span>Testing evidence — image pending</span><p>The supplied notes document two individual perspectives. A consolidated record of all 13 participants has not yet been supplied.</p></div></details>
         <Contribution>I organised and conducted user testing, then used the evidence to review service status, cross-flow consistency and the expectations around mentor support.</Contribution>
       </section>
       <section className="ul-section ul-sustainability" id={chapterId('Sustainability')} tabIndex={-1}>

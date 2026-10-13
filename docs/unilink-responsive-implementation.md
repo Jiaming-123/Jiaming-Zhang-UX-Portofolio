@@ -18,25 +18,25 @@ The six cards remain in their original order with unchanged text, original sketc
 | Viewport | Columns | Rows | Card height |
 | --- | --- | --- | --- |
 | Above 900px | 3 | 2 | 466px |
-| 601–900px | 2 | 3 | 466px |
-| Up to 600px | 2 | 3 | 400px |
+| 601–900px | 2 | 3 | Content height, minimum 300px |
+| Up to 600px | 2 | 3 | Content height, minimum 280px |
 
 The smallest layout uses a 12px grid gap, 14px internal horizontal insets, 20px headings and 12.5px body text. The card height leaves space for the complete longest description even at 320px wide; text is not truncated. Mobile enlarge buttons are 44×44px.
 
 ```css
 @media(max-width:600px) {
  .ul-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
- .ul-hypothesis { height:400px; }
- .ul-hypothesis-heading { inset:16px 14px auto; }
+ .ul-hypothesis { height:auto; min-height:280px; padding-bottom:70px; }
+ .ul-hypothesis-heading { inset:auto; margin:16px 14px 0; }
  .ul-hypothesis-heading h3 { font-size:20px; margin-top:12px; }
- .ul-hypothesis-rest { inset:118px 14px 62px; }
+ .ul-hypothesis-rest { inset:auto; margin:22px 14px 0; }
  .ul-case .ul-hypothesis-rest p { font-size:12.5px; line-height:1.6; }
 }
 ```
 
 ## Other parallel mobile card groups
 
-Mobile two-column rules also cover official/social/peer source summaries, the four Research insights, concept-convergence principles, Groups/Mentors outcomes, the two Strategy cards, the student/mentor/sponsor incentive cards, and future metrics. Research and supplementary evidence galleries retain two columns with their existing enlarge controls. Body text is 12.5px with a 1.65 line height in the compact text-card groups; Research insight headings scale from 18 to 23px. All descriptions remain complete, without line clamping.
+Official/social/peer sources and Students/Mentors/Sponsors use three equal columns in one row, including mobile. Their headings and body text scale with viewport width. Research insights, convergence principles, Groups/Mentors outcomes, Strategy cards and future metrics retain two columns. Research and supplementary evidence galleries retain their enlarge controls. The Testing section's “Inspect testing and iteration evidence” disclosure, four-artifact gallery and pending overview have been removed; selected testing findings remain.
 
 Personas and their journey images stay full-width. Detailed testing findings remain editorial rows rather than being squeezed into narrow cards. Desktop layouts and the confirmed 8 + 3 + 2 participant summary are unchanged.
 

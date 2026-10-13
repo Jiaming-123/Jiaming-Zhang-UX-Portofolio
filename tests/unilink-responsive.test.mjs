@@ -36,7 +36,7 @@ test('Final Design has one clipped vertical screen track rather than repeated mo
 test('mobile peer-support card groups use two columns and compact readable type', () => {
   const css = read('src/styles/unilink.css')
   const mobile = css.slice(css.indexOf('@media(max-width:600px)'))
-  for (const selector of ['.ul-source-field', '.ul-evidence-field', '.ul-two-lanes', '.ul-value-loop', '.ul-future>div']) {
+  for (const selector of ['.ul-evidence-field', '.ul-two-lanes', '.ul-future>div']) {
     const rule = mobile.slice(mobile.indexOf(selector)).split('}')[0]
     assert.ok(rule.includes('grid-template-columns:repeat(2,minmax(0,1fr))'), selector)
   }
@@ -48,4 +48,13 @@ test('mobile peer-support card groups use two columns and compact readable type'
   assert.match(concepts, /\.ul-exploration-outcomes \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/)
   assert.ok(!mobile.includes('line-clamp'))
   assert.ok(css.includes('.ul-persona-sequence { display:block; }'))
+})
+
+test('source and incentive summaries retain one three-card row, and compact concepts keep full copy',()=>{
+ const css=read('src/styles/unilink.css').split('@media(max-width:600px)')[1]
+ for(const selector of ['.ul-source-field','.ul-value-loop']) assert.ok(css.slice(css.indexOf(selector)).split('}')[0].includes('repeat(3,minmax(0,1fr))'))
+ const concepts=read('src/styles/unilink-concepts.css').split('@media(max-width:600px)')[1]
+ assert.ok(concepts.includes('height:auto; min-height:280px'))
+ assert.ok(!read('src/pages/UniLinkCaseStudy.tsx').includes('Inspect testing and iteration evidence'))
+ assert.ok(!read('src/pages/UniLinkCaseStudy.tsx').includes('Testing evidence — image pending'))
 })
