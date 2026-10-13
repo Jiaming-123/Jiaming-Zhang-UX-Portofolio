@@ -1,7 +1,7 @@
 // One chapter navigation for all five case studies. Selectors follow the actual
 // preserved page sections; no project content is rewritten or re-ordered.
 export const chapterProjects = {
-  unilink: { name: 'UniLink', hero: '.ul-hero', chapters: ['Overview', 'Problem', 'Research', 'Concepts', 'Strategy', 'Final Design', 'Testing', 'Sustainability', 'Reflection'].map(label => [label, `#unilink-${label.toLowerCase().replaceAll(' ', '-')}`]) },
+  unilink: { name: 'UniLink', hero: '.ul-hero', chapters: ['Overview', 'Problem', 'Research', 'Concepts', 'Final Design', 'Testing', 'Sustainability', 'Reflection'].map(label => [label, `#unilink-${label.toLowerCase().replaceAll(' ', '-')}`]) },
   boardgamemate: { name: 'BoardGameMate', hero: '.boardgamemate-overview-hero', chapters: [['Overview', '.boardgamemate-overview-hero'], ['Discover', '.boardgamemate-discover-section'], ['Research', '.boardgamemate-persona-section'], ['Early UI', '.iteration-early'], ['Reframe', '.iteration-intro'], ['Final Design', '.iteration-showcase'], ['Outcome', '.iteration-outcome']] },
   furniture: { name: 'My Furniture Store', hero: '.project-hero', chapters: [['Overview', '.furniture-intro'], ['Audit', '.furniture-audit'], ['Strategy', '.furniture-principles'], ['Process', '.furniture-process'], ['Architecture', '.furniture-journey'], ['Experience', '.furniture-responsive'], ['Interaction', '.furniture-motion'], ['Build', '.furniture-build'], ['Testing', '.furniture-testing'], ['Outcome', '.furniture-outcome']] },
   culturelens: { name: 'CultureLens', hero: '.culturelens-hero', chapters: ['Frame', 'Explore', 'Evolve', 'Service', 'Agent', 'Reflect'].map(label => [label, `#culturelens-${label.toLowerCase()}`]) },

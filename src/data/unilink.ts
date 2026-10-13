@@ -1,5 +1,5 @@
 export const prototypeUrl = 'https://www.figma.com/design/bOXMuvsgKsiUzAeD3CmvIP/High-Fidelity-Prototype?node-id=0-1&t=xegC9x5kOog7MDpE-1'
-export const chapters = ['Overview', 'Problem', 'Research', 'Concepts', 'Strategy', 'Final Design', 'Testing', 'Sustainability', 'Reflection']
+export const chapters = ['Overview', 'Problem', 'Research', 'Concepts', 'Final Design', 'Testing', 'Sustainability', 'Reflection']
 export const chapterId = (name: string) => `unilink-${name.toLowerCase().replace(/ /g, '-')}`
 export type Screen = { path: string; title: string; why: string; width?: number; height?: number; pending?: boolean }
 export const flows: { id: string; label: string; title: string; intro: string; screens: Screen[] }[] = [

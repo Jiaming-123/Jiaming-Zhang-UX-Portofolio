@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, Users, UserRoundCheck } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Footer } from '../components/Layout'
@@ -81,13 +81,8 @@ export default function UniLinkCaseStudy() {
         <Personas />
       </section>
       <ConceptExploration />
-      <section className="ul-section ul-strategy" id={chapterId('Strategy')} tabIndex={-1}>
-        <Heading index={4} title="One product. Two levels of peer support." />
-        <div className="ul-two-lanes"><article><Users size={30}/><span>01 / BROAD OR RECURRING QUESTIONS</span><h3>Groups</h3><p>Topic-based communities lower the barrier to asking. Students can observe, contribute and return to shared knowledge.</p><ul><li>Low-pressure participation</li><li>Practical, contextual topics</li><li>Community knowledge</li></ul></article><div className="ul-lane-connector" aria-hidden="true"><ArrowRight/></div><article><UserRoundCheck size={30}/><span>02 / SPECIFIC PERSONAL GUIDANCE</span><h3>Mentors</h3><p>Relevant senior peers provide depth when a student needs a focused conversation about their own situation.</p><ul><li>Visible verification and background</li><li>Defined time and availability</li><li>Context before the conversation</li></ul></article></div>
-        <p className="ul-strategy-footer"><Check size={18}/> Visible identity and contextual information reinforce trust across both experiences.</p>
-      </section>
       <section className="ul-section ul-design" id={chapterId('Final Design')} tabIndex={-1}>
-        <Heading index={5} title="From a support model to an experience."><p>Follow the decisions through the final Figma prototype. These are authentic interface exports; the case study explains the interactions around them.</p></Heading>
+        <Heading index={4} title="From a support model to an experience."><p>Follow the decisions through the final Figma prototype. These are authentic interface exports; the case study explains the interactions around them.</p></Heading>
         <div className="ul-flow-links">{flows.map(f=><a key={f.id} href={`#flow-${f.id}`}>{f.id==='service'?'During service':f.id} <ArrowDown size={13}/></a>)}</div>
         {flows.map(flow=><FeatureStory key={flow.id} flow={flow}/>)}
         <details className="ul-evidence-disclosure ul-supplementary"><summary>Explore more prototype screens <span>16 screens · Approvals, points & rewards ↗</span></summary><p>Additional states show group approval, mentor accounts, feedback and reward redemption. Names, balances, statistics and rewards are illustrative prototype content.</p><ArtifactGallery items={supplementaryScreens} className="ul-screen-gallery" actionLabel="View screen" /></details>
@@ -95,19 +90,19 @@ export default function UniLinkCaseStudy() {
         <Contribution label="Design ownership">I owned the Mentor Booking, During-Service and Mentor Handover flows, from interaction structure to high-fidelity design and iteration.</Contribution>
       </section>
       <section className="ul-section ul-testing" id={chapterId('Testing')} tabIndex={-1}>
-        <Heading index={6} title="Testing both sides of the service."><p>A peer-support platform has to make sense to the person asking and the person giving their time. Evaluation followed discovery, trust, booking, mentor control and rewards.</p></Heading>
+        <Heading index={5} title="Testing both sides of the service."><p>A peer-support platform has to make sense to the person asking and the person giving their time. Evaluation followed discovery, trust, booking, mentor control and rewards.</p></Heading>
         <div className="ul-test-sample"><div className="ul-test-counts"><strong>8<span>first-year international students</span></strong><span className="ul-test-plus" aria-hidden="true">+</span><strong>3<span>Current peer mentors</span></strong><span className="ul-test-plus" aria-hidden="true">+</span><strong>2<span>Aspiring peer mentors</span></strong></div><p>13 participants in the team evaluation. The selected detail findings below are grounded in the student and mentor interviews.</p></div>
         <div className="ul-iterations">{iterations.map((t,i)=><article key={t.title}><div className="ul-iteration-title"><span>0{i+1}</span><h3>{t.title}</h3></div><div className="ul-iteration-body"><blockquote>“{t.quote}”<cite>{t.who} · supplied Week 9 UBE responses</cite></blockquote><dl><div><dt>EVIDENCE</dt><dd>{t.finding}</dd></div><div><dt>IMPLICATION</dt><dd>{t.implication}</dd></div><div><dt>DESIGN RESPONSE</dt><dd>{t.response}</dd></div></dl><span className="ul-response-status">{t.status}</span></div></article>)}</div>
         <Contribution>I organised and conducted user testing, then used the evidence to review service status, cross-flow consistency and the expectations around mentor support.</Contribution>
       </section>
       <section className="ul-section ul-sustainability" id={chapterId('Sustainability')} tabIndex={-1}>
-        <Heading index={7} title="Designing an incentive loop, not an ad feed."><p>A proposed reward ecosystem recognises the time mentors contribute. Sponsorship and partnership fees could support rewards without turning peer advice into advertising.</p></Heading>
+        <Heading index={6} title="Designing an incentive loop, not an ad feed."><p>A proposed reward ecosystem recognises the time mentors contribute. Sponsorship and partnership fees could support rewards without turning peer advice into advertising.</p></Heading>
         <div className="ul-value-loop">{[['01','Students','Receive relevant peer support and bookable mentor guidance.'],['02','Mentors','Contribute lived experience, earn Link Points and redeem rewards.'],['03','Sponsors','Fund rewards and gain clearly labelled exposure around the Rewards experience.']].map(([n,t,p])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p><ArrowRight aria-hidden="true"/></article>)}</div>
         <p className="ul-loop-return">↳ Recognition supports continued contribution to the UniLink ecosystem.</p>
         <div className="ul-trust-rule"><span>THE TRUST RULE</span><p>Sponsorship must never influence mentor ranking or be disguised as peer advice.</p></div><p className="ul-note">Hypothetical categories include cafés, study supplies and local student services. No partnerships are claimed. Mentor feedback suggests rewards should complement willingness to help; the model is not yet validated.</p>
       </section>
       <section className="ul-section ul-reflection" id={chapterId('Reflection')} tabIndex={-1}>
-        <Heading index={8} title="Scope was a design decision." />
+        <Heading index={7} title="Scope was a design decision." />
         <div className="ul-reflection-copy"><p>The most important shift in UniLink was deciding what the product should stop trying to solve. Early concepts explored AI guidance, task support and wider university-service connections. Tutor feedback and evaluation made the final proposition more specific.</p><p>Groups for low-pressure community support.<br/>Mentors for focused, bookable guidance.</p><p>This project changed how I think about leadership in collaborative design. It can mean framing the right problem, turning evidence into a shared direction, challenging ideas that drift from the research and helping the team decide what not to build.</p><p>The final prototype is a tested proposition for making trusted peer support easier to discover, evaluate and act on. It is not a finished service. Request controls, reward clarity, privacy boundaries and mentor capacity still deserve further evaluation.</p></div>
         <details className="ul-future"><summary>What I would measure next <span>Future success metrics +</span></summary><div>{[['Group activation','Do students join a relevant group after discovery?'],['Meaningful group engagement','Do students ask, respond or return after joining?'],['Mentor booking completion','Where do students abandon or complete the flow?'],['Mentor retention','Do mentors keep contributing over time?'],['Reward redemption','Do Link Points create meaningful motivation?'],['Return usage','Do students come back when a new problem appears?']].map(([t,p])=><article key={t}><h3>{t}</h3><p>{p}</p></article>)}</div><p className="ul-note">Proposed measures for future development. No live performance data is claimed.</p></details>
         <div className="ul-ending" id="unilink-end"><span className="ul-kicker">THE COMPLETE EXPERIENCE</span><h3>Explore the complete prototype.</h3><p>This case study focuses on the two final product pillars. The full prototype contains the detailed interaction states and flows developed during the project.</p><a className="ul-button" href={prototypeUrl} target="_blank" rel="noopener noreferrer">View Full Prototype <ArrowUpRight size={18}/></a></div>
