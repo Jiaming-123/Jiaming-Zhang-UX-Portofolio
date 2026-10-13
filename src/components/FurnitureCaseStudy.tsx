@@ -85,7 +85,6 @@ export function FurnitureCaseStudy() {
             <p>I independently led the complete process: competitor review, heuristic analysis, information architecture, art direction, prototyping, responsive UI design, front-end implementation, testing and deployment.</p>
             <dl><div><dt>ROLE</dt><dd>UI/UX Designer & Front-end Developer</dd></div><div><dt>SCOPE</dt><dd>Desktop 1440 · Mobile 393</dd></div><div><dt>TOOLS</dt><dd>Figma · React · TypeScript · CSS · Codex · ChatGPT · Vercel</dd></div><div><dt>YEAR</dt><dd>2025</dd></div><div><dt>DELIVERABLE</dt><dd>End-to-end responsive shopping prototype</dd></div></dl>
           </div>
-          <a className="furniture-overview-live" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link">View the live furniture store <ArrowRight size={16} /></a>
         </Reveal>
       </section>
 
