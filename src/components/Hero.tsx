@@ -11,6 +11,8 @@ export function Hero() {
   const reducedMotion = useReducedMotion()
   const [pageVisible, setPageVisible] = useState(() => !document.hidden)
   const [keyword, setKeyword] = useState(0)
+  const [portraitReady, setPortraitReady] = useState(false)
+  const [portraitEntered, setPortraitEntered] = useState(false)
 
   useEffect(() => {
     const onVisibility = () => setPageVisible(!document.hidden)
@@ -39,6 +41,12 @@ export function Hero() {
         <div className="hero-foot">
           <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
+            <div className="hero-portrait">
+              <div className="hero-portrait-window">
+                <motion.img src="/images/hero-profile-20261013.png" alt="Jiaming Zhang in graduation robes holding a teddy bear" width={1024} height={1536} fetchPriority="high" onLoad={() => setPortraitReady(true)} initial={reducedMotion ? false : { y: '100%' }} animate={{ y: reducedMotion || portraitReady ? '0%' : '100%' }} transition={{ duration: reducedMotion ? 0 : .95, delay: reducedMotion ? 0 : .35, ease: [0.22, 1, 0.36, 1] }} onAnimationComplete={definition => { if (portraitReady && typeof definition === 'object' && !Array.isArray(definition) && definition.y === '0%') setPortraitEntered(true) }} />
+              </div>
+              <motion.span className="hero-portrait-hi" initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: reducedMotion || portraitEntered ? 1 : 0 }} transition={{ duration: reducedMotion ? 0 : .5 }}>Hi! 👋</motion.span>
+            </div>
             <p className="hero-intro">Hi! I am a UX Design student at the University of Melbourne, interesting in creating digital and physical experiences through interaction, systems and play.</p>
             <div className="keyword-line">
               <span>DESIGNING</span>

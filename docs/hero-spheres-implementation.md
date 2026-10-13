@@ -100,6 +100,8 @@ export function Hero() {
   const reducedMotion = useReducedMotion()
   const [pageVisible, setPageVisible] = useState(() => !document.hidden)
   const [keyword, setKeyword] = useState(0)
+  const [portraitReady, setPortraitReady] = useState(false)
+  const [portraitEntered, setPortraitEntered] = useState(false)
 
   useEffect(() => {
     const onVisibility = () => setPageVisible(!document.hidden)
@@ -128,7 +130,13 @@ export function Hero() {
         <div className="hero-foot">
           <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
-            <p className="hero-intro">UX Design student at the University of Melbourne, creating digital and physical experiences through interaction, systems and play.</p>
+            <div className="hero-portrait">
+              <div className="hero-portrait-window">
+                <motion.img src="/images/hero-profile-20261013.png" alt="Jiaming Zhang in graduation robes holding a teddy bear" width={1024} height={1536} fetchPriority="high" onLoad={() => setPortraitReady(true)} initial={reducedMotion ? false : { y: '100%' }} animate={{ y: reducedMotion || portraitReady ? '0%' : '100%' }} transition={{ duration: reducedMotion ? 0 : .95, delay: reducedMotion ? 0 : .35, ease: [0.22, 1, 0.36, 1] }} onAnimationComplete={definition => { if (portraitReady && typeof definition === 'object' && !Array.isArray(definition) && definition.y === '0%') setPortraitEntered(true) }} />
+              </div>
+              <motion.span className="hero-portrait-hi" initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: reducedMotion || portraitEntered ? 1 : 0 }} transition={{ duration: reducedMotion ? 0 : .5 }}>Hi! 👋</motion.span>
+            </div>
+            <p className="hero-intro">Hi! I am a UX Design student at the University of Melbourne, interesting in creating digital and physical experiences through interaction, systems and play.</p>
             <div className="keyword-line">
               <span>DESIGNING</span>
               {reducedMotion ? <b>{keywords[0]}</b> : <AnimatePresence mode="wait" initial={false}><motion.b key={keywords[keyword]} initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -12, opacity: 0 }} transition={{ duration: .3 }}>{keywords[keyword]}</motion.b></AnimatePresence>}
@@ -189,7 +197,11 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
 .hero--rotating-spheres .hero-kicker { position: absolute; top: 28.5svh; right: var(--side); }
 .hero.hero--rotating-spheres h1 { margin: 0; flex-shrink: 0; overflow: visible; font-size: clamp(5rem, 13vw, 14rem); line-height: .77; }
 .hero.hero--rotating-spheres .hero-foot { flex-shrink: 0; margin-top: auto; align-items: start; }
-.hero--rotating-spheres .hero-intro-wrap { grid-column: 2; max-width: 420px; min-height: 146px; }
+.hero--rotating-spheres .hero-intro-wrap { position: relative; grid-column: 2; max-width: 420px; min-height: 146px; }
+.hero-portrait { position: absolute; bottom: 100%; left: 0; width: min(270px, 21vw, 43svh); margin: 0; }
+.hero-portrait-window { overflow: hidden; aspect-ratio: 2 / 3; }
+.hero-portrait-window img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.hero-portrait-hi { position: absolute; top: 3%; right: 8%; color: #fff; font-size: .85rem; transform: rotate(-12deg); }
 .hero--rotating-spheres .hero-foot .hero-intro { font-size: .8rem; }
 
 @keyframes hero-sphere-clockwise { from { transform: rotate(180deg); } to { transform: rotate(540deg); } }
@@ -206,8 +218,13 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
   .hero-sphere--right { right: -55vw; top: 47%; }
   .hero.hero--rotating-spheres .hero-content { height: auto; min-height: 820px; padding: 190px var(--side) 100px; gap: 52px; }
   .hero.hero--rotating-spheres h1 { font-size: clamp(4.1rem, 22.5vw, 7.2rem); padding-bottom: .4em; }
-  .hero.hero--rotating-spheres .hero-foot { margin-top: 0; gap: 28px; }
-  .hero--rotating-spheres .hero-intro-wrap { grid-column: 1; max-width: 100%; gap: 24px; }
+  .hero.hero--rotating-spheres .hero-foot { display: flex; flex-direction: column; margin-top: -50px; gap: 0; }
+  .hero--rotating-spheres .hero-intro-wrap { display: contents; }
+  .hero-portrait { position: relative; bottom: auto; left: auto; width: clamp(120px, 32vw, 190px); order: 0; }
+  .hero-portrait-hi { top: 6%; right: auto; left: 0; transform: rotate(12deg); font-size: .7rem; }
+  .hero.hero--rotating-spheres .hero-foot > p { order: 1; }
+  .hero--rotating-spheres .hero-foot .hero-intro { order: 2; margin-top: 28px; }
+  .hero--rotating-spheres .keyword-line { order: 3; margin-top: 28px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero--rotating-spheres .hero-sphere { animation: none; will-change: auto; }
