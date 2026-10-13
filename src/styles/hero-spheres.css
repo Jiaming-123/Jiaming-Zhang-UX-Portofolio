@@ -58,18 +58,22 @@ body:has(.hero--rotating-spheres) .nav-shell:not(.is-compact) {
   .hero--rotating-spheres .hero-kicker { top: 24svh; }
 }
 @media (max-width: 767px) {
-  .hero.hero--rotating-spheres { --sphere-size: 132vw; min-height: 820px; }
-  .hero-sphere--left { left: -40vw; top: 36%; }
-  .hero-sphere--right { right: -55vw; top: 47%; }
-  .hero.hero--rotating-spheres .hero-content { height: auto; min-height: 820px; padding: 190px var(--side) 100px; gap: 52px; }
-  .hero.hero--rotating-spheres h1 { font-size: clamp(4.1rem, 22.5vw, 7.2rem); padding-bottom: .4em; }
-  .hero.hero--rotating-spheres .hero-foot { display: flex; flex-direction: column; margin-top: -50px; gap: 0; }
+  .hero.hero--rotating-spheres { --sphere-size: 74vw; min-height: 211vw; }
+  .hero-sphere--left { left: -1vw; top: 50vw; margin-top: 0; }
+  .hero-sphere--right { right: -1vw; top: 31vw; margin-top: 0; }
+  .hero.hero--rotating-spheres .hero-content { height: auto; min-height: 211vw; padding: 41.5vw 5.6vw 22vw; gap: 0; }
+  .hero.hero--rotating-spheres h1 { font-size: 22.5vw; padding-bottom: 0; }
+  .hero.hero--rotating-spheres h1 > span:first-child { margin-left: -1.6vw; }
+  .hero.hero--rotating-spheres h1 > .outline-type { margin-top: 9vw; margin-left: 25vw; }
+  .hero.hero--rotating-spheres .hero-foot { display: flex; flex-direction: column; margin-top: -14.6vw; gap: 0; }
   .hero--rotating-spheres .hero-intro-wrap { display: contents; }
-  .hero-portrait { position: relative; bottom: auto; left: auto; width: clamp(120px, 32vw, 190px); order: 0; }
+  .hero-portrait { position: relative; bottom: auto; left: -3vw; width: 34vw; order: 0; }
   .hero-portrait-hi { top: 6%; right: auto; left: 0; transform: rotate(12deg); font-size: .7rem; }
-  .hero.hero--rotating-spheres .hero-foot > p { order: 1; }
-  .hero--rotating-spheres .hero-foot .hero-intro { order: 2; margin-top: 28px; }
-  .hero--rotating-spheres .keyword-line { order: 3; margin-top: 28px; }
+  .hero.hero--rotating-spheres .hero-foot > p { order: 1; font-size: 5.2vw; line-height: 1.3; letter-spacing: -.045em; }
+  .hero--rotating-spheres .hero-foot .hero-intro { order: 2; margin-top: 7.2vw; font-size: 3.3vw; line-height: 1.65; }
+  .hero--rotating-spheres .keyword-line { order: 3; margin-top: 7.5vw; font-size: 2.3vw; }
+  .hero--rotating-spheres .hero-kicker { display: none; }
+  .hero--rotating-spheres .scroll-cue { left: 5.6vw; right: auto; bottom: 7.5vw; font-size: 2.3vw; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero--rotating-spheres .hero-sphere { animation: none; will-change: auto; }

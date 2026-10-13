@@ -10,5 +10,5 @@ test('portrait emerges from a clipped text-edge window before its greeting',()=>
  assert.ok(hero.includes('onLoad={() => setPortraitReady(true)}'))
  assert.match(css,/\.hero-portrait-window \{ overflow: hidden;/)
  assert.ok(css.includes('bottom: 100%'))
- assert.ok(css.includes('width: clamp(120px, 32vw, 190px); order: 0'))
+ assert.ok(css.includes('width: 34vw; order: 0'))
 })
