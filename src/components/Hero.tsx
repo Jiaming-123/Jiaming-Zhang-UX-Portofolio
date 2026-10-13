@@ -37,7 +37,6 @@ export function Hero() {
           <motion.span className="outline-type" initial={reducedMotion ? false : { y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: .18 }}>ZHANG</motion.span>
         </h1>
         <div className="hero-foot">
-          <p>I design meaningful interactions between people, products, and systems.</p>
           <div className="hero-intro-wrap">
             <p className="hero-intro">UX Design student at the University of Melbourne, creating digital and physical experiences through interaction, systems and play.</p>
             <div className="keyword-line">
