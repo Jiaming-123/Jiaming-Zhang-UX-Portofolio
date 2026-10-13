@@ -4,30 +4,30 @@ export const chapterId = (name: string) => `unilink-${name.toLowerCase().replace
 export type Screen = { path: string; title: string; why: string; width?: number; height?: number; pending?: boolean }
 export const flows: { id: string; label: string; title: string; intro: string; screens: Screen[] }[] = [
  { id: 'groups', label: '01 / PEER GROUPS', title: 'Find your people before you need an expert.', intro: 'Small, topic-specific groups make everyday questions easier to ask. Housing, course planning, banking and campus life give each conversation a useful starting point.', screens: [
-  {path:'hero/home.png',title:'Community and personal guidance in one place',why:'The home screen keeps a joined group within reach and offers a mentor when the question needs more personal attention.',width:786,height:1714},
-  {path:'groups/discover.png',title:'Concrete topics, familiar needs',why:'Categories organise support around practical needs. Students can judge relevance before entering a community.',width:786,height:1728},
+  {path:'hero/home.png',title:'Find your groups on the homepage',why:'The home screen keeps a joined group within reach and offers a mentor when the question needs more personal attention.',width:786,height:1714},
+  {path:'groups/discover.png',title:'Select topics you need',why:'Categories organise support around practical needs. Students can judge relevance before entering a community.',width:786,height:1728},
   {path:'groups/housing.png',title:'Context before joining',why:'Language, member context and a clear group purpose help students understand where they are asking for help.',width:786,height:1704},
   {path:'groups/joined.png',title:'Make membership visible',why:'An explicit Joined state makes the outcome clear and offers a direct route back into the conversation.',width:786,height:1704},
   {path:'groups/chat.png',title:'Shared questions become shared knowledge',why:'Existing discussion lowers the social cost of asking. A pinned inspection checklist turns advice into a practical resource.',width:786,height:1714},
  ]},
- {id:'mentors',label:'02 / VERIFIED MENTORS',title:'Move from general advice to a relevant person.',intro:'Background, study context, language and support topics help students understand why a senior peer might be a good fit before making contact.',screens:[
+ {id:'mentors',label:'02 / FIND YOUR VERIFIED MENTORS',title:'Move from general advice to a relevant person.',intro:'Background, study context, language and support topics help students understand why a senior peer might be a good fit before making contact.',screens:[
   {path:'mentors/discover.png',title:'Relevance before contact',why:'Filters and contextual mentor cards support a more informed choice than a generic list of people.',width:786,height:1714},
-  {path:'mentors/profile.png',title:'Trust before commitment',why:'A verified profile brings identity and experience together. Verification establishes identity; it does not make peer advice authoritative.',width:786,height:1704},
-  {path:'mentors/reviews.png',title:'Make experience inspectable',why:'The prototype includes ratings and reviews as credibility cues. These are interface examples, not measured performance or live user data.',width:786,height:1714},
+  {path:'mentors/profile.png',title:'Trust before commitment',why:'A verified profile brings identity and experience together but it just base on their personal experience.',width:786,height:1704},
+  {path:'mentors/reviews.png',title:'Make experience inspectable',why:'The prototype includes ratings and reviews as credibility cues to reference for others',width:786,height:1714},
  ]},
- {id:'booking',label:'DESIGN OWNERSHIP / MENTOR BOOKING',title:'A conversation with clear expectations.',intro:'Each booking decision reduces ambiguity for both people: when to meet, how to meet and what the student wants help with.',screens:[
-  {path:'booking/date-mode.png',title:'Date, mode and duration',why:'Turn availability into an explicit commitment and define the shape of the session.',width:786,height:1714},
+ {id:'booking',label:'03 / MENTOR BOOKING',title:'A conversation with clear expectations.',intro:'Each booking decision reduces ambiguity for both people: when to meet, how to meet and what the student wants help with.',screens:[
+  {path:'booking/date-mode.png',title:'Date, mode and duration',why:'Turn availability into an explicit commitment and define the shape of the session (online or in-person?).',width:786,height:1714},
   {path:'booking/time.png',title:'A time both people can plan around',why:'Visible availability makes the commitment concrete and reduces uncertainty before the session.',width:786,height:1710},
   {path:'booking/topic.png',title:'Useful context before the session',why:'A selected topic helps the mentor prepare and gives the conversation a focused starting point.',width:786,height:1704},
   {path:'booking/review.png',title:'Review before committing',why:'Bring the choices together so a student can check expectations and catch mistakes.',width:786,height:1704},
-  {path:'booking/confirmation.png',title:'Clarify the booking outcome',why:'The confirmation screen summarises the booking and offers a route to its details. Its “You’re booked” and “Waiting for confirm” messages still need to be reconciled so the commitment is unambiguous.',width:786,height:1704},
+  {path:'booking/confirmation.png',title:'Clarify the booking outcome',why:'The confirmation screen summarises the booking and offers a route to its details.',width:786,height:1704},
  ]},
- {id:'service',label:'DESIGN OWNERSHIP / DURING SERVICE',title:'Designing beyond the booking confirmation.',intro:'A service feels trustworthy when the user knows what happens next. Context, availability and recovery matter throughout the interaction.',screens:[
-  {path:'during-service/bookings-confirmed-20261002.png',title:'A visible return point',why:'An upcoming booking surfaces the confirmed state, mentor and time so the student can find the session again.',width:786,height:1714},
-  {path:'during-service/details.png',title:'Carry context into the conversation',why:'Booking details preserve the selected topic, meeting mode and timing. The student should not need to reconstruct the arrangement.',width:786,height:1716},
-  {path:'during-service/live.png',title:'Keep the session focused',why:'A live-session state carries the mentor, timing and conversation into one place. Shared context supports the transition from planning to receiving guidance.',width:786,height:1718},
-  {path:'during-service/complete.png',title:'Close the interaction clearly',why:'A completion state gives both sides a defined end to the support interaction.',width:786,height:1714},
-  {path:'during-service/feedback.png',title:'Make room for reflection',why:'Post-session feedback captures the experience after the support has actually happened.',width:786,height:1714},
+ {id:'service',label:'04 / DURING SERVICE',title:'Start your query journey.',intro:'A service feels trustworthy when the user knows what happens next. Context, availability and recovery matter throughout the interaction.',screens:[
+  {path:'during-service/bookings-confirmed-20261002.png',title:'A visible session state',why:'Student can check the upcoming booking surfaces on homepage.',width:786,height:1714},
+  {path:'during-service/details.png',title:'Detailed booking information',why:'Check any detail or make some changes before session',width:786,height:1716},
+  {path:'during-service/live.png',title:'Keep the session focused',why:'Start your session and notice your time',width:786,height:1718},
+  {path:'during-service/complete.png',title:'End the session clearly',why:'A completion state gives both sides a defined end to the support interaction.',width:786,height:1714},
+  {path:'during-service/feedback.png',title:'Leave some reflection',why:'Post-session feedback captures the experience after the support has actually happened.',width:786,height:1714},
  ]},
 ]
 export const recoveryScreens: Screen[] = [
