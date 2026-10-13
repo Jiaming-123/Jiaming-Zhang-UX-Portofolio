@@ -58,3 +58,10 @@ test('source and incentive summaries retain one three-card row, and compact conc
  assert.ok(!read('src/pages/UniLinkCaseStudy.tsx').includes('Inspect testing and iteration evidence'))
  assert.ok(!read('src/pages/UniLinkCaseStudy.tsx').includes('Testing evidence — image pending'))
 })
+
+test('revealed concept sketches have an independent image area instead of a shrinking flex strip',()=>{
+ const css=read('src/styles/unilink-concepts.css')
+ assert.match(css,/\.ul-hypothesis\.is-revealed \.ul-hypothesis-image \{ flex:none; width:100%; aspect-ratio:4\/3;/)
+ assert.match(css,/\.ul-hypothesis\.is-revealed \.ul-hypothesis-preview \{ position:relative; inset:auto;/)
+ assert.match(css,/\.ul-hypothesis\.is-revealed \.ul-hypothesis-rest \{ display:none;/)
+})

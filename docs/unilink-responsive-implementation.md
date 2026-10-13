@@ -36,6 +36,8 @@ The smallest layout uses a 12px grid gap, 14px internal horizontal insets, 20px 
 
 ## Other parallel mobile card groups
 
+Expanded concept cards grow with their content. The sketch area has an independent 4:3 ratio and cannot flex-shrink when the caption wraps. Sketches retain `object-fit: contain`, so no original UI is cropped. The compact closed state and all reveal/enlarge controls remain unchanged.
+
 Official/social/peer sources and Students/Mentors/Sponsors use three equal columns in one row, including mobile. Their headings and body text scale with viewport width. Research insights, convergence principles, Groups/Mentors outcomes, Strategy cards and future metrics retain two columns. Research and supplementary evidence galleries retain their enlarge controls. The Testing section's “Inspect testing and iteration evidence” disclosure, four-artifact gallery and pending overview have been removed; selected testing findings remain.
 
 Personas and their journey images stay full-width. Detailed testing findings remain editorial rows rather than being squeezed into narrow cards. Desktop layouts and the confirmed 8 + 3 + 2 participant summary are unchanged.

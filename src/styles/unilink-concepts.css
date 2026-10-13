@@ -28,6 +28,10 @@
 .ul-hypothesis.is-revealed .ul-hypothesis-rest { opacity:0; transform:translateY(-8px); visibility:hidden; }
 .ul-hypothesis.is-revealed .ul-hypothesis-preview { opacity:1; visibility:visible; transform:scale(1); clip-path:inset(0); }
 .ul-hypothesis.is-revealed .ul-sketch-expand { opacity:1; visibility:visible; }
+.ul-hypothesis.is-revealed { height:auto; min-height:466px; padding-bottom:80px; }
+.ul-hypothesis.is-revealed .ul-hypothesis-rest { display:none; }
+.ul-hypothesis.is-revealed .ul-hypothesis-preview { position:relative; inset:auto; margin:112px 17px 0; }
+.ul-hypothesis.is-revealed .ul-hypothesis-image { flex:none; width:100%; aspect-ratio:4/3; padding:8px; }
 .ul-exploration-convergence { margin-top:85px; padding-top:50px; border-top:1px solid #c6c5c2; }
 .ul-exploration-convergence>header { max-width:800px; }
 .ul-exploration-convergence>header h3 { margin:20px 0; font-size:clamp(32px,4vw,51px); line-height:1.12; }
@@ -75,6 +79,8 @@
  .ul-hypothesis { height:auto; min-height:300px; padding-bottom:76px; }
  .ul-hypothesis-heading { position:relative; inset:auto; margin:20px 20px 0; }
  .ul-hypothesis-rest { position:relative; inset:auto; margin:24px 20px 0; }
+ .ul-hypothesis.is-revealed { min-height:300px; padding-bottom:76px; }
+ .ul-hypothesis.is-revealed .ul-hypothesis-preview { margin:20px 17px 0; }
  .ul-exploration-principles { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 }
 @media(max-width:600px) {
@@ -88,6 +94,8 @@
  .ul-case .ul-hypothesis-rest p { font-size:12.5px; line-height:1.6; }
  .ul-hypothesis-hint { inset-inline:14px; bottom:16px; padding-top:12px; font-size:9px; gap:5px; }
  .ul-hypothesis-preview { inset:112px 10px 60px; gap:10px; }
+ .ul-hypothesis.is-revealed { min-height:280px; padding-bottom:70px; }
+ .ul-hypothesis.is-revealed .ul-hypothesis-preview { margin:18px 10px 0; }
  .ul-case .ul-hypothesis-preview p { font-size:10px; line-height:1.5; margin:0 2px; }
  .ul-sketch-expand { width:44px; height:44px; top:114px; right:12px; }
  .ul-exploration-convergence { margin-top:55px; padding-top:35px; }
