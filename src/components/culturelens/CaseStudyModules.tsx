@@ -29,10 +29,19 @@ export function ProposalExplorer() {
   const [active, setActive] = useState(0)
   const container = useRef<HTMLDivElement>(null)
   useEffect(() => {
+    const element = container.current
+    const proposalBar = element?.querySelector<HTMLElement>(':scope > aside')
     const sections = Array.from(container.current?.querySelectorAll<HTMLElement>('[data-proposal-layer]') || [])
     let frame = 0
+    let barHeight = -1
     const update = () => {
       frame = 0
+      // Mobile labels can wrap; keep click landings below the actual sticky bar.
+      const nextHeight = proposalBar?.offsetHeight || 70
+      if (nextHeight !== barHeight) {
+        barHeight = nextHeight
+        element?.style.setProperty('--culturelens-proposal-bar-height', `${barHeight}px`)
+      }
       const readingLine = Math.min(innerHeight * .32, 260)
       let current = 0
       sections.forEach((section, index) => { if (section.getBoundingClientRect().top <= readingLine) current = index })
@@ -41,6 +50,7 @@ export function ProposalExplorer() {
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update) }
     const observer = new ResizeObserver(schedule)
     sections.forEach(section => observer.observe(section))
+    if (proposalBar) observer.observe(proposalBar)
     window.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)
     update()
