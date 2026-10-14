@@ -1,8 +1,8 @@
 /* The preview's stepped pixel typography, implemented as real selectable text.
-   One self-hosted Latin font (7.9 KB); no raster title images or font CDN calls. */
+   One self-hosted Latin font; C/c and Z use the same editable outlines as Figma. */
 @font-face {
-  font-family: 'Pixelify Sans';
-  src: url('/fonts/pixelify-sans-bold-latin-v1.woff2') format('woff2');
+  font-family: 'Jiaming Pixel';
+  src: url('/fonts/jiaming-pixel-bold-latin-v2.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -13,7 +13,7 @@
 .selected-work .section-intro h2,
 .home-project-grid .project-meta h3,
 .site-footer[data-pixel-headings] h2 {
-  font-family: 'Pixelify Sans', 'Space Grotesk', sans-serif;
+  font-family: 'Jiaming Pixel', 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-synthesis: none;
   letter-spacing: -.02em;

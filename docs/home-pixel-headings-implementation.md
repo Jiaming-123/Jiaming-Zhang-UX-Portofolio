@@ -1,7 +1,7 @@
 # Homepage pixel headings
 
-The homepage display typography is now real, selectable text in Pixelify Sans
-700 rather than the previously generated bitmap previews. The font retains
+The homepage display typography is now real, selectable text in Jiaming Pixel
+700, derived from Pixelify Sans, rather than the generated bitmap previews. The font retains
 mixed-case project names, scales with the viewport and keeps existing heading
 semantics and links. Body text and case-study/About/Contact typography are not
 changed.
@@ -16,7 +16,8 @@ changed.
 - `src/components/Layout.tsx`: adds `data-pixel-headings` only on the Home footer.
   The About footer keeps its existing font; case studies still omit footers.
 - `index.html`: preloads the local WOFF2 font.
-- `public/fonts/pixelify-sans-bold-latin-v1.woff2`: 7,924-byte Latin font.
+- `public/fonts/jiaming-pixel-bold-latin-v2.woff2`: 7,936-byte customized Latin font.
+- `public/fonts/pixelify-sans-bold-latin-v1.woff2`: preserved upstream source.
 - `public/fonts/pixelify-sans-OFL.txt`: upstream SIL Open Font License.
 - `tests/home-pixel-headings.test.mjs`: font, text, scope and build-copy regression
   checks. No screenshot assets are required at runtime.
@@ -29,7 +30,7 @@ keyword carousel, navigation and flying mascot are unchanged.
 
 ## Parameters
 
-- Font: Pixelify Sans, weight 700, font-display swap, no synthetic weight.
+- Font: Jiaming Pixel, weight 700, font-display swap, no synthetic weight.
 - Normal heading tracking: −0.02em; hero name tracking: −0.045em.
 - Hero and UniLink retain their existing responsive font-size rules.
 - Selected-work desktop size: clamp(2.8rem, 6vw, 6.5rem); line-height 0.98.
@@ -43,11 +44,16 @@ and [upstream license](https://github.com/google/fonts/blob/main/ofl/pixelifysan
 The downloaded Google Fonts Latin WOFF2 is self-hosted; no font CDN is contacted
 by visitors.
 
+The v2 derivative opens C/c and simplifies Z to three broad diagonal steps with
+flat terminals. It uses the same outlines as the editable Figma letters; see
+`home-pixel-cz-figma-v2.md`. Advance widths and the other base letterforms remain
+unchanged.
+
 ## Verification
 
 - Full main and standalone UniLink builds plus TypeScript and zero-warning lint.
-- 100 tracked/new regression tests pass, including the compact-navigation test.
-- Full local glob: 103 tests, 101 pass; two pre-existing failures in the user's
+- 101 tracked/new regression tests pass, including compact navigation and C/Z.
+- Full local glob: 104 tests, 102 pass; two pre-existing failures in the user's
   untracked CultureLens test refer to obsolete compiled-chunk filenames. That
   file is preserved and excluded from the release commit.
 - Local browser: 1440px desktop and 390px / 320px mobile Home; font loaded, all
