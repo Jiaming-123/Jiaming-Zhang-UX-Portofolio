@@ -76,6 +76,18 @@ test('desktop chapter rail fills the available navbar width without a wide-scree
   assert.ok(css.includes('overflow-x:auto'))
 })
 
+test('chapter bars keep the walker near the top edge and omit mobile current-chapter text', () => {
+  const css = read('public/project-chapters.css')
+  assert.ok(css.includes('padding:4px var(--side,4.4vw) 10px'))
+  assert.ok(css.includes('.case-chapter-current { display:none; }'))
+  const mobile = css.slice(css.indexOf('@media(max-width:760px)'), css.indexOf('@media(prefers-reduced-motion:reduce)'))
+  assert.ok(mobile.includes('display:flex; align-items:flex-start; gap:12px; padding:4px 18px 8px'))
+  assert.ok(!mobile.includes('.case-chapter-current { display:block'))
+  assert.ok(!mobile.includes('margin-bottom:12px'))
+  assert.ok(mobile.includes('--chapter-walk-lane:39px'))
+  assert.ok(mobile.includes('height:39px'))
+})
+
 test('Crownlands primary navigation retains the shared navy and cyan palette without availability status', () => {
   const css = read('public/project-navbar.css')
   assert.match(css, /body\.crownlands-theme \.nav-shell \{[^}]*color: #fff;[^}]*background: #050b18;/)

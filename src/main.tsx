@@ -18,6 +18,7 @@ import '../public/culturelens-hero-overview.css'
 import '../public/culturelens-ai-image-label.css'
 import '../public/project-navbar.css'
 import '../public/project-chapters.css'
+import './styles/home-pixel-headings.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

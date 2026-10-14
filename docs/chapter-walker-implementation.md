@@ -28,6 +28,9 @@ The existing larger global flying mascot is a separate component and is unchange
 | Mobile avatar (≤760 px) | 26 × 39 CSS px |
 | Lower semicircle | 30 × 15 CSS px, no top border or number |
 | Walking lane | 48 px desktop / 39 px mobile, above the track |
+| Avatar top clearance | 4 px on desktop and mobile |
+| Navigation padding | Desktop 4 px top / 10 px bottom; mobile 4 px top / 8 px bottom |
+| Mobile bar layout | Logo beside the rail, no separate heading row or top-right current-chapter text |
 | Side-walk cycle | 0.36 seconds, two discrete frames |
 | Stationary front-wave cycle | 0.8 seconds, two discrete frames |
 | Delay after the last vertical scroll | 280 ms, `setTimeout(stopWalking, 280)` |
@@ -49,6 +52,13 @@ the active chapter. The avatar is separately clamped inside the visible rail,
 and scroll-driven movement brings its corresponding track position into view.
 It is decorative, pointer-transparent and hidden from assistive technology.
 Chapter links retain accessible labels, keyboard focus and `aria-current`.
+
+The compact mobile bar is 86 CSS px high at 390px, with the 26 × 39px avatar
+starting 4px below the top edge. Desktop uses the same 4px top clearance with
+the 32 × 48px avatar. The existing rail stays full-width on wide screens and
+scrollable on narrow screens; the actual bar height still drives anchor landing
+and the reading line, so the reduced height does not introduce a hardcoded
+scroll offset. The duplicated top-right chapter caption is not displayed.
 
 Reduced-motion preferences disable walking, waving, turning and position
 transitions, leaving a static appropriate frame. Hidden tabs pause the animation.

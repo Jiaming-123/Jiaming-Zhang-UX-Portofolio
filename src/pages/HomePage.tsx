@@ -49,7 +49,7 @@ export default function HomePage() {
       <section className="selected-work" id="work">
         <Reveal className="section-intro">
           <SectionLabel number="02">DESIGN ACROSS SCREENS, SYSTEMS &amp; SERVICES</SectionLabel>
-          <div><h2>DESIGN ACROSS<br />SCREENS, SYSTEMS<br /><span>&amp; SERVICES.</span></h2><p>Selected projects exploring how research, interaction, and visual systems can make complex experiences clear and human-centred.</p></div>
+          <div><h2>DESIGN ACROSS<br />SCREENS,<br />SYSTEMS<br /><span>&amp; SERVICES.</span></h2><p>Selected projects exploring how research, interaction, and visual systems can make complex experiences clear and human-centred.</p></div>
         </Reveal>
         <div className="project-list home-project-grid">
           {selectedProjects.map((project, index) => <Reveal variant="project" key={project.slug}><ProjectCard project={{ ...project, number: String(index + 1).padStart(2, '0') }} /></Reveal>)}
