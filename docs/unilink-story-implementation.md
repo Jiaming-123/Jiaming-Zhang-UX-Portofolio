@@ -2,6 +2,8 @@
 
 实现日期：2026-10-12。
 
+2026-10-15 已替换为新的 UniLink presentation 视频；最新参数和验证见 `unilink-presentation-20261015.md`。下方代码与处理记录为 2026-10-12 的历史快照，不代表当前页面；当前实现以 src 中的文件为准，请勿恢复历史快照中已删除的章节。
+
 ## 代码库位置
 
 - 播放器与文字：`src/components/unilink/UniLinkStory.tsx`

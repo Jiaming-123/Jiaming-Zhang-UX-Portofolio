@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import '../../styles/unilink-story.css'
 
-const videoSource = '/media/unilink/unilink-story-20261012.mp4'
+const videoSource = '/media/unilink/unilink-presentation-20261015.mp4'
 const posterSource = '/media/unilink/unilink-story-poster-v2-20261012.webp'
 
 export default function UniLinkStory() {
@@ -46,8 +46,8 @@ export default function UniLinkStory() {
             ref={videoRef}
             src={videoSource}
             poster={posterSource}
-            width={2940}
-            height={1656}
+            width={1916}
+            height={1080}
             controls
             playsInline
             autoPlay

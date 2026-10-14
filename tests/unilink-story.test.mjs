@@ -5,7 +5,7 @@ import { read, builtJS } from './helpers/build.mjs'
 
 const component = read('src/components/unilink/UniLinkStory.tsx')
 const page = read('src/pages/UniLinkCaseStudy.tsx')
-const videoPath = 'media/unilink/unilink-story-20261012.mp4'
+const videoPath = 'media/unilink/unilink-presentation-20261015.mp4'
 const posterPath = 'media/unilink/unilink-story-poster-v2-20261012.webp'
 
 test('UniLink story matches the requested introduction and precedes Problem', () => {
@@ -41,7 +41,9 @@ test('UniLink video and poster are included unchanged in both release outputs', 
     }
   }
   const size = fs.statSync(new URL('public/' + videoPath, root)).size
-  assert.ok(size < 95_000_000, 'video stays under the GitHub single-file limit with headroom')
+  assert.ok(size < 75_000_000, '1080p web video stays within the compression budget and GitHub limit')
+  assert.ok(component.includes('width={1916}') && component.includes('height={1080}'))
+  assert.ok(!component.includes('/media/unilink/unilink-story-20261012.mp4'))
   const html = read('dist-production/projects/unilink/index.html')
   const bundlePath = html.match(/src="\/(unilink-assets\/[^" ]+\.js)"/)?.[1]
   assert.ok(bundlePath)
