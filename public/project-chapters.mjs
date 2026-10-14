@@ -19,20 +19,48 @@ export function chapterRailScrollLeft(scrollLeft, viewportWidth, contentWidth, r
   return Math.min(Math.max(0, contentWidth - viewportWidth), Math.max(0, scrollLeft + relativeLeft - (viewportWidth - itemWidth) / 2));
 }
 
+export function chapterReadingProgress(tops, readingLine, atPageEnd = false) {
+  if (tops.length < 2) return 0;
+  const index = activeChapterIndex(tops, readingLine, atPageEnd);
+  if (index >= tops.length - 1 || atPageEnd) return 1;
+  const span = tops[index + 1] - tops[index];
+  const fraction = span > 0 ? Math.min(1, Math.max(0, (readingLine - tops[index]) / span)) : 0;
+  return (index + fraction) / (tops.length - 1);
+}
+
+export function chapterWalkerOffset(progress, centers, viewportWidth, spriteWidth) {
+  if (!centers.length) return 0;
+  const step = Math.min(1, Math.max(0, progress)) * (centers.length - 1);
+  const index = Math.floor(step);
+  const center = centers[index] + ((centers[Math.min(index + 1, centers.length - 1)] ?? centers[index]) - centers[index]) * (step - index);
+  const half = Math.min(spriteWidth / 2, viewportWidth / 2);
+  return Math.min(Math.max(half, viewportWidth - half), Math.max(half, center)) - spriteWidth / 2;
+}
+
 export function setupProjectChapters(pathname) {
   const slug = pathname.replace(/\/$/, '').split('/').pop();
   const project = chapterProjects[slug === 'landing-app' ? 'unilink' : slug];
   if (!project || !pathname.startsWith('/projects/')) return () => {};
   document.body.classList.add('case-chapters-enabled');
-  let nav, hero, sections = [], links = [], items = [];
+  let nav, hero, rail, list, walker, sections = [], links = [], items = [], markers = [];
   let frame = 0, active = -1, anchor = null, moving = false, disposed = false;
   let railWidth = 0, wasVisible = false;
+  let lastScrollY = window.scrollY, idleTimer = 0;
   const previousChapterHeight = document.body.style.getPropertyValue('--case-chapter-height');
   const originals = [];
   const legacy = [];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const resize = new ResizeObserver(() => schedule());
   const readingLine = () => (nav?.offsetHeight || 86) + 24;
+  const stopWalking = () => {
+    clearTimeout(idleTimer); idleTimer = 0;
+    if (walker) walker.dataset.state = 'idle';
+  };
+  const visibility = () => {
+    nav?.classList.toggle('is-paused', document.hidden);
+    if (document.hidden) stopWalking();
+    else schedule();
+  };
   const setTop = (top, immediate, onComplete) => {
     const request = new CustomEvent('portfolio:chapter-scroll', { cancelable: true, detail: { top: Math.max(0, top), immediate, onComplete } });
     if (window.dispatchEvent(request)) {
@@ -83,7 +111,9 @@ export function setupProjectChapters(pathname) {
     const current = document.createElement('span');
     current.className = 'case-chapter-current';
     heading.append(mark, current);
-    const list = document.createElement('ol');
+    rail = document.createElement('div');
+    rail.className = 'case-chapter-rail';
+    list = document.createElement('ol');
     sections.forEach((section, index) => {
       originals.push({ section, id: section.getAttribute('id'), tabindex: section.getAttribute('tabindex'), margin: section.style.scrollMarginTop });
       if (!section.id) section.id = `${slug}-${project.chapters[index][0].toLowerCase().replaceAll(' ', '-')}`;
@@ -91,22 +121,43 @@ export function setupProjectChapters(pathname) {
       const item = document.createElement('li');
       const link = document.createElement('a');
       link.href = `#${section.id}`;
-      const number = document.createElement('span');
-      number.className = 'case-chapter-dot';
-      number.textContent = String(index + 1).padStart(2, '0');
+      const marker = document.createElement('span');
+      marker.className = 'case-chapter-dot';
+      marker.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
       label.className = 'case-chapter-name';
       label.textContent = project.chapters[index][0];
-      link.append(number, label);
+      link.append(marker, label);
       link.addEventListener('click', jump);
-      item.append(link); list.append(item); links.push(link); items.push(item);
+      item.append(link); list.append(item); links.push(link); items.push(item); markers.push(marker);
     });
-    nav.append(heading, list);
+    walker = document.createElement('span');
+    walker.className = 'case-chapter-walker';
+    walker.setAttribute('aria-hidden', 'true');
+    walker.dataset.state = 'idle';
+    walker.dataset.facing = 'right';
+    const sprite = document.createElement('span');
+    sprite.className = 'case-chapter-walker-sprite';
+    for (const pose of ['walk-a', 'walk-b', 'wave-a', 'wave-b']) {
+      const image = document.createElement('img');
+      image.className = `case-chapter-walker-frame frame-${pose}`;
+      // Walking is a side profile; the two v2 wave frames face the viewer.
+      const version = pose.startsWith('wave') ? 2 : 1;
+      image.src = `/images/mascot/chapter-${pose}-v${version}.webp`;
+      image.alt = ''; image.width = 128; image.height = 192;
+      image.decoding = 'async'; image.fetchPriority = 'low'; image.draggable = false;
+      sprite.append(image);
+    }
+    walker.append(sprite);
+    rail.append(list, walker);
+    list.addEventListener('scroll', schedule, { passive: true });
+    nav.append(heading, rail);
     document.querySelectorAll('.ul-timeline, .culturelens-chapter-nav, .cl-sticky-nav').forEach(old => {
       legacy.push({ old, hidden: old.getAttribute('aria-hidden'), inert: old.inert });
       old.setAttribute('aria-hidden', 'true'); old.inert = true;
     });
     document.body.append(nav);
+    nav.classList.toggle('is-paused', document.hidden);
     [hero, nav, ...sections].forEach(element => resize.observe(element));
   };
   const update = () => {
@@ -133,9 +184,9 @@ export function setupProjectChapters(pathname) {
         if (index === active) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
-      nav.querySelector('.case-chapter-current').textContent = `${String(active + 1).padStart(2, '0')} / ${project.chapters[active][0]}`;
+      nav.querySelector('.case-chapter-current').textContent = project.chapters[active][0];
     }
-    const list = nav.querySelector('ol'), link = links[active];
+    const link = links[active];
     if (changed || becameVisible || railWidth !== list.clientWidth) {
       railWidth = list.clientWidth;
       if (list.scrollWidth > list.clientWidth && link) {
@@ -145,6 +196,34 @@ export function setupProjectChapters(pathname) {
         list.scrollTo({ left, behavior: 'auto' });
       }
     }
+    const delta = window.scrollY - lastScrollY;
+    lastScrollY = window.scrollY;
+    if (visible && !document.hidden && Math.abs(delta) > .5) {
+      walker.dataset.state = 'walking';
+      walker.dataset.facing = delta < 0 ? 'left' : 'right';
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(stopWalking, 280);
+    } else if (!visible) stopWalking();
+    const progress = chapterReadingProgress(tops, readingLine(), atPageEnd);
+    const railBox = rail.getBoundingClientRect();
+    let centers = markers.map(marker => { const box = marker.getBoundingClientRect(); return box.left + box.width / 2 - railBox.left; });
+    // The track scrolls with its labels; the avatar stays in the visible lane.
+    const first = centers[0] + list.scrollLeft;
+    list.style.setProperty('--chapter-track-left', `${first}px`);
+    list.style.setProperty('--chapter-track-width', `${centers.at(-1) - centers[0]}px`);
+    if (Math.abs(delta) > .5 && list.scrollWidth > list.clientWidth) {
+      const step = progress * (centers.length - 1), index = Math.floor(step);
+      const center = centers[index] + (centers[Math.min(index + 1, centers.length - 1)] - centers[index]) * (step - index);
+      const margin = walker.offsetWidth / 2 + 8;
+      const clamped = Math.min(rail.clientWidth - margin, Math.max(margin, center));
+      if (Math.abs(center - clamped) > 1) {
+        list.scrollLeft = Math.min(list.scrollWidth - list.clientWidth, Math.max(0, list.scrollLeft + center - clamped));
+        centers = markers.map(marker => { const box = marker.getBoundingClientRect(); return box.left + box.width / 2 - railBox.left; });
+      }
+    }
+    const x = chapterWalkerOffset(progress, centers, rail.clientWidth, walker.offsetWidth);
+    walker.style.transform = `translate3d(${x}px, 0, 0)`;
+    walker.dataset.progress = progress.toFixed(4);
     align();
   };
   const schedule = () => { if (!disposed && !frame) frame = requestAnimationFrame(update); };
@@ -158,9 +237,11 @@ export function setupProjectChapters(pathname) {
   window.addEventListener('pointerdown', release, { passive: true });
   window.addEventListener('keydown', key);
   document.addEventListener('transitionend', schedule);
+  document.addEventListener('visibilitychange', visibility);
   update();
   return () => {
-    disposed = true; cancelAnimationFrame(frame); mounted.disconnect(); resize.disconnect();
+    disposed = true; cancelAnimationFrame(frame); mounted.disconnect(); resize.disconnect(); stopWalking();
+    list?.removeEventListener('scroll', schedule);
     links.forEach(link => link.removeEventListener('click', jump)); nav?.remove();
     originals.forEach(({ section, id, tabindex, margin }) => {
       if (id === null) section.removeAttribute('id'); else section.id = id;
@@ -174,5 +255,6 @@ export function setupProjectChapters(pathname) {
     window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); window.removeEventListener('scrollend', complete);
     window.removeEventListener('wheel', release); window.removeEventListener('touchstart', release); window.removeEventListener('pointerdown', release); window.removeEventListener('keydown', key);
     document.removeEventListener('transitionend', schedule);
+    document.removeEventListener('visibilitychange', visibility);
   };
 }

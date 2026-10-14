@@ -5,7 +5,7 @@ import { chapterProjects, activeChapterIndex, chapterRailScrollLeft } from '../p
 
 const read = file => fs.readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
 
-test('all five projects share numbered chapters without individual project marks', () => {
+test('all five projects share chapter navigation without individual project marks', () => {
   assert.deepEqual(Object.keys(chapterProjects), ['unilink', 'boardgamemate', 'furniture', 'culturelens', 'crownlands'])
   for (const project of Object.values(chapterProjects)) {
     assert.ok(!('mark' in project))
@@ -75,7 +75,7 @@ test('Crownlands primary navigation retains the shared navy and cyan palette wit
   assert.ok(read('public/project-chapters.css').includes('#b2955b'))
 })
 
-test('project palettes, mobile names and focus states are retained without a progress bar', () => {
+test('project palettes, mobile names and focus states are retained alongside the walking avatar', () => {
   const css = read('public/project-chapters.css')
   for (const slug of ['boardgamemate', 'furniture', 'culturelens', 'crownlands']) assert.ok(css.includes(`[data-project="${slug}"]`))
   assert.ok(css.includes('#fff8f0'))
@@ -83,7 +83,8 @@ test('project palettes, mobile names and focus states are retained without a pro
   assert.ok(css.includes('#b2955b'))
   assert.ok(css.includes('overflow-x:auto'))
   assert.ok(css.includes(':focus-visible'))
-  assert.ok(!css.includes('scaleX'))
+  assert.ok(css.includes('.case-chapter-walker[data-facing="left"]'))
+  assert.ok(!css.includes('.case-chapter-reading-progress'))
   assert.ok(!css.includes('.case-chapter-name { display:none'))
 })
 
