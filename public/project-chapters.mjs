@@ -28,13 +28,31 @@ export function chapterReadingProgress(tops, readingLine, atPageEnd = false) {
   return (index + fraction) / (tops.length - 1);
 }
 
-export function chapterWalkerOffset(progress, centers, viewportWidth, spriteWidth) {
+export function chapterReadingPosition(progress, centers) {
   if (!centers.length) return 0;
   const step = Math.min(1, Math.max(0, progress)) * (centers.length - 1);
   const index = Math.floor(step);
-  const center = centers[index] + ((centers[Math.min(index + 1, centers.length - 1)] ?? centers[index]) - centers[index]) * (step - index);
+  return centers[index] + ((centers[Math.min(index + 1, centers.length - 1)] ?? centers[index]) - centers[index]) * (step - index);
+}
+
+export function chapterWalkerOffset(progress, centers, viewportWidth, spriteWidth) {
+  if (!centers.length) return 0;
+  const center = chapterReadingPosition(progress, centers);
   const half = Math.min(spriteWidth / 2, viewportWidth / 2);
   return Math.min(Math.max(half, viewportWidth - half), Math.max(half, center)) - spriteWidth / 2;
+}
+
+export function chapterMobileRailMotion(progress, centers, viewportWidth, contentWidth, spriteWidth) {
+  if (!centers.length) return { scrollLeft: 0, walkerLeft: 0 };
+  // One content-space reading position drives BOTH the camera and avatar.
+  // Never recenter on an active-chapter change: that caused the backward jump.
+  const center = chapterReadingPosition(progress, centers);
+  const span = centers.at(-1) - centers[0];
+  const fraction = span > 0 ? Math.min(1, Math.max(0, (center - centers[0]) / span)) : 0;
+  const travel = Math.min(Math.max(0, contentWidth - viewportWidth), Math.max(0, span - spriteWidth));
+  const scrollLeft = fraction * travel;
+  const walkerLeft = Math.min(Math.max(0, viewportWidth - spriteWidth), Math.max(0, center - scrollLeft - spriteWidth / 2));
+  return { scrollLeft, walkerLeft };
 }
 
 export function setupProjectChapters(pathname) {
@@ -50,6 +68,7 @@ export function setupProjectChapters(pathname) {
   const originals = [];
   const legacy = [];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobile = matchMedia('(max-width:760px)');
   const resize = new ResizeObserver(() => schedule());
   const readingLine = () => (nav?.offsetHeight || 86) + 24;
   const stopWalking = () => {
@@ -127,6 +146,7 @@ export function setupProjectChapters(pathname) {
       const label = document.createElement('span');
       label.className = 'case-chapter-name';
       label.textContent = project.chapters[index][0];
+      label.dataset.label = project.chapters[index][0];
       link.append(marker, label);
       link.addEventListener('click', jump);
       item.append(link); list.append(item); links.push(link); items.push(item); markers.push(marker);
@@ -187,7 +207,8 @@ export function setupProjectChapters(pathname) {
       nav.querySelector('.case-chapter-current').textContent = project.chapters[active][0];
     }
     const link = links[active];
-    if (changed || becameVisible || railWidth !== list.clientWidth) {
+    const railResized = railWidth !== list.clientWidth;
+    if (!mobile.matches && (changed || becameVisible || railWidth !== list.clientWidth)) {
       railWidth = list.clientWidth;
       if (list.scrollWidth > list.clientWidth && link) {
         // A link is positioned inside its li: offsetLeft is not its rail position.
@@ -206,22 +227,35 @@ export function setupProjectChapters(pathname) {
     } else if (!visible) stopWalking();
     const progress = chapterReadingProgress(tops, readingLine(), atPageEnd);
     const railBox = rail.getBoundingClientRect();
-    let centers = markers.map(marker => { const box = marker.getBoundingClientRect(); return box.left + box.width / 2 - railBox.left; });
+    const contentCenters = markers.map(marker => { const box = marker.getBoundingClientRect(); return box.left + box.width / 2 - railBox.left + list.scrollLeft; });
     // The track scrolls with its labels; the avatar stays in the visible lane.
-    const first = centers[0] + list.scrollLeft;
-    list.style.setProperty('--chapter-track-left', `${first}px`);
-    list.style.setProperty('--chapter-track-width', `${centers.at(-1) - centers[0]}px`);
-    if (Math.abs(delta) > .5 && list.scrollWidth > list.clientWidth) {
-      const step = progress * (centers.length - 1), index = Math.floor(step);
-      const center = centers[index] + (centers[Math.min(index + 1, centers.length - 1)] - centers[index]) * (step - index);
-      const margin = walker.offsetWidth / 2 + 8;
-      const clamped = Math.min(rail.clientWidth - margin, Math.max(margin, center));
-      if (Math.abs(center - clamped) > 1) {
-        list.scrollLeft = Math.min(list.scrollWidth - list.clientWidth, Math.max(0, list.scrollLeft + center - clamped));
-        centers = markers.map(marker => { const box = marker.getBoundingClientRect(); return box.left + box.width / 2 - railBox.left; });
+    list.style.setProperty('--chapter-track-left', `${contentCenters[0]}px`);
+    list.style.setProperty('--chapter-track-width', `${contentCenters.at(-1) - contentCenters[0]}px`);
+    let x;
+    if (mobile.matches) {
+      const motion = chapterMobileRailMotion(progress, contentCenters, list.clientWidth, list.scrollWidth, walker.offsetWidth);
+      // Even subpixel vertical scrolling advances the rail. An idle horizontal
+      // swipe remains usable until the reader resumes vertical movement.
+      if (delta !== 0 || changed || becameVisible || railResized) list.scrollLeft = motion.scrollLeft;
+      const manuallyPanned = Math.abs(list.scrollLeft - motion.scrollLeft) > 1;
+      x = manuallyPanned
+        ? chapterWalkerOffset(progress, contentCenters.map(center => center - list.scrollLeft), rail.clientWidth, walker.offsetWidth)
+        : motion.walkerLeft;
+      railWidth = list.clientWidth;
+    } else {
+      // Keep the existing desktop overflow and marker-following behavior.
+      let centers = contentCenters.map(center => center - list.scrollLeft);
+      if (Math.abs(delta) > .5 && list.scrollWidth > list.clientWidth) {
+        const center = chapterReadingPosition(progress, centers);
+        const margin = walker.offsetWidth / 2 + 8;
+        const clamped = Math.min(rail.clientWidth - margin, Math.max(margin, center));
+        if (Math.abs(center - clamped) > 1) {
+          list.scrollLeft = Math.min(list.scrollWidth - list.clientWidth, Math.max(0, list.scrollLeft + center - clamped));
+          centers = contentCenters.map(center => center - list.scrollLeft);
+        }
       }
+      x = chapterWalkerOffset(progress, centers, rail.clientWidth, walker.offsetWidth);
     }
-    const x = chapterWalkerOffset(progress, centers, rail.clientWidth, walker.offsetWidth);
     walker.style.transform = `translate3d(${x}px, 0, 0)`;
     walker.dataset.progress = progress.toFixed(4);
     align();

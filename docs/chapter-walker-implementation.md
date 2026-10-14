@@ -2,8 +2,9 @@
 
 The shared chapter navigation for UniLink, BoardGameMate, My Furniture Store,
 CultureLens and Crownlands uses lower semicircles without numbers. Existing
-chapter labels, palettes, click-to-jump, active highlighting and mobile rail
-auto-centering are preserved. No project content is added back or removed.
+chapter labels, palettes, click-to-jump and active highlighting are preserved.
+The mobile rail follows continuous reading progress instead of recentering at
+each chapter boundary. No project content is added back or removed.
 
 ## Source files
 
@@ -17,6 +18,8 @@ auto-centering are preserved. No project content is added back or removed.
   frames. Both feet stay planted. There is no propeller on these four sprites.
 - `tests/chapter-walker.test.mjs`: progress, geometry, asset and motion regression
   tests. `tests/project-chapters.test.mjs` keeps the existing navigation tests.
+- `tests/mobile-chapter-motion.test.mjs`: continuous camera/avatar geometry across
+  all five cases, reverse reading, bounds and mobile-only integration safeguards.
 
 The existing larger global flying mascot is a separate component and is unchanged.
 
@@ -36,7 +39,7 @@ The existing larger global flying mascot is a separate component and is unchange
 | Delay after the last vertical scroll | 280 ms, `setTimeout(stopWalking, 280)` |
 | Turn toward the viewer | 0.18 seconds, `chapter-turn-front` |
 | Turn angle | +55° after right-facing walking / −55° after left-facing walking |
-| Track position easing | 0.06 seconds, linear |
+| Track position easing | Desktop: 0.06 seconds, linear; mobile: none (direct reading-position updates) |
 | Navigation show/hide | 0.3 seconds (existing behavior) |
 | Source / delivered frame size | 1024 × 1536 PNG / 128 × 192 lossless WebP |
 
@@ -47,9 +50,24 @@ walk left. When motion stops, the sprite switches to front-view waving frames,
 with a short CSS turn. The front-view sprite is never mirrored, so its teddy
 bear stays on the correct side.
 
-On narrow screens the label rail remains horizontally scrollable and auto-centers
-the active chapter. The avatar is separately clamped inside the visible rail,
-and scroll-driven movement brings its corresponding track position into view.
+On mobile (≤760 px), one content-space reading position drives both the rail
+camera and the avatar. `chapterReadingPosition()` interpolates the actual marker
+centers; `chapterMobileRailMotion()` normalizes that position between the first
+and last marker and applies the same fraction to the available horizontal rail
+travel. The avatar's visible position is the reading position minus the camera
+offset and half the sprite width. Both advance monotonically while reading down,
+reverse while reading up, and stay within the visible rail. Entering a new
+chapter does not start a separate centering action or reset either position.
+
+The previous mobile implementation combined active-chapter recentering with
+edge-following, causing the visible avatar to move back at each boundary. That
+centering branch now runs only on desktop. A hidden bold label-width sizer also
+prevents an active-label font-weight change from moving the marker geometry.
+
+The rail remains horizontally scrollable: idle manual panning is kept until the
+reader resumes vertical scrolling. Subpixel reading movement also updates the
+camera, without an additional transform transition on mobile. Desktop keeps its
+existing marker-following, overflow-centering and transform easing behavior.
 It is decorative, pointer-transparent and hidden from assistive technology.
 Chapter links retain accessible labels, keyboard focus and `aria-current`.
 
@@ -124,3 +142,26 @@ Wave pose B: same raised arm and elbow position, open palm tilted outward toward
 - The user's unrelated untracked CultureLens image-label test is not modified or
   included in this feature's commit. Its obsolete compiled-chunk expectations
   are reported separately if the full test glob is run.
+
+### Continuous mobile rail verification (2026-10-14)
+
+- TypeScript, both production builds and lint pass. All 104 tracked/new feature
+  tests pass; the full glob passes 105/107, with only the two existing untracked
+  CultureLens compiled-filename expectations failing.
+- Pure geometry tests sweep 2,001 reading positions for every case at three rail
+  widths, checking monotonic camera/avatar movement, boundary continuity and
+  bounds. Reverse reading and non-overflowing/degenerate rails are also covered.
+- At 390 px, UniLink's downward samples cross Problem → Research → Concepts
+  without backward movement (rail 81 → 100 → 129 → 143 → 170 px; avatar 85.8 →
+  101.2 → 124.9 → 135.8 → 158.2 px). Upward reading reverses naturally and stopping
+  restores the existing front-facing idle wave.
+- My Furniture Store's ten-chapter mobile rail advances across Strategy,
+  Architecture, Experience, Build and Testing; Crownlands' long-label rail
+  advances through Overview, How to Play and Design Thinking. The 86 px compact
+  mobile bar, 4 px avatar top clearance and original assets remain unchanged.
+- BoardGameMate progresses across Research and Reframe; CultureLens reaches
+  Reflect with the camera at its maximum and the avatar inside the rail. Idle
+  horizontal panning is still possible. The 320 px narrow viewport keeps one
+  compact nav, hidden current-caption and a bounded avatar. At 1440 px, all
+  CultureLens labels fit the full-width rail and the avatar remains 32 × 48 px
+  with the original 0.06-second desktop transform transition.

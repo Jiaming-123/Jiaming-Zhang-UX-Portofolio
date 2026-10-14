@@ -45,10 +45,12 @@
   .case-chapter-nav { display:flex; align-items:flex-start; gap:12px; padding:4px 18px 8px; }
   .case-chapter-heading { margin-top:7px; }
   .case-chapter-rail { --chapter-walk-lane:39px; max-width:none; }
-  .case-chapter-walker { width:26px; height:39px; }
+  .case-chapter-walker { width:26px; height:39px; transition:none; }
   .case-chapter-nav ol { gap:14px; justify-content:flex-start; }
   .case-chapter-nav li { flex:0 0 auto; min-width:66px; }
   .case-chapter-nav a:not(.case-chapter-mark) { font-size:10px; }
+  /* Reserve the bold label width so an active highlight cannot shift markers. */
+  .case-chapter-name::after { content:attr(data-label); display:block; height:0; overflow:hidden; visibility:hidden; font-weight:600; }
 }
 @media(prefers-reduced-motion:reduce) {
   .case-chapter-nav, .case-chapter-walker { transition:none; }
