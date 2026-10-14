@@ -1,0 +1,68 @@
+.flying-mascot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;
+  width: 100px;
+  aspect-ratio: 2 / 3;
+  pointer-events: none;
+  visibility: hidden;
+  will-change: transform;
+}
+.flying-mascot.is-ready { visibility: visible; }
+.mascot-trigger {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.mascot-trigger:focus-visible { outline: 2px solid #00d4ff; outline-offset: 4px; }
+.flying-mascot:not([data-phase="idle"]) .mascot-trigger { pointer-events: none; }
+.mascot-flight-orientation, .mascot-hover, .mascot-character { display: block; width: 100%; height: 100%; position: relative; }
+.mascot-flight-orientation { transform-origin: 50% 50%; will-change: transform; }
+.mascot-hover { animation: mascot-hover 2.8s ease-in-out infinite; transform-origin: 50% 30%; }
+.flying-mascot:not([data-phase="idle"]) .mascot-hover { animation: none; }
+.mascot-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; image-rendering: pixelated; user-select: none; pointer-events: none; }
+.mascot-frame.is-active { opacity: 1; }
+.mascot-frame--hug { transform: translateY(4%) scale(.95); transform-origin: 50% 0; }
+.mascot-copter {
+  position: absolute;
+  left: var(--copter-x, 51%);
+  top: var(--copter-y, 14%);
+  width: 58%;
+  height: 13%;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  perspective: 160px;
+}
+.mascot-copter-stem { position: absolute; bottom: 0; left: 47%; width: 7%; height: 70%; background: #ffbd26; border-inline: 1px solid #9d5b13; }
+.mascot-copter-blades { position: absolute; left: 0; top: 0; width: 100%; height: 42%; display: flex; align-items: center; animation: mascot-rotor .28s linear infinite; transform-origin: 50% 50%; transform-style: preserve-3d; will-change: transform; }
+.mascot-copter-blades > span { width: 50%; height: 100%; background: #ffc52d; border-block: 2px solid #a05b13; clip-path: polygon(0 25%, 10% 25%, 10% 0, 85% 0, 85% 25%, 100% 25%, 100% 75%, 90% 75%, 90% 100%, 15% 100%, 15% 75%, 0 75%); }
+.mascot-copter-blades > span::after { content: ''; display: block; width: 70%; height: 35%; margin-left: 15%; background: #fff0ac; }
+.mascot-copter-blades > span:last-child { transform: rotate(180deg); }
+.mascot-copter-hub { position: absolute; top: 12%; left: 46%; width: 9%; height: 32%; background: #ffe68b; border: 1px solid #b77514; }
+.flying-mascot[data-paused="true"] :is(.mascot-hover, .mascot-copter-blades) { animation-play-state: paused; }
+@keyframes mascot-hover {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+@keyframes mascot-rotor {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+@media (max-width: 760px) {
+  .flying-mascot { width: 72px; }
+  .mascot-copter-blades > span { border-block-width: 1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mascot-hover, .mascot-copter-blades { animation: none; }
+}

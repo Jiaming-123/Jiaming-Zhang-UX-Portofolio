@@ -5,6 +5,7 @@ import { CursorEffect, Navbar, PageTransition, ProjectEntryReset, ScrollToTop, S
 import HomePage from './pages/HomePage'
 import { AboutPage, ContactPage, NotFoundPage } from './pages/InfoPages'
 import ProjectPage from './pages/ProjectPage'
+import FlyingMascot from './components/FlyingMascot'
 
 const UniLinkCaseStudy = lazy(() => import('./pages/UniLinkCaseStudy'))
 
@@ -17,6 +18,7 @@ function App() {
       <ScrollToTop />
       <CursorEffect />
       <Navbar />
+      <FlyingMascot />
       <div id="main-content">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
