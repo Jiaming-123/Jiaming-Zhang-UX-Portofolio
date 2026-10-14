@@ -52,19 +52,45 @@ const actions = [
   ['EXPAND', 'Extend your influence into new territory using soldiers from your Base.'],
   ['REPOSITION', 'Reshape the position of soldiers already on the board.'],
   ['CONTEST', 'Move against territory held by a rival and challenge their control.'],
-]
+] as const
 
 const loop = [
-  ['01', 'READ THE BOARD', 'Assess your controlled territories, vulnerable borders, valuable spaces, special spaces and your opponent’s position.'],
-  ['02', 'CHOOSE SECRETLY', 'Select one of four action cards while your opponent makes their choice at the same time.'],
-  ['03', 'REVEAL', 'Both actions are revealed together.'],
-  ['04', 'RESOLVE', 'Actions resolve according to the current rotating initiative order.'],
-  ['05', 'UPDATE POWER', 'After a player’s full action is complete, territory control is recalculated and control flags update.'],
-  ['06', 'REPEAT', 'After eight rounds, only the territories you still control contribute to your final score.'],
+  ['01', 'READ THE BOARD', 'Assess your controlled territories, vulnerable borders, valuable spaces, special spaces and your opponent’s position.', 'read-board', 'Read the Crownlands board and its territories'],
+  ['02', 'CHOOSE SECRETLY', 'Select one of four action cards while your opponent makes their choice at the same time.', 'choose-secretly', 'Players choose their action cards face down'],
+  ['03', 'REVEAL', 'Both actions are revealed together.', 'reveal', 'Players turn their chosen action cards face up'],
+  ['04', 'RESOLVE', 'Actions resolve according to the current rotating initiative order.', 'resolve', 'A player moves soldiers to resolve an action'],
+  ['05', 'UPDATE POWER', 'After a player’s full action is complete, territory control is recalculated and control flags update.', 'update-power', 'Players update the control flags after their actions'],
+  ['06', 'REPEAT', 'After eight rounds, only the territories you still control contribute to your final score.', 'repeat', 'The next round begins and the initiative order rotates'],
 ]
+
+function CoreLoop() {
+  const container = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  const [motionAllowed, setMotionAllowed] = useState(false)
+  const [paused, setPaused] = useState(false)
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updatePreference = () => setMotionAllowed(!preference.matches)
+    updatePreference()
+    preference.addEventListener('change', updatePreference)
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { rootMargin: '120px' })
+    if (container.current) observer.observe(container.current)
+    return () => { observer.disconnect(); preference.removeEventListener('change', updatePreference) }
+  }, [])
+  const animate = visible && motionAllowed && !paused
+  return <div className="cl-loop" ref={container}>
+    <header className="cl-loop-heading"><h3>The Core Loop</h3>{motionAllowed && <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused}>{paused ? 'PLAY GIFS' : 'PAUSE GIFS'}</button>}</header>
+    {loop.map(([n, title, text, clip, description]) => <article key={n}>
+      <span>{n}</span>
+      <img className="cl-loop-clip" src={`/crownlands/loop/${clip}-20261015.${animate ? 'gif' : 'webp'}`} width={480} height={234} loading="lazy" decoding="async" alt={description} />
+      <h4>{title}</h4><p>{text}</p>
+    </article>)}
+  </div>
+}
 
 export default function CrownlandsPage() {
   const [rulesOpen, setRulesOpen] = useState(false)
+  const [enlargedAction, setEnlargedAction] = useState<string | null>(null)
   const audio = useCrownlandsAudio()
   useEffect(() => { document.body.classList.add('crownlands-theme'); return () => document.body.classList.remove('crownlands-theme') }, [])
   return <>
@@ -88,8 +114,8 @@ export default function CrownlandsPage() {
 
       <section className="cl-section cl-system" id="how-to-play">
         <SectionHead eyebrow="THE SYSTEM" title="Simple actions. Constantly changing consequences."><p>Every round begins with four actions and a fresh set of decisions. Position, timing, territory value and rival intent continuously change what each action means.</p></SectionHead>
-        <div className="cl-loop"><h3>The Core Loop</h3>{loop.map(([n, title, text]) => <article key={n}><span>{n}</span><h4>{title}</h4><p>{text}</p></article>)}</div>
-        <div className="cl-actions"><header><h3>Four Actions</h3><button onClick={() => setRulesOpen(true)}><ScrollText /> VIEW FULL RULES</button></header>{actions.map(([title, copy], index) => <article key={title} className={index < 2 ? 'red' : 'blue'}><span>0{index + 1}</span><h4>{title}</h4><p>{copy}</p></article>)}</div>
+        <CoreLoop />
+        <div className="cl-actions"><header><h3>Four Actions</h3><button onClick={() => setRulesOpen(true)}><ScrollText /> VIEW FULL RULES</button></header>{actions.map(([title, copy], index) => <article key={title} className={index < 2 ? 'red' : 'blue'}><span>0{index + 1}</span><button type="button" className="cl-action-preview" aria-label={`Enlarge ${title.toLowerCase()} action card`} aria-pressed={enlargedAction === title} onClick={() => setEnlargedAction(current => current === title ? null : title)}><CrownlandsActionCard action={title} /></button><h4>{title}</h4><p>{copy}</p></article>)}</div>
         <blockquote><strong>More soldiers means control.</strong><p>A tie leaves the territory neutral. Control only updates after the current player’s full action has resolved.</p></blockquote>
         <div className="cl-risk"><article><span>RISK BEYOND THE SCORE</span><h3>Gather strength beyond your borders.</h3><p>Supply Spaces create opportunities to rebuild your military strength. Event Spaces introduce optional uncertainty through the Event Spinner. Because players choose whether to enter these spaces, each event becomes a deliberate tactical risk.</p></article><article><span>BUILT TO BE TOUCHED</span><h3>A physical interface for strategic state.</h3><p>Crownlands was designed as a physical interface. Soldiers communicate presence. Flags communicate authority. Cards communicate intent. The spinner makes uncertainty tangible.</p></article></div>
         <CrownlandsElements />

@@ -1,6 +1,6 @@
 {
   "buildMode": "react-source",
-  "portfolioEntry": "assets/index-8UvXABzr.js",
+  "portfolioEntry": "assets/index-CFcwqMRC.js",
   "sourceEntries": [
     "src/main.tsx",
     "src/unilink-entry.tsx"
@@ -8,43 +8,43 @@
   "files": [
     {
       "path": ".vite/manifest.json",
-      "sha256": "31d254fd673612c062ed2ecdb62bd3e205cceafed8478439c2c152840360993d"
+      "sha256": "9bbf3fb5063ffb4333576425b40431361f62f170947fbb77d39702cbe5d1c787"
     },
     {
-      "path": "assets/CrownlandsPage-DY9MP6oq.js",
-      "sha256": "ff968c499642fec3df6aca5ee1ccfbeb00b71c603a88ad76cbb39ad3fc5275f2"
+      "path": "assets/CrownlandsPage-B7f0zO_U.css",
+      "sha256": "bf0d75c2fffbf3dcac416e1d815de8ef84948741dde7f2a29d6a1e770fc0fc0a"
     },
     {
-      "path": "assets/CrownlandsPage-xVBfFMi8.css",
-      "sha256": "5c075d3f55992406806341e47f1dd14076da5ae00420f5ec083c3632f88b7dcb"
+      "path": "assets/CrownlandsPage-DJ8VPMfW.js",
+      "sha256": "8a28ddb2bfaa398d7da6d5a52224c3c6cfb467fdf3890c4d4a5f1d8f464b86d0"
     },
     {
       "path": "assets/CultureLensCaseStudy-B0Ug-vP9.css",
       "sha256": "e88ef32bc830e7c6937b5a15ba133de235af3ee4169b62b4f0a084cbe604c7c9"
     },
     {
-      "path": "assets/CultureLensCaseStudy-DQvV10fO.js",
-      "sha256": "2908a8b4c9f66271bab31de33a72d3acb46c21e72d55af704056f11e4770d6ce"
-    },
-    {
-      "path": "assets/UniLinkCaseStudy-BFR5ZiRE.js",
-      "sha256": "54ba0b83936fdc1497d899736bcde9ba50de430732fa4afd2c0ad082cd805711"
+      "path": "assets/CultureLensCaseStudy-C4zVKpuf.js",
+      "sha256": "05bd036f728ed28eac84950182701b9e01339a1a242ac0cbb2f2538bbc440e72"
     },
     {
       "path": "assets/UniLinkCaseStudy-BOF3Xf2l.css",
       "sha256": "2919816372e2115ade349253933b94e3f1ec139cf7fcabcef0970e8417d1e7f8"
     },
     {
+      "path": "assets/UniLinkCaseStudy-B_w5UPAq.js",
+      "sha256": "b7ca7d681a8882fe9500168d7a417dc4da6e1740c26d2f2c98fb1e0554e9ef94"
+    },
+    {
       "path": "assets/index-3JyvM-G_.css",
       "sha256": "6dbff6c297c9720b8f9255707dcdb08b1ddfaf0c16f0b1bbec183b49b69a4e97"
     },
     {
-      "path": "assets/index-8UvXABzr.js",
-      "sha256": "9adc6ee02b50fef768f40ab3f607ef8340b320b804d3159031da55d27e12cd2f"
+      "path": "assets/index-CFcwqMRC.js",
+      "sha256": "d5e2b5c16ca7a08917a10bd9b8b150de96ce44e7fc3a4ba85e6451b65015d4a7"
     },
     {
-      "path": "assets/play-CB9EbCyh.js",
-      "sha256": "db109a09f61eb106a29d753aab2a9abab8d4481a7306a564666be92bc9ca9deb"
+      "path": "assets/play-D5-tFbny.js",
+      "sha256": "dcccd8ff796553b1367228c468211109d3e105b973d26d61b2aa8c613dd8dda7"
     },
     {
       "path": "boardgamemate-cover-signature.css",
@@ -177,6 +177,54 @@
     {
       "path": "crownlands/elements/tracker.webp",
       "sha256": "66a35f828cd17573249983e994db052102118276942253d749b8c891adc4f973"
+    },
+    {
+      "path": "crownlands/loop/choose-secretly-20261015.gif",
+      "sha256": "04471defe70dc4d745326a040b38c5c382239dec61f250f46b264c7912b38f79"
+    },
+    {
+      "path": "crownlands/loop/choose-secretly-20261015.webp",
+      "sha256": "64f1d4e3d05a006a3f614597248e842753025cac094bafe9f5bb11d37c52d50b"
+    },
+    {
+      "path": "crownlands/loop/read-board-20261015.gif",
+      "sha256": "2dcc5c304709bbd3aedd87ab9e90ff213061707523b8c269d220a10423e550ac"
+    },
+    {
+      "path": "crownlands/loop/read-board-20261015.webp",
+      "sha256": "40a624bbb80d0736ee53fa7db1e4e8562b38d3cdbb2852364181c995e4bd6998"
+    },
+    {
+      "path": "crownlands/loop/repeat-20261015.gif",
+      "sha256": "944e927f331491cb303b15d4f2198e3ca4c22c95690122e35532504434663c4b"
+    },
+    {
+      "path": "crownlands/loop/repeat-20261015.webp",
+      "sha256": "fd1dcbc9377b3e1af8b85055f9e506698525524675b2f9f82dd95dbffbb17eb4"
+    },
+    {
+      "path": "crownlands/loop/resolve-20261015.gif",
+      "sha256": "d1059cd7ee3ebfcb5c352b500ab7bc9b53691f0891bbc54da9f06dd5fb7eb37f"
+    },
+    {
+      "path": "crownlands/loop/resolve-20261015.webp",
+      "sha256": "3dc004c9a75530228a576ad569de613939f9207e3d93e8facaf3c7a6225b8f6b"
+    },
+    {
+      "path": "crownlands/loop/reveal-20261015.gif",
+      "sha256": "8839ab360e906a4da9a84c51be65f98f8528ac1d30a78b0e7e195fb43b76706c"
+    },
+    {
+      "path": "crownlands/loop/reveal-20261015.webp",
+      "sha256": "2d33a5bf2a2d1c4d2dc7bd4de8ccb7df398bb54c09fbd771e1009fde6056c1bd"
+    },
+    {
+      "path": "crownlands/loop/update-power-20261015.gif",
+      "sha256": "dbbc628c8a5363d4047bd77bdc4280cb2f6d7ca52b0651e4dfaa70a363c5b9d4"
+    },
+    {
+      "path": "crownlands/loop/update-power-20261015.webp",
+      "sha256": "d71f33f1b40a5b2c3a92b15b3facb8354d2ec9b45b6357bab23dff70f5c7ccd1"
     },
     {
       "path": "crownlands/process/early-board-prototype.jpg",
@@ -996,7 +1044,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "3c7973aa74fa5dc4533468484f41a196b18a081cbbeeaea73c942974d2d080c8"
+      "sha256": "dacc9e211fe379176de3f5c5f58f32b3a898ace4ca2bd4e9b005499f9e7333e6"
     },
     {
       "path": "media/CultureLens-Discover-Exhibition.mp4",

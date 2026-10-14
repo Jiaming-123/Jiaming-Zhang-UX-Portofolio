@@ -45,7 +45,10 @@
 .cl-video>button span { margin-top:5px; font-size:.56rem; letter-spacing:.14em; }
 .cl-system { background:var(--cl-forest); }
 .cl-loop { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:90px 0; background:var(--cl-line); border:1px solid var(--cl-line); }
-.cl-loop>h3 { grid-column:1/-1; margin:0; padding:26px; background:#17231d; font-size:2rem; }
+.cl-loop-heading { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:26px; background:#17231d; }
+.cl-loop-heading h3 { margin:0; font-size:2rem; }
+.cl-loop-heading button { padding:9px 12px; border:1px solid var(--cl-line); color:var(--cl-text); background:transparent; font-size:.6rem; letter-spacing:.1em; cursor:pointer; }
+.cl-loop-clip { display:block; width:100%; height:auto; aspect-ratio:80/39; object-fit:cover; margin-top:16px; border:1px solid var(--cl-line); }
 .cl-loop article { min-height:230px; padding:30px; background:#17231d; }
 .cl-loop article>span { color:var(--cl-gold); font:600 1rem 'Cormorant Garamond'; }
 .cl-loop h4 { margin:40px 0 12px; font-size:.72rem; letter-spacing:.15em; }
@@ -98,6 +101,34 @@
 
 @media(max-width:900px){
   .cl-sticky-nav{justify-content:flex-start;top:70px}.cl-meta{grid-template-columns:repeat(2,1fr)}.cl-meta>div:last-child{grid-column:1/-1}.cl-two-col,.cl-risk,.cl-iterations>article{grid-template-columns:1fr}.cl-loop{grid-template-columns:repeat(2,1fr)}.cl-elements{grid-template-columns:1fr}.cl-elements aside{border-left:0;border-top:1px solid var(--cl-line)}.cl-game-meta{grid-template-columns:repeat(2,1fr)}.cl-onboarding>div{grid-template-columns:repeat(2,1fr)}.cl-process-strip{grid-template-columns:1fr}.cl-process-strip article{display:grid;grid-template-columns:1fr 1fr;gap:20px}.cl-process-strip img{grid-row:1/5}.cl-visible-system,.cl-learnings{grid-template-columns:repeat(2,1fr)}.cl-learnings>h3{grid-column:1/-1}.cl-game-stage{min-height:560px;padding:12px}.cl-game-status{grid-template-columns:1fr}.cl-game-status small{display:none}.cl-action-hand{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Rule-row previews are scoped here: the playable game's card hand is unchanged. */
+.cl-actions>article:has(.cl-action-preview) { grid-template-columns:44px 96px minmax(190px,.9fr) minmax(0,1.3fr); align-items:center; }
+.cl-actions>article:has(.cl-action-preview) p { margin:0; }
+.cl-action-preview { position:relative; z-index:1; width:100%; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.cl-action-preview .cl-action-card-art { box-shadow:0 5px 16px #0005; transform-origin:center; transition:transform .25s ease,filter .25s ease; }
+.cl-action-preview:focus-visible { outline:2px solid var(--cl-gold); outline-offset:5px; }
+.cl-action-preview[aria-pressed=true],.cl-action-preview:focus-visible { z-index:5; cursor:zoom-out; }
+.cl-action-preview[aria-pressed=true] .cl-action-card-art,.cl-action-preview:focus-visible .cl-action-card-art { transform:scale(2); filter:drop-shadow(0 10px 15px #0009); }
+@media(hover:hover) and (pointer:fine) {
+ .cl-action-preview:hover { z-index:5; }
+ .cl-action-preview:hover .cl-action-card-art { transform:scale(2); filter:drop-shadow(0 10px 15px #0009); }
+}
+@media(max-width:900px) {
+ .cl-actions>article:has(.cl-action-preview) { grid-template-columns:26px 76px minmax(150px,.8fr) minmax(0,1.2fr); gap:16px; }
+}
+@media(max-width:600px) {
+ .cl-loop-heading { padding:20px; }
+ .cl-loop-heading h3 { font-size:1.8rem; }
+ .cl-actions>article:has(.cl-action-preview) { grid-template-columns:22px 68px minmax(0,1fr); gap:10px 14px; }
+ .cl-actions>article>span,.cl-action-preview { grid-row:1/3; }
+ .cl-actions>article h4 { grid-column:3; align-self:end; font-size:clamp(1.3rem,6.1vw,2rem); overflow-wrap:anywhere; }
+ .cl-actions>article:has(.cl-action-preview) p { grid-column:3; align-self:start; font-size:.75rem; line-height:1.5; }
+ .cl-action-preview[aria-pressed=true] .cl-action-card-art,.cl-action-preview:focus-visible .cl-action-card-art { transform:scale(1.65); }
+}
+@media(prefers-reduced-motion:reduce) {
+ .cl-action-preview .cl-action-card-art { transition:none; }
 }
 @media(max-width:600px){
   .cl-hero{padding-top:125px}.cl-hero h1{font-size:clamp(4.2rem,21vw,7rem)}.cl-hero-copy{width:100%}.cl-hero-copy>div{flex-direction:column;align-items:stretch}.cl-hero-copy a{justify-content:center}.cl-section{padding-inline:20px}.cl-meta{grid-template-columns:1fr}.cl-meta>div:last-child{grid-column:auto}.cl-two-col{gap:55px}.cl-loop{grid-template-columns:1fr}.cl-actions>article{grid-template-columns:50px 1fr}.cl-actions>article p{grid-column:2}.cl-actions header{align-items:flex-start;gap:20px;flex-direction:column}.cl-risk{grid-template-columns:1fr}.cl-elements{min-height:auto}.cl-tabletop{min-height:650px}.cl-piece{left:8%;min-width:100px}.cl-piece:nth-child(even){left:56%}.cl-piece:nth-child(1),.cl-piece:nth-child(2){top:7%}.cl-piece:nth-child(3),.cl-piece:nth-child(4){top:35%}.cl-piece:nth-child(5),.cl-piece:nth-child(6){top:63%}.cl-north-star{grid-template-columns:1fr}.cl-mapping>div{grid-template-columns:1fr}.cl-mapping span svg{transform:rotate(90deg)}.cl-visible-system,.cl-learnings{grid-template-columns:1fr}.cl-process-strip article{display:block}.cl-process-strip img{aspect-ratio:4/3}.cl-before-after{min-height:500px}.cl-game-hud{grid-template-columns:1fr 1.2fr 1fr}.cl-game-hud>div{padding:10px 4px}.cl-game-hud strong{font-size:1.3rem}.cl-game-hud span,.cl-game-hud small{font-size:.45rem}.cl-action-hand{grid-template-columns:1fr 1fr}.cl-action-hand button{min-height:105px;padding:12px}.cl-game-stage{min-height:430px}.cl-game-foot{align-items:flex-start}.cl-onboarding{padding:20px;margin:10px}.cl-onboarding>div{grid-template-columns:1fr}.cl-onboarding article{min-height:170px}.cl-onboarding h4{margin-top:30px}.cl-onboarding footer{flex-direction:column}.cl-game-over footer{flex-direction:column}.cl-rules-modal{padding:0}.cl-rules-modal>div{grid-template-columns:1fr}.cl-sound{right:12px;bottom:12px}.cl-enter{right:12px;bottom:66px}.cl-rotate{display:flex;position:relative;z-index:20;gap:14px;align-items:center;padding:15px;border-bottom:1px solid var(--cl-line);background:#17231d}.cl-rotate svg{flex:0 0 auto;transform:rotate(90deg);color:var(--cl-gold)}.cl-rotate strong{font-size:.58rem;letter-spacing:.12em}.cl-rotate p{margin:4px 0;color:var(--cl-muted);font-size:.62rem;line-height:1.45}.cl-rotate button{margin-left:auto;border:0;background:none;color:var(--cl-gold);font-size:.52rem;letter-spacing:.1em}
