@@ -46,7 +46,8 @@ test('case studies omit footers; Home and About retain them; Contact does not du
   const contact = info.slice(info.indexOf('export function ContactPage()'), info.indexOf('export function NotFoundPage()'))
   assert.ok(about.includes('<Footer />'))
   assert.ok(!contact.includes('<Footer'))
-  for (const text of ['contact-page','contact-note','jiamingz1113@163.com','jiamingz1113@gmail.com','LINKEDIN','site-footer','case-next-project']) assert.ok(main.includes(text), text)
+  for (const text of ['contact-page','jiamingz1113@163.com','jiamingz1113@gmail.com','LINKEDIN','site-footer','case-next-project']) assert.ok(main.includes(text), text)
+  assert.ok(!main.includes('AVAILABLE FOR OPPORTUNITIES'))
 })
 
 test('numbered case-study labels remain removed without losing project metadata', () => {

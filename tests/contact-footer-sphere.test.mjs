@@ -30,3 +30,15 @@ test('background changes retain Footer links, back-to-top and Contact addresses'
   assert.ok(contact.includes('jiamingz1113@gmail.com'))
   assert.ok(contact.includes('LET&apos;S MAKE'))
 })
+
+test('Contact removes the requested location, introduction and availability row while preserving action placement', () => {
+  const contact = read('src/pages/InfoPages.tsx').split('export function ContactPage()')[1].split('export function NotFoundPage()')[0]
+  for (const removed of ['CONTACT / MELBOURNE', 'open to UX and product design opportunities', 'AVAILABLE FOR OPPORTUNITIES', 'MELBOURNE · AEST', 'contact-note']) {
+    assert.ok(!contact.includes(removed), removed)
+  }
+  assert.ok(contact.includes('contact-actions'))
+  assert.ok(contact.includes('https://www.linkedin.com/in/jiaming-zhang-996b52280/'))
+  const css = read('src/styles.css')
+  assert.ok(css.includes('.contact-actions { display: grid; grid-column: 2; }'))
+  assert.ok(css.includes('.contact-actions { grid-column: 1; }'))
+})
