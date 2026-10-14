@@ -21,15 +21,38 @@ test('BoardGameMate overview uses the supplied uncropped illustration above its 
   assert.ok(css.includes('letter-spacing: -.025em'))
 })
 
-test('mobile keeps the desktop two columns with scaling type, all project metadata, and the reference paragraph order', () => {
+test('mobile keeps the desktop two columns with scaling type, remaining metadata, and the reference paragraph order', () => {
   assert.ok(css.includes('grid-template-columns: minmax(0, 1.46fr) minmax(0, 1fr)'))
   assert.ok(!css.slice(css.indexOf('@media')).includes('grid-template-columns: 1fr'))
   assert.ok(css.includes('container-type: inline-size'))
   assert.ok(css.includes('2.75cqw'))
   assert.ok(css.includes('min-width: 0'))
   assert.ok(hero.indexOf('BoardGameMate focuses') < hero.indexOf('It helps players'))
-  for (const field of ['PROJECT', 'DISCIPLINES', 'YEAR', 'TEAM', 'MY CONTRIBUTION', 'RESEARCH METHODS']) assert.ok(hero.includes(`<dt>${field}</dt>`))
+  assert.ok(!hero.includes('<dt>PROJECT</dt>'))
+  for (const field of ['DISCIPLINES', 'YEAR', 'TEAM', 'MY CONTRIBUTION', 'RESEARCH METHODS']) assert.ok(hero.includes(`<dt>${field}</dt>`))
   for (const method of ['User interviews', 'Focus groups', 'Cognitive walkthrough', 'Heuristic evaluation']) assert.ok(hero.includes(method))
+})
+
+test('mobile metadata uses smaller type and stretches to the natural left-copy bottom; desktop keeps its original type', () => {
+  const mobile = css.slice(css.indexOf('@media'))
+  assert.ok(mobile.includes('align-items: stretch'))
+  assert.ok(mobile.includes('align-self: start'))
+  assert.ok(mobile.includes('display: flex; flex-direction: column'))
+  assert.ok(mobile.includes('flex: 1; padding: clamp(4px, .8cqw, 7px)'))
+  assert.ok(mobile.includes('font-size: clamp(7px, 1.1cqw, 11px); line-height: 1.45'))
+  assert.ok(css.slice(0, css.indexOf('@media')).includes('font-size: clamp(8px, 1.25cqw, 18px)'))
+})
+
+test('persona captions are removed without removing either original persona or the other sketch captions', () => {
+  const personas = source.slice(source.indexOf('<div className="boardgamemate-persona-row">'), source.indexOf('<IterationReveal className="boardgamemate-research-section boardgamemate-sketch-section">'))
+  assert.ok(personas.includes('researchPersonas.map'))
+  assert.ok(personas.includes('<ResearchImage'))
+  assert.ok(!personas.includes('<figcaption'))
+  assert.ok(!source.includes('The social organiser'))
+  assert.ok(!source.includes('The thoughtful newcomer'))
+  assert.ok(source.includes("file: 'boardgamemate-persona-alice'"))
+  assert.ok(source.includes("file: 'boardgamemate-persona-leo'"))
+  assert.ok(source.includes('<figcaption>Sketch 0'))
 })
 
 test('production ships the new overview illustration unchanged without replacing the homepage cover', () => {

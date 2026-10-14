@@ -82,8 +82,8 @@ function ResearchImage({ alt, file, height, sizes, width }: ResearchImageProps) 
 }
 
 const researchPersonas = [
-  { file: 'boardgamemate-persona-alice', alt: 'Persona profile for Alice, a 19-year-old design student in Melbourne who plays tabletop games socially', caption: 'Alice · The social organiser', width: 1372, height: 1384 },
-  { file: 'boardgamemate-persona-leo', alt: 'Persona profile for Leo, a 20-year-old commerce student in Melbourne who uses tabletop games to connect with others', caption: 'Leo · The thoughtful newcomer', width: 1374, height: 1386 },
+  { file: 'boardgamemate-persona-alice', alt: 'Persona profile for Alice, a 19-year-old design student in Melbourne who plays tabletop games socially', width: 1372, height: 1384 },
+  { file: 'boardgamemate-persona-leo', alt: 'Persona profile for Leo, a 20-year-old commerce student in Melbourne who uses tabletop games to connect with others', width: 1374, height: 1386 },
 ]
 
 const earlySketches = [
@@ -110,7 +110,6 @@ export function BoardGameMateIteration() {
             </div>
           </div>
           <dl className="boardgamemate-meta">
-            <div><dt>PROJECT</dt><dd>BoardGameMate</dd></div>
             <div><dt>DISCIPLINES</dt><dd>UX Design · Product Design · Interaction Design</dd></div>
             <div><dt>YEAR</dt><dd>2024</dd></div>
             <div><dt>TEAM</dt><dd>3-person group project</dd></div>
@@ -137,7 +136,6 @@ export function BoardGameMateIteration() {
           {researchPersonas.map((persona) => (
             <figure className="boardgamemate-research-figure" tabIndex={0} key={persona.file}>
               <ResearchImage file={persona.file} width={persona.width} height={persona.height} sizes="(max-width: 767px) calc(50vw - 28px), (max-width: 1439px) 38vw, 540px" alt={persona.alt} />
-              <figcaption>{persona.caption}</figcaption>
             </figure>
           ))}
         </div>

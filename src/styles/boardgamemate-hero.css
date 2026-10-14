@@ -68,4 +68,11 @@
 }
 @media (max-width: 767px) {
   .boardgame-iteration > .boardgamemate-overview-hero { padding: 102px var(--side) 36px; }
+  .boardgamemate-overview-hero .boardgamemate-overview-grid { align-items: stretch; }
+  .boardgamemate-overview-hero .boardgamemate-overview-copy { align-self: start; }
+  .boardgamemate-overview-hero .boardgamemate-meta { display: flex; flex-direction: column; }
+  .boardgamemate-overview-hero .boardgamemate-meta > div { flex: 1; padding: clamp(4px, .8cqw, 7px) 0; }
+  .boardgamemate-overview-hero .boardgamemate-meta dt { font-size: clamp(5px, .6cqw, 8px); line-height: 1.3; margin-bottom: 4px; }
+  .boardgamemate-overview-hero .boardgamemate-meta dd { font-size: clamp(7px, 1.1cqw, 11px); line-height: 1.45; }
+  .boardgamemate-overview-hero .boardgamemate-meta ul { font-size: clamp(6.5px, .9cqw, 10px); line-height: 1.5; margin-top: 4px; }
 }
