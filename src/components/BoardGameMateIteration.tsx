@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { SectionLabel } from './Content'
 import { BoardGameMateFinalShowcase } from './BoardGameMateFinalShowcase'
+import '../styles/boardgamemate-hero.css'
 
 const assetRoot = '/images/boardgamemate/iteration'
 const researchAssetRoot = '/images/boardgamemate/research'
@@ -100,10 +101,13 @@ export function BoardGameMateIteration() {
         <div className="boardgamemate-overview-grid">
           <div className="boardgamemate-overview-copy">
             <SectionLabel>BOARDGAMEMATE / PROJECT OVERVIEW</SectionLabel>
-            <h1 id="boardgamemate-project-title">BoardGameMate is a tabletop companion designed to make playing together easier.</h1>
-            <div>
-              <p>It helps players discover nearby game sessions, find compatible people, learn unfamiliar games, and coordinate everything from joining a table to getting ready to play.</p>
+            <figure className="boardgamemate-overview-media">
+              <img src="/images/boardgamemate/hero-overview-20261014.png" alt="Three people playing a tabletop game together, with the BoardGameMate companion on a phone" width={716} height={400} fetchPriority="high" decoding="async" />
+            </figure>
+            <h1 id="boardgamemate-project-title"><span>BoardGameMate is a</span>{' '}<span>tabletop companion</span>{' '}<span>designed to make</span>{' '}<span>playing together easier.</span></h1>
+            <div className="boardgamemate-overview-description">
               <p>BoardGameMate focuses on one simple goal: getting people around the same table faster.</p>
+              <p>It helps players discover nearby game sessions, find compatible people, learn unfamiliar games, and coordinate everything from joining a table to getting ready to play.</p>
             </div>
           </div>
           <dl className="boardgamemate-meta">

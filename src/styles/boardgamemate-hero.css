@@ -1,0 +1,84 @@
+/* The supplied overview stays in the same two-column composition at every size.
+   Container-relative sizes scale it down; small type floors preserve legibility. */
+.boardgame-iteration > .boardgamemate-overview-hero {
+  container-type: inline-size;
+  padding: 132px max(var(--side), calc((100vw - 1640px) / 2)) 110px;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-grid {
+  grid-template-columns: minmax(0, 1.46fr) minmax(0, 1fr);
+  gap: 7.5%;
+  align-items: start;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-copy { min-width: 0; }
+.boardgamemate-overview-hero .boardgamemate-overview-copy .section-label {
+  display: block;
+  max-width: none;
+  margin: 0 0 clamp(14px, 3cqw, 42px);
+}
+.boardgamemate-overview-hero .boardgamemate-overview-copy .section-label p {
+  margin: 0;
+  font: 400 clamp(5px, 1.15cqw, 18px)/1.2 Inter, sans-serif;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  color: #cbd5e1;
+}
+.boardgamemate-overview-hero .section-label i { display: none; }
+.boardgamemate-overview-hero .boardgamemate-overview-media {
+  margin: 0 0 clamp(8px, 1.75cqw, 24px);
+  border-radius: clamp(6px, 2cqw, 28px);
+  overflow: hidden;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 716 / 400;
+  object-fit: contain;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-copy h1 {
+  max-width: none;
+  margin: 0;
+  font: 500 clamp(12px, 2.75cqw, 38px)/1.07 'Space Grotesk', sans-serif;
+  letter-spacing: -.025em;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-copy h1 > span {
+  display: block;
+  white-space: nowrap;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-description {
+  max-width: none;
+  margin-top: clamp(16px, 2.8cqw, 42px);
+}
+.boardgamemate-overview-hero .boardgamemate-overview-description p {
+  margin: 0 0 clamp(12px, 2cqw, 30px);
+  color: #cbd5e1;
+  font-size: clamp(8px, 1.15cqw, 16px);
+  line-height: 1.8;
+}
+.boardgamemate-overview-hero .boardgamemate-overview-description p:first-child { color: #fff; }
+.boardgamemate-overview-hero .boardgamemate-overview-description p:last-child { margin-bottom: 0; color: #cbd5e1; }
+.boardgamemate-overview-hero .boardgamemate-meta {
+  min-width: 0;
+  margin: 0;
+  padding-top: clamp(5px, .6cqw, 9px);
+}
+.boardgamemate-overview-hero .boardgamemate-meta > div { padding: clamp(8px, 1.6cqw, 24px) 0; }
+.boardgamemate-overview-hero .boardgamemate-meta dt {
+  margin-bottom: clamp(5px, .7cqw, 10px);
+  font-size: clamp(5.5px, .7cqw, 10px);
+  line-height: 1.4;
+}
+.boardgamemate-overview-hero .boardgamemate-meta dd {
+  font-size: clamp(8px, 1.25cqw, 18px);
+  line-height: 1.55;
+}
+.boardgamemate-overview-hero .boardgamemate-meta ul {
+  margin-top: clamp(6px, .95cqw, 14px);
+  padding-left: clamp(6px, 1.3cqw, 18px);
+  list-style: none;
+  font-size: clamp(7px, 1cqw, 14px);
+  line-height: 1.7;
+}
+@media (max-width: 767px) {
+  .boardgame-iteration > .boardgamemate-overview-hero { padding: 102px var(--side) 36px; }
+}

@@ -1,6 +1,6 @@
 {
   "buildMode": "react-source",
-  "portfolioEntry": "assets/index-DJQ27Tcg.js",
+  "portfolioEntry": "assets/index-D6bIopqr.js",
   "sourceEntries": [
     "src/main.tsx",
     "src/unilink-entry.tsx"
@@ -8,11 +8,11 @@
   "files": [
     {
       "path": ".vite/manifest.json",
-      "sha256": "6230484f225098e6e9537df5731d03ee69c7fb7e62cf25b222ad5ebd94fabec3"
+      "sha256": "5379dc956d6134e382f1d27fc449138d5a2cb724d1f7873ad014ecb7867791da"
     },
     {
-      "path": "assets/CrownlandsPage-DlGKuN7W.js",
-      "sha256": "05ddb374929d5468dcd4738f203331d77db336d0d0612e51348cc0688f3fcb26"
+      "path": "assets/CrownlandsPage-06kjU62N.js",
+      "sha256": "032a6d792307cd283196feed9f5700de149c9b3dffc8728e3bc8b8cef8e9964d"
     },
     {
       "path": "assets/CrownlandsPage-xVBfFMi8.css",
@@ -23,28 +23,28 @@
       "sha256": "e88ef32bc830e7c6937b5a15ba133de235af3ee4169b62b4f0a084cbe604c7c9"
     },
     {
-      "path": "assets/CultureLensCaseStudy-Dpn0-7XS.js",
-      "sha256": "8e0906091ab9f44195191bcb69673e0434a3bf58c0088118dcc9206ddac44e5c"
+      "path": "assets/CultureLensCaseStudy-CBM8BG5P.js",
+      "sha256": "ddbee93a7cc19df3bc0f11deeaa17900b42da0fbe78d04670ce2e872545336e1"
     },
     {
-      "path": "assets/UniLinkCaseStudy-BDU2PPBh.js",
-      "sha256": "5220ebaf4877a5f8f4c9b1bdc1ccdf11f87fdd156856f8ba146fca26c9fb890e"
+      "path": "assets/UniLinkCaseStudy-BIKRbKM9.js",
+      "sha256": "b12dc5e33b64ff6c35e4cbdfd24bc4b54339601b62b0dfbebc9d5de8d2cfdc87"
     },
     {
       "path": "assets/UniLinkCaseStudy-BOF3Xf2l.css",
       "sha256": "2919816372e2115ade349253933b94e3f1ec139cf7fcabcef0970e8417d1e7f8"
     },
     {
-      "path": "assets/index-DJQ27Tcg.js",
-      "sha256": "40af2b9cc821166dae48e7391f5579e57c78b1ea256877788c12f557a6eac995"
+      "path": "assets/index-D6bIopqr.js",
+      "sha256": "f0e33fe41ca76d697e9e0af66d6fdec6a9ce9a73265a99b500d351095cf2f40c"
     },
     {
-      "path": "assets/index-Dg2ekpRG.css",
-      "sha256": "18862f741e2a09719e639cb410c9cf99dda06c70f2f49bb323c17ff79320fb5d"
+      "path": "assets/index-Ou8a_cwR.css",
+      "sha256": "01cfb364bc64d32d4573e92c90306acd839b949a17a6658f177169ed0a98475d"
     },
     {
-      "path": "assets/play-EacemF6j.js",
-      "sha256": "d6cfdf2f4ce49a781847b5b2fa517c7ca6a055778870d31694cc8baff677667d"
+      "path": "assets/play-CXkOXPcS.js",
+      "sha256": "9e84d1ef05e7a3265a6d9aecdbfd836561f5c0004c0a2bfe374f7579088afd91"
     },
     {
       "path": "boardgamemate-cover-signature.css",
@@ -417,6 +417,10 @@
     {
       "path": "images/boardgamemate/final-ui/guides/flow-06-preparation.png",
       "sha256": "193e4a5150e756abb0b24162d4b99ebc101f76ac3054d828e9736179f9949d91"
+    },
+    {
+      "path": "images/boardgamemate/hero-overview-20261014.png",
+      "sha256": "6196ecd63f3eff26563bd763020e42a33919849a475a2361a55b53af3775e81b"
     },
     {
       "path": "images/boardgamemate/iteration/boardgamemate-community-720.png",
@@ -992,7 +996,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "16094879334708727fa2ed2fbc47da5a317a1901022d2a3d968d2bfbaba8099c"
+      "sha256": "7188007e110287ebba3b530b0b74f36a654b05f94183ba7ab86816325adccba8"
     },
     {
       "path": "media/CultureLens-Discover-Exhibition.mp4",
