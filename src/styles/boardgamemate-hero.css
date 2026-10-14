@@ -10,19 +10,6 @@
   align-items: start;
 }
 .boardgamemate-overview-hero .boardgamemate-overview-copy { min-width: 0; }
-.boardgamemate-overview-hero .boardgamemate-overview-copy .section-label {
-  display: block;
-  max-width: none;
-  margin: 0 0 clamp(14px, 3cqw, 42px);
-}
-.boardgamemate-overview-hero .boardgamemate-overview-copy .section-label p {
-  margin: 0;
-  font: 400 clamp(5px, 1.15cqw, 18px)/1.2 Inter, sans-serif;
-  letter-spacing: .12em;
-  white-space: nowrap;
-  color: #cbd5e1;
-}
-.boardgamemate-overview-hero .section-label i { display: none; }
 .boardgamemate-overview-hero .boardgamemate-overview-media {
   margin: 0 0 clamp(8px, 1.75cqw, 24px);
   border-radius: clamp(6px, 2cqw, 28px);
@@ -60,7 +47,7 @@
 .boardgamemate-overview-hero .boardgamemate-meta {
   min-width: 0;
   margin: 0;
-  padding-top: clamp(5px, .6cqw, 9px);
+  padding-top: 0;
 }
 .boardgamemate-overview-hero .boardgamemate-meta > div { padding: clamp(8px, 1.6cqw, 24px) 0; }
 .boardgamemate-overview-hero .boardgamemate-meta dt {

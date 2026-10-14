@@ -100,7 +100,6 @@ export function BoardGameMateIteration() {
       <IterationReveal className="boardgamemate-overview-hero">
         <div className="boardgamemate-overview-grid">
           <div className="boardgamemate-overview-copy">
-            <SectionLabel>BOARDGAMEMATE / PROJECT OVERVIEW</SectionLabel>
             <figure className="boardgamemate-overview-media">
               <img src="/images/boardgamemate/hero-overview-20261014.png" alt="Three people playing a tabletop game together, with the BoardGameMate companion on a phone" width={716} height={400} fetchPriority="high" decoding="async" />
             </figure>
