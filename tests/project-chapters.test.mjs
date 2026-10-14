@@ -65,6 +65,17 @@ test('mobile rails center the active chapter using viewport-relative bounds', ()
   assert.ok(module.includes("document.body.style.removeProperty('--case-chapter-height')"))
 })
 
+test('desktop chapter rail fills the available navbar width without a wide-screen cap', () => {
+  const css = read('public/project-chapters.css')
+  const rail = css.match(/\.case-chapter-rail \{([^}]+)\}/)[1]
+  assert.ok(rail.includes('flex:1'))
+  assert.ok(rail.includes('min-width:0'))
+  assert.ok(rail.includes('max-width:none'))
+  assert.ok(!rail.includes('1280px'))
+  assert.ok(css.includes('justify-content:space-between'))
+  assert.ok(css.includes('overflow-x:auto'))
+})
+
 test('Crownlands primary navigation retains the shared navy and cyan palette without availability status', () => {
   const css = read('public/project-navbar.css')
   assert.match(css, /body\.crownlands-theme \.nav-shell \{[^}]*color: #fff;[^}]*background: #050b18;/)

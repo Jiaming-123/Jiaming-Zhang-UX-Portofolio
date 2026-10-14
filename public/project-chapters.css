@@ -15,7 +15,7 @@
 .case-chapter-nav .case-chapter-mark span { color:#00d4ff; }
 .case-chapter-nav .case-chapter-mark:hover { color:var(--chapter-text); }
 .case-chapter-current { display:none; }
-.case-chapter-rail { --chapter-walk-lane:48px; position:relative; flex:1; min-width:0; max-width:1280px; }
+.case-chapter-rail { --chapter-walk-lane:48px; position:relative; flex:1; min-width:0; max-width:none; }
 .case-chapter-nav ol { display:flex; justify-content:space-between; min-width:0; margin:0; padding:var(--chapter-walk-lane) 0 0; gap:12px; list-style:none; overflow-x:auto; scrollbar-width:none; position:relative; scroll-behavior:auto; }
 .case-chapter-nav ol::before { content:''; position:absolute; top:var(--chapter-walk-lane); left:var(--chapter-track-left,15px); width:var(--chapter-track-width,calc(100% - 30px)); height:1px; background:var(--chapter-line); pointer-events:none; }
 .case-chapter-nav ol::-webkit-scrollbar { display:none; }
