@@ -8,7 +8,7 @@ import CaseStudyTimeline from '../components/unilink/CaseStudyTimeline'
 import ConceptExploration from '../components/unilink/ConceptExploration'
 import UniLinkStory from '../components/unilink/UniLinkStory'
 import { ArtifactGallery, FeatureStory, ScreenImage } from '../components/unilink/CaseStudyMedia'
-import { chapters, chapterId, flows, insights, iterations, prototypeUrl, recoveryScreens, researchArtifacts, supplementaryScreens } from '../data/unilink'
+import { chapters, chapterId, flows, insights, iterations, prototypeUrl, recoveryScreens, supplementaryScreens } from '../data/unilink'
 import '../styles/unilink.css'
 import '../styles/unilink-palette.css'
 
@@ -76,7 +76,6 @@ export default function UniLinkCaseStudy() {
         <Heading index={2} title="Listening before designing."><p>Our research followed the international-student support ecosystem: the people asking for help, the peers sharing experience and the services around them.</p></Heading>
         <div className="ul-research-method"><strong>12<span>stakeholder interviews</span></strong><strong>12<span>early concept interviews</span></strong><p>Semi-structured interviews, recorded and transcribed with consent.</p></div>
         <div className="ul-evidence-field">{insights.map(([title,copy],i)=><article className="ul-insight" key={title}><span>INSIGHT / 0{i+1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
-        <details className="ul-evidence-disclosure"><summary>Explore the original research evidence <span>4 artefacts ↗</span></summary><ArtifactGallery items={researchArtifacts}/></details>
         <Contribution>I helped shape the problem framing, conducted interviews and took a leading role in turning raw research into the synthesis that guided our concept direction.</Contribution>
         <Personas />
       </section>

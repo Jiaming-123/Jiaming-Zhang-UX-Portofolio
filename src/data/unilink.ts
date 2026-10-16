@@ -44,12 +44,6 @@ export const insights = [
  ['Different questions need different support.', 'Everyday questions belong in a community. Personal situations can need focused one-to-one time.'],
 ]
 export type Artifact = { src: string; title: string; caption: string; wide?: boolean; pending?: boolean; width?: number; height?: number }
-export const researchArtifacts: Artifact[] = [
- {src:'research/interview-evidence-01.webp',title:'Experienced peers as a trusted starting point',caption:'Translated interview and team analysis'},
- {src:'research/interview-evidence-02.webp',title:'Why low-pressure support matters',caption:'Interview and synthesis'},
- {src:'research/synthesis.webp',title:'From interviews to recurring patterns',caption:'Mentor perspective'},
- {src:'research/rich-picture.webp',title:'The support ecosystem',caption:'Stakeholder rich picture'},
-]
 export const testingArtifacts: Artifact[] = [
  {src:'testing/student-testing.webp',title:'First-year student evaluation notes',caption:'Student evaluation · one participant'},
  {src:'testing/mentor-testing.webp',title:'Potential mentor evaluation notes',caption:'Mentor evaluation · one participant'},
