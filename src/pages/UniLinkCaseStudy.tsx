@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Footer } from '../components/Layout'
 import CaseStudyTimeline from '../components/unilink/CaseStudyTimeline'
 import ConceptExploration from '../components/unilink/ConceptExploration'
 import UniLinkStory from '../components/unilink/UniLinkStory'
+import UniLinkEcosystem from '../components/unilink/UniLinkEcosystem'
 import { ArtifactGallery, FeatureStory, ScreenImage } from '../components/unilink/CaseStudyMedia'
 import { chapters, chapterId, flows, insights, iterations, prototypeUrl, recoveryScreens, supplementaryScreens } from '../data/unilink'
 import '../styles/unilink.css'
@@ -45,7 +46,7 @@ export default function UniLinkCaseStudy() {
       gsap.from('.ul-hero-screens figure',{y:100,rotation:i=>i===1?0:i===0?-5:5,stagger:.07,ease:'none',scrollTrigger:{trigger:'.ul-hero',start:'top top',end:'bottom 75%',scrub:1}})
       gsap.from('.ul-source',{x:i=>(i-1)*50,y:20,stagger:.08,ease:'none',scrollTrigger:{trigger:'.ul-source-field',start:'top 85%',end:'bottom 65%',scrub:.5}})
       gsap.from('.ul-insight',{y:i=>i%2?50:15,rotation:i=>i%2?2:-2,stagger:.1,ease:'none',scrollTrigger:{trigger:'.ul-evidence-field',start:'top 80%',end:'center center',scrub:.6}})
-      gsap.from('.ul-value-loop article',{y:20,opacity:.5,stagger:.15,scrollTrigger:{trigger:'.ul-value-loop',start:'top 85%',once:true}})
+      gsap.from('.ul-ecosystem article',{y:20,opacity:.5,stagger:.15,scrollTrigger:{trigger:'.ul-ecosystem',start:'top 85%',once:true}})
     },root)
     const element=root.current
     let disposed=false
@@ -95,8 +96,7 @@ export default function UniLinkCaseStudy() {
       </section>
       <section className="ul-section ul-sustainability" id={chapterId('Sustainability')} tabIndex={-1}>
         <Heading index={6} title="Designing an incentive loop rather than ad feed."><p>A proposed reward ecosystem recognises the time mentors contribute. Sponsorship and partnership fees could support rewards without turning peer advice into advertising.</p></Heading>
-        <div className="ul-value-loop">{[['01','Students','Receive relevant peer support and bookable mentor guidance.'],['02','Mentors','Contribute lived experience, earn Link Points and redeem rewards.'],['03','Sponsors','Fund rewards and gain clearly labelled exposure around the Rewards experience.']].map(([n,t,p])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p><ArrowRight aria-hidden="true"/></article>)}</div>
-        <p className="ul-loop-return">↳ Recognition supports continued contribution to the UniLink ecosystem.</p>
+        <UniLinkEcosystem />
         <div className="ul-trust-rule"><span>THE TRUST RULE</span><p>Sponsorship must never influence mentor ranking or be disguised as peer advice.</p></div><p className="ul-note">Hypothetical categories include cafés, study supplies and local student services. No partnerships are claimed. Mentor feedback suggests rewards should complement willingness to help; the model is not yet validated.</p>
       </section>
       <section className="ul-section ul-reflection" id={chapterId('Reflection')} tabIndex={-1}>
