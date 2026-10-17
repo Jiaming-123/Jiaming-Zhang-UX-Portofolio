@@ -58,7 +58,6 @@ export default function UniLinkCaseStudy() {
     <main className="ul-case" ref={root}>
       <CaseStudyTimeline />
       <section className="ul-hero" id={chapterId('Overview')} tabIndex={-1}>
-        <div className="ul-hero-top"><span className="ul-kicker">UX RESEARCH · PRODUCT DESIGN · 12-WEEK TEAM PROJECT</span><span className="ul-reading-time">CASE STUDY / 6–8 MIN READ</span></div>
         <div className="ul-hero-title"><h1>UniLink<span className="ul-title-mark" aria-hidden="true">↗</span></h1><div><p>Peer Support for<br />International Students</p><span>MELBOURNE / UNIVERSITY DESIGN PROJECT</span></div></div>
         <p className="ul-project-status">UniLink is a work in progress, not a finished product.</p>
         <div className="ul-hero-editorial"><h2>When information is everywhere,<br /><em>knowing who to trust</em><br />becomes the real problem.</h2><div><p>UniLink helps first-year international students find relevant peer communities and connect with verified senior mentors for more personal guidance.</p><a className="ul-text-link" href="#unilink-problem">Explore the case study <ArrowDown size={17} /></a><a className="ul-subtle-link" href={prototypeUrl} target="_blank" rel="noopener noreferrer">View Full Prototype <ArrowUpRight size={15}/></a></div></div>
