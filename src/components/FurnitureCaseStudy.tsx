@@ -19,12 +19,12 @@ const mobileFlow = [
 ]
 
 const journeySteps = [
-  { title: 'Home', question: 'What does this brand offer?', image: 'home', alt: 'Furniture store homepage with its editorial living-room hero' },
-  { title: 'Search / Category', question: 'Where can I begin?', image: 'category', alt: 'Living furniture category with a grid of products and prices' },
+  { title: 'Home', question: 'What does this brand offer?', image: 'home', alt: 'Furniture store homepage with its timber bedroom hero' },
+  { title: 'Search / Category', question: 'Where can I begin?', image: 'category', alt: 'Living category with popular product search suggestions and product grid' },
   { title: 'Product', question: 'Is this right for my home?', image: 'product', alt: 'Shiloah sofa product page with photography, details and buying controls' },
-  { title: 'Cart', question: 'What have I selected?', image: 'cart', alt: 'Shopping cart showing the selected sofa and order summary' },
+  { title: 'Cart', question: 'What have I selected?', image: 'cart', alt: 'Shopping cart showing Shiloah and Sonoma sofas with the order summary' },
   { title: 'Checkout', question: 'How do I complete the order?', image: 'checkout', alt: 'Demo checkout showing delivery fields beside the order summary' },
-  { title: 'Confirmation', question: 'Was the purchase successful?', image: 'confirmation', alt: 'Demo order confirmation with the selected sofa, total and next steps' },
+  { title: 'Confirmation', question: 'Was the purchase successful?', image: 'confirmation', alt: 'Demo order confirmation with both selected sofas and the total paid' },
 ]
 
 function AutoShowcase({ items, mobile = false }: { items: { title: string; note?: string; image: string }[]; mobile?: boolean }) {
@@ -127,7 +127,7 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="05">INFORMATION ARCHITECTURE</SectionLabel>
           <div className="furniture-heading"><h2>One continuous shopping loop.</h2><p>Each page answers one primary question and prepares the next decision, reducing uncertainty as commitment increases.</p></div>
-          <div className="journey-track">{journeySteps.map(({ title, question, image, alt }, index) => <article key={title}><div className="journey-step-media"><img src={`/images/furniture/journey/${image}-20261018.webp`} alt={alt} width={960} height={540} loading="lazy" decoding="async" /></div><h3>{title}</h3><p>{question}</p>{index < 5 && <ArrowRight aria-hidden="true" />}</article>)}</div>
+          <div className="journey-track">{journeySteps.map(({ title, question, image, alt }, index) => <article key={title}><div className="journey-step-media"><img src={`/images/furniture/journey/${image}-provided-20261018.webp`} alt={alt} width={960} height={540} loading="lazy" decoding="async" /></div><h3>{title}</h3><p>{question}</p>{index < 5 && <ArrowRight aria-hidden="true" />}</article>)}</div>
         </Reveal>
       </section>
 
