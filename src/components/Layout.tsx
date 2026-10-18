@@ -8,11 +8,13 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { setupProjectNavbar } from '../../public/project-navbar.mjs'
 import '../../public/project-navbar.css'
 import '../../public/project-chapters.css'
+import { LanguageSwitch } from '../i18n/Language'
+import { useLanguage } from '../i18n/language-context'
 
 const navItems = [
-  { label: 'Work', to: '/#featured' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Work', zh: '作品', to: '/#featured' },
+  { label: 'About', zh: '关于', to: '/about' },
+  { label: 'Contact', zh: '联系', to: '/contact' },
 ]
 
 gsap.registerPlugin(ScrollTrigger)
@@ -56,6 +58,7 @@ export function ScrollToTop() {
 }
 
 export function Navbar() {
+  const { isChinese } = useLanguage()
   const [open, setOpen] = useState(false)
   const [compact, setCompact] = useState(false)
   const [hidden, setHidden] = useState(false)
@@ -80,32 +83,33 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`nav-shell ${compact ? 'is-compact' : ''} ${hidden ? 'ul-nav-hidden' : ''}`} aria-label="Primary navigation">
-        <Link className="monogram" to="/" aria-label="Jiaming Zhang, home" data-cursor="link">JZ<span>.</span></Link>
-        <nav className="desktop-nav" aria-label="Main menu">
+      <header className={`nav-shell ${compact ? 'is-compact' : ''} ${hidden ? 'ul-nav-hidden' : ''}`} aria-label={isChinese ? '主导航' : 'Primary navigation'}>
+        <Link className="monogram" to="/" aria-label={isChinese ? 'Jiaming Zhang，首页' : 'Jiaming Zhang, home'} data-cursor="link">JZ<span>.</span></Link>
+        <nav className="desktop-nav" aria-label={isChinese ? '主菜单' : 'Main menu'}>
           {navItems.map((item) => (
             item.label === 'Work'
-              ? <a key={item.to} href={item.to} data-cursor="link">{item.label}</a>
-              : <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{item.label}</NavLink>
+              ? <a key={item.to} href={item.to} data-cursor="link">{isChinese ? item.zh : item.label}</a>
+              : <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{isChinese ? item.zh : item.label}</NavLink>
           ))}
         </nav>
-        <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}><Menu size={22} /></button>
+        <LanguageSwitch />
+        <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-label={isChinese ? '打开菜单' : 'Open menu'} aria-expanded={open}><Menu size={22} /></button>
       </header>
       <AnimatePresence>
         {open && (
           <motion.div className="mobile-menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="mobile-menu-head">
               <span>JZ<span className="cyan">.</span></span>
-              <button type="button" onClick={() => setOpen(false)} aria-label="Close menu"><X size={24} /></button>
+              <button type="button" onClick={() => setOpen(false)} aria-label={isChinese ? '关闭菜单' : 'Close menu'}><X size={24} /></button>
             </div>
-            <nav aria-label="Mobile menu">
+            <nav aria-label={isChinese ? '手机菜单' : 'Mobile menu'}>
               {navItems.map((item, index) => (
                 <motion.div key={item.to} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * .06 }}>
-                  {item.label === 'Work' ? <a href={item.to}><small>0{index + 1}</small>{item.label}<ArrowUpRight size={25} /></a> : <Link to={item.to}><small>0{index + 1}</small>{item.label}<ArrowUpRight size={25} /></Link>}
+                  {item.label === 'Work' ? <a href={item.to}><small>0{index + 1}</small>{isChinese ? item.zh : item.label}<ArrowUpRight size={25} /></a> : <Link to={item.to}><small>0{index + 1}</small>{isChinese ? item.zh : item.label}<ArrowUpRight size={25} /></Link>}
                 </motion.div>
               ))}
             </nav>
-            <p>UX / PRODUCT DESIGNER<br />MELBOURNE, AUSTRALIA</p>
+            <p>{isChinese ? <>用户体验／产品设计师<br />澳大利亚 · 墨尔本</> : <>UX / PRODUCT DESIGNER<br />MELBOURNE, AUSTRALIA</>}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -209,20 +213,21 @@ export function CursorEffect() {
 }
 
 export function Footer() {
+  const { isChinese } = useLanguage()
   const { pathname } = useLocation()
   if (pathname.startsWith('/projects/')) return null
 
   const toTop = () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   return (
     <footer className="site-footer" id="contact" data-pixel-headings={pathname === '/' ? '' : undefined}>
-      <h2>LET&apos;S CREATE<br /><span>MEANINGFUL</span><br />EXPERIENCES.</h2>
+      <h2 lang="en">LET&apos;S CREATE<br /><span>MEANINGFUL</span><br />EXPERIENCES.</h2>
       <div className="footer-bottom">
         <div className="footer-links">
-          <Link to="/contact" data-cursor="link">EMAIL <ArrowUpRight size={15} /></Link>
-          <a href="https://www.linkedin.com/in/jiaming-zhang-996b52280/" target="_blank" rel="noopener noreferrer" data-cursor="link">LINKEDIN <ArrowUpRight size={15} /></a>
+          <Link to="/contact" data-cursor="link">{isChinese ? '邮件' : 'EMAIL'} <ArrowUpRight size={15} /></Link>
+          <a href="https://www.linkedin.com/in/jiaming-zhang-996b52280/" target="_blank" rel="noopener noreferrer" data-cursor="link">{isChinese ? '领英' : 'LINKEDIN'} <ArrowUpRight size={15} /></a>
         </div>
-        <p>Jiaming Zhang<br />UX / Product Designer</p>
-        <button type="button" onClick={toTop} data-cursor="link">BACK TO TOP <span>↑</span></button>
+        <p>Jiaming Zhang<br />{isChinese ? '用户体验／产品设计师' : 'UX / Product Designer'}</p>
+        <button type="button" onClick={toTop} data-cursor="link">{isChinese ? '回到顶部' : 'BACK TO TOP'} <span>↑</span></button>
       </div>
     </footer>
   )

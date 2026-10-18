@@ -6,14 +6,16 @@ import HomePage from './pages/HomePage'
 import { AboutPage, ContactPage, NotFoundPage } from './pages/InfoPages'
 import ProjectPage from './pages/ProjectPage'
 import FlyingMascot from './components/FlyingMascot'
+import { useLanguage } from './i18n/language-context'
 
 const UniLinkCaseStudy = lazy(() => import('./pages/UniLinkCaseStudy'))
 
 function App() {
   const location = useLocation()
+  const { isChinese } = useLanguage()
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#main-content">Skip to content</a>
+      <a className="skip-link" href="#main-content">{isChinese ? '跳转到正文' : 'Skip to content'}</a>
       <SmoothScroll />
       <ScrollToTop />
       <CursorEffect />

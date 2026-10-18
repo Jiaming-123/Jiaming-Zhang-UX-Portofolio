@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
+import { LanguageProvider } from './i18n/Language'
 import './styles.css'
 import '../public/crownlands-mobile-20260913.css'
 import '../public/furniture-mobile-hero-20260918.css'
@@ -22,8 +23,8 @@ import './styles/home-pixel-headings.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <LanguageProvider><BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <App />
-    </BrowserRouter>
+    </BrowserRouter></LanguageProvider>
   </React.StrictMode>,
 )

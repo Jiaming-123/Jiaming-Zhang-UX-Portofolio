@@ -5,6 +5,8 @@ import type { Project } from '../data/projects'
 import BorderGlow from './BorderGlow'
 import homepageCovers from '../data/homepage-covers.json'
 import { observeProjectReveal } from '../../public/home-project-reveal.mjs'
+import { useLanguage } from '../i18n/language-context'
+import { chineseCoverDescriptions } from '../i18n/homepage'
 
 export function Reveal({ children, className = '', variant = 'default' }: { children: ReactNode; className?: string; variant?: 'default' | 'project' }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -37,6 +39,7 @@ export function SectionLabel({ number, children }: { number?: string; children: 
 }
 
 export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+  const { isChinese } = useLanguage()
   const cover = project.slug === 'unilink' ? homepageCovers.unilink : project.slug === 'culturelens' ? homepageCovers.culturelens : project.slug === 'boardgamemate' ? homepageCovers.boardgamemate : project.slug === 'furniture' ? homepageCovers.furniture : project.slug === 'crownlands' ? homepageCovers.crownlands : undefined
   const isFurniture = project.slug === 'furniture'
 
@@ -54,9 +57,9 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         colors={isFurniture ? ['#38bdf8', '#00d4ff', project.color] : [project.color, '#0066ff', '#00d4ff']}
         fillOpacity={0.18}
       >
-        <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={`View ${project.title} case study`} data-cursor="media">
-          {cover ? <img className="project-cover-image" {...cover} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }} /> : null}
-          <span className="view-pill">VIEW CASE STUDY <ArrowRight size={15} /></span>
+        <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={isChinese ? `查看 ${project.title} 项目案例` : `View ${project.title} case study`} data-cursor="media">
+          {cover ? <img className="project-cover-image" {...cover} alt={isChinese ? chineseCoverDescriptions[project.slug] : cover.alt} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }} /> : null}
+          <span className="view-pill">{isChinese ? '查看项目案例' : 'VIEW CASE STUDY'} <ArrowRight size={15} /></span>
         </Link>
       </BorderGlow>
       <div className="project-meta">
