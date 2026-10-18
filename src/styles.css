@@ -512,7 +512,11 @@ body:has(.contact-page) .nav-shell:not(.is-compact) { background:transparent; bo
 .furniture-journey { background: #08111f; }
 .journey-track { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; }
 .journey-track article { position: relative; min-height: 210px; padding: 22px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid var(--line); }
-.journey-track span { color: var(--furn-gold); font-size: .55rem; }
+.journey-step-media { height: 24px; }
+.journey-step-media img { position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: 88px; object-fit: contain; border-radius: 5px; }
+@media (max-width: 760px) {
+  .journey-step-media img { top: 6px; height: 44px; }
+}
 .journey-track h3 { margin: 62px 0 14px; font: 500 1.08rem 'Space Grotesk'; }
 .journey-track p { margin: 0; color: var(--muted); font-size: .66rem; line-height: 1.6; }
 .journey-track svg { position: absolute; top: 18px; right: -19px; z-index: 2; width: 17px; color: var(--furn-gold); }

@@ -18,6 +18,15 @@ const mobileFlow = [
   { title: 'Confirmation', image: '/images/furniture/mobile-confirmation.png' },
 ]
 
+const journeySteps = [
+  { title: 'Home', question: 'What does this brand offer?', image: 'home', alt: 'Furniture store homepage with its editorial living-room hero' },
+  { title: 'Search / Category', question: 'Where can I begin?', image: 'category', alt: 'Living furniture category with a grid of products and prices' },
+  { title: 'Product', question: 'Is this right for my home?', image: 'product', alt: 'Shiloah sofa product page with photography, details and buying controls' },
+  { title: 'Cart', question: 'What have I selected?', image: 'cart', alt: 'Shopping cart showing the selected sofa and order summary' },
+  { title: 'Checkout', question: 'How do I complete the order?', image: 'checkout', alt: 'Demo checkout showing delivery fields beside the order summary' },
+  { title: 'Confirmation', question: 'Was the purchase successful?', image: 'confirmation', alt: 'Demo order confirmation with the selected sofa, total and next steps' },
+]
+
 function AutoShowcase({ items, mobile = false }: { items: { title: string; note?: string; image: string }[]; mobile?: boolean }) {
   const [active, setActive] = useState(0)
   useEffect(() => {
@@ -118,7 +127,7 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="05">INFORMATION ARCHITECTURE</SectionLabel>
           <div className="furniture-heading"><h2>One continuous shopping loop.</h2><p>Each page answers one primary question and prepares the next decision, reducing uncertainty as commitment increases.</p></div>
-          <div className="journey-track">{[['Home', 'What does this brand offer?'], ['Search / Category', 'Where can I begin?'], ['Product', 'Is this right for my home?'], ['Cart', 'What have I selected?'], ['Checkout', 'How do I complete the order?'], ['Confirmation', 'Was the purchase successful?']].map(([title, question], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{question}</p>{index < 5 && <ArrowRight />}</article>)}</div>
+          <div className="journey-track">{journeySteps.map(({ title, question, image, alt }, index) => <article key={title}><div className="journey-step-media"><img src={`/images/furniture/journey/${image}-20261018.webp`} alt={alt} width={960} height={540} loading="lazy" decoding="async" /></div><h3>{title}</h3><p>{question}</p>{index < 5 && <ArrowRight aria-hidden="true" />}</article>)}</div>
         </Reveal>
       </section>
 
