@@ -1,3 +1,4 @@
+import { zh } from '../i18n/中文版'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -57,9 +58,9 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         colors={isFurniture ? ['#38bdf8', '#00d4ff', project.color] : [project.color, '#0066ff', '#00d4ff']}
         fillOpacity={0.18}
       >
-        <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={isChinese ? `查看 ${project.title} 项目案例` : `View ${project.title} case study`} data-cursor="media">
+        <Link to={`/projects/${project.slug}`} className="project-visual-link" aria-label={isChinese ? zh.common.caseStudyLabel(project.title) : `View ${project.title} case study`} data-cursor="media">
           {cover ? <img className="project-cover-image" {...cover} alt={isChinese ? chineseCoverDescriptions[project.slug] : cover.alt} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }} /> : null}
-          <span className="view-pill">{isChinese ? '查看项目案例' : 'VIEW CASE STUDY'} <ArrowRight size={15} /></span>
+          <span className="view-pill">{isChinese ? zh.common.viewCaseStudy : 'VIEW CASE STUDY'} <ArrowRight size={15} /></span>
         </Link>
       </BorderGlow>
       <div className="project-meta">

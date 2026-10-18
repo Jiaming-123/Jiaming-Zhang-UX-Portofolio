@@ -1,3 +1,4 @@
+import { zh } from './i18n/中文版'
 import { lazy, Suspense } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
@@ -15,7 +16,7 @@ function App() {
   const { isChinese } = useLanguage()
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#main-content">{isChinese ? '跳转到正文' : 'Skip to content'}</a>
+      <a className="skip-link" href="#main-content">{isChinese ? zh.common.skipToContent : 'Skip to content'}</a>
       <SmoothScroll />
       <ScrollToTop />
       <CursorEffect />

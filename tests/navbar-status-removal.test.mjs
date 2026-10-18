@@ -6,7 +6,7 @@ test('shared navbar and Contact both omit the removed availability status', () =
   const layout = read('src/components/Layout.tsx')
   assert.ok(!layout.includes('AVAILABLE FOR OPPORTUNITIES'))
   assert.ok(!layout.includes('nav-status'))
-  for (const retained of ["aria-label={isChinese ? '主菜单' : 'Main menu'}", "aria-label={isChinese ? '打开菜单' : 'Open menu'}", "aria-label={isChinese ? '手机菜单' : 'Mobile menu'}", 'className="monogram"']) assert.ok(layout.includes(retained))
+  for (const retained of ["aria-label={isChinese ? zh.navigation.menuLabel : 'Main menu'}", "aria-label={isChinese ? zh.navigation.openMenu : 'Open menu'}", "aria-label={isChinese ? zh.navigation.mobileMenu : 'Mobile menu'}", 'className="monogram"']) assert.ok(layout.includes(retained))
   assert.ok(!read('src/pages/InfoPages.tsx').includes('AVAILABLE FOR OPPORTUNITIES'))
   for (const path of ['src/styles.css', 'src/crownlands.css', 'public/project-navbar.css']) assert.ok(!read(path).includes('.nav-status'))
 })

@@ -6,6 +6,8 @@ Use `npm run build` for the full portfolio and standalone UniLink document. The 
 
 Keep the current visual design, page content, project cover images, removed sections, prototype links and navigation behaviour unchanged unless the user requests otherwise. Crownlands game source is in `src/crownlands/` and `src/components/crownlands/`.
 
+All website Chinese copy must be maintained in `src/i18n/中文版.ts`, the single source of truth requested by the user on 2026-10-18. Add future page translations and edit existing Chinese wording in that file, then reference its keys from components; do not scatter Chinese strings across page/component files or create competing translation files. Keep original English copy and user-requested English exceptions (names, project titles, Hi!, and the footer headline) unchanged unless explicitly asked. Styling and interaction logic remain in their normal source files.
+
 Run TypeScript, `npm run build`, `npm test` and lint after relevant changes. Verify page layouts and game interactions in a local preview for release-impacting changes.
 
 For user-requested website changes, explain which code changed, then sync GitHub and publish to Vercel without asking for a separate publication confirmation. The user explicitly requested this workflow on 2026-10-12. This does not authorize unrelated changes or releases for read-only questions. A GitHub push can automatically deploy; verify the intended commit is live, and initiate deployment from that same commit if Git integration does not trigger it.

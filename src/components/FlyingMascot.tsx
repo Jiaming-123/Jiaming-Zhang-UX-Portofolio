@@ -1,3 +1,4 @@
+import { zh } from '../i18n/中文版'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { createPortal } from 'react-dom'
 import { useReducedMotion } from 'framer-motion'
@@ -162,7 +163,7 @@ export default function FlyingMascot() {
   const characterStyle = { '--copter-x': active.copterX, '--copter-y': active.copterY } as CSSProperties
   return createPortal(
     <div ref={positionRef} className={`flying-mascot ${ready ? 'is-ready' : ''}`} data-phase={phase} data-pose={active.name} data-paused={!pageVisible || Boolean(reducedMotion)}>
-      <button className="mascot-trigger" type="button" aria-label="让像素小人飞行五秒，然后回到右上角" title="碰我一下，飞 5 秒！" onPointerEnter={event => { if (event.pointerType === 'mouse') void fly() }} onClick={() => void fly()}>
+      <button className="mascot-trigger" type="button" aria-label={zh.mascot.label} title={zh.mascot.title} onPointerEnter={event => { if (event.pointerType === 'mouse') void fly() }} onClick={() => void fly()}>
         <span ref={orientationRef} className="mascot-flight-orientation">
           <span className="mascot-hover">
             <span className="mascot-character" style={characterStyle}>
