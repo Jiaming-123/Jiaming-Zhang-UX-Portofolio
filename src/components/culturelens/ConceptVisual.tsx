@@ -127,7 +127,6 @@ export default function ConceptVisual({ filename, index, mode = 'Focus' }: { fil
         {system && <><div className="culturelens-cv-focus-mask" style={{ '--cv-x': `${point.x}%`, '--cv-y': `${point.y}%` } as CSSProperties} aria-hidden="true" /><Hotspots points={xrPoints} active={active} onSelect={setActive} prefix="XR system" /></>}
         {scenario && <div key={service} className={`culturelens-cv-service-cue culturelens-cv-cue-${visualState}`} aria-hidden="true" style={{ left: `${serviceStates[service].x}%`, top: `${serviceStates[service].y}%` }}>{service === 0 ? '↗' : service === 3 ? 'Ⅱ' : <span />}</div>}
         {product && <>
-          <div key={mode} className="culturelens-cv-specular" aria-hidden="true" />
           <span key={`led-${mode}`} className="culturelens-cv-led" aria-hidden="true" />
           {annotated ? <Hotspots points={productPoints} active={active} onSelect={setActive} prefix="MuseBand concept feature" /> : <div key={`mode-${mode}`} className="culturelens-cv-mode-point" style={{ left: `${point.x}%`, top: `${point.y}%` }} aria-hidden="true"><span /></div>}
         </>}
