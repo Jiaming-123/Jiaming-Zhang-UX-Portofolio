@@ -154,7 +154,9 @@ body.unilink-page:has(.nav-shell:not(.ul-nav-hidden)) .ul-timeline { transform:t
 .ul-test-counts>strong { padding-right:12px; }
 .ul-test-plus { position:absolute; top:calc(var(--ul-digit-height)/2); left:calc(100%/6 + var(--ul-digit-center)); transform:translate(-50%,-50%); font-size:14px; line-height:1; }
 .ul-test-plus:nth-of-type(2) { left:calc(50% + var(--ul-digit-center)); }
-.ul-test-sample>p { color:var(--ul-muted); font-size:12px; margin:0; }
+.ul-test-summary { min-width:0; display:grid; gap:16px; }
+.ul-test-summary>img { display:block; width:100%; height:auto; border-radius:4px; }
+.ul-test-summary>p { color:var(--ul-muted); font-size:12px; margin:0; }
 .ul-iterations>article { display:grid; grid-template-columns:1fr 1.4fr; gap:65px; padding:55px 0; border-bottom:1px solid var(--ul-line); }
 .ul-iteration-title>span { color:#8a759c; font-size:12px; }
 .ul-iteration-title h3 { font-size:36px; line-height:1.15; margin:22px 0; }
