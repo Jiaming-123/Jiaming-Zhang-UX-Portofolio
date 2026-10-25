@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Expand, ShieldCheck, Users, X, ZoomIn } from 'lu
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { chapterId } from '../../data/unilink'
+import { ArtifactGallery } from './CaseStudyMedia'
 import '../../styles/unilink-concepts.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -165,6 +166,10 @@ export default function ConceptExploration() {
         <p>The final direction did not emerge from a single concept. It combined the strongest behaviours across the exploration: low-pressure participation, contextual matching and visible trust.</p>
         <p>These principles became the foundation of UniLink’s two core experiences — <strong>Groups</strong> and <strong>Mentors</strong>.</p>
         <small>Proactive AI guidance and other secondary directions remained valuable explorations, but were kept outside the core product to preserve clarity and focus.</small>
+      </div>
+      <div className="ul-concept-user-journey" id="unilink-user-journey">
+        <h3 className="ul-kicker">User Journey</h3>
+        <ArtifactGallery className="ul-user-journey-gallery" items={[{src:'user-journey-20261025.webp',title:'User Journey',caption:'',width:4800,height:2438}]} />
       </div>
     </div>
 

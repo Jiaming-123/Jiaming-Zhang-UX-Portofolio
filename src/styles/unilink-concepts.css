@@ -53,6 +53,12 @@
 .ul-exploration-close p { font-size:15px; color:var(--ul-muted); margin:0 0 18px; }
 .ul-exploration-close strong { font-weight:600; color:var(--ul-blue); }
 .ul-exploration-close small { display:block; color:#727884; font-size:12px; line-height:1.7; }
+.ul-concept-user-journey { margin-top:56px; }
+.ul-concept-user-journey>h3 { margin:0 0 18px; }
+.ul-concept-exploration .ul-user-journey-gallery { grid-template-columns:minmax(0,1fr); padding:0; }
+.ul-case .ul-concept-exploration .ul-concept-user-journey .ul-user-journey-gallery button { padding:0; overflow:hidden; background:transparent; }
+.ul-case .ul-concept-exploration .ul-concept-user-journey .ul-user-journey-gallery button>img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; }
+.ul-concept-user-journey .ul-artifacts figcaption { display:none; }
 .ul-concept-dialog { position:fixed; inset:0; width:94vw; height:94svh; max-width:1500px; max-height:none; margin:auto; padding:0; overflow:hidden; border:1px solid #ced1d6; border-radius:10px; background:#f7f5f1; color:#253652; }
 .ul-concept-dialog[open] { display:flex; flex-direction:column; }
 .ul-concept-dialog::backdrop { background:#142030e8; }
