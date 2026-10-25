@@ -11,7 +11,7 @@ test('UniLink replaces the three-card incentive row with a central hub and a tri
   assert.ok(!page.includes('className="ul-value-loop"'))
   for (const item of ['<strong>UniLink</strong>', 'ul-ecosystem-node--${role}', 'markerMid=', 'useId()', 'Gift', 'GraduationCap', 'UsersRound', 'Link2', 'preserveAspectRatio="none"']) assert.ok(component.includes(item), item)
   assert.equal((component.split('className="ul-ecosystem-cycle"')[1].split('</g>')[0].match(/<path /g) || []).length, 3)
-  assert.ok(component.includes('aria-label="UniLink at the centre of a triangular cycle'))
+  assert.ok(component.includes('aria-label={t("UniLink at the centre of a triangular cycle'))
   assert.ok(component.includes('aria-hidden="true"'))
   assert.ok(component.includes('M150 520 L315 305 L440 145'))
   assert.ok(css.includes('.ul-ecosystem-connections .ul-ecosystem-spokes path { stroke-width:3.2; }'))

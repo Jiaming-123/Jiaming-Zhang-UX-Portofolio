@@ -1,6 +1,6 @@
 import { setupProjectChapters } from './project-chapters.mjs';
 // Use the same hero boundary for all five case studies.
-export function setupProjectNavbar(pathname, onHidden) {
+export function setupProjectNavbar(pathname, onHidden, chapterCopy) {
   const selector = {
     '/projects/unilink': '.ul-hero',
     '/projects/landing-app': '.ul-hero',
@@ -11,7 +11,7 @@ export function setupProjectNavbar(pathname, onHidden) {
   }[pathname.replace(/\/$/, '')];
   onHidden(false);
   if (!selector) return () => {};
-  const stopChapters = setupProjectChapters(pathname);
+  const stopChapters = setupProjectChapters(pathname, chapterCopy);
   let frame = 0;
   let hero = null;
   const resized = new ResizeObserver(() => schedule());

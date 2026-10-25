@@ -27,7 +27,7 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
             <Route path="/work" element={<Navigate to="/#featured" replace />} />
-            <Route path="/projects/unilink" element={<Suspense fallback={<main style={{minHeight:'100svh',padding:'160px 5vw'}}>Loading UniLink…</main>}><ProjectEntryReset /><UniLinkCaseStudy /></Suspense>} />
+            <Route path="/projects/unilink" element={<Suspense fallback={<main style={{minHeight:'100svh',padding:'160px 5vw'}}>{isChinese ? zh.common.loadingUniLink : 'Loading UniLink…'}</main>}><ProjectEntryReset /><UniLinkCaseStudy /></Suspense>} />
             <Route path="/projects/landing-app" element={<Navigate to="/projects/unilink" replace />} />
             <Route path="/projects/:slug" element={<PageTransition><ProjectPage /></PageTransition>} />
             <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />

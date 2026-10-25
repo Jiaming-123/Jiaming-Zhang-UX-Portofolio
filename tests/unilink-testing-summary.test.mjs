@@ -5,7 +5,7 @@ import { read } from './helpers/build.mjs'
 
 test('UniLink evaluation shows the confirmed 8 + 3 + 2 participant breakdown', () => {
   const page = read('src/pages/UniLinkCaseStudy.tsx')
-  for (const text of ['8<span>first-year international students', '3<span>Current peer mentors', '2<span>Aspiring peer mentors', '13 participants in the team evaluation. The selected detail findings below are grounded in the student and mentor interviews.']) {
+  for (const text of ['8<span>{t("first-year international students")}', '3<span>{t("Current peer mentors")}', '2<span>{t("Aspiring peer mentors")}', '13 participants in the team evaluation. The selected detail findings below are grounded in the student and mentor interviews.']) {
     assert.ok(page.includes(text), text)
   }
   assert.ok(!page.includes('12 participants'))
@@ -18,7 +18,7 @@ test('provided SUS chart appears immediately above the participant explanation i
   const css = read('src/styles/unilink.css')
   const summary = page.split('className="ul-test-summary"')[1].split('</div>')[0]
   assert.ok(summary.includes('/images/unilink/sus-score-76-7-20261018.webp'))
-  assert.ok(summary.indexOf('<img') < summary.indexOf('<p>13 participants'))
+  assert.ok(summary.indexOf('<TranslatedImage') < summary.indexOf('<p>{t("13 participants'))
   assert.ok(summary.includes('Average SUS score for 13 participants: 76.7'))
   assert.ok(css.includes('.ul-test-summary>img { display:block; width:100%; height:auto;'))
   const asset = 'images/unilink/sus-score-76-7-20261018.webp'

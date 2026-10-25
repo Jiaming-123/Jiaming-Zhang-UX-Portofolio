@@ -1,4 +1,4 @@
-import { zh } from '../i18n/中文版'
+import { zh, unilinkChinese } from '../i18n/中文版'
 import { useEffect, useLayoutEffect, useState, type MouseEvent, type ReactNode } from 'react'
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
 import gsap from 'gsap'
@@ -74,7 +74,11 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
-  useEffect(() => setupProjectNavbar(pathname, setHidden), [pathname])
+  useEffect(() => setupProjectNavbar(pathname, setHidden,
+    isChinese && /^\/projects\/(unilink|landing-app)\/?$/.test(pathname) ? {
+      labels: ['Overview', 'Problem', 'Research', 'Concepts', 'Final Design', 'Testing', 'Sustainability', 'Reflection'].map(label => unilinkChinese[label]),
+      navLabel: unilinkChinese['UniLink chapters'], homeLabel: zh.navigation.homeLabel,
+    } : undefined), [pathname, isChinese])
 
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => {
@@ -93,7 +97,7 @@ export function Navbar() {
               : <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{isChinese ? item.zh : item.label}</NavLink>
           ))}
         </nav>
-        <LanguageSwitch />
+        {!/^\/projects\/(unilink|landing-app)\/?$/.test(pathname) && <LanguageSwitch />}
         <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-label={isChinese ? zh.navigation.openMenu : 'Open menu'} aria-expanded={open}><Menu size={22} /></button>
       </header>
       <AnimatePresence>

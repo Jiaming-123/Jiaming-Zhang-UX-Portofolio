@@ -20,7 +20,7 @@ test('every chapter bar uses the homepage JZ monogram and cyan dot at the same s
   const css = read('public/project-chapters.css')
   assert.ok(module.includes("mark.className = 'case-chapter-mark monogram'"))
   assert.ok(module.includes("mark.href = '/'"))
-  assert.ok(module.includes("mark.setAttribute('aria-label', 'Jiaming Zhang, home')"))
+  assert.ok(module.includes("mark.setAttribute('aria-label', copy.homeLabel || 'Jiaming Zhang, home')"))
   assert.ok(module.includes("mark.textContent = 'JZ'"))
   assert.ok(module.includes("dot.textContent = '.'"))
   assert.ok(module.includes('mark.append(dot)'))

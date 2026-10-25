@@ -55,7 +55,7 @@ export function chapterMobileRailMotion(progress, centers, viewportWidth, conten
   return { scrollLeft, walkerLeft };
 }
 
-export function setupProjectChapters(pathname) {
+export function setupProjectChapters(pathname, copy = {}) {
   const slug = pathname.replace(/\/$/, '').split('/').pop();
   const project = chapterProjects[slug === 'landing-app' ? 'unilink' : slug];
   if (!project || !pathname.startsWith('/projects/')) return () => {};
@@ -115,13 +115,13 @@ export function setupProjectChapters(pathname) {
     nav = document.createElement('nav');
     nav.className = 'case-chapter-nav';
     nav.dataset.project = slug;
-    nav.setAttribute('aria-label', `${project.name} chapters`);
+    nav.setAttribute('aria-label', copy.navLabel || `${project.name} chapters`);
     const heading = document.createElement('div');
     heading.className = 'case-chapter-heading';
     const mark = document.createElement('a');
     mark.className = 'case-chapter-mark monogram';
     mark.href = '/';
-    mark.setAttribute('aria-label', 'Jiaming Zhang, home');
+    mark.setAttribute('aria-label', copy.homeLabel || 'Jiaming Zhang, home');
     mark.dataset.cursor = 'link';
     mark.textContent = 'JZ';
     const dot = document.createElement('span');
@@ -145,8 +145,8 @@ export function setupProjectChapters(pathname) {
       marker.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
       label.className = 'case-chapter-name';
-      label.textContent = project.chapters[index][0];
-      label.dataset.label = project.chapters[index][0];
+      label.textContent = copy.labels?.[index] || project.chapters[index][0];
+      label.dataset.label = label.textContent;
       link.append(marker, label);
       link.addEventListener('click', jump);
       item.append(link); list.append(item); links.push(link); items.push(item); markers.push(marker);
@@ -204,7 +204,7 @@ export function setupProjectChapters(pathname) {
         if (index === active) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
-      nav.querySelector('.case-chapter-current').textContent = project.chapters[active][0];
+      nav.querySelector('.case-chapter-current').textContent = copy.labels?.[active] || project.chapters[active][0];
     }
     const link = links[active];
     const railResized = railWidth !== list.clientWidth;

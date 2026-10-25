@@ -1,25 +1,28 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
+import ts from 'typescript'
 import { read, builtJS } from './helpers/build.mjs'
 
 const component = read('src/components/unilink/UniLinkStory.tsx')
 const page = read('src/pages/UniLinkCaseStudy.tsx')
 const videoPath = 'media/unilink/unilink-presentation-20261015.mp4'
+const chineseVideoPath = 'media/unilink/unilink-presentation-zh-20261025.mp4'
 const posterPath = 'media/unilink/unilink-story-poster-v2-20261012.webp'
 
 test('UniLink story matches the requested introduction and precedes Problem', () => {
   assert.ok(component.includes('01 / INTRODUCTION'))
   assert.ok(component.includes('The UniLink Story'))
-  assert.ok(component.includes('An introduction video to our Background &amp; Motivation, Main Design Concept, Prototype Demonstration and User Based Evaluation evidence.'))
+  assert.ok(component.includes('An introduction video to our Background & Motivation, Main Design Concept, Prototype Demonstration and User Based Evaluation evidence.'))
   assert.ok(page.indexOf('<UniLinkStory />') < page.indexOf('className="ul-section ul-problem"'))
 })
 
 test('UniLink video mounts only after play, with native controls and offscreen cleanup', () => {
-  for (const required of ['useState(false)', 'started && !failed', 'preload="none"', 'controls', 'playsInline', 'IntersectionObserver', 'visibilitychange', 'observer.disconnect()', 'video.pause()', 'loading="lazy"', 'role="status"']) {
+  for (const required of ['useState(false)', 'started && !failed', 'preload="none"', 'controls', 'playsInline', 'IntersectionObserver', 'visibilitychange', 'observer.disconnect()', 'video.pause()', '<TranslatedImage', 'role="status"']) {
     assert.ok(component.includes(required), required)
   }
   assert.ok(!component.includes('onTimeUpdate'))
+  assert.ok(read('src/components/unilink/TranslatedImage.tsx').includes("loading={eager ? 'eager' : 'lazy'}"))
 })
 
 test('UniLink clean cover keeps the existing play overlay and click behaviour', () => {
@@ -34,7 +37,7 @@ test('UniLink clean cover keeps the existing play overlay and click behaviour', 
 
 test('UniLink video and poster are included unchanged in both release outputs', () => {
   const root = new URL('../', import.meta.url)
-  for (const asset of [videoPath, posterPath]) {
+  for (const asset of [videoPath, chineseVideoPath, posterPath]) {
     const source = fs.readFileSync(new URL('public/' + asset, root))
     for (const output of ['dist-production', '.vercel/output/static']) {
       assert.deepEqual(fs.readFileSync(new URL(output + '/' + asset, root)), source)
@@ -49,12 +52,14 @@ test('UniLink video and poster are included unchanged in both release outputs', 
   assert.ok(bundlePath)
   for (const bundle of [builtJS('src/pages/UniLinkCaseStudy.tsx'), read('dist-production/' + bundlePath)]) {
     assert.ok(bundle.includes('/' + videoPath))
+    assert.ok(bundle.includes('/' + chineseVideoPath))
     assert.ok(bundle.includes('The UniLink Story'))
   }
 })
 
 test('UniLink MP4 metadata is ahead of media data for progressive playback', () => {
-  const video = fs.readFileSync(new URL('../public/' + videoPath, import.meta.url))
+  for (const asset of [videoPath, chineseVideoPath]) {
+  const video = fs.readFileSync(new URL('../public/' + asset, import.meta.url))
   const boxes = []
   for (let offset = 0; offset + 8 <= video.length;) {
     const size = video.readUInt32BE(offset)
@@ -65,4 +70,19 @@ test('UniLink MP4 metadata is ahead of media data for progressive playback', () 
   }
   assert.ok(boxes.includes('moov') && boxes.includes('mdat'))
   assert.ok(boxes.indexOf('moov') < boxes.indexOf('mdat'))
+  assert.ok(video.length < 75_000_000, 'both language versions retain the web compression budget')
+  }
+})
+
+test('Chinese video subtitles cover the presentation with ordered, non-overlapping cues', async () => {
+  const { outputText } = ts.transpileModule(read('src/i18n/中文版.ts'), { compilerOptions: { module: ts.ModuleKind.ESNext } })
+  const { unilinkVideoSubtitles: cues } = await import(`data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`)
+  assert.ok(cues.length > 80)
+  assert.ok(cues[0][0] < 1 && cues.at(-1)[1] > 239)
+  let previousEnd = 0
+  for (const [start, end, copy] of cues) {
+    assert.ok(start >= previousEnd && end > start && end <= 240.1)
+    assert.match(copy, /[\u3400-\u9fff]/u)
+    previousEnd = end
+  }
 })

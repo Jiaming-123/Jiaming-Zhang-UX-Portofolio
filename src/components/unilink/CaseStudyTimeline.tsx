@@ -1,6 +1,8 @@
+import { useUniLinkCopy } from '../../i18n/unilink'
 import { useEffect, useRef, useState } from 'react'
 import { chapters, chapterId } from '../../data/unilink'
 export default function CaseStudyTimeline() {
+  const t = useUniLinkCopy()
   const ref = useRef<HTMLElement>(null)
   const [active,setActive] = useState(0)
   const [visible,setVisible] = useState(false)
@@ -23,8 +25,8 @@ export default function CaseStudyTimeline() {
     update();window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll)
     return ()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);cancelAnimationFrame(frame)}
   },[])
-  return <nav className={`ul-timeline ${visible?'is-visible':''}`} ref={ref} aria-label="Case study chapters">
-    <div className="ul-mobile-chapter"><span>UNILINK</span><strong>{String(active+1).padStart(2,'0')} / {chapters[active]}</strong></div>
-    <ol>{chapters.map((c,i)=><li key={c} className={i<=active?'is-complete':''}><a href={`#${chapterId(c)}`} aria-label={`${String(i+1).padStart(2,'0')} ${c}`} aria-current={active===i?'step':undefined} onClick={e=>{e.preventDefault();const target=document.getElementById(chapterId(c));target?.focus({preventScroll:true});target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.replaceState(null,'',`#${chapterId(c)}`)}}><span className="ul-nav-dot">{String(i+1).padStart(2,'0')}</span><span className="ul-nav-name">{c}</span></a></li>)}</ol>
+  return <nav className={`ul-timeline ${visible?'is-visible':''}`} ref={ref} aria-label={t("Case study chapters")}>
+    <div className="ul-mobile-chapter"><span>UNILINK</span><strong>{String(active+1).padStart(2,'0')} / {t(chapters[active])}</strong></div>
+    <ol>{chapters.map((c,i)=><li key={c} className={i<=active?'is-complete':''}><a href={`#${chapterId(c)}`} aria-label={`${String(i+1).padStart(2,'0')} ${t(c)}`} aria-current={active===i?'step':undefined} onClick={e=>{e.preventDefault();const target=document.getElementById(chapterId(c));target?.focus({preventScroll:true});target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.replaceState(null,'',`#${chapterId(c)}`)}}><span className="ul-nav-dot">{String(i+1).padStart(2,'0')}</span><span className="ul-nav-name">{t(c)}</span></a></li>)}</ol>
   </nav>
 }
