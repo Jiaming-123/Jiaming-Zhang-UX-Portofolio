@@ -24,7 +24,7 @@ function Personas() {
   return <div className="ul-personas">
     <div className="ul-subheading"><div><span className="ul-kicker">TWO SIDES OF THE SAME SERVICE</span><h3>A shared need. Different expectations.</h3></div><div className="ul-role-switch" role="group" aria-label="Choose research perspective">{(['student','mentor'] as const).map(r=><button type="button" key={r} aria-pressed={role===r} onClick={()=>setRole(r)}>{r==='student'?'Student':'Mentor'}</button>)}</div></div>
     <ArtifactGallery key={role} className="ul-persona-sequence" items={[
-      {src:`persona-${role}.svg?v=20261004-clean-footer`,title:role==='student'?'Lina Chen / First-year student':'Aarav Patel / Potential peer mentor',caption:''},
+      {src:`persona-${role}-20261025.png`,title:role==='student'?'Lisa / First-year student':'Aarav Patel / Potential peer mentor',caption:'',width:1440,height:1080},
       {src:`journey-${role}.svg?v=20261004-clean-footer`,title:role==='student'?'From uncertainty to focused support':'From willingness to sustainable contribution',caption:'',wide:true},
     ]} />
   </div>
