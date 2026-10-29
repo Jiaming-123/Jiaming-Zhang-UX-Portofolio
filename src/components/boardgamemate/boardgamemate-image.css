@@ -1,0 +1,4 @@
+.bgm-localized-image { display:block; max-width:100%; height:auto; }
+.bgm-flow-screen > .bgm-localized-image { width:100%; height:auto; border:1px solid rgba(255,255,255,.12); border-radius:clamp(18px,2vw,30px); background:#fbf7ee; }
+.bgm-prototype-step-image > .bgm-localized-image { display:block; width:100%; height:100%; object-fit:contain; }
+@media(max-width:767px) { .bgm-flow-screen > .bgm-localized-image { pointer-events:none; } }

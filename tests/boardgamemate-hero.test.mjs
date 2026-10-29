@@ -29,7 +29,7 @@ test('mobile keeps the desktop two columns with scaling type, remaining metadata
   assert.ok(css.includes('min-width: 0'))
   assert.ok(hero.indexOf('BoardGameMate focuses') < hero.indexOf('It helps players'))
   assert.ok(!hero.includes('<dt>PROJECT</dt>'))
-  for (const field of ['DISCIPLINES', 'YEAR', 'TEAM', 'MY CONTRIBUTION', 'RESEARCH METHODS']) assert.ok(hero.includes(`<dt>${field}</dt>`))
+  for (const field of ['DISCIPLINES', 'YEAR', 'TEAM', 'MY CONTRIBUTION', 'RESEARCH METHODS']) assert.ok(hero.includes(`<dt>{t("${field}")}</dt>`))
   for (const method of ['User interviews', 'Focus groups', 'Cognitive walkthrough', 'Heuristic evaluation']) assert.ok(hero.includes(method))
 })
 
@@ -52,7 +52,7 @@ test('persona captions are removed without removing either original persona or t
   assert.ok(!source.includes('The thoughtful newcomer'))
   assert.ok(source.includes("file: 'boardgamemate-persona-alice'"))
   assert.ok(source.includes("file: 'boardgamemate-persona-leo'"))
-  assert.ok(source.includes('<figcaption>Sketch 0'))
+  assert.ok(source.includes('<figcaption>{t("Sketch 0")}{index + 1}</figcaption>'))
 })
 
 test('production ships the new overview illustration unchanged without replacing the homepage cover', () => {

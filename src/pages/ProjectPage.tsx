@@ -6,6 +6,8 @@ import { FurnitureCaseStudy } from '../components/FurnitureCaseStudy'
 import { projectBySlug } from '../data/projects'
 import { NotFoundPage } from './InfoPages'
 import '../styles/furniture-hero.css'
+import { useLanguage } from '../i18n/language-context'
+import { boardGameMateChinese } from '../i18n/中文版'
 
 const CultureLensCaseStudy = lazy(() => import('./CultureLensCaseStudy'))
 const CrownlandsPage = lazy(() => import('./CrownlandsPage'))
@@ -21,7 +23,8 @@ function FurnitureHero() {
 }
 
 function NextProject({ slug, title, theme }: { slug: string; title: string; theme: string }) {
-  return <Link className="case-next-project" data-case-theme={theme} to={`/projects/${slug}`}><span>NEXT PROJECT</span><strong>{title}</strong><ArrowUpRight aria-hidden="true" /></Link>
+  const { isChinese } = useLanguage()
+  return <Link className="case-next-project" data-case-theme={theme} to={`/projects/${slug}`}><span>{isChinese && theme === 'boardgamemate' ? boardGameMateChinese['NEXT PROJECT'] : 'NEXT PROJECT'}</span><strong>{title}</strong><ArrowUpRight aria-hidden="true" /></Link>
 }
 
 export default function ProjectPage() {

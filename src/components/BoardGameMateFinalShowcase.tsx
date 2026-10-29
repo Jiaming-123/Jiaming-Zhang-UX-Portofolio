@@ -1,7 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion, type PanInfo } from 'framer-motion'
 import { ArrowUpRight, X } from 'lucide-react'
 import { SectionLabel } from './Content'
+import { useBoardGameMateCopy } from '../i18n/boardgamemate'
+import { LanguageSwitch } from '../i18n/Language'
+import { useLanguage } from '../i18n/language-context'
+import { BoardGameMateImage } from './boardgamemate/BoardGameMateImage'
 
 const FIGMA_FILE_KEY = 'n7Zgb0nVXh4GQt9G4fFqbz'
 const FIGMA_PAGE_ID = '2538:2'
@@ -190,6 +194,8 @@ function embedUrl(nodeId: string) {
 }
 
 function PrototypeModal({ flow, onClose }: { flow: BoardGameMateFlow; onClose: () => void }) {
+  const t = useBoardGameMateCopy()
+  const { isChinese } = useLanguage()
   const dialogRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const [loading, setLoading] = useState(true)
@@ -229,36 +235,37 @@ function PrototypeModal({ flow, onClose }: { flow: BoardGameMateFlow; onClose: (
     <div className="bgm-prototype-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div ref={dialogRef} className="bgm-prototype-modal" role="dialog" aria-modal="true" aria-labelledby="bgm-prototype-title" aria-describedby="bgm-prototype-instructions">
         <header className="bgm-prototype-topbar">
-          <div><span>INTERACTIVE PROTOTYPE / {flow.id}</span><h2 id="bgm-prototype-title">{flow.title}</h2></div>
-          <div><small>ESC TO CLOSE</small><button ref={closeRef} type="button" onClick={onClose} aria-label="Close interactive prototype"><X /></button></div>
+          <div><span>{t('INTERACTIVE PROTOTYPE')} / {flow.id}</span><h2 id="bgm-prototype-title">{t(flow.title)}</h2></div>
+          <div><div className="bgm-prototype-language"><LanguageSwitch /></div><small>{t('ESC TO CLOSE')}</small><button ref={closeRef} type="button" onClick={onClose} aria-label={t('Close interactive prototype')}><X /></button></div>
         </header>
         <div className="bgm-prototype-body">
           <div className="bgm-prototype-frame">
-            {loading && <div className="bgm-prototype-loading" role="status">Loading interactive prototype…</div>}
+            {loading && <div className="bgm-prototype-loading" role="status">{t('Loading interactive prototype…')}</div>}
             <iframe
               src={embedUrl(flow.prototypeStartNode)}
-              title={`BoardGameMate prototype: ${flow.label.toLowerCase()}`}
+              title={t('BoardGameMate prototype: {flow}').replace('{flow}', t(flow.label).toLowerCase())}
               allowFullScreen
               onLoad={() => setLoading(false)}
             />
           </div>
           <aside id="bgm-prototype-instructions">
-            <div><span>GOAL</span><p>{flow.goal}</p></div>
-            <div><span>START HERE</span><p>{flow.startInstruction}</p></div>
+            {isChinese && <p className="bgm-prototype-language-note">{t('The original Figma prototype is in English; follow the Chinese guidance alongside it.')}</p>}
+            <div><span>{t('GOAL')}</span><p>{t(flow.goal)}</p></div>
+            <div><span>{t('START HERE')}</span><p>{t(flow.startInstruction)}</p></div>
             <div className="bgm-prototype-steps">
-              <span>BUTTON ORDER</span>
+              <span>{t('BUTTON ORDER')}</span>
               <ol>
                 {flow.steps.map((step, index) => (
                   <li key={`${flow.id}-${step.action}-${index}`}>
                     <div className="bgm-prototype-step-image">
-                      <img src={`${guideImageRoot}/${step.image}`} width={step.imageWidth} height={step.imageHeight} loading="lazy" decoding="async" alt={`Button ${index + 1}: ${step.action}`} />
+                      <BoardGameMateImage src={`${guideImageRoot}/${step.image}`} width={step.imageWidth} height={step.imageHeight} loading="lazy" decoding="async" alt={t('Button {number}: {action}').replace('{number}', String(index + 1)).replace('{action}', t(step.action))} />
                     </div>
-                    <div><b>{String(index + 1).padStart(2, '0')} · {step.action}</b><p>{step.detail}</p></div>
+                    <div><b>{String(index + 1).padStart(2, '0')} · {t(step.action)}</b><p>{t(step.detail)}</p></div>
                   </li>
                 ))}
               </ol>
             </div>
-            <a href={prototypeUrl(flow.prototypeStartNode)} target="_blank" rel="noreferrer">OPEN FULL PROTOTYPE <ArrowUpRight /></a>
+            <a href={prototypeUrl(flow.prototypeStartNode)} target="_blank" rel="noreferrer">{t('OPEN FULL PROTOTYPE')} <ArrowUpRight /></a>
           </aside>
         </div>
       </div>
@@ -267,6 +274,7 @@ function PrototypeModal({ flow, onClose }: { flow: BoardGameMateFlow; onClose: (
 }
 
 function FlowMediaCarousel({ flow }: { flow: BoardGameMateFlow }) {
+  const t = useBoardGameMateCopy()
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const reduceMotion = useReducedMotion()
@@ -290,7 +298,7 @@ function FlowMediaCarousel({ flow }: { flow: BoardGameMateFlow }) {
   }
 
   return (
-    <div className="bgm-flow-media" data-count={imageCount} aria-label={`${flow.label} interface sequence`}>
+    <div className="bgm-flow-media" data-count={imageCount} aria-label={t('{flow} interface sequence').replace('{flow}', t(flow.label))}>
       {flow.images.map((image, index) => {
         const stackPosition = (index - activeIndex + imageCount) % imageCount
         const stackStates = [
@@ -315,15 +323,15 @@ function FlowMediaCarousel({ flow }: { flow: BoardGameMateFlow }) {
             onDragEnd={onDragEnd}
             aria-hidden={isMobile && !isActive}
           >
-            <img src={`${imageRoot}/${image.file}`} width={786} height={1704} loading="lazy" decoding="async" alt={image.alt} draggable={false} />
+            <BoardGameMateImage src={`${imageRoot}/${image.file}`} width={786} height={1704} loading="lazy" decoding="async" alt={t(image.alt)} draggable={false} />
           </motion.figure>
         )
       })}
       {imageCount > 1 && (
-        <div className="bgm-flow-mobile-controls" aria-label={`${flow.label} image carousel controls`}>
-          <button type="button" onClick={() => move(-1)} aria-label="Show previous interface">←</button>
+        <div className="bgm-flow-mobile-controls" aria-label={t('{flow} image carousel controls').replace('{flow}', t(flow.label))}>
+          <button type="button" onClick={() => move(-1)} aria-label={t('Show previous interface')}>←</button>
           <span aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(imageCount).padStart(2, '0')}</span>
-          <button type="button" onClick={() => move(1)} aria-label="Show next interface">→</button>
+          <button type="button" onClick={() => move(1)} aria-label={t('Show next interface')}>→</button>
         </div>
       )}
     </div>
@@ -331,25 +339,27 @@ function FlowMediaCarousel({ flow }: { flow: BoardGameMateFlow }) {
 }
 
 function FinalUIFlow({ flow, onOpen }: { flow: BoardGameMateFlow; onOpen: (flow: BoardGameMateFlow) => void }) {
+  const t = useBoardGameMateCopy()
   return (
     <article className="bgm-flow">
       <FlowMediaCarousel flow={flow} />
       <div className="bgm-flow-copy">
-        <span>{flow.id} / {flow.label}</span>
-        <h3>{flow.title}</h3>
-        <blockquote>“{flow.goal}”</blockquote>
-        <p>{flow.description}</p>
-        <ol className="bgm-flow-journey" aria-label={`${flow.label} journey`}>
-          {flow.visualJourney.map((step) => <li key={step}>{step}</li>)}
+        <span>{flow.id} / {t(flow.label)}</span>
+        <h3>{t(flow.title)}</h3>
+        <blockquote>“{t(flow.goal)}”</blockquote>
+        <p>{t(flow.description)}</p>
+        <ol className="bgm-flow-journey" aria-label={t('{flow} journey').replace('{flow}', t(flow.label))}>
+          {flow.visualJourney.map((step) => <li key={step}>{t(step)}</li>)}
         </ol>
-        <small>{flow.principle}</small>
-        <button type="button" onClick={() => onOpen(flow)} aria-label={`Try BoardGameMate flow: ${flow.label.toLowerCase()}`}>Try This Flow <ArrowUpRight /></button>
+        <small>{t(flow.principle)}</small>
+        <button type="button" onClick={() => onOpen(flow)} aria-label={t('Try BoardGameMate flow: {flow}').replace('{flow}', t(flow.label).toLowerCase())}>{t('Try This Flow')} <ArrowUpRight /></button>
       </div>
     </article>
   )
 }
 
 export function BoardGameMateFinalShowcase() {
+  const t = useBoardGameMateCopy()
   const [activeFlow, setActiveFlow] = useState<BoardGameMateFlow | null>(null)
   const triggerRef = useRef<HTMLElement | null>(null)
 
@@ -358,24 +368,24 @@ export function BoardGameMateFinalShowcase() {
     setActiveFlow(flow)
   }
 
-  const closeFlow = () => {
+  const closeFlow = useCallback(() => {
     setActiveFlow(null)
     requestAnimationFrame(() => triggerRef.current?.focus())
-  }
+  }, [])
 
   return (
     <div className="iteration-showcase" id="final-ui-showcase">
       <div className="iteration-showcase-heading iteration-reveal is-visible">
-        <SectionLabel>FINAL UI SHOWCASE</SectionLabel>
+        <SectionLabel>{t('FINAL UI SHOWCASE')}</SectionLabel>
         <div>
-          <h3>Six flows.<br />One journey to the table.</h3>
-          <p>The final experience was designed around six connected user flows, covering the journey from discovering a game to actually sitting down and playing together.</p>
-          <ol className="bgm-product-journey" aria-label="Complete BoardGameMate product journey">
-            {['Discover', 'Match', 'Join', 'Learn', 'Coordinate', 'Play'].map((step) => <li key={step}>{step}</li>)}
+          <h3>{t('Six flows.')}<br />{t('One journey to the table.')}</h3>
+          <p>{t('The final experience was designed around six connected user flows, covering the journey from discovering a game to actually sitting down and playing together.')}</p>
+          <ol className="bgm-product-journey" aria-label={t('Complete BoardGameMate product journey')}>
+            {['Discover', 'Match', 'Join', 'Learn', 'Coordinate', 'Play'].map((step) => <li key={step}>{t(step)}</li>)}
           </ol>
           <button type="button" className="bgm-complete-prototype" onClick={() => openFlow(boardGameMateFlows[0])}>
-            <span>INTERACTIVE PROTOTYPE</span>
-            <strong>Explore BoardGameMate Interactive Prototype</strong>
+            <span>{t('INTERACTIVE PROTOTYPE')}</span>
+            <strong>{t('Explore BoardGameMate Interactive Prototype')}</strong>
             <ArrowUpRight />
           </button>
         </div>

@@ -1,6 +1,6 @@
 {
   "buildMode": "react-source",
-  "portfolioEntry": "assets/index-Cp0jk4Vp.js",
+  "portfolioEntry": "assets/index-BWgw-xyy.js",
   "sourceEntries": [
     "src/main.tsx",
     "src/unilink-entry.tsx"
@@ -8,43 +8,43 @@
   "files": [
     {
       "path": ".vite/manifest.json",
-      "sha256": "712ea882df45a0fcdbcac5ab4b0bdecabb300e8f1de70425b8e0f8d9da189734"
+      "sha256": "7b3940c79e3340038f1124d47587f4edc3456cb2dfb683774eaaaf80d8263bc2"
     },
     {
       "path": "assets/CrownlandsPage-B7f0zO_U.css",
       "sha256": "bf0d75c2fffbf3dcac416e1d815de8ef84948741dde7f2a29d6a1e770fc0fc0a"
     },
     {
-      "path": "assets/CrownlandsPage-BA6ZOEHf.js",
-      "sha256": "d6a65674877202bba9a2c05d5ba21faa56ad97044550742a1ed488e084a178ff"
+      "path": "assets/CrownlandsPage-BYbtDrZH.js",
+      "sha256": "703ea56753b892498c65bc3fa1cd7f794005a338fb9bd1454fce08ff3e17f2fb"
     },
     {
-      "path": "assets/CultureLensCaseStudy-De2fySSj.js",
-      "sha256": "4708b68c456d3d44d563bf09ec1294a8084a1215b9f4e59d251ecaab0e694262"
+      "path": "assets/CultureLensCaseStudy-DwPX0ZHE.js",
+      "sha256": "07001c6f8f08655393b4b360f8e509d688231dde95801627c140f496c061638f"
     },
     {
       "path": "assets/CultureLensCaseStudy-YSq-7cpC.css",
       "sha256": "5a21cc76fb695ddbe08c75607b959f792a04a5eb022b919e3e7287028534dd1e"
     },
     {
-      "path": "assets/UniLinkCaseStudy-CNvvk3NL.js",
-      "sha256": "1934a47d3e09112600e534200c5edd3030ef21d6cbd842b1d81748f66a2c6326"
+      "path": "assets/UniLinkCaseStudy-BlxoZFu1.js",
+      "sha256": "bcdc9944fad46bb681e99e268db3369c2186e477a316d9eea6c04e39e72f87a9"
     },
     {
       "path": "assets/UniLinkCaseStudy-DKaMQoet.css",
       "sha256": "eece0e5ed237b68a9b04ec18a5605aefba0b7d71975f53ea4634c4086bca7572"
     },
     {
-      "path": "assets/index-Be6fXKFu.css",
-      "sha256": "bd48e632478341de5765c124ce9adabd26f2ff7341d4b030c333a30a7c8e64e2"
+      "path": "assets/index-BWgw-xyy.js",
+      "sha256": "170e6fa2323fe5d8c80d986e7b1c9d4b178e2abb61410b9a2c64b3b2678ca05f"
     },
     {
-      "path": "assets/index-Cp0jk4Vp.js",
-      "sha256": "e2e95db98e3964a693b8e1a81f91c7b2660fdbfb9b241852104c8f8ad4a5e260"
+      "path": "assets/index-Cw6XTZtD.css",
+      "sha256": "8224defeb7c35a0c0f228dc81b43f26e2d1fb6da82a7cc4689d4dc71d812e4d3"
     },
     {
-      "path": "assets/play-8HnMlK-b.js",
-      "sha256": "dd5b374266d6413f5367c9881961c046ea55ae3d177379b66bcfc36abd8b4b15"
+      "path": "assets/play-BUkrtvlk.js",
+      "sha256": "78ec561b6a84b323dd714166600d60a2ae519b53ed17d5efb59cb5129ec0ecb7"
     },
     {
       "path": "boardgamemate-cover-signature.css",
@@ -465,6 +465,10 @@
     {
       "path": "images/boardgamemate/final-ui/guides/flow-06-preparation.png",
       "sha256": "193e4a5150e756abb0b24162d4b99ebc101f76ac3054d828e9736179f9949d91"
+    },
+    {
+      "path": "images/boardgamemate/final-ui/localized/photo-stardew-valley-clean-690.webp",
+      "sha256": "06b940a5aa717747d5662de503483ef7d9017dee1cf1ec8b32d0a389a21a8d1b"
     },
     {
       "path": "images/boardgamemate/hero-overview-20261014.png",
@@ -1068,7 +1072,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "fc135a4a21fe5503016756659ee69cb6186817ed450e0e0b27dd34c25f7f6cce"
+      "sha256": "ceeb74285705b562b30a5204aa4ed82768bc82c9b384cb3327217c015bb766c1"
     },
     {
       "path": "media/CultureLens-Discover-Exhibition.mp4",
@@ -1300,15 +1304,15 @@
     },
     {
       "path": "projects/unilink/index.html",
-      "sha256": "b1ec9c418e8a71fc5da3c08262295d196dcb56890c0ceb7804f0cf9b5558d347"
+      "sha256": "c6507fc3f76e8a34d4c6ed6e3f93a19888cc1a487169e016245fb1881e3872df"
     },
     {
-      "path": "unilink-assets/unilink-BYOtORPP.css",
-      "sha256": "3d47b9c8937c067c3e44610e2a5454f94d1c6ab1d89fb7e0cd27de0effbbec8c"
+      "path": "unilink-assets/unilink-BXK0ICQP.css",
+      "sha256": "82c774d24d8b4e5339230808acb5e73b1e8457a336c940060fafa12e2f259bea"
     },
     {
-      "path": "unilink-assets/unilink-DHaFw8H8.js",
-      "sha256": "61b3091206a214f04eb74a6207d6d960eced569f882e5ffb9d132357e24bbb61"
+      "path": "unilink-assets/unilink-CGyVQAHd.js",
+      "sha256": "9d51da11e0eeffe180bce7fdb02b55bb6bdd6072580ea1a7b890ddd9fd4b981f"
     },
     {
       "path": "unilink-blank-cover-20260918.css",
