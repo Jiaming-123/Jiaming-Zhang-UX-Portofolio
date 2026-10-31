@@ -227,7 +227,7 @@ export function Footer() {
 
   const toTop = () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   return (
-    <footer className="site-footer" id="contact" data-pixel-headings={pathname === '/' ? '' : undefined}>
+    <footer className="site-footer" id="contact" data-pixel-headings>
       <h2 lang="en">LET&apos;S CREATE<br /><span>MEANINGFUL</span><br />EXPERIENCES.</h2>
       <div className="footer-bottom">
         <div className="footer-links">

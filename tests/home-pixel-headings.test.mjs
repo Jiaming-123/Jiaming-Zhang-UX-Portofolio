@@ -35,13 +35,16 @@ test('all eight home display headings retain real text, case, links and the orig
   assert.ok(css.includes('@media (max-width: 767px)'))
 })
 
-test('pixel typography remains home-only without changing body copy, case studies or About footer', () => {
+test('pixel typography extends to About footer and Contact headline without changing body copy or case studies', () => {
   const css = read('src/styles/home-pixel-headings.css')
   assert.ok(!css.includes('.case-study'))
   assert.ok(!css.includes('body {'))
-  assert.ok(!css.includes('.contact-page'))
+  assert.ok(css.includes('.contact-page[data-pixel-headings] h1'))
+  assert.ok(css.includes('.contact-page[data-pixel-headings] h1 > span'))
+  assert.ok(!css.includes('.about-profile'))
   assert.ok(!css.includes('.hero-foot'))
-  assert.ok(read('src/components/Layout.tsx').includes("data-pixel-headings={pathname === '/' ? '' : undefined}"))
+  assert.ok(read('src/components/Layout.tsx').includes('<footer className="site-footer" id="contact" data-pixel-headings>'))
+  assert.ok(read('src/pages/InfoPages.tsx').includes('<main className="contact-page" data-pixel-headings>'))
   assert.ok(read('src/components/Layout.tsx').includes("if (pathname.startsWith('/projects/')) return null"))
 })
 

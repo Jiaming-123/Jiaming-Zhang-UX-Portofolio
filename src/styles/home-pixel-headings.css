@@ -12,7 +12,8 @@
 .home-landing-project .home-landing-title-row h1,
 .selected-work .section-intro h2,
 .home-project-grid .project-meta h3,
-.site-footer[data-pixel-headings] h2 {
+.site-footer[data-pixel-headings] h2,
+.contact-page[data-pixel-headings] h1 {
   font-family: 'Jiaming Pixel', 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-synthesis: none;
@@ -23,12 +24,14 @@
 .selected-work .section-intro h2 { font-size: clamp(2.8rem, 6vw, 6.5rem); line-height: .98; }
 .home-project-grid .project-meta > div { min-width: 0; }
 .home-project-grid .project-meta h3 { font-size: clamp(1.35rem, 2.4vw, 2.75rem); line-height: 1.12; }
-.site-footer[data-pixel-headings] h2 { line-height: .95; }
+.site-footer[data-pixel-headings] h2,
+.contact-page[data-pixel-headings] h1 { line-height: .95; }
 
 /* Only these existing outline lines are hollow: ZHANG, & SERVICES., MEANINGFUL. */
 .hero.hero--rotating-spheres h1 > .outline-type,
 .selected-work .section-intro h2 > span,
-.site-footer[data-pixel-headings] h2 > span {
+.site-footer[data-pixel-headings] h2 > span,
+.contact-page[data-pixel-headings] h1 > span {
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, .68);
 }
@@ -37,4 +40,5 @@
   .selected-work .section-intro h2 { font-size: clamp(1.85rem, 11.8vw, 3.9rem); }
   .home-project-grid .project-meta h3 { font-size: clamp(1.25rem, 6.6vw, 2.25rem); }
   .site-footer[data-pixel-headings] h2 { font-size: clamp(2rem, 12.3vw, 5.6rem); }
+  .contact-page[data-pixel-headings] h1 { font-size: clamp(2rem, 12.3vw, 6.2rem); }
 }

@@ -32,7 +32,7 @@ export function AboutPage() {
 export function ContactPage() {
   return (
     <>
-      <main className="contact-page">
+      <main className="contact-page" data-pixel-headings>
         <h1>LET&apos;S MAKE<br />SOMETHING<br /><span>MEANINGFUL.</span></h1>
         <div className="contact-grid">
           <div className="contact-actions">
