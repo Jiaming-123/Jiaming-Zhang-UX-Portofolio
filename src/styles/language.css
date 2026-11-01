@@ -3,9 +3,9 @@
 .language-switch button[aria-pressed=true] { background:#071b3d; }
 .language-switch button:focus-visible { outline:2px solid #00d4ff; outline-offset:2px; }
 .language-switch button:hover { color:#fff; }
-.ul-language-control,.bgm-language-control { position:fixed; top:24px; right:var(--side,4.4vw); z-index:96; }
-.ul-language-control .language-switch,.bgm-language-control .language-switch { position:relative; inset:auto; transform:none; box-shadow:0 2px 10px #123c6812; }
-.case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"] { padding-right:calc(var(--side,4.4vw) + 136px); }
+.ul-language-control,.bgm-language-control,.furniture-language-control { position:fixed; top:24px; right:var(--side,4.4vw); z-index:96; }
+.ul-language-control .language-switch,.bgm-language-control .language-switch,.furniture-language-control .language-switch { position:relative; inset:auto; transform:none; box-shadow:0 2px 10px #123c6812; }
+.case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"],.case-chapter-nav[data-project="furniture"] { padding-right:calc(var(--side,4.4vw) + 136px); }
 html[lang=zh-CN] :is(.ul-case,.ul-lightbox,.ul-concept-dialog) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
 html[lang=zh-CN] .ul-case :is(h2,h3,h4) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing:0; line-height:1.35; font-weight:600; }
 html[lang=zh-CN] .ul-case p { line-height:1.9; }
@@ -13,10 +13,10 @@ html[lang=zh-CN] .ul-case :is(.ul-kicker,.ul-step-number,.ul-hero-title p,.ul-hy
 html[lang=zh-CN] .ul-case .ul-hero-title p { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; line-height:1.5; }
 html[lang=zh-CN] .ul-case .ul-hero-editorial h2 { font-size:clamp(25px,2.8vw,40px); }
 @media(max-width:767px) {
- .ul-language-control,.bgm-language-control { top:20px; right:76px; }
+ .ul-language-control,.bgm-language-control,.furniture-language-control { top:20px; right:76px; }
  body:has(.ul-timeline.is-visible) .ul-language-control { right:18px; top:10px; }
  body:has(.case-chapter-nav[data-project="boardgamemate"].is-visible) .bgm-language-control { right:18px; top:10px; }
- .case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"] { padding-right:140px; }
+ .case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"],.case-chapter-nav[data-project="furniture"] { padding-right:140px; }
 }
 
 html[lang=zh-CN] :is(.boardgame-iteration,.bgm-prototype-modal) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
@@ -45,4 +45,12 @@ html[lang=zh-CN] :is(.section-label,.desktop-nav a,.keyword-line,.footer-bottom 
 @media(max-width:767px) {
  .language-switch { width:108px; }
  html[lang=zh-CN] .selected-work .section-intro h2 { font-size:clamp(2.1rem,10vw,3.9rem); }
+}
+
+html[lang=zh-CN] .furniture-case { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
+html[lang=zh-CN] .furniture-case :is(h2,h3,blockquote) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing:0; line-height:1.35; text-wrap:balance; }
+html[lang=zh-CN] .furniture-case :is(p,dd) { line-height:1.85; }
+html[lang=zh-CN] .furniture-case :is(.section-label,.furniture-showcase-tabs button,.audit-table-head,.motion-specs span) { letter-spacing:.035em; }
+@media(max-width:767px) {
+ body:has(.case-chapter-nav[data-project="furniture"].is-visible) .furniture-language-control { right:18px; top:10px; }
 }

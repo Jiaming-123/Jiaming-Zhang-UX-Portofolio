@@ -13,7 +13,7 @@ test('six furniture journey cards use matching user-supplied captures instead of
   const cards = source.split('<div className="journey-track">')[1].split('</article>)}</div>')[0]
   assert.ok(cards.includes('journeySteps.map'))
   assert.ok(cards.includes('journey-step-media'))
-  assert.ok(cards.includes('alt={alt}'))
+  assert.ok(cards.includes('alt={t(alt)}'))
   assert.ok(cards.includes('loading="lazy" decoding="async"'))
   assert.ok(cards.includes('${image}-provided-20261018.webp'))
   assert.ok(!cards.includes('<span>0'))
