@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Code2, Layers3, MousePointer2, Smartphone, Te
 import { Reveal, SectionLabel } from './Content'
 import { useFurnitureCopy } from '../i18n/furniture'
 import { LanguageSwitch } from '../i18n/Language'
+import { FurnitureImage } from './furniture/FurnitureImage'
 
 const desktopFlow = [
   { title: 'Discover', note: 'An editorial homepage balances brand storytelling, room-based navigation, new arrivals and social proof.', image: '/images/furniture/desktop-home.png' },
@@ -45,7 +46,7 @@ function AutoShowcase({ items, mobile = false }: { items: { title: string; note?
       <div className="furniture-showcase-stage">
         <AnimatePresence mode="wait">
           <motion.figure key={items[active].title} initial={{ opacity: 0, y: 24, scale: .985 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -18, scale: .99 }} transition={{ duration: .55, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="furniture-showcase-image"><img src={items[active].image} alt={`${t(items[active].title)} · ${t('responsive furniture store interface')}`} /></div>
+            <div className="furniture-showcase-image"><FurnitureImage src={items[active].image} alt={`${t(items[active].title)} · ${t('responsive furniture store interface')}`} /></div>
             <figcaption><span>{t(mobile ? 'MOBILE 393PX' : 'DESKTOP 1440PX')} · {t('AUTO PLAYS EVERY 3.2S')}</span><h3>{t(items[active].title)}</h3>{items[active].note && <p>{t(items[active].note)}</p>}</figcaption>
           </motion.figure>
         </AnimatePresence>
@@ -74,7 +75,7 @@ function ScrollablePreview({ image, alt }: { image: string; alt: string }) {
   return (
     <div ref={screenRef} className={`responsive-screen${showCue ? ' show-scroll-cue' : ''}`}>
       <div className="responsive-scroll" tabIndex={0} data-lenis-prevent data-lenis-prevent-wheel aria-label={t("Scrollable full-page interface preview")}>
-        <img src={image} alt={alt} />
+        <FurnitureImage src={image} alt={alt} />
       </div>
     </div>
   )
@@ -133,7 +134,7 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="05">{t("INFORMATION ARCHITECTURE")}</SectionLabel>
           <div className="furniture-heading"><h2>{t("One continuous shopping loop.")}</h2><p>{t("Each page answers one primary question and prepares the next decision, reducing uncertainty as commitment increases.")}</p></div>
-          <div className="journey-track">{journeySteps.map(({ title, question, image, alt }, index) => <article key={title}><div className="journey-step-media"><img src={`/images/furniture/journey/${image}-provided-20261018.webp`} alt={t(alt)} width={960} height={540} loading="lazy" decoding="async" /></div><h3>{t(title)}</h3><p>{t(question)}</p>{index < 5 && <ArrowRight aria-hidden="true" />}</article>)}</div>
+          <div className="journey-track">{journeySteps.map(({ title, question, image, alt }, index) => <article key={title}><div className="journey-step-media"><FurnitureImage src={`/images/furniture/journey/${image}-provided-20261018.webp`} alt={t(alt)} width={960} height={540} loading="lazy" decoding="async" /></div><h3>{t(title)}</h3><p>{t(question)}</p>{index < 5 && <ArrowRight aria-hidden="true" />}</article>)}</div>
         </Reveal>
       </section>
 
@@ -168,7 +169,7 @@ export function FurnitureCaseStudy() {
         <Reveal>
           <SectionLabel number="09">{t("INTERACTION & MOTION")}</SectionLabel>
           <div className="furniture-heading"><h2>{t("Motion confirms state and directs attention.")}</h2><p>{t("Animation is intentionally restrained: product images scale on hover, cards lift with soft elevation, reviews auto-advance, drawers reveal navigation, and order success uses a short scale-and-opacity confirmation.")}</p></div>
-          <div className="motion-grid"><figure className="motion-card"><img src="/images/furniture/mobile-menu.png" alt={t("Mobile navigation menu interaction state")} /><figcaption><span>{t("MENU STATE")}</span><h3>{t("Progressive navigation")}</h3><p>{t("The menu expands only when needed, preserving catalogue space.")}</p></figcaption></figure><figure className="motion-card motion-delay"><img src="/images/furniture/added-cart.png" alt={t("Added to cart feedback state")} /><figcaption><span>{t("COMMERCE FEEDBACK")}</span><h3>{t("Action confirmation")}</h3><p>{t("A clear toast closes the loop after adding an item to the cart.")}</p></figcaption></figure></div>
+          <div className="motion-grid"><figure className="motion-card"><FurnitureImage src="/images/furniture/mobile-menu.png" alt={t("Mobile navigation menu interaction state")} /><figcaption><span>{t("MENU STATE")}</span><h3>{t("Progressive navigation")}</h3><p>{t("The menu expands only when needed, preserving catalogue space.")}</p></figcaption></figure><figure className="motion-card motion-delay"><FurnitureImage src="/images/furniture/added-cart.png" alt={t("Added to cart feedback state")} /><figcaption><span>{t("COMMERCE FEEDBACK")}</span><h3>{t("Action confirmation")}</h3><p>{t("A clear toast closes the loop after adding an item to the cart.")}</p></figcaption></figure></div>
           <div className="motion-specs"><article><b>{t("Product hover")}</b><span>{t("Scale · lift · shadow")}</span></article><article><b>{t("Review carousel")}</b><span>{t("3-second auto rotation")}</span></article><article><b>{t("Success feedback")}</b><span>{t("Opacity · scale · easing")}</span></article><article><b>{t("Accessibility")}</b><span>{t("Reduced-motion support")}</span></article></div>
         </Reveal>
       </section>

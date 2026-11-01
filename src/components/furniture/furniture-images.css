@@ -1,0 +1,8 @@
+.furniture-localized-image { display:block; max-width:100%; }
+.furniture-poster-media>.furniture-localized-image,.responsive-scroll>.furniture-localized-image,.furniture-showcase-image>.furniture-localized-image { width:100%; height:auto; }
+.journey-step-media>.furniture-localized-image { display:block; position:absolute; top:10px; left:10px; right:auto; z-index:auto; width:calc(100% - 20px); height:88px; border-radius:5px; }
+.motion-card>.furniture-localized-image { width:100%; max-height:580px; border-radius:18px; box-shadow:0 24px 54px rgba(0,0,0,.3); }
+@media(max-width:900px) {
+ .furniture-motion .motion-card>.furniture-localized-image { width:100%; height:clamp(150px,42vw,280px); max-height:none; margin:0 auto; border-radius:10px; box-shadow:none; }
+}
+@media(max-width:760px) { .journey-step-media>.furniture-localized-image { display:block; top:6px; height:44px; } }

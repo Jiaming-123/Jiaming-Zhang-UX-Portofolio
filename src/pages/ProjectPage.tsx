@@ -9,6 +9,7 @@ import '../styles/furniture-hero.css'
 import { useLanguage } from '../i18n/language-context'
 import { boardGameMateChinese, furnitureChinese } from '../i18n/中文版'
 import { useFurnitureCopy } from '../i18n/furniture'
+import { FurnitureImage } from '../components/furniture/FurnitureImage'
 
 const CultureLensCaseStudy = lazy(() => import('./CultureLensCaseStudy'))
 const CrownlandsPage = lazy(() => import('./CrownlandsPage'))
@@ -18,7 +19,7 @@ function FurnitureHero() {
   return (
     <header className="project-hero furniture-poster-hero">
       <h1 className="sr-only">My Furniture Store</h1>
-      <figure className="furniture-poster-media"><img src="/images/furniture/hero-group38-20261013.png" alt={t("End-to-end commerce website redesign / 2025. My Furniture Store. A high-spec commerce prototype that keeps the original product photography and catalogue information with new palette and layout design by me, with a more editorial, accessible and smooth shopping experience. Australian made timber furniture.")} width={1302} height={814} fetchPriority="high" /></figure>
+      <figure className="furniture-poster-media"><FurnitureImage src="/images/furniture/hero-group38-20261013.png" alt={t("End-to-end commerce website redesign / 2025. My Furniture Store. A high-spec commerce prototype that keeps the original product photography and catalogue information with new palette and layout design by me, with a more editorial, accessible and smooth shopping experience. Australian made timber furniture.")} width={1302} height={814} fetchPriority="high" /></figure>
       <a className="furniture-hero-link" href="https://my-furniture-store-delta.vercel.app/" target="_blank" rel="noreferrer" data-cursor="link"><span>{t('Link to explore My Furniture Store full website')}</span><ArrowUpRight aria-hidden="true" /></a>
     </header>
   )
