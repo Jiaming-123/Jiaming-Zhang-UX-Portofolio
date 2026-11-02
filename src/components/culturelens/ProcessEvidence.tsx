@@ -1,19 +1,15 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { processDimensions } from '../../data/cultureLensProcessDimensions'
 import '../../styles/culturelens-process.css'
 
 const base = '/media/culturelens/process/culturelens-'
 function ProcessImage({ file, alt, className = '' }: { file: string; alt: string; source: string; className?: string }) {
-  const dialog = useRef<HTMLDialogElement>(null)
   const [width, height] = processDimensions[file]
   return <figure className={`culturelens-process-image ${className}`}>
-    <button type="button" className="culturelens-image-open" onClick={() => dialog.current?.showModal()} aria-label={`Enlarge: ${alt}`}><img src={`${base}${file}.webp`} alt={alt} width={width} height={height} loading="lazy" decoding="async" /><span aria-hidden="true">View detail ↗</span></button>
-    <dialog ref={dialog} className="culturelens-image-dialog" aria-label={`Enlarged image: ${alt}`} onKeyDown={event => { if (event.key === 'Tab') { event.preventDefault(); event.currentTarget.querySelector('button')?.focus() } }} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close() }}>
-      <button type="button" autoFocus onClick={() => dialog.current?.close()} aria-label="Close enlarged image">Close ×</button>
-      <img src={`${base}${file}.webp`} alt={alt} loading="lazy" /><p>{alt}</p>
-    </dialog>
+    <div className="culturelens-image-frame"><img src={`${base}${file}.webp`} alt={alt} width={width} height={height} loading="lazy" decoding="async" /></div>
   </figure>
 }
+
 const directions = [
   { label: 'Service', x: 61, y: 33, text: 'Personalised Immersive Exhibition Journey — prepare, preview and tune the visit.' },
   { label: 'XR', x: 74, y: 44, text: 'Living Context Gallery — reconnect the object with its cultural context.' },
@@ -33,7 +29,7 @@ function StoryboardEvidence() {
     <ProcessImage file="draft-storyboard" alt="Eight original sticky-note sketches from arrival and sensory preview through pause and reflection" source="A2.G2 p. 26" />
     <div className="culturelens-process-decision"><span className="culturelens-label">WHAT WE WERE TESTING</span><p>Can visitors preview and adjust the experience before entering?</p><span className="culturelens-label">DESIGN CONSEQUENCE</span><p>Preparation should be staged and optional: extra control must not become extra decision fatigue.</p></div>
     <span className="culturelens-label">REFINEMENT · EIGHT-PANEL SERVICE JOURNEY</span><p>The rough journey was refined into a clearer service sequence spanning preparation, immersion, adjustment and reflection.</p>
-    <div className="culturelens-storyboard-rail" tabIndex={0} role="region" aria-label="Eight original storyboard panels; scroll horizontally to explore">{panels.map((label, i) => <div key={label}><ProcessImage file={`service-panel-${String(i + 1).padStart(2, '0')}`} alt={`Original storyboard panel ${i + 1}: ${label}`} source="A2.G2 p. 3" /><span className="culturelens-label">0{i + 1} / {label.toUpperCase()}</span></div>)}</div><small>Scroll through the original panels · select any panel to enlarge.</small>
+    <div className="culturelens-storyboard-rail" tabIndex={0} role="region" aria-label="Eight original storyboard panels; scroll horizontally to explore">{panels.map((label, i) => <div key={label}><ProcessImage file={`service-panel-${String(i + 1).padStart(2, '0')}`} alt={`Original storyboard panel ${i + 1}: ${label}`} source="A2.G2 p. 3" /><span className="culturelens-label">0{i + 1} / {label.toUpperCase()}</span></div>)}</div><small>Scroll through the original panels.</small>
   </section>
 }
 function XrEvidence() {
