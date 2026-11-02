@@ -1,11 +1,11 @@
 import { useState } from 'react'
 const items = [
-  ['Soldiers', 'soldiers.png', 'Build your presence', 'Each soldier is a commitment to a place. Gather your forces to secure a border, or send them forward to challenge a rival.'],
-  ['Control Flags', 'flags.png', 'Mark your authority', 'Flags show who controls each territory. After an action, the kingdom with the largest force raises its flag.'],
-  ['Special Spaces', 'spaces.png', 'Choose your moment', 'Supply spaces add a soldier to your Base. Event spaces offer a spin for reinforcements or a loss. Each numbered space activates once per player.'],
-  ['Event Spinner', 'spinner.png', 'Take a calculated risk', 'Turn the spinner after entering an Event Space. Gain two soldiers in your Base or lose the activating soldier.'],
-  ['Base Boxes', 'bases.png', 'Keep a force in reserve', 'Your Base holds soldiers ready for deployment. Reinforce and Expand bring them into play.'],
-  ['Space Tracker', 'tracker.webp', 'Read the state at a glance', 'The tracker records which Supply and Event Spaces you have activated, keeping the next decision clear.'],
+  ['Soldiers', 'soldiers.png', 'Choose where to stand', 'A soldier can hold a border, support a push towards the castle or join a challenge across the map. Where you place each one shapes the next round.'],
+  ['Control Flags', 'flags.png', 'Raise your colours', 'Finish an action, count the soldiers and raise the flag of the kingdom with the largest force. Tied territories stay neutral. Follow the flags to see how the map is changing.'],
+  ['Special Spaces', 'spaces.png', 'Choose your moment', 'Visit a Supply Space to add a soldier to your Base, or try an Event Space for a spin that could bring reinforcements or cost a soldier. Each numbered space activates once per player.'],
+  ['Event Spinner', 'spinner.png', 'Give the spinner a turn', 'Step onto an Event Space and give it a spin. The result brings two soldiers to your Base or removes the soldier who stepped onto the space.'],
+  ['Base Boxes', 'bases.png', 'Keep a force in reserve', 'Your next reinforcements are waiting here. Choose Reinforce or Expand to bring them onto the map.'],
+  ['Space Tracker', 'tracker.webp', 'Keep your travels in view', 'Mark the Supply and Event Spaces you have used, then look ahead to the next opportunity.'],
 ]
 export function CrownlandsElements() {
   const [index, setIndex] = useState(0)

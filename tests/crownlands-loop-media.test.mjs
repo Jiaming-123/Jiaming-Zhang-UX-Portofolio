@@ -32,7 +32,7 @@ test('six rule GIFs have fixed subtitle-free dimensions, animation and release c
 })
 
 test('Core Loop retains rule copy, lazy images, a pause control and reduced-motion fallback', () => {
-  for (const expected of ['PAUSE GIFS', 'PLAY GIFS', 'aria-pressed={paused}', "prefers-reduced-motion: reduce", 'observer.disconnect()', 'loading="lazy"', "animate ? 'gif' : 'webp'", 'Control only updates after the current player’s full action has resolved.']) {
+  for (const expected of ['PAUSE GIFS', 'PLAY GIFS', 'aria-pressed={paused}', "prefers-reduced-motion: reduce", 'observer.disconnect()', 'loading="lazy"', "animate ? 'gif' : 'webp'", 'Finish the player’s full action, then check who has the largest force in each territory and update the flags. Tied territories stay neutral.']) {
     assert.ok(source.includes(expected), expected)
   }
   assert.ok(source.indexOf('className="cl-loop-clip"') < source.indexOf('<h4>{title}</h4><p>{text}</p>'))
