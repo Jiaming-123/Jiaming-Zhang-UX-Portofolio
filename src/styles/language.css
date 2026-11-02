@@ -51,6 +51,10 @@ html[lang=zh-CN] .furniture-case { font-family:Inter,'PingFang SC','Microsoft Ya
 html[lang=zh-CN] .furniture-case :is(h2,h3,blockquote) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing:0; line-height:1.35; text-wrap:balance; }
 html[lang=zh-CN] .furniture-case :is(p,dd) { line-height:1.85; }
 html[lang=zh-CN] .furniture-case :is(.section-label,.furniture-showcase-tabs button,.audit-table-head,.motion-specs span) { letter-spacing:.035em; }
+html[lang=zh-CN] .about-page { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
+html[lang=zh-CN] .about-page :is(h2,h3) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing:0; line-height:1.35; text-wrap:balance; }
+html[lang=zh-CN] .about-story>p { line-height:1.9; }
+html[lang=zh-CN] .about-story dd { line-height:1.85; }
 @media(max-width:767px) {
  body:has(.case-chapter-nav[data-project="furniture"].is-visible) .furniture-language-control { right:18px; top:10px; }
 }

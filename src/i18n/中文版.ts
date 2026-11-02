@@ -1425,3 +1425,34 @@ export const furnitureVisualCopy: Record<string,string> = {
   "Apartment 4": "4 号公寓",
   "Melbourne": "墨尔本"
 }
+
+// About page: original English copy is kept as the key.
+export const aboutChinese: Record<string, string> = {
+  'PROFILE': '个人简介',
+  'Designing for the moment complexity becomes clear.': '用设计，让复杂的体验变得清晰。',
+  "I'm Jiaming, I'm a big fan of music and sports. I want to be a professional UX designer or Product Manager. My practice moves between digital products, service design, AI-enable design, responsive interfaces, visual communication, and physical interaction.": '我是 Jiaming，热爱音乐和运动，目标是成为一名专业的用户体验设计师或产品经理。我的设计实践涵盖数字产品、服务设计、AI 辅助设计、响应式界面、视觉传达与实体交互。',
+  'I use research to understand what a system asks of people, then shape the information, interaction, and visual language that helps them move through it with confidence.': '我通过研究，理解人们在使用系统时面临的要求与挑战，再组织信息、设计交互、建立视觉语言，让他们能够更有把握地完成每一步。',
+  'EDUCATION': '教育背景',
+  'Bachelor of Design (UX Design)': '设计学学士（用户体验设计）',
+  'University of Melbourne': '墨尔本大学',
+  'LOCATION': '所在地',
+  'Shenzhen, China': '中国 · 深圳',
+  'Melbourne, Australia': '澳大利亚 · 墨尔本',
+  'Jiaming Zhang at the University of Melbourne': 'Jiaming Zhang 在墨尔本大学',
+  'CAPABILITIES': '专业能力',
+  'Understand': '理解问题',
+  'UX Research': '用户体验研究',
+  'Interview Synthesis': '访谈分析与综合',
+  'Journey Mapping': '用户旅程梳理',
+  'Service Blueprinting': '服务蓝图绘制',
+  'Shape': '构建方案',
+  'Product Strategy': '产品策略',
+  'Interaction Design': '交互设计',
+  'Information Architecture': '信息架构',
+  'Conversation Design': '对话设计',
+  'Make': '落地实现',
+  'Responsive Design': '响应式设计',
+  'Prototyping': '原型设计',
+  'Visual Systems': '视觉系统',
+  'Front-end Implementation': '前端开发',
+}
