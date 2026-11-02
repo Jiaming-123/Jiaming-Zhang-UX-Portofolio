@@ -166,7 +166,7 @@ export default function CrownlandsPage() {
           ['02', 'CLEAR PIECES MAKE ROOM FOR PLANS', 'A readable board gives players room to watch each other, weigh up a risk and try something clever.'],
           ['03', 'LET PLAYERS CHOOSE THEIR CHANCES', 'Much of the excitement came from guessing what another player had chosen. Event Spaces added another chance for players to back their luck.'],
         ].map(([n, title, text]) => <article key={n}><span>{n}</span><h4>{title}</h4><p>{text}</p></article>)}</div>
-        <blockquote>Crownlands taught me to look for the moment a rule becomes a story around the table.</blockquote>
+
       </section>
     </main>
     {rulesOpen && <RulesModal onClose={() => setRulesOpen(false)} />}
