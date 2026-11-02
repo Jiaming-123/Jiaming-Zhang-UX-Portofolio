@@ -1429,7 +1429,6 @@ export const furnitureVisualCopy: Record<string,string> = {
 // About page: original English copy is kept as the key.
 export const aboutChinese: Record<string, string> = {
   'PROFILE': '个人简介',
-  'Designing for the moment complexity becomes clear.': '用设计，让复杂的体验变得清晰。',
   "I'm Jiaming, I'm a big fan of music and sports. I want to be a professional UX designer or Product Manager. My practice moves between digital products, service design, AI-enable design, responsive interfaces, visual communication, and physical interaction.": '我是 Jiaming，热爱音乐和运动，目标是成为一名专业的用户体验设计师或产品经理。我的设计实践涵盖数字产品、服务设计、AI 辅助设计、响应式界面、视觉传达与实体交互。',
   'I use research to understand what a system asks of people, then shape the information, interaction, and visual language that helps them move through it with confidence.': '我通过研究，理解人们在使用系统时面临的要求与挑战，再组织信息、设计交互、建立视觉语言，让他们能够更有把握地完成每一步。',
   'EDUCATION': '教育背景',
