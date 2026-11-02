@@ -13,10 +13,12 @@ test('MuseBand mode changes no longer mount or animate a white specular sweep', 
   }
 })
 
-test('Focus, Story, Flow and Control keep pointer, focus and click selection and concept details', () => {
+test('requested proposal endings, tension disclosures and concept controls are removed', () => {
   const modules = read('src/components/culturelens/CaseStudyModules.tsx')
-  const visual = read('src/components/culturelens/ConceptVisual.tsx')
-  assert.ok(modules.includes("['Focus', 'Story', 'Flow', 'Control']"))
-  for (const handler of ['setMode(item)', 'onFocus={() => setMode(item)}', 'onClick={() => setMode(item)}']) assert.ok(modules.includes(handler))
-  for (const retained of ['culturelens-cv-led', 'culturelens-cv-mode-point', 'Explore concept features', 'AI-generated concept image']) assert.ok(visual.includes(retained))
+  const process = read('src/components/culturelens/ProcessEvidence.tsx')
+  const page = read('src/pages/CultureLensCaseStudy.tsx')
+  for (const text of ['END OF LAYER', 'Design tension → response', 'setMode', 'culturelens-mode-rail']) assert.ok(!modules.includes(text), text)
+  for (const text of ['NEXT ITERATION', 'SYSTEM LEARNING → PROPOSAL DECISION', 'The refined images retain']) assert.ok(!process.includes(text), text)
+  assert.ok(!page.includes('DECISION CHECKPOINT 01'))
+  for (const file of ['draft-storyboard', 'xr-original-sketch', 'museband-physical-prototype', 'museband-walkthrough-']) assert.ok(process.includes(file), file)
 })

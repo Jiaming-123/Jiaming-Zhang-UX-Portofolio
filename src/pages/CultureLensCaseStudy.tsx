@@ -65,7 +65,6 @@ export default function CultureLensCaseStudy() {
     <nav className="culturelens-chapter-nav" aria-label="CultureLens case study chapters"><span className="culturelens-nav-mark">C<span>L</span> /</span><div>{chapters.map((label, i) => <a key={label} href={`#culturelens-${label.toLowerCase()}`} aria-current={active === label.toLowerCase() ? 'location' : undefined}><small>0{i + 1}</small>{label}</a>)}</div></nav>
     <Chapter id="frame" number="01" label="FRAME / FUTURES THINKING" title="From cultural futures to a museum system.">
       <div className="culturelens-signal-grid">{signals.map(([title, text, decision], i) => <article key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{text}</p><small>{decision}</small></article>)}</div>
-      <div className="culturelens-frame-question"><span className="culturelens-label">DECISION CHECKPOINT 01</span><h3>What happens when these forces enter the museum?</h3><p>Discovery, accessibility and participation should grow together with visitor agency, human creativity and public accountability.</p></div>
       <h3 className="culturelens-subheading">The museum is a decision system.</h3><MuseumSystemMap />
     </Chapter>
     <Chapter id="explore" number="02" label="EXPLORE / IDEA PORTFOLIO" title="Three ways to make the museum more responsive."><IdeaPortfolio /><ProposalExplorer /></Chapter>
