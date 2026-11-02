@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { ArrowUpRight, Check, MoveRight } from 'lucide-react'
+import { ArrowUpRight, Check } from 'lucide-react'
 import { Footer } from '../components/Layout'
 import { IdeaPortfolio, ConversationEvidence } from '../components/culturelens/ProcessEvidence'
 import { ConceptTransition, MuseumSystemMap, ProposalExplorer, PrototypeEvidence, ServiceBlueprint } from '../components/culturelens/CaseStudyModules'
@@ -69,7 +69,7 @@ export default function CultureLensCaseStudy() {
     </Chapter>
     <Chapter id="explore" number="02" label="EXPLORE / IDEA PORTFOLIO" title="Three ideas for a better day at the museum."><IdeaPortfolio /><ProposalExplorer /></Chapter>
     <Chapter id="evolve" number="03" label="EVOLVE / PRINCIPLE TRANSFER" title="From a wearable to a conversation." className="culturelens-evolve"><p className="culturelens-intro">MuseBand let us imagine support during the visit. With CultureLens, we brought the same questions into a chat: what does this person need, what would help, and how can we keep them in charge? We used agentic AI in Voiceflow to try how the guide could connect exhibition suggestions, visit planning and support.</p><ConceptTransition /><div className="culturelens-hmw"><span className="culturelens-label">THE CULTURELENS DESIGN QUESTION</span><h3>How could a simple chat help someone find an exhibition, plan their day and get support during the visit—while leaving the choices to them?</h3></div></Chapter>
-    <Chapter id="service" number="04" label="SERVICE / BLUEPRINT" title="Help with the whole visit, one step at a time." className="culturelens-service"><p className="culturelens-intro">A good exhibition recommendation still leaves plenty of questions. When can I go? How do I get there? Is there somewhere quiet to sit? This service blueprint follows those questions from the first chat through the visit.</p><ServiceBlueprint /><p className="culturelens-checkpoint">FROM CHAT TO PLAN <MoveRight size={18} /> Tell us what you need → choose an exhibition → check the details → confirm your plan</p></Chapter>
+    <Chapter id="service" number="04" label="SERVICE / BLUEPRINT" title="Help with the whole visit, one step at a time." className="culturelens-service"><p className="culturelens-intro">A good exhibition recommendation still leaves plenty of questions. When can I go? How do I get there? Is there somewhere quiet to sit? This service blueprint follows those questions from the first chat through the visit.</p><ServiceBlueprint /></Chapter>
     <div className="culturelens-agent-mode">
       <Chapter id="agent" number="05" label="AGENT / ORIGINAL VOICEFLOW BUILD" title="See the conversations in action."><div className="culturelens-prototype-evidence"><span className="culturelens-label">THE ORIGINAL VOICEFLOW BUILD</span><p>These recordings show the Voiceflow prototype working through an exhibition search and a more open-ended request for visit advice.</p><PrototypeEvidence /><ConversationEvidence /></div></Chapter>
     </div>
