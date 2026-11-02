@@ -108,7 +108,7 @@ export default function CrownlandsPage() {
         ].map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}</div>
         <div className="cl-contribution"><article><span>MY CONTRIBUTION</span><p>We made Crownlands as a team of three. I helped develop the core rules, set the visual direction and draw and refine the board. I also brought players to the table for playtests and produced the final game pieces through 3D printing. Moving between rules, artwork and physical pieces helped me see how each part shaped the experience of playing.</p></article></div>
         <figure className="cl-sellsheet" tabIndex={0}><img src="/crownlands/artifacts/crownlands-sellsheet.jpg" alt="Crownlands final sell sheet presenting the map, components, gameplay and key features" loading="lazy" /></figure>
-        <SectionHead eyebrow="FINAL PHYSICAL PROTOTYPE" title="See Crownlands in Action"><p>Here is the game on the table: soldiers ready to move, flags waiting to change hands and a spinner that can turn a brave move into a story worth retelling.</p></SectionHead>
+        <SectionHead eyebrow="FINAL PHYSICAL PROTOTYPE" title="See Crownlands in Action"></SectionHead>
         <GameplayVideo onPlaying={audio.duck} />
       </section>
 
