@@ -4,11 +4,11 @@ import '../../../public/culturelens-ai-image-label.css'
 
 type Point = { label: string; x: number; y: number; text: string }
 const xrPoints: Point[] = [
-  { label: 'Physical object', x: 46, y: 43, text: 'The tangible artefact stays central. Digital context never substitutes for the object.' },
-  { label: 'Private context layer', x: 34, y: 37, text: 'Later concept iteration: a wearer-only near-eye layer connects the object with place, use and memory. The visible light field is an explanatory overlay, not public projection.' },
-  { label: 'Open-ear audio', x: 28, y: 46, text: 'The head-worn concept proposes optional focused audio while retaining environmental awareness; quiet viewing remains available.' },
-  { label: 'Source + uncertainty', x: 14, y: 43, text: 'Interpretive content would need attributable sources and curator review. This generated scene is illustrative, not historical evidence.' },
-  { label: 'Low-sensory mode', x: 88, y: 60, text: 'An open bypass and seating allow a calmer visit without requiring a device or the near-eye / audio experience.' },
+  { label: 'Physical object', x: 46, y: 43, text: 'Look at the object first. The digital story adds context around it.' },
+  { label: 'Private context layer', x: 34, y: 37, text: 'The idea is to let the wearer explore where the object came from and how it was used. The light shown here illustrates that private view; it would not be projected into the gallery.' },
+  { label: 'Open-ear audio', x: 28, y: 46, text: 'Listen to a story while still hearing the gallery around you, or choose to explore quietly.' },
+  { label: 'Source + uncertainty', x: 14, y: 43, text: 'Stories would need clear sources and curator review. This generated scene shows the idea, rather than a verified reconstruction.' },
+  { label: 'Low-sensory mode', x: 88, y: 60, text: 'Take a quieter path or sit for a while. The visit should still work without the device.' },
 ]
 const productPoints: Point[] = [
   { label: 'Haptic module', x: 31, y: 25, text: 'Concept: optional, adjustable tactile cues housed in a compact module.' },
@@ -24,10 +24,10 @@ const productModes: Record<string, { point: number; text: string; state: string 
   Control: { point: 4, text: 'Pause or adjust. The visitor retains control over the experience.', state: 'control' },
 }
 const serviceStates: Point[] = [
-  { label: 'Route', x: 58, y: 78, text: 'A quieter route is offered. Continuing on the original path remains a valid choice.' },
-  { label: 'Focus', x: 48, y: 35, text: 'A private near-eye interpretation layer supports focus. The light field in this image is an explanatory overlay of the wearer’s view, not a publicly visible screen.' },
-  { label: 'Comfort', x: 57, y: 57, text: 'Make a calmer path and seating easier to notice; support remains optional.' },
-  { label: 'Control', x: 33, y: 24, text: 'A small tactile surface keeps pause and adjustment within reach.' },
+  { label: 'Route', x: 58, y: 78, text: 'Try a quieter route, or stick with the one you chose.' },
+  { label: 'Focus', x: 48, y: 35, text: 'Explore a story beside the object. The image illustrates what the wearer might see, rather than a screen visible to everyone.' },
+  { label: 'Comfort', x: 57, y: 57, text: 'Find a calmer path or somewhere to sit when you need a break.' },
+  { label: 'Control', x: 33, y: 24, text: 'Pause or adjust the experience with a small control on the band.' },
 ]
 
 // No perpetual animation loop. Scroll work is scheduled only while the visual is in view.
@@ -138,6 +138,6 @@ export default function ConceptVisual({ filename, index, mode = 'Focus' }: { fil
     {system && <div className="culturelens-cv-controls"><div className="culturelens-cv-selector" aria-label="XR system layers">{xrPoints.map((p, i) => <button type="button" key={p.label} aria-pressed={active === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setActive(i) }} onClick={() => setActive(i)} onFocus={() => setActive(i)}>{i + 1}. {p.label}</button>)}</div><p className="culturelens-cv-annotation" aria-live="polite"><strong>{point.label}</strong>{point.text}</p></div>}
     {scenario && <div className="culturelens-cv-controls"><div className="culturelens-cv-selector" aria-label="MuseBand service states">{serviceStates.map((s, i) => <button type="button" key={s.label} aria-pressed={service === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setService(i) }} onFocus={() => setService(i)} onClick={() => setService(i)}>{s.label}</button>)}</div><p className="culturelens-cv-annotation" aria-live="polite"><strong>{serviceStates[service].label}</strong>{serviceStates[service].text}</p></div>}
     {product && <div className="culturelens-cv-controls"><div className="culturelens-cv-product-heading"><span className="culturelens-label">{mode.toUpperCase()} / {point.label.toUpperCase()}</span><button type="button" aria-expanded={annotated} aria-controls="culturelens-product-features" onClick={() => { setActive(selectedMode.point); setAnnotated(!annotated) }}>{annotated ? 'Hide concept features' : 'Explore concept features'}</button></div><p className="culturelens-cv-annotation" aria-live="polite">{annotated ? <><strong>{point.label}</strong>{point.text}</> : selectedMode.text}</p>{annotated && <div id="culturelens-product-features" className="culturelens-cv-selector" aria-label="MuseBand proposed components">{productPoints.map((p, i) => <button key={p.label} type="button" aria-pressed={active === i} onFocus={() => setActive(i)} onPointerEnter={event => { if (event.pointerType === 'mouse') setActive(i) }} onClick={() => setActive(i)}>{i + 1}. {p.label}</button>)}</div>}<small>Conceptual design features, not verified engineering internals. Select a mode below.</small></div>}
-    <figcaption>{xr ? 'AI-generated later iteration · private near-eye interpretation. Original G2 wall-projection sketch is shown separately; this is not a built installation.' : 'AI-generated head-worn concept · the near-eye overlay illustrates a private wearer view, not a public projection or physical lens. Not manufactured or optically validated hardware.'}</figcaption>
+    <figcaption>{xr ? 'AI-generated concept. This image explores a private view for the wearer, developing the earlier wall-projection sketch. It is not a built installation.' : 'AI-generated concept. The light illustrates a private view for the wearer, not a public projection or physical lens. The hardware has not been built or optically tested.'}</figcaption>
   </figure>
 }

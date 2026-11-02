@@ -92,7 +92,7 @@ test('Crownlands restores the real game and native scrolling rules, without its 
 
 test('CultureLens retains original evidence but excludes the removed simulation and Test chapter', () => {
   for (const text of ['#culturelens-simulation','AGENT / ARCHITECTURE & INTERACTION','React simulation above','Make the next move.']) assert.ok(!culture.includes(text), text)
-  for (const text of ['culturelens-chapter-nav','AGENT / ORIGINAL VOICEFLOW BUILD','THE ORIGINAL VOICEFLOW BUILD','The recordings document the original Voiceflow project.','Leave the meaningful decisions with people.']) assert.ok(culture.includes(text), text)
+  for (const text of ['culturelens-chapter-nav','AGENT / ORIGINAL VOICEFLOW BUILD','THE ORIGINAL VOICEFLOW BUILD','These recordings show the Voiceflow prototype','Helpful, without taking over.']) assert.ok(culture.includes(text), text)
   assert.ok(!fs.existsSync(new URL('src/components/culturelens/AgentSimulation.tsx',repo)))
   assert.ok(!read('src/pages/CultureLensCaseStudy.tsx').includes('<Chapter id="test"'))
   assert.ok(read('src/pages/CultureLensCaseStudy.tsx').includes('<PrototypeEvidence />'))
@@ -105,7 +105,7 @@ test('only generated CultureLens images receive their readable corner disclosure
   assert.ok(!read('src/components/culturelens/ProcessEvidence.tsx').includes('culturelens-cv-badge'))
   assert.equal(culture.split('AI-generated concept image').length - 1, 1)
   for (const image of ['culturelens-xr-scenario.webp','culturelens-xr-system.webp','culturelens-museband-scenario.webp','culturelens-museband-product-projection-20260914.webp']) assert.ok(culture.includes(image), image)
-  for (const disclosure of ['AI-generated later iteration','AI-generated head-worn concept','Not manufactured or optically validated hardware.']) assert.ok(culture.includes(disclosure), disclosure)
+  for (const disclosure of ['This image explores a private view for the wearer', 'The hardware has not been built or optically tested.']) assert.ok(culture.includes(disclosure), disclosure)
   const css = read('public/culturelens-ai-image-label.css')
   assert.match(css, /inset: auto 12px 12px auto/)
   assert.match(css, /inset: auto 8px 8px auto/)
