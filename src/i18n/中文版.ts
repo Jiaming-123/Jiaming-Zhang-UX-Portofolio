@@ -1464,7 +1464,7 @@ export const cultureLensChinese: Record<string, string> = {
   '02 / SERVICE INTERFACE': '02 / 服务界面',
   '“Something quiet.': '“想找个安静的展览，', 'In Chinese.': '能用中文了解，', 'Somewhere to sit.”': '最好还有地方坐坐。”',
   'A PLACE TO START': '从这里开始',
-  'Everyday Objects,': '古代日常工具展，', 'Shared Cultures': '相通的文化',
+  'Ancient Everyday Objects Exhibition:': '古代日常工具展:', 'Shared Cultures': '相通的文化',
   'Prototype catalogue · 45 min · Low sensory': '原型展览目录 · 45 分钟 · 感官刺激较低',
   'Compare': '比较', 'Change': '更换', 'Confirm ↗': '确认 ↗',
   '03 / YOUR NEXT STEP': '03 / 接下来怎么做',
