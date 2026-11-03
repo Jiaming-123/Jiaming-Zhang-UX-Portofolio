@@ -38,6 +38,7 @@ export function ContactPage() {
         <h1>LET&apos;S MAKE<br />SOMETHING<br /><span>MEANINGFUL.</span></h1>
         <div className="contact-grid">
           <div className="contact-actions">
+            <div className="contact-row contact-phone"><span className="contact-label">PHONE NUMBER</span><div className="contact-email-addresses"><span>+86 13480181728</span></div></div>
             <div className="contact-row contact-email"><span className="contact-label">EMAIL</span><div className="contact-email-addresses"><span>jiamingz1113@163.com</span><span>jiamingz1113@gmail.com</span></div></div>
             <a href="https://www.linkedin.com/in/jiaming-zhang-996b52280/" target="_blank" rel="noopener noreferrer" data-cursor="link" className="contact-row contact-linkedin"><span className="contact-label">LINKEDIN</span><ArrowUpRight /></a>
           </div>
