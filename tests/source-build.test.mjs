@@ -101,7 +101,7 @@ test('CultureLens retains original evidence but excludes the removed simulation 
 
 test('only generated CultureLens images receive their readable corner disclosure', () => {
   const visual = read('src/components/culturelens/ConceptVisual.tsx')
-  assert.match(visual, /<span className="culturelens-cv-badge" lang="en">AI-generated concept image<\/span>/)
+  assert.match(visual, /<span className="culturelens-cv-badge">\{t\("AI-generated concept image"\)\}<\/span>/)
   assert.ok(!read('src/components/culturelens/ProcessEvidence.tsx').includes('culturelens-cv-badge'))
   assert.equal(culture.split('AI-generated concept image').length - 1, 1)
   for (const image of ['culturelens-xr-scenario.webp','culturelens-xr-system.webp','culturelens-museband-scenario.webp','culturelens-museband-product-projection-20260914.webp']) assert.ok(culture.includes(image), image)

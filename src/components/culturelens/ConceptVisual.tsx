@@ -1,3 +1,4 @@
+import { useCultureLensCopy } from '../../i18n/culturelens'
 import { useEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import '../../styles/culturelens-concepts.css'
 import '../../../public/culturelens-ai-image-label.css'
@@ -66,19 +67,21 @@ function useSceneReveal(ref: RefObject<HTMLDivElement>, enabled: boolean) {
 }
 
 function Hotspots({ points, active, onSelect, prefix }: { points: Point[]; active: number; onSelect: (index: number) => void; prefix: string }) {
+  const t = useCultureLensCopy()
   const point = points[active]
   return <>
     <svg className="culturelens-cv-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
       <circle cx={point.x} cy={point.y} r="7" className="culturelens-cv-region" />
       <path key={active} d={`M${point.x},${point.y} L${point.x},${Math.min(88, point.y + 12)} L${Math.min(92, point.x + 10)},${Math.min(88, point.y + 12)}`} pathLength="1" />
     </svg>
-    <div className="culturelens-cv-hotspots" aria-label={`${prefix} image hotspots`}>
-      {points.map((p, index) => <button key={p.label} type="button" style={{ left: `${p.x}%`, top: `${p.y}%` }} aria-label={`${prefix}: ${p.label}`} aria-pressed={active === index} onPointerEnter={e => { if (e.pointerType === 'mouse') onSelect(index) }} onFocus={() => onSelect(index)} onClick={() => onSelect(index)}><span>{index + 1}</span></button>)}
+    <div className="culturelens-cv-hotspots" aria-label={`${t(prefix)} · ${t("Image hotspots")}`}>
+      {points.map((p, index) => <button key={p.label} type="button" style={{ left: `${p.x}%`, top: `${p.y}%` }} aria-label={`${t(prefix)}: ${t(p.label)}`} aria-pressed={active === index} onPointerEnter={e => { if (e.pointerType === 'mouse') onSelect(index) }} onFocus={() => onSelect(index)} onClick={() => onSelect(index)}><span>{index + 1}</span></button>)}
     </div>
   </>
 }
 
 export default function ConceptVisual({ filename, index, mode = 'Focus' }: { filename: string; index: number; mode?: string }) {
+  const t = useCultureLensCopy()
   const xr = filename.includes('-xr-')
   const system = xr && index === 1
   const product = !xr && index === 1
@@ -118,11 +121,11 @@ export default function ConceptVisual({ filename, index, mode = 'Focus' }: { fil
         })
       }} onPointerLeave={resetTilt}>
       <div ref={surface} className="culturelens-cv-surface">
-        <img src={`/media/culturelens/${filename}`} alt={alt} width={1440} height={index === 0 ? 901 : 1080} loading="lazy" decoding="async" onError={() => setFailed(true)} />
+        <img src={`/media/culturelens/${filename}`} alt={t(alt)} width={1440} height={index === 0 ? 901 : 1080} loading="lazy" decoding="async" onError={() => setFailed(true)} />
         {xr && index === 0 && <>
           <div className="culturelens-cv-object-veil" aria-hidden="true" />
           <div className="culturelens-cv-projection-sweep" aria-hidden="true" />
-          <div className="culturelens-cv-context-points" aria-hidden="true"><span style={{ left: '48%', top: '43%' }}>Object</span><span style={{ left: '33%', top: '26%' }}>Private context</span><span style={{ left: '24%', top: '39%' }}>Choice</span><span style={{ left: '64%', top: '68%' }}>Physical exhibit</span></div>
+          <div className="culturelens-cv-context-points" aria-hidden="true"><span style={{ left: '48%', top: '43%' }}>{t("Object")}</span><span style={{ left: '33%', top: '26%' }}>{t("Private context")}</span><span style={{ left: '24%', top: '39%' }}>{t("Choice")}</span><span style={{ left: '64%', top: '68%' }}>{t("Physical exhibit")}</span></div>
         </>}
         {system && <><div className="culturelens-cv-focus-mask" style={{ '--cv-x': `${point.x}%`, '--cv-y': `${point.y}%` } as CSSProperties} aria-hidden="true" /><Hotspots points={xrPoints} active={active} onSelect={setActive} prefix="XR system" /></>}
         {scenario && <div key={service} className={`culturelens-cv-service-cue culturelens-cv-cue-${visualState}`} aria-hidden="true" style={{ left: `${serviceStates[service].x}%`, top: `${serviceStates[service].y}%` }}>{service === 0 ? '↗' : service === 3 ? 'Ⅱ' : <span />}</div>}
@@ -131,13 +134,13 @@ export default function ConceptVisual({ filename, index, mode = 'Focus' }: { fil
           {annotated ? <Hotspots points={productPoints} active={active} onSelect={setActive} prefix="MuseBand concept feature" /> : <div key={`mode-${mode}`} className="culturelens-cv-mode-point" style={{ left: `${point.x}%`, top: `${point.y}%` }} aria-hidden="true"><span /></div>}
         </>}
       </div>
-      <span className="culturelens-cv-badge" lang="en">AI-generated concept image</span>
-      {failed && <p role="alert" className="culturelens-cv-load-error">This concept image could not load. Please refresh to retry.</p>}
+      <span className="culturelens-cv-badge">{t("AI-generated concept image")}</span>
+      {failed && <p role="alert" className="culturelens-cv-load-error">{t("This concept image could not load. Please refresh to retry.")}</p>}
     </div>
-    {xr && index === 0 && <div className="culturelens-cv-reveal-key"><span>01 / Object</span><span>02 / Context</span><span>03 / Meaning</span><small>Scroll to reveal · the object stays central</small></div>}
-    {system && <div className="culturelens-cv-controls"><div className="culturelens-cv-selector" aria-label="XR system layers">{xrPoints.map((p, i) => <button type="button" key={p.label} aria-pressed={active === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setActive(i) }} onClick={() => setActive(i)} onFocus={() => setActive(i)}>{i + 1}. {p.label}</button>)}</div><p className="culturelens-cv-annotation" aria-live="polite"><strong>{point.label}</strong>{point.text}</p></div>}
-    {scenario && <div className="culturelens-cv-controls"><div className="culturelens-cv-selector" aria-label="MuseBand service states">{serviceStates.map((s, i) => <button type="button" key={s.label} aria-pressed={service === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setService(i) }} onFocus={() => setService(i)} onClick={() => setService(i)}>{s.label}</button>)}</div><p className="culturelens-cv-annotation" aria-live="polite"><strong>{serviceStates[service].label}</strong>{serviceStates[service].text}</p></div>}
-    {product && <div className="culturelens-cv-controls"><div className="culturelens-cv-product-heading"><span className="culturelens-label">{mode.toUpperCase()} / {point.label.toUpperCase()}</span><button type="button" aria-expanded={annotated} aria-controls="culturelens-product-features" onClick={() => { setActive(selectedMode.point); setAnnotated(!annotated) }}>{annotated ? 'Hide concept features' : 'Explore concept features'}</button></div><p className="culturelens-cv-annotation" aria-live="polite">{annotated ? <><strong>{point.label}</strong>{point.text}</> : selectedMode.text}</p>{annotated && <div id="culturelens-product-features" className="culturelens-cv-selector" aria-label="MuseBand proposed components">{productPoints.map((p, i) => <button key={p.label} type="button" aria-pressed={active === i} onFocus={() => setActive(i)} onPointerEnter={event => { if (event.pointerType === 'mouse') setActive(i) }} onClick={() => setActive(i)}>{i + 1}. {p.label}</button>)}</div>}<small>Conceptual design features, not verified engineering internals. Select a mode below.</small></div>}
-    <figcaption>{xr ? 'AI-generated concept. This image explores a private view for the wearer, developing the earlier wall-projection sketch. It is not a built installation.' : 'AI-generated concept. The light illustrates a private view for the wearer, not a public projection or physical lens. The hardware has not been built or optically tested.'}</figcaption>
+    {xr && index === 0 && <div className="culturelens-cv-reveal-key"><span>{t("01 / Object")}</span><span>{t("02 / Context")}</span><span>{t("03 / Meaning")}</span><small>{t("Scroll to reveal · the object stays central")}</small></div>}
+    {system && <div className="culturelens-cv-controls"><div className="culturelens-cv-selector" aria-label={t("XR system layers")}>{xrPoints.map((p, i) => <button type="button" key={p.label} aria-pressed={active === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setActive(i) }} onClick={() => setActive(i)} onFocus={() => setActive(i)}>{i + 1}. {t(p.label)}</button>)}</div><p className="culturelens-cv-annotation" aria-live="polite"><strong>{t(point.label)}</strong>{t(point.text)}</p></div>}
+    {scenario && <div className="culturelens-cv-controls"><div className="culturelens-cv-selector" aria-label={t("MuseBand service states")}>{serviceStates.map((s, i) => <button type="button" key={s.label} aria-pressed={service === i} onPointerEnter={event => { if (event.pointerType === 'mouse') setService(i) }} onFocus={() => setService(i)} onClick={() => setService(i)}>{t(s.label)}</button>)}</div><p className="culturelens-cv-annotation" aria-live="polite"><strong>{t(serviceStates[service].label)}</strong>{t(serviceStates[service].text)}</p></div>}
+    {product && <div className="culturelens-cv-controls"><div className="culturelens-cv-product-heading"><span className="culturelens-label">{t(mode).toUpperCase()} / {t(point.label).toUpperCase()}</span><button type="button" aria-expanded={annotated} aria-controls="culturelens-product-features" onClick={() => { setActive(selectedMode.point); setAnnotated(!annotated) }}>{t(annotated ? 'Hide concept features' : 'Explore concept features')}</button></div><p className="culturelens-cv-annotation" aria-live="polite">{annotated ? <><strong>{t(point.label)}</strong>{t(point.text)}</> : t(selectedMode.text)}</p>{annotated && <div id="culturelens-product-features" className="culturelens-cv-selector" aria-label={t("MuseBand proposed components")}>{productPoints.map((p, i) => <button key={p.label} type="button" aria-pressed={active === i} onFocus={() => setActive(i)} onPointerEnter={event => { if (event.pointerType === 'mouse') setActive(i) }} onClick={() => setActive(i)}>{i + 1}. {t(p.label)}</button>)}</div>}<small>{t("Conceptual design features, not verified engineering internals. Select a mode below.")}</small></div>}
+    <figcaption>{t(xr ? 'AI-generated concept. This image explores a private view for the wearer, developing the earlier wall-projection sketch. It is not a built installation.' : 'AI-generated concept. The light illustrates a private view for the wearer, not a public projection or physical lens. The hardware has not been built or optically tested.')}</figcaption>
   </figure>
 }

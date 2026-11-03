@@ -3,9 +3,9 @@
 .language-switch button[aria-pressed=true] { background:#071b3d; }
 .language-switch button:focus-visible { outline:2px solid #00d4ff; outline-offset:2px; }
 .language-switch button:hover { color:#fff; }
-.ul-language-control,.bgm-language-control,.furniture-language-control { position:fixed; top:24px; right:var(--side,4.4vw); z-index:96; }
-.ul-language-control .language-switch,.bgm-language-control .language-switch,.furniture-language-control .language-switch { position:relative; inset:auto; transform:none; box-shadow:0 2px 10px #123c6812; }
-.case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"],.case-chapter-nav[data-project="furniture"] { padding-right:calc(var(--side,4.4vw) + 136px); }
+.ul-language-control,.bgm-language-control,.furniture-language-control,.culturelens-language-control { position:fixed; top:24px; right:var(--side,4.4vw); z-index:96; }
+.ul-language-control .language-switch,.bgm-language-control .language-switch,.furniture-language-control .language-switch,.culturelens-language-control .language-switch { position:relative; inset:auto; transform:none; box-shadow:0 2px 10px #123c6812; }
+.case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"],.case-chapter-nav[data-project="furniture"],.case-chapter-nav[data-project="culturelens"] { padding-right:calc(var(--side,4.4vw) + 136px); }
 html[lang=zh-CN] :is(.ul-case,.ul-lightbox,.ul-concept-dialog) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
 html[lang=zh-CN] .ul-case :is(h2,h3,h4) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing:0; line-height:1.35; font-weight:600; }
 html[lang=zh-CN] .ul-case p { line-height:1.9; }
@@ -13,10 +13,10 @@ html[lang=zh-CN] .ul-case :is(.ul-kicker,.ul-step-number,.ul-hero-title p,.ul-hy
 html[lang=zh-CN] .ul-case .ul-hero-title p { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; line-height:1.5; }
 html[lang=zh-CN] .ul-case .ul-hero-editorial h2 { font-size:clamp(25px,2.8vw,40px); }
 @media(max-width:767px) {
- .ul-language-control,.bgm-language-control,.furniture-language-control { top:20px; right:76px; }
+ .ul-language-control,.bgm-language-control,.furniture-language-control,.culturelens-language-control { top:20px; right:76px; }
  body:has(.ul-timeline.is-visible) .ul-language-control { right:18px; top:10px; }
  body:has(.case-chapter-nav[data-project="boardgamemate"].is-visible) .bgm-language-control { right:18px; top:10px; }
- .case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"],.case-chapter-nav[data-project="furniture"] { padding-right:140px; }
+ .case-chapter-nav[data-project="unilink"],.case-chapter-nav[data-project="landing-app"],.case-chapter-nav[data-project="boardgamemate"],.case-chapter-nav[data-project="furniture"],.case-chapter-nav[data-project="culturelens"] { padding-right:140px; }
 }
 
 html[lang=zh-CN] :is(.boardgame-iteration,.bgm-prototype-modal) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
@@ -57,4 +57,23 @@ html[lang=zh-CN] .about-story>p { line-height:1.9; }
 html[lang=zh-CN] .about-story dd { line-height:1.85; }
 @media(max-width:767px) {
  body:has(.case-chapter-nav[data-project="furniture"].is-visible) .furniture-language-control { right:18px; top:10px; }
+}
+
+html[lang=zh-CN] .culturelens-page { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
+html[lang=zh-CN] .culturelens-page :is(h2,h3,h4,.culturelens-reflection-statement) { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing:0; line-height:1.4; text-wrap:balance; }
+html[lang=zh-CN] .culturelens-page p { line-height:1.85; }
+html[lang=zh-CN] .culturelens-page :is(.culturelens-label,.culturelens-overview-heading,.culturelens-exhibit-label>span,.culturelens-hero-trace,.culturelens-blueprint dt,.culturelens-walkthrough-frame dt) { letter-spacing:.04em; }
+html[lang=zh-CN] .culturelens-hero-title h1 small { letter-spacing:.03em; }
+html[lang=zh-CN] .culturelens-gallery-label h2 { font-size:clamp(34px,4.8vw,78px); line-height:1.4; }
+html[lang=zh-CN] .culturelens-exhibit-label strong { line-height:1.5; letter-spacing:.03em; }
+html[lang=zh-CN] .culturelens-hero-interface>p { line-height:1.8; }
+html[lang=zh-CN] .culturelens-interface-result h3 { font-size:clamp(22px,2.2vw,34px); line-height:1.5; }
+html[lang=zh-CN] .culturelens-page .culturelens-cv-badge { font-family:Inter,'PingFang SC','Microsoft YaHei',sans-serif; }
+@media(max-width:767px) {
+ body:has(.case-chapter-nav[data-project="culturelens"].is-visible) .culturelens-language-control { right:18px; top:10px; }
+ html[lang=zh-CN] .culturelens-gallery-label h2 { font-size:clamp(32px,8vw,52px); }
+ html[lang=zh-CN] .culturelens-reflection-statement { font-size:clamp(24px,6vw,36px); }
+}
+@media(max-width:760px) {
+ html[lang=zh-CN] .culturelens-transfer-head h3 { font-size:clamp(18px,5.4vw,29px); }
 }

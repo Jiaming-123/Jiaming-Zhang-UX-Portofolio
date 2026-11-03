@@ -1,4 +1,4 @@
-import { zh, unilinkChinese, boardGameMateChinese, furnitureChinese } from '../i18n/中文版'
+import { zh, unilinkChinese, boardGameMateChinese, furnitureChinese, cultureLensChinese } from '../i18n/中文版'
 import { useEffect, useLayoutEffect, useState, type MouseEvent, type ReactNode } from 'react'
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
 import gsap from 'gsap'
@@ -84,6 +84,9 @@ export function Navbar() {
     } : isChinese && /^\/projects\/furniture\/?$/.test(pathname) ? {
       labels: ['Overview', 'Audit', 'Strategy', 'Process', 'Architecture', 'Experience', 'Interaction', 'Build', 'Testing', 'Outcome'].map(label => furnitureChinese[label]),
       navLabel: furnitureChinese['My Furniture Store chapters'], homeLabel: zh.navigation.homeLabel,
+    } : isChinese && /^\/projects\/culturelens\/?$/.test(pathname) ? {
+      labels: ['Frame', 'Explore', 'Evolve', 'Service', 'Agent', 'Reflect'].map(label => cultureLensChinese[label]),
+      navLabel: cultureLensChinese['CultureLens case study chapters'], homeLabel: zh.navigation.homeLabel,
     } : undefined), [pathname, isChinese])
 
   useEffect(() => setOpen(false), [pathname])
@@ -103,7 +106,7 @@ export function Navbar() {
               : <NavLink key={item.to} to={item.to} data-cursor="link" className={({ isActive }) => isActive ? 'active' : ''}>{isChinese ? item.zh : item.label}</NavLink>
           ))}
         </nav>
-        {!/^\/projects\/(unilink|landing-app|boardgamemate|furniture)\/?$/.test(pathname) && <LanguageSwitch />}
+        {!/^\/projects\/(unilink|landing-app|boardgamemate|furniture|culturelens)\/?$/.test(pathname) && <LanguageSwitch />}
         <button className="menu-button" type="button" onClick={() => setOpen(true)} aria-label={isChinese ? zh.navigation.openMenu : 'Open menu'} aria-expanded={open}><Menu size={22} /></button>
       </header>
       <AnimatePresence>

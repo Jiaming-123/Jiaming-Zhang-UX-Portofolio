@@ -11,3 +11,11 @@
 .culturelens-layer-end{margin-top:35px;padding:22px 0;border-top:1px solid var(--cl-line)}
 .culturelens-layer-end p{font-size:12px;margin-top:8px!important}
 @media(max-width:760px){.culturelens-sequential-proposals>aside{position:sticky;top:var(--case-chapter-height,86px);z-index:45;background:var(--cl-paper);padding:0 0 10px;border-bottom:1px solid var(--cl-line)}.culturelens-sequential-proposals>aside>:not(.culturelens-proposal-tabs){display:none}.culturelens-sequential-proposals .culturelens-proposal-tabs{margin:0}.culturelens-sequential-proposals .culturelens-proposal-tabs button{min-height:58px;gap:4px}.culturelens-sequential-proposals .culturelens-proposal-content{scroll-margin-top:calc(var(--case-chapter-height,86px) + var(--culturelens-proposal-bar-height,70px) + 12px)}.culturelens-proposal-sequence>.culturelens-proposal-content+.culturelens-proposal-content{padding-top:45px;margin-top:25px}}
+.culturelens-page .culturelens-chat-translation{display:flex;flex-direction:column;gap:18px;padding:16px 12px 20px;background:#fff;color:#171b1d;font:400 15px/1.65 Inter,'PingFang SC','Microsoft YaHei',sans-serif;box-sizing:border-box}
+.culturelens-chat-visitor{align-self:flex-end;max-width:90%;padding:12px 17px;border-radius:14px;background:#3b7ef7;color:#fff}
+.culturelens-chat-guide{padding:17px 18px;border-radius:16px;background:#f1f1f1;overflow-wrap:anywhere}
+.culturelens-page .culturelens-chat-guide p{font:inherit;line-height:1.7;white-space:pre-line;margin:0 0 14px!important;color:inherit}
+.culturelens-page .culturelens-chat-guide p:last-child{margin-bottom:0!important}
+.culturelens-chat-choices{display:flex;flex-wrap:wrap;gap:8px}
+.culturelens-chat-choices span{padding:7px 12px;border-radius:10px;background:#e4f5fb;color:#326fba}
+@media(min-width:761px) and (max-width:1100px){.culturelens-page .culturelens-chat-translation{font-size:13px;padding:12px 8px;gap:12px}.culturelens-chat-guide{padding:12px}.culturelens-chat-visitor{padding:9px 12px}}
