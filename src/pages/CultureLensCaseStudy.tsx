@@ -49,7 +49,7 @@ export default function CultureLensCaseStudy() {
             <p>{t("“Something quiet.")}<br />{t("In Chinese.")}<br />{t("Somewhere to sit.”")}</p>
             <div className="culturelens-interface-needs"><span>{t("A PLACE TO START")}</span></div>
             <div className="culturelens-interface-result">
-              <h3>{t("Everyday Objects,")}<br />{t("Shared Cultures")}</h3>
+              <h3>{t("Ancient Everyday Objects Exhibition,")}<br />{t("Shared Cultures")}</h3>
               <Check size={16} aria-hidden="true" />
             </div>
             <small>{t("Prototype catalogue · 45 min · Low sensory")}</small>
