@@ -1799,7 +1799,7 @@ export const crownlandsChinese: Record<string, string> = {
   'Rules & Systems Design, Visual Direction, Map Illustration, Playtesting, 3D-Printed Game Piece Production': '规则与系统设计、视觉方向、地图绘制、试玩测试、3D 打印棋子制作',
   'Figma, Illustrator, 3D Printing, Physical Prototyping, Playtesting, ChatGPT, Codex': 'Figma、Illustrator、3D 打印、实体原型、试玩测试、ChatGPT、Codex',
   'MY CONTRIBUTION': '我参与的工作',
-  'We made Crownlands as a team of three. I helped develop the core rules, set the visual direction and draw and refine the board. I also brought players to the table for playtests and produced the final game pieces through 3D printing. Moving between rules, artwork and physical pieces helped me see how each part shaped the experience of playing.': 'Crownlands 是我们三个人一起完成的桌游。我参与制定核心规则、确定视觉方向，绘制并完善棋盘，也邀请玩家围坐桌边试玩，用 3D 打印制作最终棋子。在规则、画面和实体配件之间来回打磨，让我逐渐看清：每一个小细节，都在影响一局游戏的体验。',
+  'We made Crownlands as a team of three. I helped develop the core rules, set the visual direction and draw and refine the board. I also brought players to the table for playtests and produced the final game pieces through 3D printing. Moving between rules, artwork and physical pieces helped me see how each part shaped the experience of playing.': 'Crownlands 是我们三人小组一起完成的桌游设计。我参与制定核心规则、确定视觉方向，绘制并完善棋盘，邀请玩家试玩测试，以及用 3D 打印制作最终棋子。在规则、画面和实体配件之间来回打磨，让我逐渐看清：每一个小细节，都在影响一局游戏的体验。',
   'Crownlands final sell sheet presenting the map, components, gameplay and key features': 'Crownlands 最终游戏介绍页，展示地图、配件、玩法与特色',
   'FINAL PHYSICAL PROTOTYPE': '最终实体原型', 'See Crownlands in Action': '看看 Crownlands 玩起来的样子',
   'YOUR FIRST ROUND': '你的第一轮', 'Pick a card. Read the room. Make your move.': '选一张牌，猜一猜对手，走出你的下一步。',
