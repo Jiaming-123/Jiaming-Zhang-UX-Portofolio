@@ -46,11 +46,30 @@ function RulesModal({ onClose }: { onClose: () => void }) {
 
 function GameplayVideo({ onPlaying }: { onPlaying: (playing: boolean) => void }) {
   const t = useCrownlandsCopy()
+  const { isChinese } = useLanguage()
+  const selectedSource = isChinese ? '/crownlands/video/introduction-zh-20261105.mp4' : '/crownlands/video/introduction.mp4'
+  const [videoSource, setVideoSource] = useState(selectedSource)
   const [started, setStarted] = useState(false)
   const video = useRef<HTMLVideoElement>(null)
+  const resumePlayback = useRef<{ time: number; playing: boolean } | null>(null)
+  useEffect(() => {
+    if (videoSource === selectedSource) return
+    const player = video.current
+    resumePlayback.current = player ? { time: player.currentTime, playing: !player.paused } : null
+    setVideoSource(selectedSource)
+  }, [selectedSource, videoSource])
+  const restorePlayback = () => {
+    const player = video.current
+    const resume = resumePlayback.current
+    if (!player || !resume) return
+    resumePlayback.current = null
+    player.currentTime = Math.min(resume.time, player.duration || resume.time)
+    if (resume.playing) void player.play().catch(() => { /* Native controls remain available. */ })
+    else player.pause()
+  }
   const play = () => { setStarted(true); void video.current?.play() }
   return <div className={`cl-video ${started ? 'is-started' : ''}`}>
-    <video ref={video} src="/crownlands/video/introduction.mp4" poster="/crownlands/board/crownlands-map.jpg" preload="metadata" controls={started} onPlay={() => onPlaying(true)} onPause={() => onPlaying(false)} onEnded={() => onPlaying(false)} aria-label={t("Complete Crownlands gameplay and presentation video")} />
+    <video ref={video} src={videoSource} poster="/crownlands/board/crownlands-map.jpg" preload="metadata" playsInline controls={started} onLoadedMetadata={restorePlayback} onPlay={() => onPlaying(true)} onPause={() => onPlaying(false)} onEnded={() => onPlaying(false)} aria-label={t("Complete Crownlands gameplay and presentation video")} />
     {!started && <button onClick={play} aria-label={t("Play Crownlands introduction video")}><Play fill="currentColor" /><span>{t("PLAY FILM")}</span></button>}
   </div>
 }
