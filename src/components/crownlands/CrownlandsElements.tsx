@@ -1,3 +1,5 @@
+import { useCrownlandsCopy } from '../../i18n/crownlands'
+import { useLanguage } from '../../i18n/language-context'
 import { useState } from 'react'
 const items = [
   ['Soldiers', 'soldiers.png', 'Choose where to stand', 'A soldier can hold a border, support a push towards the castle or join a challenge across the map. Where you place each one shapes the next round.'],
@@ -8,10 +10,12 @@ const items = [
   ['Space Tracker', 'tracker.webp', 'Keep your travels in view', 'Mark the Supply and Event Spaces you have used, then look ahead to the next opportunity.'],
 ]
 export function CrownlandsElements() {
+  const t = useCrownlandsCopy()
+  const { isChinese } = useLanguage()
   const [index, setIndex] = useState(0)
   const selected = items[index]
   return <div className="cl-element-gallery">
-    <div role="tablist" aria-label="Explore game components">{items.map((item,i) => <button key={item[0]} role="tab" id={`element-tab-${i}`} aria-selected={i===index} aria-controls="element-panel" onPointerEnter={()=>setIndex(i)} onFocus={()=>setIndex(i)} onClick={()=>setIndex(i)}><small>0{i+1}</small>{item[0]}</button>)}</div>
-    <div className="cl-element-panel" id="element-panel" role="tabpanel" aria-labelledby={`element-tab-${index}`}><figure><img key={selected[1]} src={`/crownlands/elements/${selected[1]}`} alt={`Original Crownlands ${selected[0]}`} /></figure><article><span>{selected[2]}</span><h3>{selected[0]}</h3><p>{selected[3]}</p></article></div>
+    <div role="tablist" aria-label={t("Explore game components")}>{items.map((item,i) => <button key={item[0]} role="tab" id={`element-tab-${i}`} aria-selected={i===index} aria-controls="element-panel" onPointerEnter={()=>setIndex(i)} onFocus={()=>setIndex(i)} onClick={()=>setIndex(i)}><small>0{i+1}</small>{t(item[0])}</button>)}</div>
+    <div className="cl-element-panel" id="element-panel" role="tabpanel" aria-labelledby={`element-tab-${index}`}><figure><img key={selected[1]} src={isChinese && selected[1] === 'tracker.webp' ? '/crownlands/zh/tracker.webp' : `/crownlands/elements/${selected[1]}`} alt={t("Original Crownlands {component}", { component: t(selected[0]) })} /></figure><article><span>{t(selected[2])}</span><h3>{t(selected[0])}</h3><p>{t(selected[3])}</p></article></div>
   </div>
 }

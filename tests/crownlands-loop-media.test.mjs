@@ -35,13 +35,13 @@ test('Core Loop retains rule copy, lazy images, a pause control and reduced-moti
   for (const expected of ['PAUSE GIFS', 'PLAY GIFS', 'aria-pressed={paused}', "prefers-reduced-motion: reduce", 'observer.disconnect()', 'loading="lazy"', "animate ? 'gif' : 'webp'", 'Finish the player’s full action, then check who has the largest force in each territory and update the flags. Tied territories stay neutral.']) {
     assert.ok(source.includes(expected), expected)
   }
-  assert.ok(source.indexOf('className="cl-loop-clip"') < source.indexOf('<h4>{title}</h4><p>{text}</p>'))
+  assert.ok(source.indexOf('className="cl-loop-clip"') < source.indexOf('<h4>{t(title)}</h4><p>{t(text)}</p>'))
 })
 
 test('Four Actions reuse original card art before titles and support hover, keyboard and touch enlargement', () => {
   const rows = source.split('className="cl-actions"')[1].split('<blockquote>')[0]
-  assert.ok(rows.indexOf('<CrownlandsActionCard action={title}') < rows.indexOf('<h4>{title}</h4>'))
-  for (const expected of ['aria-pressed={enlargedAction === title}', 'Enlarge ${title.toLowerCase()} action card', 'setEnlargedAction']) assert.ok(rows.includes(expected))
+  assert.ok(rows.indexOf('<CrownlandsActionCard action={title}') < rows.indexOf('<h4>{t(title)}</h4>'))
+  for (const expected of ['aria-pressed={enlargedAction === title}', 'Enlarge {action} action card', 'setEnlargedAction']) assert.ok(rows.includes(expected))
   for (const action of ['reinforce', 'expand', 'reposition', 'contest']) assert.ok(fs.existsSync(new URL(`../public/crownlands/elements/${action}.webp`, import.meta.url)))
   for (const expected of ['.cl-action-preview:hover', '.cl-action-preview:focus-visible', '.cl-action-preview[aria-pressed=true]', 'transform:scale(2)', 'transform:scale(1.65)']) assert.ok(css.includes(expected))
 })
