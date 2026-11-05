@@ -1,0 +1,275 @@
+[
+  {
+    "original": "CROWNLANDS is a 20 to 30 minute tactical",
+    "x": 263,
+    "width": 754,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "territory control board game",
+    "x": 378,
+    "width": 524,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "for two or four players",
+    "x": 437,
+    "width": 405,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "players take on the role of rival factions",
+    "x": 288,
+    "width": 704,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "in a Dividend Kingdom",
+    "x": 437,
+    "width": 406,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "competing across eight rounds to control villages",
+    "x": 200,
+    "width": 880,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "barracks and a central castle",
+    "x": 381,
+    "width": 519,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "village scored 1 point",
+    "x": 443,
+    "width": 394,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "barracks scored 2 and Central Castle scores 4",
+    "x": 239,
+    "width": 802,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "at the end of round 8",
+    "x": 446,
+    "width": 388,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "only territories with your flag",
+    "x": 378,
+    "width": 525,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "still standing will score",
+    "x": 433,
+    "width": 415,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "the faction with the highest total score",
+    "x": 294,
+    "width": 692,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "claims the crown",
+    "x": 486,
+    "width": 308,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "each round has a clear flow",
+    "x": 396,
+    "width": 488,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "all players secretly choose one action card",
+    "x": 263,
+    "width": 754,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "reveal together",
+    "x": 500,
+    "width": 281,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "and resolve their actions in turn order",
+    "x": 302,
+    "width": 676,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "on your turn you may place or move up to two soldiers",
+    "x": 156,
+    "width": 968,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "according to your chosen card",
+    "x": 370,
+    "width": 540,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "after your full actions are finished",
+    "x": 340,
+    "width": 600,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "control flags updated",
+    "x": 444,
+    "width": 392,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "when everyone has acted",
+    "x": 414,
+    "width": 452,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "the first player moves to the end of the order",
+    "x": 240,
+    "width": 800,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "each action card create a tactical choice",
+    "x": 284,
+    "width": 712,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "reinforce strength territories your control",
+    "x": 269,
+    "width": 742,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "expand place soldiers from your base into adjacent",
+    "x": 185,
+    "width": 910,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "uncontrolled spaces",
+    "x": 456,
+    "width": 367,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "reposition move soldiers on the board into adjacent",
+    "x": 179,
+    "width": 922,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "uncontrolled spaces",
+    "x": 456,
+    "width": 367,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "while contest",
+    "x": 517,
+    "width": 247,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "move soldiers into adjacent enemy control territories",
+    "x": 167,
+    "width": 946,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "control is decided by majority ties",
+    "x": 337,
+    "width": 606,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "leave territories uncontrolled",
+    "x": 376,
+    "width": 528,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "supply spaces bring reinforcements",
+    "x": 321,
+    "width": 638,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "while even spaces create risk and reward",
+    "x": 277,
+    "width": 726,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "through the event spinner",
+    "x": 405,
+    "width": 470,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "predict your rivals",
+    "x": 477,
+    "width": 326,
+    "y": 644,
+    "height": 48
+  },
+  {
+    "original": "make every action count and claim the crown",
+    "x": 237,
+    "width": 806,
+    "y": 644,
+    "height": 48
+  }
+]

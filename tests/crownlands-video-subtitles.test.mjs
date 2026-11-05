@@ -8,7 +8,7 @@ const compiled = ts.transpileModule(read('src/i18n/中文版.ts'), { compilerOpt
 const { crownlandsVideoSubtitles:cues } = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`)
 
 test('Crownlands subtitles cover the film with ordered, readable Chinese cues', () => {
-  assert.equal(cues.length,30)
+  assert.equal(cues.length,39)
   let previousEnd=0
   for (const [start,end,copy] of cues) {
     assert.ok(start>=previousEnd && end>start && end<=89.47)
@@ -22,7 +22,7 @@ test('Crownlands subtitles cover the film with ordered, readable Chinese cues', 
 })
 
 test('Chinese film has faststart metadata and language switching preserves playback', () => {
-  const media=fs.readFileSync(new URL('../public/crownlands/video/introduction-zh-20261105.mp4',import.meta.url))
+  const media=fs.readFileSync(new URL('../public/crownlands/video/introduction-zh-style-20261105.mp4',import.meta.url))
   const atoms=[]
   for (let offset=0;offset+8<=media.length;) {
     let size=media.readUInt32BE(offset)
@@ -34,7 +34,7 @@ test('Chinese film has faststart metadata and language switching preserves playb
   assert.ok(atoms.indexOf('moov')>=0 && atoms.indexOf('moov')<atoms.indexOf('mdat'))
   assert.ok(media.length<fs.statSync(new URL('../public/crownlands/video/introduction.mp4',import.meta.url)).size)
   const page=read('src/pages/CrownlandsPage.tsx')
-  assert.ok(page.includes("isChinese ? '/crownlands/video/introduction-zh-20261105.mp4' : '/crownlands/video/introduction.mp4'"))
+  assert.ok(page.includes("isChinese ? '/crownlands/video/introduction-zh-style-20261105.mp4' : '/crownlands/video/introduction.mp4'"))
   assert.ok(page.includes('onLoadedMetadata={restorePlayback}'))
   assert.ok(page.includes('player.currentTime = Math.min(resume.time'))
   assert.ok(page.includes('if (resume.playing)'))

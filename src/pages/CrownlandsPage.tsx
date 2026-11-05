@@ -44,10 +44,10 @@ function RulesModal({ onClose }: { onClose: () => void }) {
   return <div className="cl-rules-modal" data-lenis-prevent tabIndex={0} role="dialog" aria-modal="true" aria-labelledby="rules-title"><header><div><span>{t("OFFICIAL RULES")}</span><h2 id="rules-title">{t("Crownlands Rules Sheet")}</h2></div><button onClick={onClose} aria-label={t("Close rules")}><X /></button></header><div><figure className="cl-rule-page"><img src={isChinese ? '/crownlands/zh/rules-01.webp' : '/crownlands/rules/rules-01.jpg'} alt={t("Crownlands official rules sheet page 1: setup, components and objective")} /></figure><figure className="cl-rule-page"><img src={isChinese ? '/crownlands/zh/rules-02.webp' : '/crownlands/rules/rules-02.jpg'} alt={t("Crownlands official rules sheet page 2: actions, control, special spaces and scoring")} /></figure></div></div>
 }
 
-function GameplayVideo() {
+function GameplayVideo({ onPlaying }: { onPlaying: (playing: boolean) => void }) {
   const t = useCrownlandsCopy()
   const { isChinese } = useLanguage()
-  const selectedSource = isChinese ? '/crownlands/video/introduction-zh-20261105.mp4' : '/crownlands/video/introduction.mp4'
+  const selectedSource = isChinese ? '/crownlands/video/introduction-zh-style-20261105.mp4' : '/crownlands/video/introduction.mp4'
   const [videoSource, setVideoSource] = useState(selectedSource)
   const [started, setStarted] = useState(false)
   const video = useRef<HTMLVideoElement>(null)
@@ -69,7 +69,7 @@ function GameplayVideo() {
   }
   const play = () => { setStarted(true); void video.current?.play() }
   return <div className={`cl-video ${started ? 'is-started' : ''}`}>
-    <video ref={video} src={videoSource} poster="/crownlands/board/crownlands-map.jpg" preload="metadata" playsInline controls={started} onLoadedMetadata={restorePlayback} aria-label={t("Complete Crownlands gameplay and presentation video")} />
+    <video ref={video} src={videoSource} poster="/crownlands/board/crownlands-map.jpg" preload="metadata" playsInline controls={started} onLoadedMetadata={restorePlayback} onPlay={() => onPlaying(true)} onPause={() => onPlaying(false)} onEnded={() => onPlaying(false)} aria-label={t("Complete Crownlands gameplay and presentation video")} />
     {!started && <button onClick={play} aria-label={t("Play Crownlands introduction video")}><Play fill="currentColor" /><span>{t("PLAY FILM")}</span></button>}
   </div>
 }
@@ -127,6 +127,7 @@ export default function CrownlandsPage() {
   return <>
     <div className="crownlands-language-control"><LanguageSwitch /></div>
     <main className="crownlands-page">
+      <audio ref={audio.musicRef} data-crownlands-music src="/crownlands/audio/background-music.mp3" loop preload="none" />
       {gameActive && <button className="cl-sound" onClick={audio.toggle} aria-pressed={audio.enabled} aria-label={t(audio.enabled ? "Turn Crownlands music off" : "Turn Crownlands music on")}>{audio.enabled ? <Volume2 /> : <VolumeX />}<span>{t("MUSIC")} {t(audio.enabled ? 'ON' : 'OFF')}</span></button>}
       <section className="cl-hero" id="overview">
         <div className="cl-hero-bg"><img src="/crownlands/elements/crownlands-logo-cutout.png" alt={t("Crownlands shield, crowns and four kingdom flags")} /></div>
@@ -141,7 +142,7 @@ export default function CrownlandsPage() {
         <div className="cl-contribution"><article><span>{t("MY CONTRIBUTION")}</span><p>{t("We made Crownlands as a team of three. I helped develop the core rules, set the visual direction and draw and refine the board. I also brought players to the table for playtests and produced the final game pieces through 3D printing. Moving between rules, artwork and physical pieces helped me see how each part shaped the experience of playing.")}</p></article></div>
         <figure className="cl-sellsheet" tabIndex={0}><img src={isChinese ? '/crownlands/zh/sellsheet.webp' : '/crownlands/artifacts/crownlands-sellsheet.jpg'} alt={t("Crownlands final sell sheet presenting the map, components, gameplay and key features")} loading="lazy" /></figure>
         <SectionHead eyebrow="FINAL PHYSICAL PROTOTYPE" title="See Crownlands in Action"></SectionHead>
-        <GameplayVideo />
+        <GameplayVideo onPlaying={audio.duck} />
       </section>
 
       <section className="cl-section cl-system" id="how-to-play">
@@ -154,7 +155,7 @@ export default function CrownlandsPage() {
       <section className="cl-section cl-play" id="play">
         <SectionHead eyebrow="TAKE YOUR SEAT" title="Can you hold the Crown?"><p>{t("Your kingdom is ready. Play eight rounds on the original board with two or four kingdoms. Bring friends, add AI rivals, and pass the device around as each player chooses an action in secret.")}</p><p>{t("The browser version follows the physical game’s rules. It keeps track of flags and special spaces, highlights available moves and shows each change as the round unfolds.")}</p></SectionHead>
         <div className="cl-game-meta">{[['PLAYERS', '2 or 4 kingdoms'], ['MODES', 'Friends & AI'], ['ROUNDS', '8'], ['BOARD', 'Original Crownlands Map']].map(([a, b]) => <div key={a}><span>{t(a)}</span><strong>{t(b)}</strong></div>)}</div>
-        <CrownlandsGame sound={audio.play} onActiveChange={setGameActive} />
+        <CrownlandsGame sound={audio.play} onActiveChange={setGameActive} onStart={audio.startMusic} />
         <button className="cl-rules-button" onClick={() => setRulesOpen(true)}><ScrollText /> {t("VIEW FULL RULES")}</button>
       </section>
 

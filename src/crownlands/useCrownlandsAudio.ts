@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 type CrownlandsSound = 'commit' | 'reveal' | 'pickup' | 'place' | 'flag' | 'spinner' | 'event' | 'round' | 'result'
-
 const NOTES: Record<CrownlandsSound, [number, number]> = {
   commit: [196, .07], reveal: [293.66, .16], pickup: [164.81, .05], place: [220, .09],
   flag: [329.63, .18], spinner: [246.94, .22], event: [392, .22], round: [261.63, .3], result: [392, .5],
@@ -9,9 +8,43 @@ const NOTES: Record<CrownlandsSound, [number, number]> = {
 
 export function useCrownlandsAudio(gameActive: boolean) {
   const contextRef = useRef<AudioContext | null>(null)
-  // The shared music runtime reads the button's aria-pressed state.
+  const musicRef = useRef<HTMLAudioElement>(null)
   const [enabled, setEnabled] = useState(true)
-  const toggle = useCallback(() => setEnabled(value => !value), [])
+  const ducked = useRef(false)
+
+  const startMusic = useCallback(() => {
+    const music = musicRef.current
+    if (!music || !enabled || document.hidden) return
+    music.volume = ducked.current ? .035 : .5
+    void music.play().catch(() => { /* The music button can retry after a blocked gesture. */ })
+  }, [enabled])
+  const toggle = useCallback(() => {
+    if (enabled) musicRef.current?.pause()
+    else {
+      const music = musicRef.current
+      if (music) {
+        music.volume = ducked.current ? .035 : .5
+        void music.play().catch(() => { /* Keep the control available for another gesture. */ })
+      }
+    }
+    setEnabled(value => !value)
+  }, [enabled])
+  const duck = useCallback((playing: boolean) => {
+    ducked.current = playing
+    if (musicRef.current) musicRef.current.volume = playing ? .035 : .5
+  }, [])
+
+  useEffect(() => {
+    const music = musicRef.current
+    if (!music) return
+    const sync = () => {
+      if (gameActive && enabled && !document.hidden) startMusic()
+      else music.pause()
+    }
+    sync()
+    document.addEventListener('visibilitychange', sync)
+    return () => { document.removeEventListener('visibilitychange', sync); music.pause() }
+  }, [gameActive, enabled, startMusic])
 
   const play = useCallback((kind: CrownlandsSound) => {
     if (!gameActive || document.hidden) return
@@ -32,5 +65,5 @@ export function useCrownlandsAudio(gameActive: boolean) {
   }, [gameActive])
 
   useEffect(() => () => { void contextRef.current?.close() }, [])
-  return { enabled, toggle, play }
+  return { enabled, musicRef, startMusic, toggle, duck, play }
 }
