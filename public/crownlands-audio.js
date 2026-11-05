@@ -60,7 +60,7 @@ document.addEventListener('click', (event) => {
 
   window.setTimeout(() => {
     const updatedButton = document.querySelector('.cl-sound')
-    soundEnabled = !updatedButton?.getAttribute('aria-label')?.toLowerCase().includes('sound on')
+    soundEnabled = updatedButton?.getAttribute('aria-pressed') !== 'false'
     syncMusic()
   }, 0)
 })

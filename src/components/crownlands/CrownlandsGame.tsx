@@ -12,7 +12,7 @@ type Sound = (kind: 'commit' | 'reveal' | 'pickup' | 'place' | 'flag' | 'spinner
 const BASES: Record<Faction,{x:number;y:number}> = {blue:{x:45,y:652},red:{x:955,y:52},yellow:{x:45,y:52},black:{x:955,y:652}}
 const COLOR: Record<Faction,string> = {blue:'#45a9ef',red:'#ed5555',yellow:'#edc94c',black:'#c0b9ce'}
 const asset = (name: string) => '/crownlands/elements/'+name
-export function CrownlandsGame({sound}:{sound:Sound}) {
+export function CrownlandsGame({sound,onActiveChange}:{sound:Sound;onActiveChange:(active:boolean)=>void}) {
   const t = useCrownlandsCopy()
   const { isChinese } = useLanguage()
  const [config,setConfig]=useState<Seat[]>([{faction:'blue',human:true},{faction:'red',human:false}])
@@ -38,8 +38,9 @@ export function CrownlandsGame({sound}:{sound:Sound}) {
  useEffect(()=>{
   const playing=match.stage!=='setup'
   document.body.classList.toggle('crownlands-game-active',playing)
-  return()=>document.body.classList.remove('crownlands-game-active')
- },[match.stage])
+  onActiveChange(playing)
+  return()=>{document.body.classList.remove('crownlands-game-active');onActiveChange(false)}
+ },[match.stage,onActiveChange])
  useEffect(()=>{
   if(!full)return
   const previous=document.body.style.overflow; document.body.style.overflow='hidden'

@@ -21,7 +21,7 @@ function harness() {
     get hidden() { return state.hidden },
     body: { classList: { contains: () => state.active } },
     addEventListener: (name, listener) => listeners.set(name, listener),
-    querySelector: () => ({ getAttribute: () => state.muted ? 'Turn Crownlands sound on' : 'Turn Crownlands sound off' }),
+    querySelector: () => ({ getAttribute: name => name === 'aria-pressed' ? String(!state.muted) : state.muted ? '开启 Crownlands 背景音乐' : '关闭 Crownlands 背景音乐' }),
   }
   vm.runInNewContext(source, {
     Audio, HTMLVideoElement, document,

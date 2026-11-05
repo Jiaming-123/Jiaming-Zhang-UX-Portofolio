@@ -1787,6 +1787,7 @@ export const crownlandsChinese: Record<string, string> = {
   'The next round begins and the initiative order rotates': '新一轮开始，行动顺序随之轮换',
   'Around the Table': '围坐桌边，一轮这样开始', 'PLAY GIFS': '播放动图', 'PAUSE GIFS': '暂停动图',
   'Turn Crownlands sound off': '关闭 Crownlands 音效', 'Turn Crownlands sound on': '开启 Crownlands 音效', 'SOUND': '音效', 'ON': '开', 'OFF': '关',
+  'Turn Crownlands music off': '关闭 Crownlands 背景音乐', 'Turn Crownlands music on': '开启 Crownlands 背景音乐', 'MUSIC': '背景音乐',
   'Crownlands shield, crowns and four kingdom flags': 'Crownlands 盾牌、王冠与四个王国的旗帜',
   'TABLETOP GAME DESIGN · GAME UX · SYSTEMS DESIGN': '桌游设计 · 游戏体验 · 系统设计',
   'Eight rounds. Four actions. A crown to claim.': '八轮交锋，四种行动，王冠等你来争。',
