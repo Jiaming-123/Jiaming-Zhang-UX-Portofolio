@@ -1,4 +1,4 @@
-export type FurniturePatch = {x:number;y:number;width:number;height:number;key:string;size:number;background:string;color:string;weight:number;align:string}
+export type FurniturePatch = {x:number;y:number;width:number;height:number;key:string;size:number;background:string;color:string;weight:number;align:string;clip?:{x:number;y:number;width:number;height:number}}
 export type FurnitureFrame = {width:number;height:number;patches:FurniturePatch[];photos:{kind:string;x:number;y:number;width:number;height:number}[];surfaces:{x:number;y:number;width:number;height:number;fill:string;radius?:number}[]}
 
 /** Text bounds use source-image pixels; source photographs and English exports stay intact. */
@@ -77,8 +77,8 @@ export const furnitureFrames: Record<string,FurnitureFrame> = {
       {"x":84,"y":2517,"width":300,"height":34,"key":"Anna \u2014 Melbourne","size":14,"background":"#ffffff","color":"#231f20","weight":600,"align":"left"},
       {"x":666,"y":2365,"width":345,"height":107,"key":"Review Marcus","size":16,"background":"#ffffff","color":"#231f20","weight":400,"align":"left"},
       {"x":666,"y":2517,"width":300,"height":34,"key":"Marcus \u2014 Geelong","size":14,"background":"#ffffff","color":"#231f20","weight":600,"align":"left"},
-      {"x":1246,"y":2365,"width":194,"height":107,"key":"Review Priya","size":16,"background":"#ffffff","color":"#231f20","weight":400,"align":"left"},
-      {"x":1246,"y":2517,"width":194,"height":34,"key":"Priya \u2014 Sydney","size":14,"background":"#ffffff","color":"#231f20","weight":600,"align":"left"},
+      {"x":1246,"y":2365,"width":194,"height":107,"key":"Review Priya","size":16,"background":"#ffffff","color":"#231f20","weight":400,"align":"left","clip":{"x":1232,"y":2308,"width":144,"height":280}},
+      {"x":1246,"y":2517,"width":194,"height":34,"key":"Priya \u2014 Sydney","size":14,"background":"#ffffff","color":"#231f20","weight":600,"align":"left","clip":{"x":1232,"y":2308,"width":144,"height":280}},
     ],
     photos:[{"kind":"desktop","x":0,"y":128,"width":1440,"height":648}],
     surfaces:[{"x":72,"y":540,"width":170,"height":52,"radius":8,"fill":"#dbca83"},{"x":258,"y":540,"width":220,"height":52,"radius":8,"fill":"#ffffff"},{"x":711,"y":1168,"width":413,"height":88,"fill":"#18160f","radius":0}],

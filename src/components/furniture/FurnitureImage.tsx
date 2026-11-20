@@ -54,6 +54,7 @@ export function FurnitureImage(props: Props) {
     <title>{alt}</title>
     <defs>
       <clipPath id={`${id}-bounds`}><rect width={frame.width} height={frame.height} /></clipPath>
+      {frame.patches.map((patch, index) => patch.clip && <clipPath key={`patch-${index}`} id={`${id}-patch-${index}`}><rect {...patch.clip} /></clipPath>)}
       <linearGradient id={`${id}-shade`} x1="0" x2="1"><stop stopColor="#241f21" stopOpacity=".84" /><stop offset=".55" stopColor="#241f21" stopOpacity="0" /></linearGradient>
       {frame.photos.map((photo, index) => <clipPath key={index} id={`${id}-photo-${index}`}><rect x={photo.x} y={photo.y} width={photo.width} height={photo.height} /></clipPath>)}
     </defs>
@@ -68,8 +69,8 @@ export function FurnitureImage(props: Props) {
         </g>
       })}
       {frame.surfaces.map((surface, index) => <rect key={`surface-${index}`} x={surface.x} y={surface.y} width={surface.width} height={surface.height} rx={surface.radius ?? 0} fill={surface.fill} />)}
-      {frame.patches.map((patch, index) => patch.background !== 'transparent' && <rect key={`erase-${index}`} x={patch.x} y={patch.y} width={patch.width} height={patch.height} fill={patch.background} />)}
-      {frame.patches.map((patch, index) => <foreignObject key={`${patch.key}-${index}`} x={patch.x} y={patch.y} width={patch.width} height={patch.height}>
+      {frame.patches.map((patch, index) => patch.background !== 'transparent' && <rect key={`erase-${index}`} x={patch.x} y={patch.y} width={patch.width} height={patch.height} fill={patch.background} clipPath={patch.clip ? `url(#${id}-patch-${index})` : undefined} />)}
+      {frame.patches.map((patch, index) => <foreignObject key={`${patch.key}-${index}`} x={patch.x} y={patch.y} width={patch.width} height={patch.height} clipPath={patch.clip ? `url(#${id}-patch-${index})` : undefined}>
         <div data-size={patch.size} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: patch.align === 'center' ? 'center' : 'flex-start', boxSizing: 'border-box', fontFamily: 'Inter, PingFang SC, Microsoft YaHei, sans-serif', fontSize: patch.size, fontWeight: patch.weight, lineHeight: 1.25, color: patch.color, whiteSpace: 'pre-line', textAlign: patch.align === 'center' ? 'center' : 'left', overflowWrap: 'anywhere', overflow: 'hidden' }}>{furnitureVisualCopy[patch.key]}</div>
       </foreignObject>)}
     </g>
